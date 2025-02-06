@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=4 format=3 uid="uid://2y5pvkfl8gc0"]
+
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_etehm"]
+[ext_resource type="Texture2D" uid="uid://3q08fe5x37rb" path="res://assets/tiles/ash.png" id="1_ge4lr"]
+[ext_resource type="PackedScene" uid="uid://kkvdvtqwoodc" path="res://scenes/tiles/ash/ash.tscn" id="2_s3i0g"]
+
+[resource]
+script = ExtResource("1_etehm")
+name = "Ash"
+icon = ExtResource("1_ge4lr")
+scene = ExtResource("2_s3i0g")

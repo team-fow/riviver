@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://7ltrgveyttoc"]
+
+[ext_resource type="Texture2D" uid="uid://bsguveo4ri71r" path="res://assets/tiles/grass.png" id="1_ppjkm"]
+[ext_resource type="PackedScene" uid="uid://bnehnljy6njgi" path="res://scenes/tiles/grass/grass.tscn" id="1_prev8"]
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_xf2bc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pchv"]
+atlas = ExtResource("1_ppjkm")
+region = Rect2(0, 0, 25, 17)
+
+[resource]
+script = ExtResource("1_xf2bc")
+name = "Grass"
+icon = SubResource("AtlasTexture_0pchv")
+scene = ExtResource("1_prev8")
+flammable = false

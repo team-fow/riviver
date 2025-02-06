@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://deg1lwogfdqdi"]
+
+[ext_resource type="Script" path="res://scenes/editor/editor.gd" id="1_qj1ca"]
+
+[node name="Editor" type="CanvasLayer" node_paths=PackedStringArray("tabs", "tile_list", "prop_list", "coords_label")]
+script = ExtResource("1_qj1ca")
+tabs = NodePath("Margins/Tabs")
+tile_list = NodePath("Margins/Tabs/TileList")
+prop_list = NodePath("Margins/Tabs/PropList")
+coords_label = NodePath("Margins/Bar/Label")
+
+[node name="Margins" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Tabs" type="TabContainer" parent="Margins"]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+current_tab = 0
+
+[node name="TileList" type="ItemList" parent="Margins/Tabs"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/icon_margin = 16
+icon_scale = 2.0
+metadata/_tab_index = 0
+
+[node name="PropList" type="ItemList" parent="Margins/Tabs"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/icon_margin = 16
+icon_scale = 2.0
+metadata/_tab_index = 1
+
+[node name="Bar" type="PanelContainer" parent="Margins"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Margins/Bar"]
+layout_mode = 2
+text = "(0, 0)"
+
+[connection signal="item_selected" from="Margins/Tabs/TileList" to="." method="_on_tile_selected"]
+[connection signal="item_selected" from="Margins/Tabs/PropList" to="." method="_on_prop_selected"]
