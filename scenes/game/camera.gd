@@ -1,45 +1,43 @@
 extends Camera2D
 
-const SCREEN_MARGIN: float = 150.0
-const SPEED: int = 250
-const ACCEL: float = 0.1
+const SPEED: float = 250 ## Movement speed.
+const LOAD_RANGE: int = 1
+const UNLOAD_RANGE: int = 4
 
-var pull: Vector2
-
-
-
-# movement
-
-func _process(delta: float) -> void:
-	position = position + pull * delta
+var input: Vector2 ## Applied to the position.
+var chunk_coords: Vector2i
 
 
-## Sets whether the camera can be moved.
+## Controls whether the camera can be moved.
 func set_movable(value: bool) -> void:
 	set_process_unhandled_input(value)
 	set_process(value)
-	pull = Vector2.ZERO
+	input = Vector2.ZERO
 
 
 
-# cursor control
+# virtual
 
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event is InputEventMouseMotion:
-		#var screen_center: Rect2 = get_viewport_rect().grow(-SCREEN_MARGIN)
-		#if screen_center.has_point(event.global_position):
-			#pull = Vector2.ZERO
-		#else:
-			#pull = screen_center.get_center().direction_to(event.global_position) * SPEED
-#
-#
-#func _ready() -> void:
-	#get_window().mouse_exited.connect(set_movable.bind(false))
-	#get_window().mouse_entered.connect(set_movable.bind(true))
+func _process(delta: float) -> void:
+	position += input * delta
+	
+	var new_chunk_coords: Vector2i = Grid.get_chunk_coords(Grid.point_to_coords(position))
+	if new_chunk_coords != chunk_coords:
+		chunk_coords = new_chunk_coords
+		
+		# unloading chunks
+		for chunk: GridChunk in Game.grid.get_loaded_chunks():
+			var diff: Vector2i = (chunk.chunk_coords - chunk_coords).abs()
+			if diff[diff.max_axis_index()] > UNLOAD_RANGE:
+				Game.grid.unload_chunk(chunk.chunk_coords)
+		
+		# loading chunks
+		for x: int in range(-LOAD_RANGE, LOAD_RANGE + 1):
+			for y: int in range(-LOAD_RANGE, LOAD_RANGE + 1):
+				var lchunk_coords: Vector2i = chunk_coords + Vector2i(x, y)
+				if not Game.grid.is_chunk_loaded(lchunk_coords):
+					Game.grid.load_chunk(lchunk_coords)
 
-
-
-# keyboard control
 
 func _unhandled_key_input(_event: InputEvent) -> void:
-	pull = Input.get_vector("move_left", "move_right", "move_up", "move_down") * SPEED
+	input = Input.get_vector("move_left", "move_right", "move_up", "move_down") * SPEED

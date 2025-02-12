@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://262wfv063anm"]
+[gd_scene load_steps=6 format=3 uid="uid://262wfv063anm"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_tllol"]
-[ext_resource type="PackedScene" uid="uid://deg1lwogfdqdi" path="res://scenes/editor/editor.tscn" id="2_kon8x"]
+[ext_resource type="PackedScene" uid="uid://bgbhlhlnbj02o" path="res://scenes/ui/ui.tscn" id="2_42qev"]
 [ext_resource type="Script" path="res://scenes/game/grid.gd" id="3_47w66"]
 [ext_resource type="Script" path="res://scenes/game/camera.gd" id="4_70hti"]
+[ext_resource type="Script" path="res://scenes/game/daytime_modulate.gd" id="5_5kbi3"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tllol")
@@ -21,7 +22,7 @@ mouse_filter = 2
 color = Color(0.8, 0.8, 0.8, 1)
 metadata/_edit_lock_ = true
 
-[node name="Editor" parent="." instance=ExtResource("2_kon8x")]
+[node name="UI" parent="." instance=ExtResource("2_42qev")]
 
 [node name="Grid" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -34,3 +35,6 @@ script = ExtResource("4_70hti")
 [node name="TickTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="DaytimeModulate" type="CanvasModulate" parent="."]
+script = ExtResource("5_5kbi3")

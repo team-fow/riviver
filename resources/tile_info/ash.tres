@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=4 format=3 uid="uid://2y5pvkfl8gc0"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=3 format=3 uid="uid://2y5pvkfl8gc0"]
 
-[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_etehm"]
-[ext_resource type="Texture2D" uid="uid://3q08fe5x37rb" path="res://assets/tiles/ash.png" id="1_ge4lr"]
-[ext_resource type="PackedScene" uid="uid://kkvdvtqwoodc" path="res://scenes/tiles/ash/ash.tscn" id="2_s3i0g"]
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_m5usu"]
+[ext_resource type="Texture2D" uid="uid://3q08fe5x37rb" path="res://assets/tiles/ash.png" id="1_y64mv"]
 
 [resource]
-script = ExtResource("1_etehm")
+script = ExtResource("1_m5usu")
 name = "Ash"
-icon = ExtResource("1_ge4lr")
-scene = ExtResource("2_s3i0g")
+sprite_sheet = ExtResource("1_y64mv")
+sprite_sheet_size = Vector2i(1, 1)
+sprite_sheet_picking = 0

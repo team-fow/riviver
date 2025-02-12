@@ -1,3 +1,7 @@
-[gd_resource type="Theme" format=3 uid="uid://gscwrl3vmmhr"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://gscwrl3vmmhr"]
+
+[ext_resource type="FontFile" uid="uid://d10wviwe68nik" path="res://assets/ui/font/junipy.ttf" id="1_4fp2q"]
 
 [resource]
+default_font = ExtResource("1_4fp2q")
+default_font_size = 32

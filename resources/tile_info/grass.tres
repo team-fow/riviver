@@ -1,16 +1,13 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://7ltrgveyttoc"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=4 format=3 uid="uid://7ltrgveyttoc"]
 
-[ext_resource type="Texture2D" uid="uid://bsguveo4ri71r" path="res://assets/tiles/grass.png" id="1_ppjkm"]
-[ext_resource type="PackedScene" uid="uid://bnehnljy6njgi" path="res://scenes/tiles/grass/grass.tscn" id="1_prev8"]
-[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_xf2bc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0pchv"]
-atlas = ExtResource("1_ppjkm")
-region = Rect2(0, 0, 25, 17)
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_8tply"]
+[ext_resource type="Script" path="res://resources/tile_behavior/grass.gd" id="1_c2il1"]
+[ext_resource type="Texture2D" uid="uid://bsguveo4ri71r" path="res://assets/tiles/grass.png" id="1_lk0dv"]
 
 [resource]
-script = ExtResource("1_xf2bc")
+script = ExtResource("1_8tply")
 name = "Grass"
-icon = SubResource("AtlasTexture_0pchv")
-scene = ExtResource("1_prev8")
-flammable = false
+sprite_sheet = ExtResource("1_lk0dv")
+sprite_sheet_size = Vector2i(3, 1)
+sprite_sheet_picking = 1
+behavior = ExtResource("1_c2il1")

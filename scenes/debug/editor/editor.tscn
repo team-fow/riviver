@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://deg1lwogfdqdi"]
+
+[ext_resource type="Script" path="res://scenes/debug/editor/editor.gd" id="1_qj1ca"]
+
+[node name="Editor" type="CanvasLayer"]
+script = ExtResource("1_qj1ca")
+
+[node name="Margins" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Tiles" type="VBoxContainer" parent="Margins"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Margins/Tiles"]
+layout_mode = 2
+text = "Tiles"
+
+[node name="List" type="ItemList" parent="Margins/Tiles"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+theme_override_constants/icon_margin = 16
+allow_search = false
+icon_scale = 2.0
+
+[node name="Bar" type="PanelContainer" parent="Margins"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Margins/Bar"]
+layout_mode = 2
+text = "(0, 0)"
+
+[connection signal="hidden" from="Margins/Tiles/List" to="Margins/Tiles/List" method="deselect_all"]
+[connection signal="item_selected" from="Margins/Tiles/List" to="." method="_on_tile_selected"]
