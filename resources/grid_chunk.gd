@@ -48,3 +48,7 @@ func generate() -> void:
 func _init(chunk_coords: Vector2i) -> void:
 	self.chunk_coords = chunk_coords
 	tile_offset = chunk_coords * SIZE
+
+
+func _to_string() -> String:
+	return "Chunk" + str(chunk_coords)
