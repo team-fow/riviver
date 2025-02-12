@@ -47,9 +47,11 @@ func get_neighbors() -> Array[Tile]:
 func _set_type(value: Type) -> void:
 	if type == value: return
 	type = value
-	_redraw()
 	behavior = get_info().behavior.new(self) if get_info().behavior else null
-	if Game.grid.get_chunk(Grid.get_chunk_coords(coords)).is_generated:
+	_redraw()
+	# ticking
+	var chunk: GridChunk = Game.grid.get_chunk(Grid.get_chunk_coords(coords))
+	if chunk and chunk.is_generated:
 		Game.grid.queue_tick_with_neighbors(self)
 
 
