@@ -37,4 +37,5 @@ wait_time = 0.5
 autostart = true
 
 [node name="DaytimeModulate" type="CanvasModulate" parent="."]
+visible = false
 script = ExtResource("5_5kbi3")

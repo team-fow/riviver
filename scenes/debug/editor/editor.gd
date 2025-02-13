@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var type: int
+var type: int = Tile.Type.FIRE
 
 @onready var tile_list: ItemList = $Margins/Tiles/List
 @onready var coords_label: Label = $Margins/Bar/Label

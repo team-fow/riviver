@@ -15,6 +15,8 @@ enum SpriteSheetPicking {
 var sprite_size: Vector2i ## The size of individual tile sprites.
 var color: Color ## The color of the middle of the first sprite.
 
+@export var material: Material ## Material applied when rendering.
+
 @export var behavior: GDScript ## Custom behavior script.
 
 

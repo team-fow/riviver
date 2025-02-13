@@ -6,6 +6,7 @@
 [node name="UI" type="CanvasLayer"]
 
 [node name="Editor" parent="." instance=ExtResource("1_jbr5h")]
+visible = false
 
 [node name="Margins" type="MarginContainer" parent="."]
 anchors_preset = 15

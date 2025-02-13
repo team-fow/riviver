@@ -12,14 +12,14 @@ enum Type {
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.
 
-var type: Type = Type.NONE : set = _set_type ## Type ID.
+var type: Type = Type.NONE : set = _set_type ## Type ID. Affects the tile's rendering and behavior.
 var behavior: TileBehavior ## Recieves ticks and runs tick logic.
 
-var coords: Vector2i : set = _set_coords ## Coordinates in the grid.
-var elevation: int ## Vertical offset.
+var coords: Vector2i : set = _set_coords ## The tile's grid coordinates.
+var elevation: int ## The tile's elevation. Applied as a vertical offset.
 
-var rid: RID = RenderingServer.canvas_item_create() ## Used for rendering.
-var transform: Transform2D ## Transform applied when rendering.
+var rid: RID = RenderingServer.canvas_item_create() ## A canvas item ID. Used for rendering.
+var transform: Transform2D ## The transform applied to this tile.
 
 
 
@@ -55,7 +55,7 @@ func _set_type(value: Type) -> void:
 		Game.grid.queue_tick_with_neighbors(self)
 
 
-## Returns a info resource for the tile.
+## Returns an info resource for the tile.
 func get_info() -> TileInfo:
 	return Library.tiles[type]
 
@@ -63,7 +63,7 @@ func get_info() -> TileInfo:
 
 # ticking
 
-## Queues a tick.
+## Queues a tick. Tick behavior is controlled by the tile's behavior object.
 func queue_tick() -> void:
 	var behavior: TileBehavior = behavior
 	if not behavior or behavior.is_tick_queued: return
@@ -79,6 +79,7 @@ func queue_tick() -> void:
 func _redraw() -> void:
 	RenderingServer.canvas_item_clear(rid)
 	RenderingServer.canvas_item_set_parent(rid, Game.grid.get_canvas_item())
+	if get_info().material: RenderingServer.canvas_item_set_material(rid, get_info().material.get_rid())
 	_draw_sprite(get_info())
 
 
@@ -92,13 +93,13 @@ func _draw_sprite(info: TileInfo) -> void:
 	RenderingServer.canvas_item_add_texture_rect_region(rid, Rect2(-info.sprite_size/2, info.sprite_size), info.sprite_sheet, src_rect)
 
 
-## Controls where the piece is rendered.
+## Sets where the tile is rendered.
 func set_position(position: Vector2) -> void:
 	transform.origin = position
 	RenderingServer.canvas_item_set_transform(rid, transform)
 
 
-## Controls whether the piece is rendered.
+## Sets whether the tile is rendered.
 func set_visible(visible: bool) -> void:
 	RenderingServer.canvas_item_set_visible(rid, visible)
 
