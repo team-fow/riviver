@@ -18,33 +18,33 @@ var public_variable: Variant ## documentation
 var variable_with_setter: Variant : set = _set_variable_with_setter ## documentation
 var variable_with_getter: Variant : get = _get_variable_with_getter ## documentation
 
-var _private_variable: Variant ## prefix private variables with _
+var _private_variable: Variant # prefix private variables with _
 
 @onready var onready_variable: Node ## documentation
 
 
 ## documentation
-func public_function(parameter: Variant) -> void: # public functions come first
+func public_function(parameter: Variant) -> void:
 	pass
 
 
-## documentation
-func _private_function(parameter: Variant) -> void: # prefix private functions with _
-	pass
+# prefix private functions with _
+func _private_function(parameter: Variant) -> void:
+	signal_1.connect(_on_signal_1)
 
 
-## documentation
-func _set_variable_with_setter(value: Variant) -> void: # name setters _set_[variable name]
+# name setters _set_[variable name]
+func _set_variable_with_setter(value: Variant) -> void:
 	variable_with_setter = value
 
 
-## documentation
-func _get_variable_with_getter() -> Variant: # name getters _get_[variable name]
+# name getters _get_[variable name]
+func _get_variable_with_getter() -> Variant:
 	return "hi!"
 
 
-## documentation
-func _on_signal_1() -> void: # name signal connections _on_[signal name]
+# name signal connections _on_[signal name]
+func _on_signal_1() -> void:
 	print("signal_1 emitted!")
 
 
