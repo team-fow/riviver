@@ -2,20 +2,20 @@ class_name TileInfo
 extends Resource
 
 enum SpriteSheetPicking {
-	NONE,
-	RANDOMIZE,
-	ANIMATE,
+	NONE, ## Uses the first (top-leftmost) sprite.
+	RANDOMIZE, ## Uses a random sprite.
+	ANIMATE, ## Uses the sprites as frames of an animation. (currently unimplemented)
 }
 
-@export var name: String
+@export var name: String ## The name of the tile.
 
-@export var sprite_sheet: Texture2D = load("res://assets/tiles/default.png")
-@export var sprite_sheet_size := Vector2i.ONE
-@export var sprite_sheet_picking: SpriteSheetPicking
-var sprite_size: Vector2i
-var color: Color
+@export var sprite_sheet: Texture2D = load("res://assets/tiles/default.png") ## A sheet of textures used by the tile.
+@export var sprite_sheet_size := Vector2i.ONE ## The number of sprites on the sprite sheet in either direction.
+@export var sprite_sheet_picking: SpriteSheetPicking ## The method by which a sprite is chosen from the sprite sheet.
+var sprite_size: Vector2i ## The size of individual tile sprites.
+var color: Color ## The color of the middle of the first sprite.
 
-@export var behavior: GDScript
+@export var behavior: GDScript ## Custom behavior script.
 
 
 
