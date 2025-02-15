@@ -41,3 +41,4 @@ func _process(delta: float) -> void:
 
 func _unhandled_key_input(_event: InputEvent) -> void:
 	input = Input.get_vector("move_left", "move_right", "move_up", "move_down") * SPEED
+	if Input.is_action_pressed("sprint"): input *= 4

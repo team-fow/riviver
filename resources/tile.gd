@@ -12,10 +12,10 @@ enum Type {
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.
 
-var type: Type = Type.NONE : set = _set_type ## Type ID. Affects the tile's rendering and behavior.
+@export var type: Type = Type.NONE : set = _set_type ## Type ID. Affects the tile's rendering and behavior.
 var behavior: TileBehavior ## Recieves ticks and runs tick logic.
 
-var coords: Vector2i : set = _set_coords ## The tile's grid coordinates.
+@export var coords: Vector2i : set = _set_coords ## The tile's grid coordinates.
 var elevation: int ## The tile's elevation. Applied as a vertical offset.
 
 var rid: RID = RenderingServer.canvas_item_create() ## A canvas item ID. Used for rendering.
@@ -51,7 +51,7 @@ func _set_type(value: Type) -> void:
 	_redraw()
 	# ticking
 	var chunk: GridChunk = Game.grid.get_chunk(Grid.get_chunk_coords(coords))
-	if chunk and chunk.is_generated:
+	if chunk and chunk.sends_ticks:
 		Game.grid.queue_tick_with_neighbors(self)
 
 
@@ -105,16 +105,19 @@ func set_visible(visible: bool) -> void:
 
 
 
+# destructor
+
+## Frees the tile's RID. Call just before the tile is unloaded.
+func stop_rendering() -> void:
+	RenderingServer.free_rid(rid)
+
+
+
 # virtual
 
 func _init(type: Type, coords: Vector2i) -> void:
 	self.coords = coords
 	self.type = type
-
-
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_PREDELETE:
-		RenderingServer.free_rid(rid)
 
 
 func _to_string() -> String:

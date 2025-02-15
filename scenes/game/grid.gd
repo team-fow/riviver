@@ -33,11 +33,13 @@ func get_chunk(chunk_coords: Vector2i) -> GridChunk:
 ## Loads the chunk at some chunk coords.
 func load_chunk(chunk_coords: Vector2i) -> void:
 	_chunks[chunk_coords] = GridChunk.new(chunk_coords)
-	_chunks[chunk_coords].generate()
+	_chunks[chunk_coords].read_from_file()
 
 
 ## Loads the chunk at some chunk coords.
 func unload_chunk(chunk_coords: Vector2i) -> void:
+	_chunks[chunk_coords].write_to_file()
+	_chunks[chunk_coords].stop_tile_rendering()
 	_chunks.erase(chunk_coords)
 
 

@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgbhlhlnbj02o"]
+[gd_scene load_steps=4 format=3 uid="uid://bgbhlhlnbj02o"]
 
 [ext_resource type="PackedScene" uid="uid://deg1lwogfdqdi" path="res://scenes/debug/editor/editor.tscn" id="1_jbr5h"]
 [ext_resource type="Script" path="res://scenes/ui/map.gd" id="2_kl14l"]
 
+[sub_resource type="GDScript" id="GDScript_gyedq"]
+script/source = "extends Button
+
+
+func _pressed() -> void:
+	Game.file.save(\"user://save.ini\")
+"
+
 [node name="UI" type="CanvasLayer"]
 
 [node name="Editor" parent="." instance=ExtResource("1_jbr5h")]
-visible = false
 
 [node name="Margins" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -27,3 +34,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("2_kl14l")
+
+[node name="Button" type="Button" parent="Margins"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Save"
+script = SubResource("GDScript_gyedq")
