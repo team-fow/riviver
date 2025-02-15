@@ -46,15 +46,6 @@ func read_from_file() -> void:
 		generate()
 		return
 	
-	#var types: PackedInt32Array = Game.file.get_value("chunks", str(chunk_coords))
-	#sends_ticks = false
-	#
-	#for x: int in SIZE.x:
-		#for y: int in SIZE.y:
-			#_tiles[x][y].type = types[x + x * y]
-	#
-	#sends_ticks = true
-	
 	var types: Array[PackedInt32Array] = Game.file.get_value("chunks", str(chunk_coords))
 	for x: int in SIZE.x:
 		for y: int in SIZE.y:

@@ -17,16 +17,29 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="Tiles" type="VBoxContainer" parent="Margins"]
+[node name="VBox" type="VBoxContainer" parent="Margins"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Margins/Tiles"]
+[node name="ToolsLabel" type="Label" parent="Margins/VBox"]
+layout_mode = 2
+text = "Tools"
+
+[node name="Tools" type="ItemList" parent="Margins/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+auto_height = true
+item_count = 2
+max_columns = 2
+item_0/text = "Type"
+item_1/text = "Elevation"
+
+[node name="TilesLabel" type="Label" parent="Margins/VBox"]
 layout_mode = 2
 text = "Tiles"
 
-[node name="List" type="ItemList" parent="Margins/Tiles"]
+[node name="Tiles" type="ItemList" parent="Margins/VBox"]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -44,5 +57,6 @@ size_flags_vertical = 8
 layout_mode = 2
 text = "(0, 0)"
 
-[connection signal="hidden" from="Margins/Tiles/List" to="Margins/Tiles/List" method="deselect_all"]
-[connection signal="item_selected" from="Margins/Tiles/List" to="." method="_on_tile_selected"]
+[connection signal="item_selected" from="Margins/VBox/Tools" to="." method="_on_tool_selected"]
+[connection signal="hidden" from="Margins/VBox/Tiles" to="Margins/VBox/Tiles" method="deselect_all"]
+[connection signal="item_selected" from="Margins/VBox/Tiles" to="." method="_on_tile_selected"]
