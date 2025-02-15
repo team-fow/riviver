@@ -1,10 +1,9 @@
 class_name GridChunk
-extends Resource
 ## Handles local tile editing and serialization.
 
 const SIZE := Vector2i(16, 32) ## Size, in tiles.
 
-@export var _tiles: Array[Array] # Tile matrix of size SIZE.
+var _tiles: Array[Array] # Tile matrix of size SIZE.
 
 var chunk_coords: Vector2i ## Chunk coordinates.
 var tile_offset: Vector2i ## Coords of the top-leftmost tile.

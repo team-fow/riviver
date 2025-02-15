@@ -1,5 +1,4 @@
 class_name Tile
-extends Resource
 ## A tile on the grid.
 
 enum Type {
@@ -12,10 +11,10 @@ enum Type {
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.
 
-@export var type: Type = Type.NONE : set = _set_type ## Type ID. Affects the tile's rendering and behavior.
+var type: Type = Type.NONE : set = _set_type ## Type ID. Affects the tile's rendering and behavior.
 var behavior: TileBehavior ## Recieves ticks and runs tick logic.
 
-@export var coords: Vector2i : set = _set_coords ## The tile's grid coordinates.
+var coords: Vector2i : set = _set_coords ## The tile's grid coordinates.
 var elevation: int ## The tile's elevation. Applied as a vertical offset.
 
 var rid: RID = RenderingServer.canvas_item_create() ## A canvas item ID. Used for rendering.

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgbhlhlnbj02o"]
 
 [ext_resource type="PackedScene" uid="uid://deg1lwogfdqdi" path="res://scenes/debug/editor/editor.tscn" id="1_jbr5h"]
-[ext_resource type="Script" path="res://scenes/ui/map.gd" id="2_kl14l"]
+[ext_resource type="Script" path="res://scenes/debug/map.gd" id="2_kl14l"]
 
 [sub_resource type="GDScript" id="GDScript_gyedq"]
 script/source = "extends Button

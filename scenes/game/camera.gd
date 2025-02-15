@@ -1,11 +1,12 @@
 extends Camera2D
+## Manages chunk loading.
 
 const SPEED: float = 250 ## Movement speed.
-const LOAD_RANGE: int = 1
-const UNLOAD_RANGE: int = 4
+const LOAD_RANGE: int = 1 ## Distance (in chunks) at which chunks are loaded.
+const UNLOAD_RANGE: int = 4 ## Distance (in chunks) at which chunks are unloaded.
 
 var input: Vector2 ## Applied to the position.
-var chunk_coords: Vector2i
+var chunk_coords: Vector2i ## The chunk coordinates of the camera's position.
 
 
 ## Controls whether the camera can be moved.

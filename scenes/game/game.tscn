@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_tllol"]
 [ext_resource type="PackedScene" uid="uid://bgbhlhlnbj02o" path="res://scenes/ui/ui.tscn" id="2_42qev"]
-[ext_resource type="Script" path="res://scenes/game/grid.gd" id="3_47w66"]
+[ext_resource type="Script" path="res://scenes/grid/grid.gd" id="3_47w66"]
 [ext_resource type="Script" path="res://scenes/game/camera.gd" id="4_70hti"]
 [ext_resource type="Script" path="res://scenes/game/daytime_modulate.gd" id="5_5kbi3"]
 
