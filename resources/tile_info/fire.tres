@@ -13,5 +13,6 @@ name = "Fire"
 sprite_sheet = ExtResource("1_u02jd")
 sprite_sheet_size = Vector2i(1, 1)
 sprite_sheet_picking = 0
+sprite_offset = Vector2(0, -5)
 material = SubResource("CanvasItemMaterial_84dcn")
 behavior = ExtResource("3_1h2t6")

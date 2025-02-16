@@ -104,7 +104,8 @@ func _draw_sprite(info: TileInfo) -> void:
 	var target_rect := Rect2(-info.sprite_size/2, info.sprite_size)
 	var src_rect := Rect2(Vector2.ZERO, info.sprite_size)
 	
-	target_rect.position.y = -elevation
+	target_rect.position += info.sprite_offset
+	target_rect.position.y -= elevation
 	
 	match info.sprite_sheet_picking:
 		TileInfo.SpriteSheetPicking.RANDOMIZE:

@@ -12,6 +12,7 @@ enum SpriteSheetPicking {
 @export var sprite_sheet: Texture2D = load("res://assets/tiles/default.png") ## A sheet of textures used by the tile.
 @export var sprite_sheet_size := Vector2i.ONE ## The number of sprites on the sprite sheet in either direction.
 @export var sprite_sheet_picking: SpriteSheetPicking ## The method by which a sprite is chosen from the sprite sheet.
+@export var sprite_offset: Vector2 ## Offset applied when rendering.
 var sprite_size: Vector2i ## The size of individual tile sprites.
 var color: Color ## The color of the middle of the first sprite.
 
