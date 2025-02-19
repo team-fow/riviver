@@ -20,6 +20,7 @@ static func write() -> void:
 
 ## Reads and restores the game state from a file.
 static func read() -> void:
+	file.clear()
 	file.load("res://default_save.ini")
 	file.load("user://save.ini")
 
