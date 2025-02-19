@@ -1,13 +1,19 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=4 format=3 uid="uid://7ltrgveyttoc"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=6 format=3 uid="uid://7ltrgveyttoc"]
 
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_8tply"]
 [ext_resource type="Script" path="res://resources/tile_behavior/grass.gd" id="1_c2il1"]
 [ext_resource type="Texture2D" uid="uid://bsguveo4ri71r" path="res://assets/tiles/grass.png" id="1_lk0dv"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="3_cf2vv"]
+
+[sub_resource type="Resource" id="Resource_0p76r"]
+script = ExtResource("3_cf2vv")
+texture = ExtResource("1_lk0dv")
+sheet_size = Vector2i(3, 1)
+sheet_picking = 1
+sprite_offset = Vector2(0, 0)
 
 [resource]
 script = ExtResource("1_8tply")
 name = "Grass"
-sprite_sheet = ExtResource("1_lk0dv")
-sprite_sheet_size = Vector2i(3, 1)
-sprite_sheet_picking = 1
+sprite_sheet = SubResource("Resource_0p76r")
 behavior = ExtResource("1_c2il1")

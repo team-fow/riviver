@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=6 format=3 uid="uid://d24pelxvcfeod"]
+
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_pe1c5"]
+[ext_resource type="Script" path="res://resources/tile_behavior/river.gd" id="1_ptfsi"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="3_36rhq"]
+[ext_resource type="Texture2D" uid="uid://t84usn6tv7k3" path="res://assets/tiles/dirt.png" id="3_cgp0n"]
+
+[sub_resource type="Resource" id="Resource_bn4uf"]
+script = ExtResource("3_36rhq")
+texture = ExtResource("3_cgp0n")
+sheet_size = Vector2i(1, 1)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)
+
+[resource]
+script = ExtResource("1_pe1c5")
+name = "River"
+sprite_sheet = SubResource("Resource_bn4uf")
+behavior = ExtResource("1_ptfsi")

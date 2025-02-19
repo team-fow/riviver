@@ -1,11 +1,17 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=3 format=3 uid="uid://bfeo3tsu5bc4e"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://bfeo3tsu5bc4e"]
 
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_c2mqs"]
 [ext_resource type="Texture2D" uid="uid://t84usn6tv7k3" path="res://assets/tiles/dirt.png" id="1_kt865"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_6cx10"]
+
+[sub_resource type="Resource" id="Resource_j77qg"]
+script = ExtResource("2_6cx10")
+texture = ExtResource("1_kt865")
+sheet_size = Vector2i(1, 1)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)
 
 [resource]
 script = ExtResource("1_c2mqs")
 name = "Dirt"
-sprite_sheet = ExtResource("1_kt865")
-sprite_sheet_size = Vector2i(1, 1)
-sprite_sheet_picking = 0
+sprite_sheet = SubResource("Resource_j77qg")

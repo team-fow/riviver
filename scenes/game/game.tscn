@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://262wfv063anm"]
+[gd_scene load_steps=8 format=3 uid="uid://262wfv063anm"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_tllol"]
 [ext_resource type="PackedScene" uid="uid://bgbhlhlnbj02o" path="res://scenes/ui/ui.tscn" id="2_42qev"]
 [ext_resource type="Script" path="res://scenes/grid/grid.gd" id="3_47w66"]
 [ext_resource type="Script" path="res://scenes/game/camera.gd" id="4_70hti"]
+[ext_resource type="Script" path="res://scenes/game/river.gd" id="4_uc3ti"]
 [ext_resource type="Script" path="res://scenes/game/daytime_modulate.gd" id="5_5kbi3"]
+[ext_resource type="Script" path="res://scenes/game/player.gd" id="5_cgng6"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tllol")
@@ -28,6 +30,12 @@ metadata/_edit_lock_ = true
 y_sort_enabled = true
 script = ExtResource("3_47w66")
 
+[node name="River" type="Node" parent="."]
+script = ExtResource("4_uc3ti")
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("5_cgng6")
+
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 script = ExtResource("4_70hti")
@@ -37,5 +45,4 @@ wait_time = 0.5
 autostart = true
 
 [node name="DaytimeModulate" type="CanvasModulate" parent="."]
-visible = false
 script = ExtResource("5_5kbi3")

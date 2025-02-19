@@ -18,7 +18,7 @@ func draw_chunk(chunk: GridChunk) -> void:
 
 
 func draw_tile(tile: Tile) -> void:
-	draw_rect(Rect2(tile.coords.x * 2, tile.coords.y, 2, 1), tile.get_info().color)
+	draw_rect(Rect2(tile.coords.x * 2, tile.coords.y, 2, 1), tile.get_info().sprite_sheet.color)
 
 
 

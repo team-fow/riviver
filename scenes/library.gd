@@ -5,7 +5,7 @@ var tiles: Array[TileInfo]
 
 
 func _ready() -> void:
-	_load_info("tile_info", Tile.Type.keys().slice(1), tiles)
+	_load_info("tile_info", Tile.Type.keys(), tiles)
 
 
 func _load_info(folder: String, filenames: PackedStringArray, target_array: Array) -> void:

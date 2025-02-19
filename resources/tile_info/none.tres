@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://cluophea63d4p"]
+
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_kvt88"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_4u8is"]
+[ext_resource type="Texture2D" uid="uid://cd626hwn2es4g" path="res://assets/tiles/default.png" id="3_dmpgh"]
+
+[sub_resource type="Resource" id="Resource_pl73q"]
+script = ExtResource("2_4u8is")
+texture = ExtResource("3_dmpgh")
+sheet_size = Vector2i(1, 1)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)
+
+[resource]
+script = ExtResource("1_kvt88")
+name = "Empty Tile"
+sprite_sheet = SubResource("Resource_pl73q")

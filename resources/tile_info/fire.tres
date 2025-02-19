@@ -1,18 +1,23 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://dy5wfhgthlflx"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=7 format=3 uid="uid://dy5wfhgthlflx"]
 
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_pqefx"]
 [ext_resource type="Texture2D" uid="uid://b5xh81m5jrn5x" path="res://assets/tiles/fire.png" id="1_u02jd"]
 [ext_resource type="Script" path="res://resources/tile_behavior/fire.gd" id="3_1h2t6"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="3_rn367"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_84dcn"]
 light_mode = 1
 
+[sub_resource type="Resource" id="Resource_4xlxp"]
+script = ExtResource("3_rn367")
+texture = ExtResource("1_u02jd")
+sheet_size = Vector2i(1, 1)
+sheet_picking = 0
+sprite_offset = Vector2(0, -5)
+
 [resource]
 script = ExtResource("1_pqefx")
 name = "Fire"
-sprite_sheet = ExtResource("1_u02jd")
-sprite_sheet_size = Vector2i(1, 1)
-sprite_sheet_picking = 0
-sprite_offset = Vector2(0, -5)
+sprite_sheet = SubResource("Resource_4xlxp")
 material = SubResource("CanvasItemMaterial_84dcn")
 behavior = ExtResource("3_1h2t6")

@@ -56,7 +56,9 @@ func read_from_file() -> void:
 func generate() -> void:
 	sends_ticks = false
 	
-	pass
+	for x: int in SIZE.x:
+		for y: int in SIZE.y:
+			_tiles[x][y].type = Tile.Type.GRASS
 	
 	sends_ticks = true
 
@@ -82,7 +84,7 @@ func _init(chunk_coords: Vector2i) -> void:
 	for x: int in SIZE.x:
 		_tiles[x].resize(SIZE.y)
 		for y: int in SIZE.y:
-			_tiles[x][y] = Tile.new(Tile.Type.GRASS, tile_offset + Vector2i(x, y))
+			_tiles[x][y] = Tile.new(tile_offset + Vector2i(x, y))
 	
 	sends_ticks = true
 
