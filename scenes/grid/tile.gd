@@ -8,6 +8,7 @@ enum Type {
 	FIRE,
 	RIVER,
 	NONE,
+	GRASS_LAND2,
 }
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.

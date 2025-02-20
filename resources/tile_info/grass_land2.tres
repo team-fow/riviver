@@ -1,7 +1,17 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=2 format=3 uid="uid://cmb1kb8k2ciph"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://cmb1kb8k2ciph"]
 
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_ssiwu"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_iti1b"]
+[ext_resource type="Texture2D" uid="uid://rdyid37ekxq5" path="res://assets/tiles/grass_land 2.png" id="3_honvh"]
+
+[sub_resource type="Resource" id="Resource_bp557"]
+script = ExtResource("2_iti1b")
+texture = ExtResource("3_honvh")
+sheet_size = Vector2i(1, 1)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)
 
 [resource]
 script = ExtResource("1_ssiwu")
-name = ""
+name = "Grass land2"
+sprite_sheet = SubResource("Resource_bp557")
