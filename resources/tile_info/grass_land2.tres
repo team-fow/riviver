@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=2 format=3 uid="uid://cmb1kb8k2ciph"]
+
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_ssiwu"]
+
+[resource]
+script = ExtResource("1_ssiwu")
+name = ""
