@@ -61,6 +61,5 @@ func _on_reload_pressed() -> void:
 
 
 func _on_reset_pressed() -> void:
-	Game.file.clear()
-	DirAccess.remove_absolute("user://save.ini")
+	Game.delete_save()
 	get_tree().reload_current_scene()

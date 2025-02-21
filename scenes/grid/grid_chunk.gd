@@ -27,29 +27,30 @@ func get_tile(coords: Vector2i) -> Tile:
 
 # loading & unloading
 
-## Saves tile types to the game file.
+## Saves tile types to a file.
 func write_to_file() -> void:
-	var types: Array[PackedInt32Array]
+	var types: PackedInt32Array
+	types.resize(SIZE.x + SIZE.y * SIZE.x)
 	
-	types.resize(SIZE.x)
 	for x: int in SIZE.x:
-		types[x].resize(SIZE.y)
 		for y: int in SIZE.y:
-			types[x][y] = _tiles[x][y].type
+			types[x + y * SIZE.x] = _tiles[x][y].type
 	
-	Game.file.set_value("chunks", str(chunk_coords), types)
+	var file: FileAccess = FileAccess.open(Game.save_path + str(chunk_coords), FileAccess.WRITE_READ)
+	file.store_buffer(types.to_byte_array())
+	file.close()
 
 
-## Loads tile types from the game file.
+## Loads tile types from a file.
 func read_from_file() -> void:
-	if not Game.file.has_section_key("chunks", str(chunk_coords)):
+	var types: PackedInt32Array = FileAccess.get_file_as_bytes(Game.save_path + str(chunk_coords)).to_int32_array()
+	if not types:
 		generate()
 		return
 	
-	var types: Array[PackedInt32Array] = Game.file.get_value("chunks", str(chunk_coords))
 	for x: int in SIZE.x:
 		for y: int in SIZE.y:
-			_tiles[x][y].type = types[x][y]
+			_tiles[x][y].type = types[x + y * SIZE.x]
 
 
 ## Generates the chunk from scratch.
@@ -62,6 +63,9 @@ func generate() -> void:
 	
 	sends_ticks = true
 
+
+
+# rendering
 
 ## Frees tile RIDs. Call just before the chunk is unloaded.
 func stop_tile_rendering() -> void:

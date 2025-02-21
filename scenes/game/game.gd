@@ -4,6 +4,7 @@ extends Node2D
 
 static var file := ConfigFile.new() ## Player savefile.
 static var config := ConfigFile.new() ## Settings savefile.
+static var save_path: String = "user://save/" ## Path where data should be saved.
 
 static var grid: Grid ## Manages tiles.
 static var river: River ## Manages the river state.
@@ -12,22 +13,42 @@ static var clock: Clock ## Manages time & weather.
 static var camera: Camera2D ## Manages chunk loading.
 
 
-## Writes the current game state to file.
+## Writes the current game state to disk.
 static func write() -> void:
+	if not DirAccess.dir_exists_absolute(save_path):
+		create_save()
+	
+	file.set_value("main", "time", clock.time)
+	file.set_value("main", "materials", player.materials)
+	
 	for chunk: GridChunk in grid.get_loaded_chunks():
 		chunk.write_to_file()
 	
-	file.set_value("main", "time", player.materials)
-	file.set_value("main", "materials", player.materials)
-	
-	file.save("user://save.ini")
+	file.save(save_path + "save.ini")
 
 
-## Reads and restores the game state from a file.
+## Reads and restores the game state from disk.
 static func read() -> void:
+	if not DirAccess.dir_exists_absolute(save_path):
+		create_save()
+	
 	file.clear()
-	file.load("res://default_save.ini")
-	file.load("user://save.ini")
+	file.load(save_path + "save.ini")
+
+
+## Creates a new save.
+static func create_save() -> void:
+	if not DirAccess.dir_exists_absolute(save_path):
+		DirAccess.make_dir_recursive_absolute(save_path)
+	
+	var default_dir: String = "res://resources/default_save/"
+	for filename: String in DirAccess.get_files_at(default_dir):
+		DirAccess.copy_absolute(default_dir + filename, save_path + filename)
+
+
+## Deletes the current save.
+static func delete_save() -> void:
+	OS.move_to_trash(ProjectSettings.globalize_path(save_path))
 
 
 
