@@ -2,12 +2,13 @@ class_name Tile
 ## A tile on the grid.
 
 enum Type {
+	NONE,
+	SMOG,
 	GRASS,
 	DIRT,
 	ASH,
 	FIRE,
 	RIVER,
-	NONE,
 	GRASS_LAND2,
 }
 
@@ -84,6 +85,7 @@ func _redraw() -> void:
 	var info: TileInfo = get_info()
 	RenderingServer.canvas_item_clear(rid)
 	RenderingServer.canvas_item_set_material(rid, info.material.get_rid() if info.material else RID())
+	RenderingServer.canvas_item_set_z_index(rid, info.z_index)
 	info.sprite_sheet.draw(rid)
 
 

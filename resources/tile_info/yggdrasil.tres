@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://bokj0mxbu3ibf"]
+
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_cfbhs"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_lsimd"]
+[ext_resource type="Texture2D" uid="uid://ufg2lkjjv5xk" path="res://assets/tiles/yggdrasil.png" id="3_5svab"]
+
+[sub_resource type="Resource" id="Resource_muvk2"]
+script = ExtResource("2_lsimd")
+texture = ExtResource("3_5svab")
+sheet_size = Vector2i(1, 1)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)
+
+[resource]
+script = ExtResource("1_cfbhs")
+name = "World Tree"
+sprite_sheet = SubResource("Resource_muvk2")
+z_index = 0

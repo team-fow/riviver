@@ -58,7 +58,7 @@ func generate() -> void:
 	
 	for x: int in SIZE.x:
 		for y: int in SIZE.y:
-			_tiles[x][y].type = Tile.Type.GRASS
+			_tiles[x][y].type = Tile.Type.SMOG
 	
 	sends_ticks = true
 
