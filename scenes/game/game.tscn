@@ -11,24 +11,15 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tllol")
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="Background"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.8, 0.8, 0.8, 1)
-metadata/_edit_lock_ = true
-
 [node name="UI" parent="." instance=ExtResource("2_42qev")]
 
 [node name="Grid" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("3_47w66")
+
+[node name="TickTimer" type="Timer" parent="Grid"]
+wait_time = 0.5
+autostart = true
 
 [node name="River" type="Node" parent="."]
 script = ExtResource("4_uc3ti")
@@ -36,13 +27,9 @@ script = ExtResource("4_uc3ti")
 [node name="Player" type="Node" parent="."]
 script = ExtResource("5_cgng6")
 
+[node name="Clock" type="CanvasModulate" parent="."]
+script = ExtResource("5_5kbi3")
+
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 script = ExtResource("4_70hti")
-
-[node name="TickTimer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
-
-[node name="DaytimeModulate" type="CanvasModulate" parent="."]
-script = ExtResource("5_5kbi3")

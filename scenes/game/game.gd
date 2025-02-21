@@ -8,13 +8,17 @@ static var config := ConfigFile.new() ## Settings savefile.
 static var grid: Grid ## Manages tiles.
 static var river: River ## Manages the river state.
 static var player: Player ## Manages player cards & materials.
-static var tick_timer: Timer ## Coordinates ticks.
+static var clock: Clock ## Manages time & weather.
 
 
 ## Writes the current game state to file.
 static func write() -> void:
 	for chunk: GridChunk in grid.get_loaded_chunks():
 		chunk.write_to_file()
+	
+	file.set_value("main", "time", player.materials)
+	file.set_value("main", "materials", player.materials)
+	
 	file.save("user://save.ini")
 
 
@@ -37,4 +41,4 @@ func _ready() -> void:
 	grid = $Grid
 	river = $River
 	player = $Player
-	tick_timer = $TickTimer
+	clock = $Clock

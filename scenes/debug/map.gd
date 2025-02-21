@@ -26,7 +26,7 @@ func draw_tile(tile: Tile) -> void:
 
 func _ready() -> void:
 	await get_tree().process_frame
-	Game.tick_timer.timeout.connect(queue_redraw)
+	Game.grid.tick_timer.timeout.connect(queue_redraw)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:

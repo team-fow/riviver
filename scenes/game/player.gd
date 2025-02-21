@@ -2,6 +2,8 @@ class_name Player
 extends Node
 ## Manages player cards & materials.
 
+signal material_count_changed(type: MaterialType)
+
 enum MaterialType {
 	TRASH,
 	FOOD,

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=6 format=3 uid="uid://dfbhf4a1gky4p"]
+
+[ext_resource type="Script" path="res://resources/tile_behavior/yggdrasil_sapling.gd" id="1_8kuxo"]
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="2_fwfsu"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="3_d3pqf"]
+[ext_resource type="Texture2D" uid="uid://ufg2lkjjv5xk" path="res://assets/tiles/yggdrasil.png" id="4_glh82"]
+
+[sub_resource type="Resource" id="Resource_muvk2"]
+script = ExtResource("3_d3pqf")
+texture = ExtResource("4_glh82")
+sheet_size = Vector2i(1, 1)
+sheet_picking = 0
+sprite_offset = Vector2(0, -5)
+
+[resource]
+script = ExtResource("2_fwfsu")
+name = "World Tree Sapling"
+sprite_sheet = SubResource("Resource_muvk2")
+z_index = 0
+behavior = ExtResource("1_8kuxo")

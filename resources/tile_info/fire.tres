@@ -20,4 +20,5 @@ script = ExtResource("1_pqefx")
 name = "Fire"
 sprite_sheet = SubResource("Resource_4xlxp")
 material = SubResource("CanvasItemMaterial_84dcn")
+z_index = 0
 behavior = ExtResource("3_1h2t6")

@@ -6,6 +6,8 @@ static var _map: TileMapLayer # Used for coordinate math.
 
 var _chunks: Dictionary # Loaded chunks.
 
+@onready var tick_timer: Timer = $TickTimer ## Coordinates ticks.
+
 
 
 # tiles

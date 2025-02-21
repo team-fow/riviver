@@ -1,4 +1,6 @@
+class_name Clock
 extends CanvasModulate
+## Manages time & weather.
 
 const DAY_LENGTH: float = 120.0 ## Duration of a day, in seconds.
 
@@ -7,5 +9,5 @@ var gradient: Gradient = load("res://assets/daytime_gradient.tres") ## Color app
 
 
 func _process(delta: float) -> void:
-	time += delta
+	time = fmod(time + delta, DAY_LENGTH)
 	color = gradient.sample(sin(time / DAY_LENGTH * PI) * 0.5 + 0.5)

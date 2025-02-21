@@ -4,6 +4,8 @@ class_name Tile
 enum Type {
 	NONE,
 	SMOG,
+	YGGDRASIL,
+	YGGDRASIL_SAPLING,
 	GRASS,
 	DIRT,
 	ASH,
@@ -14,7 +16,7 @@ enum Type {
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.
 
-var type: Type = Type.NONE : set = _set_type ## Type ID. Affects the tile's rendering and behavior.
+var type: Type : set = _set_type ## Type ID. Affects the tile's rendering and behavior.
 var behavior: TileBehavior ## Recieves ticks and runs tick logic.
 
 var coords: Vector2i : set = _set_coords ## The tile's grid coordinates.
@@ -72,7 +74,7 @@ func queue_tick() -> void:
 	var behavior: TileBehavior = behavior
 	if not behavior or behavior.is_tick_queued: return
 	behavior.is_tick_queued = true
-	await Game.tick_timer.timeout
+	await Game.grid.tick_timer.timeout
 	behavior.is_tick_queued = false
 	behavior.tick()
 
