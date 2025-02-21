@@ -16,6 +16,13 @@ func set_movable(value: bool) -> void:
 	input = Vector2.ZERO
 
 
+## Moves the camera to some grid coords.
+func move_to(coords: Vector2i) -> void:
+	set_movable(false)
+	await get_tree().create_tween().tween_property(self, "position", Grid.coords_to_point(coords), 0.1).finished
+	set_movable(true)
+
+
 
 # virtual
 

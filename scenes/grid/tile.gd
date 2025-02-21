@@ -6,6 +6,7 @@ enum Type {
 	SMOG,
 	YGGDRASIL,
 	YGGDRASIL_SAPLING,
+	LIBRARY,
 	GRASS,
 	DIRT,
 	ASH,
@@ -52,9 +53,12 @@ func _set_type(value: Type) -> void:
 	type = value
 	_redraw()
 	# behavior
-	if behavior: behavior.stop()
-	behavior = get_info().behavior.new(self) if get_info().behavior else null
-	if behavior: behavior.start()
+	if behavior:
+		behavior.stop()
+		behavior = null
+	if get_info().behavior:
+		behavior = get_info().behavior.new(self)
+		behavior.start()
 	# ticking
 	var chunk: GridChunk = Game.grid.get_chunk(Grid.get_chunk_coords(coords))
 	if chunk and chunk.sends_ticks:
@@ -63,7 +67,7 @@ func _set_type(value: Type) -> void:
 
 ## Returns an info resource for the tile.
 func get_info() -> TileInfo:
-	return Library.tiles[type]
+	return ResourceLibrary.tiles[type]
 
 
 
@@ -102,12 +106,16 @@ func set_visible(visible: bool) -> void:
 	RenderingServer.canvas_item_set_visible(rid, visible)
 
 
-
-# destructor
-
 ## Frees the tile's RID. Call just before the tile is unloaded.
 func stop_rendering() -> void:
 	RenderingServer.free_rid(rid)
+
+
+
+# input
+
+func input(event: InputEventMouseButton) -> void:
+	if behavior: behavior.input(event)
 
 
 

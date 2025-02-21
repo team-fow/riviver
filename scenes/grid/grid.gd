@@ -101,3 +101,10 @@ static func _static_init() -> void:
 	_map.tile_set = TileSet.new()
 	_map.tile_set.tile_shape = TileSet.TILE_SHAPE_HEXAGON
 	_map.tile_set.tile_size = Tile.SIZE
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	# tile input
+	if event is InputEventMouseButton:
+		var tile: Tile = get_tile(point_to_coords(get_local_mouse_position()))
+		if tile: tile.input(event)

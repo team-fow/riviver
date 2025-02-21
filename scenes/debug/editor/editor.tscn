@@ -18,11 +18,12 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="Toolbox" type="VBoxContainer" parent="Margins"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="ToolsLabel" type="Label" parent="Margins/Toolbox"]
+[node name="Label" type="Label" parent="Margins/Toolbox"]
 layout_mode = 2
 text = "Tools"
 
@@ -30,19 +31,15 @@ text = "Tools"
 layout_mode = 2
 theme_override_constants/h_separation = 16
 auto_height = true
-item_count = 1
+item_count = 2
 max_columns = 2
-item_0/text = "Type"
-
-[node name="TilesLabel" type="Label" parent="Margins/Toolbox"]
-layout_mode = 2
-text = "Tiles"
+item_0/text = "None"
+item_1/text = "Type"
 
 [node name="Tiles" type="ItemList" parent="Margins/Toolbox"]
-custom_minimum_size = Vector2(300, 400)
+visible = false
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 2
 theme_override_constants/icon_margin = 16
 allow_search = false
 icon_scale = 2.0

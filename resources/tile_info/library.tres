@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=6 format=3 uid="uid://cuyf0ka52yfca"]
+
+[ext_resource type="Script" path="res://resources/tile_behavior/library.gd" id="1_atxpv"]
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_oyhjp"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_xmdg8"]
+[ext_resource type="Texture2D" uid="uid://b4ufbin1284xh" path="res://assets/tiles/library.png" id="3_7lawl"]
+
+[sub_resource type="Resource" id="Resource_q8p4o"]
+script = ExtResource("2_xmdg8")
+texture = ExtResource("3_7lawl")
+sheet_size = Vector2i(1, 1)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)
+
+[resource]
+script = ExtResource("1_oyhjp")
+name = "Library"
+sprite_sheet = SubResource("Resource_q8p4o")
+z_index = 0
+behavior = ExtResource("1_atxpv")

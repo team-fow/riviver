@@ -9,6 +9,7 @@ static var grid: Grid ## Manages tiles.
 static var river: River ## Manages the river state.
 static var player: Player ## Manages player cards & materials.
 static var clock: Clock ## Manages time & weather.
+static var camera: Camera2D ## Manages chunk loading.
 
 
 ## Writes the current game state to file.
@@ -42,3 +43,4 @@ func _ready() -> void:
 	river = $River
 	player = $Player
 	clock = $Clock
+	camera = $Camera

@@ -1,12 +1,12 @@
 extends CanvasLayer
 
-enum Tool {TYPE}
+enum Tool {NONE, TYPE}
 
 var tool: Tool
 var type: Tile.Type
 
-@onready var tool_list: ItemList = $Margins/Toolbox/Tools
-@onready var tile_list: ItemList = $Margins/Toolbox/Tiles
+@onready var tools: ItemList = $Margins/Toolbox/Tools
+@onready var tiles: ItemList = $Margins/Toolbox/Tiles
 @onready var coords_label: Label = $Margins/Bar/Label
 
 
@@ -32,11 +32,11 @@ func _unhandled_input(event: InputEvent) -> void:
 # list
 
 func _ready() -> void:
-	for info: TileInfo in Library.tiles:
-		tile_list.add_item(info.name, info.sprite_sheet.texture)
+	for info: TileInfo in ResourceLibrary.tiles:
+		tiles.add_item(info.name, info.sprite_sheet.texture)
 	
-	tool_list.select(0)
-	tile_list.select(0)
+	tools.select(0)
+	tiles.select(0)
 
 
 func _on_tile_selected(idx: int) -> void:
@@ -45,6 +45,8 @@ func _on_tile_selected(idx: int) -> void:
 
 func _on_tool_selected(idx: int) -> void:
 	tool = idx as Tool
+	
+	tiles.visible = tool == Tool.TYPE
 
 
 
