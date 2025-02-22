@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpriteSheet" load_steps=3 format=3 uid="uid://pidpcky0i066"]
+
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="1_37s3f"]
+[ext_resource type="Texture2D" uid="uid://cd626hwn2es4g" path="res://assets/tiles/default.png" id="2_rwaa1"]
+
+[resource]
+script = ExtResource("1_37s3f")
+texture = ExtResource("2_rwaa1")
+sheet_size = Vector2i(1, 1)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)

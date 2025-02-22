@@ -15,3 +15,4 @@ sprite_offset = Vector2(0, 0)
 script = ExtResource("1_ssiwu")
 name = "Grass land2"
 sprite_sheet = SubResource("Resource_bp557")
+z_index = 0

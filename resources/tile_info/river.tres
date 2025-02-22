@@ -16,4 +16,5 @@ sprite_offset = Vector2(0, 0)
 script = ExtResource("1_pe1c5")
 name = "River"
 sprite_sheet = SubResource("Resource_bn4uf")
+z_index = 0
 behavior = ExtResource("1_ptfsi")

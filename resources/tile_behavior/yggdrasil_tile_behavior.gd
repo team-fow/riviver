@@ -13,7 +13,7 @@ func start() -> void:
 func _clear_smog(smog: Tile, max_distance: int) -> void:
 	if smog.type != Tile.Type.SMOG or smog.coords.distance_squared_to(tile.coords) > max_distance: return
 	
-	smog.type = Tile.Type.GRASS
+	smog.behavior.clear()
 	
 	await Game.grid.get_tree().create_timer(0.05).timeout
 	for neighbor: Tile in smog.get_neighbors():

@@ -6,4 +6,4 @@ extends YggdrasilTileBehavior
 
 func _init(tile: Tile) -> void:
 	super(tile)
-	clear_radius = 16
+	clear_radius = 32
