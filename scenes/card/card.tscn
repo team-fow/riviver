@@ -18,6 +18,7 @@ offset_right = 100.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(100, 150)
 script = ExtResource("1_nemah")
 
 [node name="Background" type="TextureRect" parent="."]

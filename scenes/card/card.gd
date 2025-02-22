@@ -5,6 +5,7 @@ const SIZE := Vector2(200, 300)
 
 var info: CardInfo = load("res://resources/card_info/test_card.tres") ## Info resource.
 var tween: Tween
+var game: Node
 
 @onready var background: TextureRect = $Background
 @onready var name_label: Label = $Margins/Info/Name
@@ -13,8 +14,8 @@ var tween: Tween
 
 
 ## Plays the card.
-func play() -> void:
-	info.play()
+func play(tile: Tile) -> void:
+	info.play(tile)
 
 
 # Sets whether or not the card receives mouse input

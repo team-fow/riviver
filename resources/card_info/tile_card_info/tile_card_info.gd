@@ -9,18 +9,16 @@ var recipes: Dictionary
 
 # Plays the card, converting the targetted tile into a tile of the result type
 func play(target: Tile):
-	target._set_type(recipes[target.type])
+	target._set_type(recipe_vals[recipe_keys.find(target.type)])
 
 
+# Determines whether the card can be played on a certain tile and returns a bool
 func can_be_played(target: Tile) -> bool:
-	if target.type in recipes.keys():
+	print(target.type)
+	print(recipes.keys())
+	
+	if target.type in recipe_keys:
 		return true
 	else:
 		return false
 		
-
-# virtual
-
-func _init() -> void:
-	for i in recipe_keys.size():
-		recipes.get_or_add(recipe_keys[i], recipe_vals[i])
