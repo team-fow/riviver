@@ -12,7 +12,9 @@ enum Type {
 	ASH,
 	FIRE,
 	RIVER,
-	GRASS_LAND2,
+	HOUSE,
+	GRASS_LAND,
+	FOREST,
 }
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.
