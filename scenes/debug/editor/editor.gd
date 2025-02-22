@@ -19,7 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				Game.grid.get_tile(coords).type = type
 	
 	if event is InputEventMouseMotion:
-		var chunk: GridChunk = Game.grid.get_chunk(Grid.get_chunk_coords(coords))
+		var chunk: Chunk = Game.grid.get_chunk(Grid.get_chunk_coords(coords))
 		if chunk:
 			coords_label.text = "Type: %s\nCoords: %s\nChunk coords: %s" % [
 				Game.grid.get_tile(coords).get_info().name,

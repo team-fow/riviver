@@ -7,13 +7,13 @@ const RANGE: int = 200
 # drawing
 
 func _draw() -> void:
-	for chunk: GridChunk in Game.grid.get_loaded_chunks():
+	for chunk: Chunk in Game.grid.get_loaded_chunks():
 		draw_chunk(chunk)
 
 
-func draw_chunk(chunk: GridChunk) -> void:
-	for x: int in GridChunk.SIZE.x:
-		for y: int in GridChunk.SIZE.y:
+func draw_chunk(chunk: Chunk) -> void:
+	for x: int in Chunk.SIZE.x:
+		for y: int in Chunk.SIZE.y:
 			draw_tile(chunk.get_tile(chunk.tile_offset + Vector2i(x, y)))
 
 

@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 		chunk_coords = new_chunk_coords
 		
 		# unloading chunks
-		for chunk: GridChunk in Game.grid.get_loaded_chunks():
+		for chunk: Chunk in Game.grid.get_loaded_chunks():
 			var diff: Vector2i = (chunk.chunk_coords - chunk_coords).abs()
 			if diff[diff.max_axis_index()] > UNLOAD_RANGE:
 				Game.grid.unload_chunk(chunk.chunk_coords)

@@ -14,13 +14,13 @@ var _chunks: Dictionary # Loaded chunks.
 
 ## Adds a tile. Frees the existent tile at the same coords, if any.
 func set_tile(coords: Vector2i, type: Tile.Type) -> void:
-	var chunk: GridChunk = get_chunk(get_chunk_coords(coords))
+	var chunk: Chunk = get_chunk(get_chunk_coords(coords))
 	if chunk: chunk.set_tile(coords, type)
 
 
 ## Returns the tile at some coords. Returns null if the tile is unloaded.
 func get_tile(coords: Vector2i) -> Tile:
-	var chunk: GridChunk = get_chunk(get_chunk_coords(coords))
+	var chunk: Chunk = get_chunk(get_chunk_coords(coords))
 	return chunk.get_tile(coords) if chunk else null
 
 
@@ -28,24 +28,23 @@ func get_tile(coords: Vector2i) -> Tile:
 # chunks
 
 ## Returns the chunk at some chunk coords.
-func get_chunk(chunk_coords: Vector2i) -> GridChunk:
+func get_chunk(chunk_coords: Vector2i) -> Chunk:
 	return _chunks[chunk_coords] if is_chunk_loaded(chunk_coords) else null
 
 
 ## Loads the chunk at some chunk coords.
 func load_chunk(chunk_coords: Vector2i) -> void:
-	_chunks[chunk_coords] = GridChunk.new(chunk_coords)
-	_chunks[chunk_coords].read_from_file()
+	_chunks[chunk_coords] = Chunk.new(chunk_coords)
+	_chunks[chunk_coords].load()
 
 
 ## Loads the chunk at some chunk coords.
 func unload_chunk(chunk_coords: Vector2i) -> void:
-	_chunks[chunk_coords].write_to_file()
-	_chunks[chunk_coords].stop_tile_rendering()
+	_chunks[chunk_coords].unload()
 	_chunks.erase(chunk_coords)
 
 
-## Returns true whether the chunk at some chunk coords is loaded.
+## Returns true if the chunk at some chunk coords is loaded.
 func is_chunk_loaded(chunk_coords: Vector2i) -> bool:
 	return chunk_coords in _chunks
 
@@ -58,8 +57,8 @@ func get_loaded_chunks() -> Array:
 ## Returns the chunk coords for some coords.
 static func get_chunk_coords(coords: Vector2i) -> Vector2i:
 	var chunk_coords: Vector2 = coords
-	chunk_coords.x /= GridChunk.SIZE.x
-	chunk_coords.y /= GridChunk.SIZE.y
+	chunk_coords.x /= Chunk.SIZE.x
+	chunk_coords.y /= Chunk.SIZE.y
 	return chunk_coords.floor()
 
 

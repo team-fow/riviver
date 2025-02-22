@@ -1,7 +1,13 @@
 extends TileBehavior
 
-@export var type_below: Tile.Type = Tile.Type.GRASS
+const RIVERBED_THRESHOLD: float = -0.25
+
+static var noise: FastNoiseLite = preload("res://assets/worldgen_noise.tres")
 
 
 func clear() -> void:
-	tile.type = type_below
+	var value: float = noise.get_noise_2dv(tile.coords)
+	if value < RIVERBED_THRESHOLD:
+		tile.type = Tile.Type.RIVERBED
+	else:
+		tile.type = Tile.Type.WASTELAND if randf() < 0.995 else Tile.Type.DEAD_TREE

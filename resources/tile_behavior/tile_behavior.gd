@@ -31,12 +31,23 @@ func input(event: InputEventMouseButton) -> void:
 
 # helper
 
-func _is_surrounded_by(types: Array[Tile.Type]) -> bool:
-	return tile.get_neighbors().all(_tile_matches.bind(types))
+# Returns true if some tile is one of some types.
+func _tile_matches(tile: Tile, filter: PackedInt32Array) -> bool:
+	return tile.type in filter
 
 
-func _tile_matches(tile: Tile, types: Array[Tile.Type]) -> bool:
-	return tile.type in types
+# Returns true if the tile is surrounded by tiles of some types.
+func _is_surrounded_by(filter: PackedInt32Array) -> bool:
+	return tile.get_neighbors().all(_tile_matches.bind(filter))
+
+
+# Calls a callable on tiles outward in a radius.
+func _radiate_effect(target: Tile, filter: PackedInt32Array, callable: Callable, radius_squared: float) -> void:
+	await Game.grid.get_tree().create_timer(0.05).timeout
+	for neighbor: Tile in target.get_neighbors():
+		if _tile_matches(neighbor, filter) and neighbor.coords.distance_squared_to(tile.coords) < radius_squared:
+			callable.call(neighbor)
+			_radiate_effect(neighbor, filter, callable, radius_squared)
 
 
 

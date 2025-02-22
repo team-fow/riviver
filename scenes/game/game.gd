@@ -15,29 +15,36 @@ static var camera: Camera2D ## Manages chunk loading.
 
 ## Writes the current game state to disk.
 static func write() -> void:
-	if not DirAccess.dir_exists_absolute(save_path):
-		create_save()
-	
-	file.set_value("main", "camera_pos", camera.position)
-	file.set_value("main", "materials", player.materials)
-	file.set_value("main", "time", clock.time)
-	
-	for chunk: GridChunk in grid.get_loaded_chunks():
-		chunk.write_to_file()
-	
+	if not DirAccess.dir_exists_absolute(save_path): create_save()
+	# world
+	file.set_value("grid", "camera_pos", camera.position)
+	for chunk: Chunk in grid.get_loaded_chunks():
+		chunk.save()
+	# materials
+	for i: int in Player.MaterialType.size():
+		var key: String = Player.MaterialType.keys()[i].to_lower()
+		file.set_value("materials", key, Game.player.count_material(i))
+		file.set_value("materials", "max_" + key, Game.player.count_max_material(i))
+	# clock
+	file.set_value("clock", "time", clock.time)
+	# saving
 	file.save(save_path + "save.ini")
 
 
 ## Reads and restores the game state from disk.
 static func read() -> void:
-	if not DirAccess.dir_exists_absolute(save_path):
-		create_save()
-	
+	if not DirAccess.dir_exists_absolute(save_path): create_save()
+	# loading
 	file.clear()
 	file.load(save_path + "save.ini")
-	
-	camera.position = file.get_value("main", "camera_pos", camera.position)
-	player.materials = file.get_value("main", "materials", player.materials)
+	# world
+	camera.position = file.get_value("grid", "camera_pos", camera.position)
+	# materials
+	for i: int in Player.MaterialType.size():
+		var key: String = Player.MaterialType.keys()[i].to_lower()
+		Game.player.add_material(i, file.get_value("materials", key, 0))
+		Game.player.add_max_material(i, file.get_value("materials", "max_" + key, 0))
+	# clock
 	clock.time = file.get_value("main", "time", clock.time)
 
 

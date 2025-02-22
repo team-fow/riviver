@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scenes/game/river.gd" id="4_uc3ti"]
 [ext_resource type="Script" path="res://scenes/game/daytime_modulate.gd" id="5_5kbi3"]
 [ext_resource type="Script" path="res://scenes/game/player.gd" id="5_cgng6"]
-[ext_resource type="PackedScene" uid="uid://kyk1uxpyf8ad" path="res://scenes/hand/hand.tscn" id="6_kslhd"]
+[ext_resource type="PackedScene" path="res://scenes/hand/hand.tscn" id="6_kslhd"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tllol")

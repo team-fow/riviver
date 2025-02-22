@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://c6ar46qqqxtin"]
+
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_y8qdv"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_y4c61"]
+[ext_resource type="Texture2D" uid="uid://dgx5doqmsrltt" path="res://assets/tiles/mountain.png" id="3_krylg"]
+
+[sub_resource type="Resource" id="Resource_08fsj"]
+script = ExtResource("2_y4c61")
+texture = ExtResource("3_krylg")
+sheet_size = Vector2i(1, 1)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)
+
+[resource]
+script = ExtResource("1_y8qdv")
+name = "Mountain"
+sprite_sheet = SubResource("Resource_08fsj")
+z_index = 0
+flammable = false

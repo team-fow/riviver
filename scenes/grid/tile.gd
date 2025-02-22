@@ -16,6 +16,9 @@ enum Type {
 	GRASS_LAND,
 	FOREST,
 	THICKET,
+	WASTELAND,
+	DEAD_TREE,
+	RIVERBED,
 }
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.
@@ -24,6 +27,7 @@ var type: Type : set = _set_type ## Type ID. Affects the tile's rendering and be
 var behavior: TileBehavior ## Recieves ticks and runs tick logic.
 
 var coords: Vector2i : set = _set_coords ## The tile's grid coordinates.
+var chunk: Chunk ## The chunk this tile is in.
 
 var rid: RID = RenderingServer.canvas_item_create() ## A canvas item ID. Used for rendering.
 var transform: Transform2D ## The transform applied to this tile.
@@ -35,6 +39,7 @@ var transform: Transform2D ## The transform applied to this tile.
 # Sets coords and updates position to match.
 func _set_coords(value: Vector2i) -> void:
 	coords = value
+	chunk = Game.grid.get_chunk(Grid.get_chunk_coords(coords))
 	set_position(Grid.coords_to_point(coords))
 
 
@@ -63,7 +68,6 @@ func _set_type(value: Type) -> void:
 		behavior = get_info().behavior.new(self)
 		behavior.start()
 	# ticking
-	var chunk: GridChunk = Game.grid.get_chunk(Grid.get_chunk_coords(coords))
 	if chunk and chunk.sends_ticks:
 		Game.grid.queue_tick_with_neighbors(self)
 

@@ -1,4 +1,4 @@
-class_name GridChunk
+class_name Chunk
 ## Handles local tile editing and serialization.
 
 const SIZE := Vector2i(16, 32) ## Size, in tiles.
@@ -7,6 +7,7 @@ var _tiles: Array[Array] # Tile matrix of size SIZE.
 
 var chunk_coords: Vector2i ## Chunk coordinates.
 var tile_offset: Vector2i ## Coords of the top-leftmost tile.
+
 var sends_ticks: bool ## Whether this chunk's tiles send ticks.
 
 
@@ -28,51 +29,41 @@ func get_tile(coords: Vector2i) -> Tile:
 # loading & unloading
 
 ## Saves tile types to a file.
-func write_to_file() -> void:
-	var types: PackedInt32Array
+func save() -> void:
+	var file: FileAccess = FileAccess.open(Game.save_path + str(chunk_coords), FileAccess.WRITE_READ)
+	var types := PackedInt32Array()
 	types.resize(SIZE.x + SIZE.y * SIZE.x)
 	
 	for x: int in SIZE.x:
 		for y: int in SIZE.y:
 			types[x + y * SIZE.x] = _tiles[x][y].type
 	
-	var file: FileAccess = FileAccess.open(Game.save_path + str(chunk_coords), FileAccess.WRITE_READ)
 	file.store_buffer(types.to_byte_array())
 	file.close()
 
 
 ## Loads tile types from a file.
-func read_from_file() -> void:
+func load() -> void:
 	var types: PackedInt32Array = FileAccess.get_file_as_bytes(Game.save_path + str(chunk_coords)).to_int32_array()
-	if not types:
-		generate()
-		return
 	
-	sends_ticks = false
+	if types:
+		sends_ticks = false
+		for x: int in SIZE.x:
+			for y: int in SIZE.y:
+				_tiles[x][y].type = types[x + y * SIZE.x]
+		sends_ticks = true
 	
-	for x: int in SIZE.x:
-		for y: int in SIZE.y:
-			_tiles[x][y].type = types[x + y * SIZE.x]
-	
-	sends_ticks = true
+	else:
+		sends_ticks = false
+		for x: int in SIZE.x:
+			for y: int in SIZE.y:
+				_tiles[x][y].type = Tile.Type.SMOG
+		sends_ticks = true
 
 
-## Generates the chunk from scratch.
-func generate() -> void:
-	sends_ticks = false
-	
-	for x: int in SIZE.x:
-		for y: int in SIZE.y:
-			_tiles[x][y].type = Tile.Type.SMOG
-	
-	sends_ticks = true
-
-
-
-# rendering
-
-## Frees tile RIDs. Call just before the chunk is unloaded.
-func stop_tile_rendering() -> void:
+## Saves the chunk and stops rendering.
+func unload() -> void:
+	save()
 	for x: int in SIZE.x:
 		for y: int in SIZE.y:
 			_tiles[x][y].stop_rendering()
@@ -93,6 +84,7 @@ func _init(chunk_coords: Vector2i) -> void:
 		_tiles[x].resize(SIZE.y)
 		for y: int in SIZE.y:
 			_tiles[x][y] = Tile.new(tile_offset + Vector2i(x, y))
+			_tiles[x][y].chunk = self
 	
 	sends_ticks = true
 
