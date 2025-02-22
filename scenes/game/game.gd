@@ -18,8 +18,9 @@ static func write() -> void:
 	if not DirAccess.dir_exists_absolute(save_path):
 		create_save()
 	
-	file.set_value("main", "time", clock.time)
+	file.set_value("main", "camera_pos", camera.position)
 	file.set_value("main", "materials", player.materials)
+	file.set_value("main", "time", clock.time)
 	
 	for chunk: GridChunk in grid.get_loaded_chunks():
 		chunk.write_to_file()
@@ -34,6 +35,10 @@ static func read() -> void:
 	
 	file.clear()
 	file.load(save_path + "save.ini")
+	
+	camera.position = file.get_value("main", "camera_pos", camera.position)
+	player.materials = file.get_value("main", "materials", player.materials)
+	clock.time = file.get_value("main", "time", clock.time)
 
 
 ## Creates a new save.
@@ -54,10 +59,6 @@ static func delete_save() -> void:
 
 # virtual
 
-func _enter_tree() -> void:
-	read()
-
-
 func _ready() -> void:
 	# setting shorthand variables
 	grid = $Grid
@@ -65,3 +66,5 @@ func _ready() -> void:
 	player = $Player
 	clock = $Clock
 	camera = $Camera
+	# loading save
+	read()
