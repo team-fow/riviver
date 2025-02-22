@@ -22,5 +22,4 @@ func trigger() -> void:
 
 
 func _clear_smog(target: Tile) -> void:
-	assert(target.type == Tile.Type.SMOG)
 	target.behavior.clear()
