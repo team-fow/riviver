@@ -48,9 +48,13 @@ func read_from_file() -> void:
 		generate()
 		return
 	
+	sends_ticks = false
+	
 	for x: int in SIZE.x:
 		for y: int in SIZE.y:
 			_tiles[x][y].type = types[x + y * SIZE.x]
+	
+	sends_ticks = true
 
 
 ## Generates the chunk from scratch.

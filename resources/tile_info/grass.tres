@@ -18,3 +18,4 @@ name = "Grass"
 sprite_sheet = SubResource("Resource_0p76r")
 z_index = 0
 behavior = ExtResource("1_c2il1")
+flammable = true

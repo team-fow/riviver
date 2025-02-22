@@ -18,3 +18,4 @@ name = "River"
 sprite_sheet = SubResource("Resource_bn4uf")
 z_index = 0
 behavior = ExtResource("1_ptfsi")
+flammable = false

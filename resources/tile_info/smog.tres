@@ -25,3 +25,4 @@ sprite_sheet = SubResource("Resource_pl73q")
 material = SubResource("ShaderMaterial_rhgyq")
 z_index = 1
 behavior = ExtResource("1_ys550")
+flammable = false

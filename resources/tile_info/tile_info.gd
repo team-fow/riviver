@@ -8,3 +8,4 @@ extends Resource
 @export var z_index: int ## Z-index applied when rendering.
 
 @export var behavior: GDScript ## Custom behavior script.
+@export var flammable: bool ## Whether fire can damage this tile.

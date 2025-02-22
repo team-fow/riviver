@@ -5,6 +5,9 @@ var tile: Tile ## The tile this behavior is attached to.
 var is_tick_queued: bool ## Whether a tick has already been queued for this tile.
 
 
+
+# event
+
 ## Called when attached to a tile.
 func start() -> void:
 	pass
@@ -23,6 +26,17 @@ func stop() -> void:
 ## Called when the tile recieves mouse input.
 func input(event: InputEventMouseButton) -> void:
 	pass
+
+
+
+# helper
+
+func _is_surrounded_by(types: Array[Tile.Type]) -> bool:
+	return tile.get_neighbors().all(_tile_matches.bind(types))
+
+
+func _tile_matches(tile: Tile, types: Array[Tile.Type]) -> bool:
+	return tile.type in types
 
 
 
