@@ -130,7 +130,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_7ccef")
 
-[node name="IconPlay" type="TextureRect" parent="Pause Panel/ButtonMenu"]
+[node name="IconMenu" type="TextureRect" parent="Pause Panel/ButtonMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -160,7 +160,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_7ccef")
 
-[node name="IconPlay" type="TextureRect" parent="Pause Panel/ButtonQuit"]
+[node name="IconQuit" type="TextureRect" parent="Pause Panel/ButtonQuit"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.523
