@@ -2,5 +2,5 @@ extends TileBehavior
 
 
 func tick() -> void:
-	if _is_surrounded_by([Tile.Type.FOREST, Tile.Type.THICKET]):
+	if tile.get_neighbors().all(Tile.matches.bind([Tile.Type.FOREST, Tile.Type.THICKET])):
 		tile.type = Tile.Type.THICKET

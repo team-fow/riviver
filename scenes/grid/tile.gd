@@ -126,6 +126,30 @@ func input(event: InputEventMouseButton) -> void:
 
 
 
+# helper
+
+## Returns true if some tile's type is in some filter.
+static func matches(tile: Tile, filter: PackedInt32Array) -> bool:
+	return tile.type in filter
+
+
+## Converts some wasteland tile into some greenery tile.
+static func revitalize(tile: Tile) -> void:
+	match tile.type:
+		Tile.Type.WASTELAND: tile.type = Tile.Type.GRASS
+		Tile.Type.RIVERBED: tile.type = Tile.Type.RIVER
+
+
+## Calls a callable on tiles outward in some radius.
+func radiate_effect(callable: Callable, radius_squared: float, filter: PackedInt32Array, target: Tile = self) -> void:
+	await Game.grid.get_tree().create_timer(0.05).timeout
+	for neighbor: Tile in target.get_neighbors():
+		if matches(neighbor, filter) and neighbor.coords.distance_squared_to(coords) < radius_squared:
+			callable.call(neighbor)
+			radiate_effect(callable, radius_squared, filter, neighbor)
+
+
+
 # virtual
 
 func _init(coords: Vector2i) -> void:
