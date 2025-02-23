@@ -23,6 +23,10 @@ ResourceLibrary="*res://scenes/resource_library.gd"
 window/size/viewport_width=2000
 window/size/viewport_height=1200
 
+[dotnet]
+
+project/assembly_name="riviver"
+
 [editor_plugins]
 
 enabled=PackedStringArray()

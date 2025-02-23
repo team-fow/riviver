@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgbhlhlnbj02o"]
+[gd_scene load_steps=12 format=3 uid="uid://bgbhlhlnbj02o"]
 
 [ext_resource type="PackedScene" uid="uid://deg1lwogfdqdi" path="res://scenes/debug/editor/editor.tscn" id="1_jbr5h"]
 [ext_resource type="Script" path="res://scenes/debug/map.gd" id="2_kl14l"]
+[ext_resource type="Texture2D" uid="uid://dbdm86b40bbes" path="res://assets/ui/assets/Button - BG.png" id="3_7ccef"]
+[ext_resource type="Texture2D" uid="uid://6mrkfgh11hid" path="res://assets/ui/assets/Panel - River.png" id="3_cgv0v"]
+[ext_resource type="Texture2D" uid="uid://5sbi2h3l7h4p" path="res://assets/ui/assets/Button - Icon.Play.png" id="4_cgelv"]
+[ext_resource type="Texture2D" uid="uid://bp61bc5mf3cbr" path="res://assets/ui/assets/Panel - Lower.png" id="4_kpwrc"]
+[ext_resource type="Texture2D" uid="uid://bj40y15l6uury" path="res://assets/ui/assets/Panel - Upper.png" id="5_bstt5"]
+[ext_resource type="Texture2D" uid="uid://7abd0oelsoad" path="res://assets/ui/assets/Button - Icon.Back.png" id="8_o2ai1"]
+[ext_resource type="Texture2D" uid="uid://my0bwq5mlmmu" path="res://assets/ui/assets/Button - Icon.Menu.png" id="9_5u1mh"]
+[ext_resource type="Texture2D" uid="uid://bselotmjvdwhk" path="res://assets/ui/assets/Slider - Ground.png" id="9_7eaiu"]
+[ext_resource type="Texture2D" uid="uid://bc3addnh647ii" path="res://assets/ui/assets/Slider - River.png" id="10_bihvv"]
 
 [node name="UI" type="CanvasLayer"]
 
 [node name="Editor" parent="." instance=ExtResource("1_jbr5h")]
+visible = false
 
 [node name="Margins" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -20,9 +30,169 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="Map" type="Control" parent="Margins"]
-visible = false
 modulate = Color(1.1, 1.1, 1.1, 0.502)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("2_kl14l")
+
+[node name="Pause Panel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -80.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelRiver" type="TextureRect" parent="Pause Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 2.0
+offset_right = -791.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_cgv0v")
+
+[node name="PanelLower" type="TextureRect" parent="Pause Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 452.0
+offset_right = -42.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_kpwrc")
+
+[node name="PanelUpper" type="TextureRect" parent="Pause Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 471.0
+offset_top = 117.0
+offset_right = -389.0
+offset_bottom = -423.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_bstt5")
+
+[node name="ButtonPlay" type="TextureButton" parent="Pause Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 338.0
+offset_top = 53.0
+offset_right = 771.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_7ccef")
+
+[node name="IconPlay" type="TextureRect" parent="Pause Panel/ButtonPlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -49.5
+offset_right = 52.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_cgelv")
+
+[node name="ButtonMenu" type="TextureButton" parent="Pause Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -770.0
+offset_top = 53.0
+offset_right = -337.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_7ccef")
+
+[node name="IconPlay" type="TextureRect" parent="Pause Panel/ButtonMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -63.5
+offset_right = 81.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_o2ai1")
+
+[node name="ButtonQuit" type="TextureButton" parent="Pause Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.5
+offset_top = 53.0
+offset_right = 216.5
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_7ccef")
+
+[node name="IconPlay" type="TextureRect" parent="Pause Panel/ButtonQuit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.523
+anchor_top = 0.46
+anchor_right = 0.523
+anchor_bottom = 0.46
+offset_left = -131.959
+offset_top = -76.54
+offset_right = 114.041
+offset_bottom = 70.46
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_5u1mh")
+
+[node name="SliderMusic" type="TextureRect" parent="Pause Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 581.0
+offset_top = 212.0
+offset_right = -782.0
+offset_bottom = -573.0
+texture = ExtResource("9_7eaiu")
+
+[node name="SliderSFX" type="TextureRect" parent="Pause Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 374.0
+offset_top = 94.0
+offset_right = -999.0
+offset_bottom = -691.0
+texture = ExtResource("10_bihvv")
