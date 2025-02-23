@@ -16,3 +16,4 @@ script = ExtResource("1_m5usu")
 name = "Ash"
 sprite_sheet = SubResource("Resource_fswqg")
 z_index = 0
+flammable = false

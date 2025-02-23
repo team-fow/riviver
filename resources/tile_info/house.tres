@@ -16,3 +16,4 @@ script = ExtResource("1_kkd4h")
 name = "House"
 sprite_sheet = SubResource("Resource_q3fm6")
 z_index = 0
+flammable = false

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://cfi50eruy13cq"]
+
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_f2rmf"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_a5ho6"]
+[ext_resource type="Texture2D" uid="uid://cpbvwfnj4ehqx" path="res://assets/tiles/rocks.png" id="3_j5dfb"]
+
+[sub_resource type="Resource" id="Resource_q0y0t"]
+script = ExtResource("2_a5ho6")
+texture = ExtResource("3_j5dfb")
+sheet_size = Vector2i(2, 2)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)
+
+[resource]
+script = ExtResource("1_f2rmf")
+name = ""
+sprite_sheet = SubResource("Resource_q0y0t")
+z_index = 0
+flammable = false

@@ -19,6 +19,13 @@ enum Type {
 	WASTELAND,
 	DEAD_TREE,
 	RIVERBED,
+	ROCKS,
+	FORESTSET,
+	SHALLOW_WATER,
+	DIRT_ROAD,
+	DEEP_WATER,
+	
+	
 }
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.

@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_bn4uf"]
 script = ExtResource("3_34bdo")
 texture = ExtResource("3_81xqp")
-sheet_size = Vector2i(1, 1)
+sheet_size = Vector2i(6, 3)
 sheet_picking = 1
 sprite_offset = Vector2(0, 0)
 
