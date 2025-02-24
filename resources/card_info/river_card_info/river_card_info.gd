@@ -13,9 +13,9 @@ var not_erodible: Array[Tile.Type] = [Tile.Type.RIVER, Tile.Type.SHALLOW_WATER, 
 func play(target: Tile):
 	var erodibletiles = erodible_tiles()
 	if not targets_water:
-		target.radiate_effect(func (t): t._set_type(Tile.Type.RIVERBED), radius**2, erodibletiles)
+		target.radiate_effect(Tile.set_type.bind(Tile.Type.RIVERBED), radius**2, erodibletiles, true)
 	else:
-		target.radiate_effect(func (t): t._set_type(Tile.Type.DIRT), radius**2, water_tiles)
+		target.radiate_effect(Tile.set_type.bind(Tile.Type.DIRT), radius**2, water_tiles, true)
 
 
 # Generates an array of all the types of tile that can be eroded

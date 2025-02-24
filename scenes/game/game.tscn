@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://262wfv063anm"]
+[gd_scene load_steps=10 format=3 uid="uid://262wfv063anm"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_tllol"]
 [ext_resource type="PackedScene" uid="uid://bgbhlhlnbj02o" path="res://scenes/ui/ui.tscn" id="2_42qev"]
 [ext_resource type="Script" path="res://scenes/grid/grid.gd" id="3_47w66"]
 [ext_resource type="Script" path="res://scenes/game/camera.gd" id="4_70hti"]
 [ext_resource type="Script" path="res://scenes/game/river.gd" id="4_uc3ti"]
+[ext_resource type="PackedScene" uid="uid://deg1lwogfdqdi" path="res://scenes/debug/editor/editor.tscn" id="4_ycsp2"]
 [ext_resource type="Script" path="res://scenes/game/daytime_modulate.gd" id="5_5kbi3"]
 [ext_resource type="Script" path="res://scenes/game/player.gd" id="5_cgng6"]
 [ext_resource type="PackedScene" uid="uid://prfpthf047d3" path="res://scenes/hand/hand.tscn" id="6_kslhd"]
@@ -35,6 +36,8 @@ script = ExtResource("3_47w66")
 [node name="TickTimer" type="Timer" parent="Grid"]
 wait_time = 0.5
 autostart = true
+
+[node name="Editor" parent="Grid" instance=ExtResource("4_ycsp2")]
 
 [node name="River" type="Node" parent="."]
 script = ExtResource("4_uc3ti")

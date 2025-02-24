@@ -24,8 +24,6 @@ enum Type {
 	SHALLOW_WATER,
 	DIRT_ROAD,
 	DEEP_WATER,
-	
-	
 }
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.
@@ -140,6 +138,11 @@ static func matches(tile: Tile, filter: PackedInt32Array) -> bool:
 	return tile.type in filter
 
 
+## Sets some tile's type.
+static func set_type(tile: Tile, type: Type) -> void:
+	tile.type = type
+
+
 ## Converts some wasteland tile into some greenery tile.
 static func revitalize(tile: Tile) -> void:
 	match tile.type:
@@ -148,12 +151,14 @@ static func revitalize(tile: Tile) -> void:
 
 
 ## Calls a callable on tiles outward in some radius.
-func radiate_effect(callable: Callable, radius_squared: float, filter: PackedInt32Array, target: Tile = self) -> void:
+func radiate_effect(callable: Callable, radius_squared: float, filter: PackedInt32Array, affect_center: bool = false, target: Tile = self) -> void:
+	if affect_center: callable.call(target)
 	await Game.grid.get_tree().create_timer(0.05).timeout
 	for neighbor: Tile in target.get_neighbors():
-		if matches(neighbor, filter) and neighbor.coords.distance_squared_to(coords) < radius_squared:
+		var distance: float = neighbor.coords.distance_squared_to(coords)
+		if matches(neighbor, filter) and distance < radius_squared and distance > target.coords.distance_squared_to(coords):
 			callable.call(neighbor)
-			radiate_effect(callable, radius_squared, filter, neighbor)
+			radiate_effect(callable, radius_squared, filter, false, neighbor)
 
 
 

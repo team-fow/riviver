@@ -1,6 +1,6 @@
 extends TileBehavior
 
-const RIVERBED_THRESHOLD: float = -0.25
+const RIVERBED_THRESHOLD: float = -0.5
 
 static var noise: FastNoiseLite = preload("res://assets/worldgen_noise.tres")
 

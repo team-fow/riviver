@@ -32,8 +32,12 @@ func _unhandled_input(event: InputEvent) -> void:
 # list
 
 func _ready() -> void:
+	await get_tree().create_timer(0.1).timeout
 	for info: TileInfo in ResourceLibrary.tiles:
-		tiles.add_item(info.name, info.sprite_sheet.texture)
+		var icon := AtlasTexture.new()
+		icon.atlas = info.sprite_sheet.texture
+		icon.region.size = Vector2(info.sprite_sheet.sprite_size)
+		tiles.add_item(info.name, icon)
 	
 	tools.select(0)
 	tiles.select(0)
