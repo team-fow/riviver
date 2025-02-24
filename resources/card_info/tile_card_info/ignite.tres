@@ -6,6 +6,7 @@
 script = ExtResource("1_bakit")
 recipe_keys = Array[int]([5, 12, 11, 13])
 recipe_vals = Array[int]([8, 8, 8, 8])
+radius = 1.0
 name = "Ignite"
 material = 0
 material_cost = 0

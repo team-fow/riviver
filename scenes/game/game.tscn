@@ -26,6 +26,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="UI" parent="." instance=ExtResource("2_42qev")]
+visible = false
 
 [node name="Grid" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -41,9 +42,11 @@ script = ExtResource("4_uc3ti")
 [node name="Player" type="Node" parent="."]
 script = ExtResource("5_cgng6")
 
-[node name="Hand" parent="Player" instance=ExtResource("6_kslhd")]
-position = Vector2(0, 125)
-scale = Vector2(0.25, 0.25)
+[node name="HandLayer" type="CanvasLayer" parent="Player"]
+
+[node name="Hand" parent="Player/HandLayer" instance=ExtResource("6_kslhd")]
+position = Vector2(900, 900)
+scale = Vector2(0.75, 0.75)
 
 [node name="Clock" type="CanvasModulate" parent="."]
 script = ExtResource("5_5kbi3")

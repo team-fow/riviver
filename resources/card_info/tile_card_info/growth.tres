@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TileCardInfo" load_steps=2 format=3 uid="uid://dx87jrx7ibvqc"]
+
+[ext_resource type="Script" path="res://resources/card_info/tile_card_info/tile_card_info.gd" id="1_w63e3"]
+
+[resource]
+script = ExtResource("1_w63e3")
+recipe_keys = Array[int]([15, 6, 5])
+recipe_vals = Array[int]([12, 5, 11])
+radius = 2.0
+name = "Growth"
+material = 0
+material_cost = 0
+text = "Grow stuff in a radius"

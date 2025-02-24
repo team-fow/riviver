@@ -16,9 +16,15 @@ var retracted = false
 
 
 func _ready() -> void:
-	for i in 5:
+	for i in 2:
 		var card = load("res://scenes/card/card.tscn").instantiate()
-		card.info = load("res://resources/card_info/tile_card_info/ignite.tres")
+		card.info = load("res://resources/card_info/tile_card_info/growth.tres")
+		add_card(card)
+		card = load("res://scenes/card/card.tscn").instantiate()
+		card.info = load("res://resources/card_info/river_card_info/erosion.tres")
+		add_card(card)
+		card = load("res://scenes/card/card.tscn").instantiate()
+		card.info = load("res://resources/card_info/river_card_info/sedimentation.tres")
 		add_card(card)
 
 # modifying list
