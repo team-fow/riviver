@@ -1,28 +1,21 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=9 format=3 uid="uid://bd13xyv6q6u84"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=6 format=3 uid="uid://ljd76opxg1eu"]
 
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_83d3s"]
-[ext_resource type="Shader" path="res://assets/vfx/smog.gdshader" id="1_b1n2i"]
 [ext_resource type="Script" path="res://resources/tile_behavior/smog.gd" id="1_ys550"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_dmkod"]
-[ext_resource type="Texture2D" uid="uid://him8dg5mt3ts" path="res://assets/tiles/smog_texture.png" id="2_kalok"]
-[ext_resource type="Texture2D" uid="uid://cgnu4ww1nggju" path="res://assets/tiles/smog.png" id="3_7sgcb"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rhgyq"]
-shader = ExtResource("1_b1n2i")
-shader_parameter/pattern = ExtResource("2_kalok")
+[ext_resource type="Texture2D" uid="uid://cts37wxjoko0g" path="res://assets/tiles/smog.png" id="3_7sgcb"]
 
 [sub_resource type="Resource" id="Resource_pl73q"]
 script = ExtResource("2_dmkod")
 texture = ExtResource("3_7sgcb")
-sheet_size = Vector2i(1, 1)
-sheet_picking = 0
+sheet_size = Vector2i(3, 2)
+sheet_picking = 1
 sprite_offset = Vector2(0, 0)
 
 [resource]
 script = ExtResource("1_83d3s")
 name = "Smog"
 sprite_sheet = SubResource("Resource_pl73q")
-material = SubResource("ShaderMaterial_rhgyq")
 z_index = 1
 behavior = ExtResource("1_ys550")
 flammable = false
