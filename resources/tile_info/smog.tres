@@ -3,11 +3,13 @@
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_83d3s"]
 [ext_resource type="Script" path="res://resources/tile_behavior/smog.gd" id="1_ys550"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_dmkod"]
-[ext_resource type="Texture2D" uid="uid://cts37wxjoko0g" path="res://assets/tiles/smog.png" id="3_7sgcb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5dkdn"]
+load_path = "res://.godot/imported/smog.png-ec3808d3cc4578ed148d49a6905a0e32.ctex"
 
 [sub_resource type="Resource" id="Resource_pl73q"]
 script = ExtResource("2_dmkod")
-texture = ExtResource("3_7sgcb")
+texture = SubResource("CompressedTexture2D_5dkdn")
 sheet_size = Vector2i(3, 2)
 sheet_picking = 1
 sprite_offset = Vector2(0, 0)
