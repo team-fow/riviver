@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://resources/tile_behavior/worldtree.gd" id="1_odbh5"]
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="2_3xd20"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="3_rft0u"]
-[ext_resource type="Texture2D" uid="uid://ufg2lkjjv5xk" path="res://assets/tiles/yggdrasil.png" id="4_r4exr"]
+[ext_resource type="Texture2D" uid="uid://b6ebxiobe58r5" path="res://assets/tiles/worldtree.png" id="4_1jwe8"]
 
 [sub_resource type="Resource" id="Resource_muvk2"]
 script = ExtResource("3_rft0u")
-texture = ExtResource("4_r4exr")
+texture = ExtResource("4_1jwe8")
 sheet_size = Vector2i(1, 1)
 sheet_picking = 0
 sprite_offset = Vector2(0, -5)
