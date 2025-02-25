@@ -1,0 +1,69 @@
+extends Node2D
+
+enum WeatherType { SUNNY, RAINY, CLOUDY, SNOWY }
+var current_weather: WeatherType
+var next_weather: WeatherType
+var weather_duration: float = 10.0 # Time for each weather phase (in seconds)
+var timer: float = 0.0
+
+# Nodes for effects
+var background: Sprite2D
+var particles: CPUParticles2D
+var audio_player: AudioStreamPlayer
+var light: Light2D
+
+
+var weather_change_probability: float = 0.2 # Chance of weather change
+
+func _ready():
+   
+    background = $Background
+    particles = $Particles2D
+    audio_player = $AudioStreamPlayer
+    light = $Light2D
+    
+    # Start with random weather
+    change_weather()
+
+func change_weather():
+    # Randomly change the weather
+    next_weather = randi() % 4  # Generate a random number (0-3)
+    
+    # Set the new weather state
+    current_weather = next_weather
+    timer = 0.0  # Reset the timer
+
+    # Apply the new weather effects
+    match current_weather:
+        WeatherType.SUNNY:
+            background.texture = preload("res://sunny.png")
+            particles.emitting = false
+            audio_player.stream = preload("res://sunny_sound.wav")
+            light.energy = 1.0 # Bright sunlight
+        WeatherType.RAINY:
+            background.texture = preload("res://rainy_clouds.png")
+            particles.emitting = true
+            audio_player.stream = preload("res://rain_sound.wav")
+            light.energy = 0.5 # Dimmer light for rainy weather
+        WeatherType.CLOUDY:
+            background.texture = preload("res://cloudy.png")
+            particles.emitting = false
+            audio_player.stream = preload("res://cloudy_sound.wav")
+            light.energy = 0.8 # Slightly dimmed light
+        WeatherType.SNOWY:
+            background.texture = preload("res://snowy.png")
+            particles.emitting = true
+            audio_player.stream = preload("res://snow_sound.wav")
+            light.energy = 0.9 # Soft lighting
+
+func _process(delta):
+    # Count down the timer
+    timer += delta
+
+    # If it's time to change weather
+    if timer >= weather_duration:
+        change_weather()
+    
+    # randomly change weather during the current phase
+    if randi() % 100 < weather_change_probability * 100:
+        change_weather()
