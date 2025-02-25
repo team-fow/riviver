@@ -15,7 +15,7 @@ enum MaterialType {
 
 var _material_amounts: PackedInt32Array # List of material counts. Index with MaterialType.
 var _material_max_amounts: PackedInt32Array # List of max material counts. Index with MaterialType.
-
+@onready var hand: Hand = $HandLayer/Hand
 
 
 # material
