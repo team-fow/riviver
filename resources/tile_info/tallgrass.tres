@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://bveaw3qhf6743"]
+
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_sha7i"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_rq4ui"]
+[ext_resource type="Texture2D" uid="uid://dpmyj11kysr3j" path="res://assets/tiles/tallgrass.png" id="3_hd55v"]
+
+[sub_resource type="Resource" id="Resource_vymao"]
+script = ExtResource("2_rq4ui")
+texture = ExtResource("3_hd55v")
+sheet_size = Vector2i(2, 2)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)
+
+[resource]
+script = ExtResource("1_sha7i")
+name = "Tallgrass"
+sprite_sheet = SubResource("Resource_vymao")
+z_index = 0
+flammable = false
