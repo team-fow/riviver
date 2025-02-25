@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://csdequxml5fqx"]
+
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_v4kdb"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_s013w"]
+[ext_resource type="Texture2D" uid="uid://ebluqt0ytspv" path="res://assets/tiles/fertile_soil.png" id="3_weqc6"]
+
+[sub_resource type="Resource" id="Resource_76jyj"]
+script = ExtResource("2_s013w")
+texture = ExtResource("3_weqc6")
+sheet_size = Vector2i(2, 2)
+sheet_picking = 0
+sprite_offset = Vector2(0, 0)
+
+[resource]
+script = ExtResource("1_v4kdb")
+name = "Fertile_soil"
+sprite_sheet = SubResource("Resource_76jyj")
+z_index = 0
+flammable = false
