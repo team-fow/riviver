@@ -1,4 +1,4 @@
-extends YggdrasilTileBehavior
+extends WorldtreeTileBehavior
 
 
 

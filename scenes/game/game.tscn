@@ -38,6 +38,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="Editor" parent="Grid" instance=ExtResource("4_ycsp2")]
+visible = false
 
 [node name="River" type="Node" parent="."]
 script = ExtResource("4_uc3ti")

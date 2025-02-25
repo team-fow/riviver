@@ -17,20 +17,18 @@ var retracted = false
 
 func _ready() -> void:
 	for i in 2:
-		var card = load("res://scenes/card/card.tscn").instantiate()
-		card.info = load("res://resources/card_info/tile_card_info/growth.tres")
-		add_card(card)
-		card = load("res://scenes/card/card.tscn").instantiate()
-		card.info = load("res://resources/card_info/river_card_info/erosion.tres")
-		add_card(card)
-		card = load("res://scenes/card/card.tscn").instantiate()
-		card.info = load("res://resources/card_info/river_card_info/sedimentation.tres")
-		add_card(card)
+		add_card("growth")
+		add_card("erosion")
+		add_card("sedimentation")
+	add_card("worldtree")
 
 # modifying list
 
 ## Adds a card at index [member idx].
-func add_card(card: Card, idx: int = -1) -> void:
+func add_card(key: String, idx: int = -1) -> void:
+	var card: Card = preload("res://scenes/card/card.tscn").instantiate()
+	card.info = ResourceLibrary.get_card(key)
+	
 	if card.is_inside_tree():
 		card.reparent(self)
 	else:

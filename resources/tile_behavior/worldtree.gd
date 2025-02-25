@@ -1,4 +1,4 @@
-extends YggdrasilTileBehavior
+extends WorldtreeTileBehavior
 
 const GRASS_RADIUS: int = 8
 
@@ -6,7 +6,7 @@ const GRASS_RADIUS: int = 8
 func trigger() -> void:
 	super()
 	await Game.grid.get_tree().create_timer(STEP_TIME * 4).timeout
-	tile.radiate_effect(Tile.revitalize, GRASS_RADIUS ** 2, [Tile.Type.WASTELAND, Tile.Type.RIVERBED])
+	tile.radiate_effect(Tile.revitalize, GRASS_RADIUS ** 2, [Tile.Type.WASTELAND, Tile.Type.RIVERBED, Tile.Type.DEAD_TREE])
 
 
 

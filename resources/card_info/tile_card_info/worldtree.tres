@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TileCardInfo" load_steps=2 format=3 uid="uid://b22t33a287yi7"]
+
+[ext_resource type="Script" path="res://resources/card_info/tile_card_info/tile_card_info.gd" id="1_l08pe"]
+
+[resource]
+script = ExtResource("1_l08pe")
+recipe_keys = Array[int]([1])
+recipe_vals = Array[int]([2])
+radius = 0.0
+name = "Worldtree"
+material = 0
+material_cost = 0
+text = "Places the Worldtree."

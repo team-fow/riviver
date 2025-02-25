@@ -4,8 +4,8 @@ class_name Tile
 enum Type {
 	NONE,
 	SMOG,
-	YGGDRASIL,
-	YGGDRASIL_SAPLING,
+	WORLDTREE,
+	WORLDTREE_SAPLING,
 	LIBRARY,
 	GRASS,
 	DIRT,
@@ -78,7 +78,7 @@ func _set_type(value: Type) -> void:
 
 ## Returns an info resource for the tile.
 func get_info() -> TileInfo:
-	return ResourceLibrary.tiles[type]
+	return ResourceLibrary.get_tile(type)
 
 
 

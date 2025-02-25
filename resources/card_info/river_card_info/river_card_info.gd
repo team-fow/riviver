@@ -6,7 +6,7 @@ extends "res://resources/card_info/card_info.gd"
 @export var radius: float
 
 var water_tiles: Array[Tile.Type] = [Tile.Type.SHALLOW_WATER, Tile.Type.DEEP_WATER]
-var not_erodible: Array[Tile.Type] = [Tile.Type.SHALLOW_WATER, Tile.Type.DEEP_WATER, Tile.Type.YGGDRASIL, Tile.Type.YGGDRASIL_SAPLING, Tile.Type.LIBRARY]
+var not_erodible: Array[Tile.Type] = [Tile.Type.SHALLOW_WATER, Tile.Type.DEEP_WATER, Tile.Type.WORLDTREE, Tile.Type.WORLDTREE_SAPLING, Tile.Type.LIBRARY]
 
 
 # Plays the card, converting the targetted tile into a tile of the result type

@@ -1,4 +1,4 @@
-class_name YggdrasilTileBehavior
+class_name WorldtreeTileBehavior
 extends TileBehavior
 
 const STEP_TIME: float = 0.05

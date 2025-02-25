@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://bvi0kmjwvanag"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://bafq4l5xk3gbb"]
 
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_k072r"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_chf2w"]

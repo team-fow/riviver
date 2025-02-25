@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
 
-ResourceLibrary="*res://scenes/resource_library.gd"
+ResourceLibrary="*res://scenes/resource_library/resource_library.tscn"
 
 [display]
 

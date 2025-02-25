@@ -1,4 +1,5 @@
 class_name TileBehavior
+extends Resource
 ## Handles custom tile behavior logic.
 
 var tile: Tile ## The tile this behavior is attached to.
