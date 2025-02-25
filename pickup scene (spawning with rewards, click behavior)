@@ -1,0 +1,70 @@
+#Pickup.gd
+
+extends Node2D
+
+
+var reward_value = 10 #the value of the pickup (could be score, health, etc.)
+
+#signal to notify when the pickup is collected
+signal picked_up(reward)
+
+func _ready():
+    #make sure the pickup is active 
+    set_process(true)
+
+#called when the player collides with the pickup
+func _on_Pickup_body_entered(body):
+    if body.is_in_group("player"):  # check if the colliding object is the player
+        _pickup()  # Handle the pickup interaction
+
+func _pickup():
+    #call the signal to notify the reward
+    emit_signal("picked_up", reward_value)
+
+    #play a sound effect or animation here later obviously 
+    
+    #remove the pickup from the scene after collection
+    queue_free()
+
+#PickupSpawner
+
+extends Node2D
+
+#sets the scene for the pickup to spawn
+export(PackedScene) var pickup_scene
+
+#sets up the spawn rate and area
+var spawn_area = Rect2(Vector2(0, 0), Vector2(1000, 600))  #changes the spawn area size as needed
+var spawn_timer = 2  #time in seconds between spawns
+var last_spawn_time = 0
+
+func _process(delta):
+    last_spawn_time += delta
+    if last_spawn_time >= spawn_timer:
+        _spawn_pickup()
+        last_spawn_time = 0
+
+#spawn the pickup at a random position within the spawn area
+func _spawn_pickup():
+    var random_position = spawn_area.position + Vector2(randf_range(0, spawn_area.size.x), randf_range(0, spawn_area.size.y))
+    var pickup = pickup_scene.instance()  # Instance the pickup scene
+    pickup.position = random_position
+    add_child(pickup)  # Add the pickup to the scene tree
+
+
+#Player.gd
+
+extends KinematicBody2D
+
+var score = 0
+
+func _ready():
+    #waits for the signal from the Pickup scene
+    var spawner = get_node("/root/Node2D/PickupSpawner")  #Path to the spawner
+    spawner.connect("picked_up", self, "_on_pickup_collected")
+
+#This function is called when the pickup is collected
+func _on_pickup_collected(reward):
+    score += reward
+    print("Score: ", score)
+
