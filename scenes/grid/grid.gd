@@ -2,6 +2,15 @@ class_name Grid
 extends Node2D
 ## Manages tiles.
 
+enum Direction {
+	NORTHWEST,
+	NORTHEAST,
+	WEST,
+	EAST,
+	SOUTHWEST,
+	SOUTHEAST,
+}
+
 static var _map: TileMapLayer # Used for coordinate math.
 
 var _chunks: Dictionary # Loaded chunks.

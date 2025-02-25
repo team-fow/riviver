@@ -13,7 +13,6 @@ var fish: int ## Number of fish in the river.
 
 ## Starts tracking a tile as part of the river. Only use with river tiles.
 func track_tile(tile: Tile) -> void:
-	assert(tile.type == Tile.Type.RIVER)
 	tiles.append(tile)
 	_adjust_cleanliness(_get_cleanliness(tile), tiles.size() - 1)
 

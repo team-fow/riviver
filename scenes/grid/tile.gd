@@ -11,7 +11,6 @@ enum Type {
 	DIRT,
 	ASH,
 	FIRE,
-	RIVER,
 	HOUSE,
 	GRASS_LAND,
 	FOREST,
@@ -20,7 +19,6 @@ enum Type {
 	DEAD_TREE,
 	RIVERBED,
 	ROCKS,
-	FORESTSET,
 	SHALLOW_WATER,
 	DIRT_ROAD,
 	DEEP_WATER,
@@ -104,7 +102,20 @@ func _redraw() -> void:
 	RenderingServer.canvas_item_clear(rid)
 	RenderingServer.canvas_item_set_material(rid, info.material.get_rid() if info.material else RID())
 	RenderingServer.canvas_item_set_z_index(rid, info.z_index)
-	info.sprite_sheet.draw(rid)
+	
+	var sheet_coords: Vector2i
+	
+	match info.sprite_sheet.sheet_picking:
+		SpriteSheet.Picking.RANDOMIZE:
+			sheet_coords = info.sprite_sheet.pick_random()
+		
+		SpriteSheet.Picking.CONNECT_BOUNDARY:
+			var directions: Array[Grid.Direction] = get_neighbors().filter(Tile.matches.bind([type])).slice(0, 2).map(func(tile: Tile) -> int:
+				return Vector2(coords).angle_to_point(tile.coords) / TAU * 6
+			)
+			sheet_coords = info.sprite_sheet.pick_connected_boundary(directions.front(), directions.back())
+	
+	info.sprite_sheet.draw(rid, sheet_coords)
 
 
 ## Sets where the tile is rendered.
@@ -138,6 +149,10 @@ static func matches(tile: Tile, filter: PackedInt32Array) -> bool:
 	return tile.type in filter
 
 
+static func matches_not(tile: Tile, filter: PackedInt32Array) -> bool:
+	return not matches(tile, filter)
+
+
 ## Sets some tile's type.
 static func set_type(tile: Tile, type: Type) -> void:
 	tile.type = type
@@ -147,7 +162,8 @@ static func set_type(tile: Tile, type: Type) -> void:
 static func revitalize(tile: Tile) -> void:
 	match tile.type:
 		Tile.Type.WASTELAND: tile.type = Tile.Type.GRASS
-		Tile.Type.RIVERBED: tile.type = Tile.Type.RIVER
+		Tile.Type.RIVERBED: tile.type = Tile.Type.SHALLOW_WATER
+		Tile.Type.DEAD_TREE: tile.type = Tile.Type.FOREST
 
 
 ## Calls a callable on tiles outward in some radius.

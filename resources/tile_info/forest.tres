@@ -3,19 +3,19 @@
 [ext_resource type="Script" path="res://resources/tile_behavior/forest.gd" id="1_3f5fj"]
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_h2awg"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_fkjl3"]
-[ext_resource type="Texture2D" uid="uid://bnsv81rlmxfcj" path="res://assets/tiles/forest.png" id="3_gtof7"]
+[ext_resource type="Texture2D" uid="uid://ba48ak6x2f072" path="res://assets/tiles/forestset.png" id="4_cxl6n"]
 
-[sub_resource type="Resource" id="Resource_cp5li"]
+[sub_resource type="Resource" id="Resource_ue70s"]
 script = ExtResource("2_fkjl3")
-texture = ExtResource("3_gtof7")
-sheet_size = Vector2i(1, 1)
-sheet_picking = 0
-sprite_offset = Vector2(0, -5)
+texture = ExtResource("4_cxl6n")
+sheet_size = Vector2i(2, 1)
+sheet_picking = 1
+sprite_offset = Vector2(0, 0)
 
 [resource]
 script = ExtResource("1_h2awg")
 name = "Forest"
-sprite_sheet = SubResource("Resource_cp5li")
+sprite_sheet = SubResource("Resource_ue70s")
 z_index = 0
 behavior = ExtResource("1_3f5fj")
 flammable = true

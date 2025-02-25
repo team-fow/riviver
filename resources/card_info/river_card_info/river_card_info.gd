@@ -5,8 +5,8 @@ extends "res://resources/card_info/card_info.gd"
 @export var targets_water: bool ## Whether the card targets a water tile (and thus is sedimentation) or not (and thus is erosion)
 @export var radius: float
 
-var water_tiles: Array[Tile.Type] = [Tile.Type.RIVER, Tile.Type.SHALLOW_WATER, Tile.Type.DEEP_WATER]
-var not_erodible: Array[Tile.Type] = [Tile.Type.RIVER, Tile.Type.SHALLOW_WATER, Tile.Type.DEEP_WATER, Tile.Type.YGGDRASIL, Tile.Type.YGGDRASIL_SAPLING, Tile.Type.LIBRARY]
+var water_tiles: Array[Tile.Type] = [Tile.Type.SHALLOW_WATER, Tile.Type.DEEP_WATER]
+var not_erodible: Array[Tile.Type] = [Tile.Type.SHALLOW_WATER, Tile.Type.DEEP_WATER, Tile.Type.YGGDRASIL, Tile.Type.YGGDRASIL_SAPLING, Tile.Type.LIBRARY]
 
 
 # Plays the card, converting the targetted tile into a tile of the result type

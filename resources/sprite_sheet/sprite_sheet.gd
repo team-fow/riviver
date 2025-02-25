@@ -4,6 +4,7 @@ extends Resource
 enum Picking {
 	NONE, ## Uses the first (top-leftmost) sprite.
 	RANDOMIZE, ## Uses a random sprite.
+	CONNECT_BOUNDARY,
 	ANIMATE, ## Uses the sprites as frames of an animation. (currently unimplemented)
 }
 
@@ -18,18 +19,19 @@ var color: Color ## The color of the middle of the first sprite.
 
 
 ## Draws a sprite on a canvas item.
-func draw(rid: RID) -> void:
+func draw(rid: RID, coords: Vector2i = Vector2i.ZERO) -> void:
 	var target_rect := Rect2(-sprite_size/2, sprite_size)
-	var src_rect := Rect2(Vector2.ZERO, sprite_size)
-	
+	var src_rect := Rect2(coords * sprite_size, sprite_size)
 	target_rect.position += sprite_offset
-	
-	match sheet_picking:
-		Picking.RANDOMIZE:
-			src_rect.position.x = randi() % sheet_size.x * sprite_size.x
-			src_rect.position.y = randi() % sheet_size.y * sprite_size.y
-	
 	RenderingServer.canvas_item_add_texture_rect_region(rid, target_rect, texture, src_rect)
+
+
+func pick_random() -> Vector2i:
+	return Vector2i(randi() % sheet_size.x, randi() % sheet_size.y)
+
+
+func pick_connected_boundary(direction_1: Grid.Direction, direction_2: Grid.Direction) -> Vector2i:
+	return Vector2i(direction_1, direction_2 - direction_1 - 2)
 
 
 
