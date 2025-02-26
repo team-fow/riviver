@@ -1,14 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr051co0rcutk"]
+[gd_scene load_steps=2 format=3 uid="uid://cr051co0rcutk"]
 
 [ext_resource type="Script" path="res://scenes/resource_library/resource_library.gd" id="1_arxbu"]
-[ext_resource type="Resource" uid="uid://x7mdprb6j0hq" path="res://resources/card_info/river_card_info/erosion.tres" id="24_7amj1"]
-[ext_resource type="Resource" uid="uid://dx87jrx7ibvqc" path="res://resources/card_info/tile_card_info/growth.tres" id="25_5qaih"]
-[ext_resource type="Resource" uid="uid://ctqnhucvcfikx" path="res://resources/card_info/tile_card_info/ignite.tres" id="26_28rf5"]
-[ext_resource type="Resource" uid="uid://c4fuoxe3sk03k" path="res://resources/card_info/river_card_info/sedimentation.tres" id="27_aibrr"]
-[ext_resource type="Resource" uid="uid://b22t33a287yi7" path="res://resources/card_info/tile_card_info/worldtree.tres" id="28_djods"]
 
 [node name="ResourceLibrary" type="Node"]
 script = ExtResource("1_arxbu")
-
-[node name="Cards" type="ResourcePreloader" parent="."]
-resources = [PackedStringArray("erosion", "growth", "ignite", "sedimentation", "worldtree"), [ExtResource("24_7amj1"), ExtResource("25_5qaih"), ExtResource("26_28rf5"), ExtResource("27_aibrr"), ExtResource("28_djods")]]

@@ -16,4 +16,4 @@ script = ExtResource("1_wik2x")
 name = "Wasteland"
 sprite_sheet = SubResource("Resource_p6rws")
 z_index = 0
-flammable = false
+tags = Array[int]([])

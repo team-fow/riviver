@@ -38,7 +38,6 @@ wait_time = 0.5
 autostart = true
 
 [node name="Editor" parent="Grid" instance=ExtResource("4_ycsp2")]
-visible = false
 
 [node name="River" type="Node" parent="."]
 script = ExtResource("4_uc3ti")
@@ -53,6 +52,7 @@ position = Vector2(900, 900)
 scale = Vector2(0.75, 0.75)
 
 [node name="Clock" type="CanvasModulate" parent="."]
+visible = false
 script = ExtResource("5_5kbi3")
 
 [node name="Camera" type="Camera2D" parent="."]

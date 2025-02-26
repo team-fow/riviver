@@ -1,34 +1,30 @@
 extends Node
 ## Stores info resources for easy access.
 
-var _tiles: Array[TileInfo]
+var tiles: Array[TileInfo]
+var cards: Array[CardInfo]
 
 
-func get_tile(type: Tile.Type) -> TileInfo:
-	return _tiles[type]
+## Returns a card with some name.
+func get_card(card_name: String) -> CardInfo:
+	for card: CardInfo in cards:
+		if card.name == card_name:
+			return card
+	return null
 
 
-func get_tiles() -> Array[TileInfo]:
-	return _tiles
+# Loads all resources inside a folder into an array. Includes subfolders.
+func _load_dir_resources(path: String, array: Array) -> void:
+	for dir: String in DirAccess.get_directories_at(path):
+		_load_dir_resources(path.path_join(dir), array)
+	for file: String in DirAccess.get_files_at(path):
+		if file.ends_with(".tres"):
+			array.append(path.path_join(file))
 
 
-func get_card(key: String) -> CardInfo:
-	return $Cards.get_resource(key)
 
-
-func get_cards() -> Array[CardInfo]:
-	var cards: Array[CardInfo]
-	for key: String in $Cards.get_resource_list():
-		cards.append($Cards.get_resource(key))
-	return cards
-
+# virtual
 
 func _ready() -> void:
-	_load_info("tile_info", Tile.Type.keys(), _tiles)
-
-
-func _load_info(folder: String, filenames: PackedStringArray, target_array: Array) -> void:
-	var path: String = "res://resources/%s/" % folder
-	for filename: String in filenames:
-		target_array.append(load(path + filename.to_lower() + ".tres"))
-	target_array.make_read_only()
+	_load_dir_resources("res://resources/tile_info/", tiles)
+	_load_dir_resources("res://resources/card_info/", cards)

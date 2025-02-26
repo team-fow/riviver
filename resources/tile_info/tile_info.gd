@@ -1,6 +1,10 @@
 class_name TileInfo
 extends Resource
 
+enum Tag {
+	FLAMMABLE,
+}
+
 @export var name: String ## The name of the tile.
 
 @export_group("Rendering")
@@ -10,4 +14,4 @@ extends Resource
 
 @export_group("Behavior")
 @export var behavior: GDScript ## Custom behavior script.
-@export var flammable: bool ## Whether fire can damage this tile.
+@export var tags: Array[Tag] ## Tags read by other code.
