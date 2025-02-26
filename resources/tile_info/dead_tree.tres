@@ -1,19 +1,19 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://cc1kf0yg6m2ig"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://bnxgw016wal6t"]
 
-[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_a83pb"]
-[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_l6nmp"]
-[ext_resource type="Texture2D" uid="uid://dwio713473sd7" path="res://assets/tiles/dead_tree.png" id="3_x2ubt"]
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_daaol"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_f0chy"]
+[ext_resource type="Texture2D" uid="uid://1m7g8amdxk2s" path="res://assets/tiles/dead_tree.png" id="3_pwbon"]
 
-[sub_resource type="Resource" id="Resource_p6rws"]
-script = ExtResource("2_l6nmp")
-texture = ExtResource("3_x2ubt")
+[sub_resource type="Resource" id="Resource_u6p3g"]
+script = ExtResource("2_f0chy")
+texture = ExtResource("3_pwbon")
 sheet_size = Vector2i(1, 1)
 sheet_picking = 0
-sprite_offset = Vector2(0, -9)
+sprite_offset = Vector2(0, 0)
 
 [resource]
-script = ExtResource("1_a83pb")
-name = "Dead Tree"
-sprite_sheet = SubResource("Resource_p6rws")
+script = ExtResource("1_daaol")
+name = "Dead_tree"
+sprite_sheet = SubResource("Resource_u6p3g")
 z_index = 0
 flammable = false

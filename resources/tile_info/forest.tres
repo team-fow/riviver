@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://resources/tile_behavior/forest.gd" id="1_3f5fj"]
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_h2awg"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_fkjl3"]
-[ext_resource type="Texture2D" uid="uid://ba48ak6x2f072" path="res://assets/tiles/forestset.png" id="4_cxl6n"]
+[ext_resource type="Texture2D" uid="uid://bu2ap2jtukqvk" path="res://assets/tiles/trees.png" id="4_yhpoj"]
 
 [sub_resource type="Resource" id="Resource_ue70s"]
 script = ExtResource("2_fkjl3")
-texture = ExtResource("4_cxl6n")
-sheet_size = Vector2i(2, 1)
+texture = ExtResource("4_yhpoj")
+sheet_size = Vector2i(3, 1)
 sheet_picking = 1
-sprite_offset = Vector2(0, 0)
+sprite_offset = Vector2(0, -65)
 
 [resource]
 script = ExtResource("1_h2awg")
