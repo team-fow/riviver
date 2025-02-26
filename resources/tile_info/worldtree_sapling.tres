@@ -18,4 +18,4 @@ name = "Worldtree Sapling"
 sprite_sheet = SubResource("Resource_muvk2")
 z_index = 0
 behavior = ExtResource("1_vvn0r")
-flammable = false
+tags = PackedStringArray("unique")

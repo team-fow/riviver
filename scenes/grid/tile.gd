@@ -171,12 +171,12 @@ static func revitalize(tile: Tile) -> void:
 
 
 ## Calls a callable on tiles outward in some radius.
-func radiate_effect(callable: Callable, radius_squared: float, filter: PackedInt32Array, affect_center: bool = false, target: Tile = self) -> void:
+func radiate_effect(callable: Callable, radius_squared: float, filter: Callable, affect_center: bool = false, target: Tile = self) -> void:
 	if affect_center: callable.call(target)
 	await Game.grid.get_tree().create_timer(0.05).timeout
 	for neighbor: Tile in target.get_neighbors():
 		var distance: float = neighbor.coords.distance_squared_to(coords)
-		if is_type(neighbor, filter) and distance < radius_squared and distance > target.coords.distance_squared_to(coords):
+		if filter.call(neighbor) and distance < radius_squared and distance > target.coords.distance_squared_to(coords):
 			callable.call(neighbor)
 			radiate_effect(callable, radius_squared, filter, false, neighbor)
 
