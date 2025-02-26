@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbdm86b40bbes"
-path="res://.godot/imported/Button - BG.png-1a6796c0a158e7017f39838532519871.ctex"
+uid="uid://cc0u7qjkqm75o"
+path="res://.godot/imported/Index - Special.png-6a11c4149025feede3b5a5fcff262bb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/assets/Button - BG.png"
-dest_files=["res://.godot/imported/Button - BG.png-1a6796c0a158e7017f39838532519871.ctex"]
+source_file="res://assets/ui/assets/Building Info Pane/Index - Special.png"
+dest_files=["res://.godot/imported/Index - Special.png-6a11c4149025feede3b5a5fcff262bb3.ctex"]
 
 [params]
 

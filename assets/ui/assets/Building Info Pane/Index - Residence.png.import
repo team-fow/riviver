@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://my0bwq5mlmmu"
-path="res://.godot/imported/Button - Icon.Menu.png-b4785c984621f6411227453ac6eec9b3.ctex"
+uid="uid://c71fmejlr3o5u"
+path="res://.godot/imported/Index - Residence.png-cff61597c015e62fa28883893d1e4375.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/assets/Button - Icon.Menu.png"
-dest_files=["res://.godot/imported/Button - Icon.Menu.png-b4785c984621f6411227453ac6eec9b3.ctex"]
+source_file="res://assets/ui/assets/Building Info Pane/Index - Residence.png"
+dest_files=["res://.godot/imported/Index - Residence.png-cff61597c015e62fa28883893d1e4375.ctex"]
 
 [params]
 

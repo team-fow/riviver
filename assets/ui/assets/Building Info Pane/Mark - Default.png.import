@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6mrkfgh11hid"
-path="res://.godot/imported/Panel - River.png-252a04fb9ff6193c87a0b31bc70baa03.ctex"
+uid="uid://db7bpn0j03pn3"
+path="res://.godot/imported/Mark - Default.png-473b80dd08a6c5df50132d4805f248a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/assets/Panel - River.png"
-dest_files=["res://.godot/imported/Panel - River.png-252a04fb9ff6193c87a0b31bc70baa03.ctex"]
+source_file="res://assets/ui/assets/Building Info Pane/Mark - Default.png"
+dest_files=["res://.godot/imported/Mark - Default.png-473b80dd08a6c5df50132d4805f248a7.ctex"]
 
 [params]
 

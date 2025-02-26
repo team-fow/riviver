@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bselotmjvdwhk"
-path="res://.godot/imported/Slider - Ground.png-0a6f1434d1d9f619d4d3491ec5e9f0df.ctex"
+uid="uid://bj40y15l6uury"
+path="res://.godot/imported/Panel - Upper.png-e0134148509f0e86194e5f9a8126524d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/assets/Slider - Ground.png"
-dest_files=["res://.godot/imported/Slider - Ground.png-0a6f1434d1d9f619d4d3491ec5e9f0df.ctex"]
+source_file="res://assets/ui/assets/Pause Menu/Panel - Upper.png"
+dest_files=["res://.godot/imported/Panel - Upper.png-e0134148509f0e86194e5f9a8126524d.ctex"]
 
 [params]
 

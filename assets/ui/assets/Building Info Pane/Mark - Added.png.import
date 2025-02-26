@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp61bc5mf3cbr"
-path="res://.godot/imported/Panel - Lower.png-780e9b4b1ed6ad89dcc46badc2e7302e.ctex"
+uid="uid://c0eor3wja7w8c"
+path="res://.godot/imported/Mark - Added.png-d7c698a9471a8e4956dde5ef5c04411c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/assets/Panel - Lower.png"
-dest_files=["res://.godot/imported/Panel - Lower.png-780e9b4b1ed6ad89dcc46badc2e7302e.ctex"]
+source_file="res://assets/ui/assets/Building Info Pane/Mark - Added.png"
+dest_files=["res://.godot/imported/Mark - Added.png-d7c698a9471a8e4956dde5ef5c04411c.ctex"]
 
 [params]
 

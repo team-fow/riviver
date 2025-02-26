@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj40y15l6uury"
-path="res://.godot/imported/Panel - Upper.png-9a69a480641fbae4b9d57b8f308d8538.ctex"
+uid="uid://my0bwq5mlmmu"
+path="res://.godot/imported/Button - Icon.Menu.png-7abfc198c1186cf2eae8429300084739.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/assets/Panel - Upper.png"
-dest_files=["res://.godot/imported/Panel - Upper.png-9a69a480641fbae4b9d57b8f308d8538.ctex"]
+source_file="res://assets/ui/assets/Pause Menu/Button - Icon.Menu.png"
+dest_files=["res://.godot/imported/Button - Icon.Menu.png-7abfc198c1186cf2eae8429300084739.ctex"]
 
 [params]
 

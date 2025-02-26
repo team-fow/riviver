@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc3addnh647ii"
-path="res://.godot/imported/Slider - River.png-a6196d8c73bf51f41dd814f20f33171d.ctex"
+uid="uid://coe3owegeumab"
+path="res://.godot/imported/Pic.png-a2279029a068e8afd1af4a13fbf5f420.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/assets/Slider - River.png"
-dest_files=["res://.godot/imported/Slider - River.png-a6196d8c73bf51f41dd814f20f33171d.ctex"]
+source_file="res://assets/ui/assets/Building Info Pane/Pic.png"
+dest_files=["res://.godot/imported/Pic.png-a2279029a068e8afd1af4a13fbf5f420.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7abd0oelsoad"
-path="res://.godot/imported/Button - Icon.Back.png-2b172779a11987765852e427b305401d.ctex"
+uid="uid://bc3addnh647ii"
+path="res://.godot/imported/Slider - River.png-cd8081bd0ef9aca9d018d9e9b533591e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/assets/Button - Icon.Back.png"
-dest_files=["res://.godot/imported/Button - Icon.Back.png-2b172779a11987765852e427b305401d.ctex"]
+source_file="res://assets/ui/assets/Pause Menu/Slider - River.png"
+dest_files=["res://.godot/imported/Slider - River.png-cd8081bd0ef9aca9d018d9e9b533591e.ctex"]
 
 [params]
 

@@ -1,15 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgbhlhlnbj02o"]
+[gd_scene load_steps=15 format=3 uid="uid://bgbhlhlnbj02o"]
 
 [ext_resource type="Script" path="res://scenes/debug/map.gd" id="2_kl14l"]
-[ext_resource type="Texture2D" uid="uid://dbdm86b40bbes" path="res://assets/ui/assets/Button - BG.png" id="3_7ccef"]
-[ext_resource type="Texture2D" uid="uid://6mrkfgh11hid" path="res://assets/ui/assets/Panel - River.png" id="3_cgv0v"]
-[ext_resource type="Texture2D" uid="uid://5sbi2h3l7h4p" path="res://assets/ui/assets/Button - Icon.Play.png" id="4_cgelv"]
-[ext_resource type="Texture2D" uid="uid://bp61bc5mf3cbr" path="res://assets/ui/assets/Panel - Lower.png" id="4_kpwrc"]
-[ext_resource type="Texture2D" uid="uid://bj40y15l6uury" path="res://assets/ui/assets/Panel - Upper.png" id="5_bstt5"]
-[ext_resource type="Texture2D" uid="uid://7abd0oelsoad" path="res://assets/ui/assets/Button - Icon.Back.png" id="8_o2ai1"]
-[ext_resource type="Texture2D" uid="uid://my0bwq5mlmmu" path="res://assets/ui/assets/Button - Icon.Menu.png" id="9_5u1mh"]
-[ext_resource type="Texture2D" uid="uid://bselotmjvdwhk" path="res://assets/ui/assets/Slider - Ground.png" id="9_7eaiu"]
-[ext_resource type="Texture2D" uid="uid://bc3addnh647ii" path="res://assets/ui/assets/Slider - River.png" id="10_bihvv"]
+[ext_resource type="Texture2D" uid="uid://dbdm86b40bbes" path="res://assets/ui/assets/Pause Menu/Button - BG.png" id="3_7ccef"]
+[ext_resource type="Texture2D" uid="uid://6mrkfgh11hid" path="res://assets/ui/assets/Pause Menu/Panel - River.png" id="3_cgv0v"]
+[ext_resource type="Texture2D" uid="uid://5sbi2h3l7h4p" path="res://assets/ui/assets/Pause Menu/Button - Icon.Play.png" id="4_cgelv"]
+[ext_resource type="Texture2D" uid="uid://bp61bc5mf3cbr" path="res://assets/ui/assets/Pause Menu/Panel - Lower.png" id="4_kpwrc"]
+[ext_resource type="Texture2D" uid="uid://bj40y15l6uury" path="res://assets/ui/assets/Pause Menu/Panel - Upper.png" id="5_bstt5"]
+[ext_resource type="Texture2D" uid="uid://7abd0oelsoad" path="res://assets/ui/assets/Pause Menu/Button - Icon.Back.png" id="8_o2ai1"]
+[ext_resource type="Texture2D" uid="uid://my0bwq5mlmmu" path="res://assets/ui/assets/Pause Menu/Button - Icon.Menu.png" id="9_5u1mh"]
+[ext_resource type="Texture2D" uid="uid://bselotmjvdwhk" path="res://assets/ui/assets/Pause Menu/Slider - Ground.png" id="9_7eaiu"]
+[ext_resource type="Texture2D" uid="uid://bc3addnh647ii" path="res://assets/ui/assets/Pause Menu/Slider - River.png" id="10_bihvv"]
+[ext_resource type="Texture2D" uid="uid://bjaymbmc226g0" path="res://assets/ui/assets/Building Info Pane/Pane.png" id="11_dtp2x"]
+[ext_resource type="Texture2D" uid="uid://coe3owegeumab" path="res://assets/ui/assets/Building Info Pane/Pic.png" id="12_1qxx2"]
+[ext_resource type="Texture2D" uid="uid://db7bpn0j03pn3" path="res://assets/ui/assets/Building Info Pane/Mark - Default.png" id="13_5xi8t"]
+[ext_resource type="Texture2D" uid="uid://dwdctkxsp0ia8" path="res://assets/ui/assets/Building Info Pane/Index - Storage.png" id="14_48gbp"]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -33,6 +37,7 @@ size_flags_vertical = 4
 script = ExtResource("2_kl14l")
 
 [node name="Pause Panel" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -196,3 +201,73 @@ offset_bottom = -691.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_bihvv")
+
+[node name="Building Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Pane" type="TextureRect" parent="Building Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.042
+anchor_top = 0.543
+anchor_right = 1.042
+anchor_bottom = 0.543
+offset_left = -727.64
+offset_top = -314.44
+offset_right = -256.64
+offset_bottom = 354.56
+texture = ExtResource("11_dtp2x")
+
+[node name="TextureRect" type="TextureRect" parent="Building Menu/Pane"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.334
+anchor_right = 0.512
+anchor_bottom = 0.334
+offset_left = -70.152
+offset_top = -95.446
+offset_right = 117.848
+offset_bottom = 95.554
+texture = ExtResource("12_1qxx2")
+
+[node name="Text" type="Label" parent="Building Menu/Pane"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 321.0
+offset_right = 378.0
+offset_bottom = 521.0
+rotation = 0.0523599
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Building info lorem ipsum Building info lorem ipsum Building info lorem ipsum Building info lorem ipsum "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Bookmark" type="TextureRect" parent="Building Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.835
+anchor_top = 0.313
+anchor_right = 0.835
+anchor_bottom = 0.313
+offset_left = -49.2001
+offset_top = -63.04
+offset_right = 50.7999
+offset_bottom = 63.96
+texture = ExtResource("13_5xi8t")
+
+[node name="Index" type="TextureRect" parent="Building Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.702
+anchor_top = 0.764
+anchor_right = 0.702
+anchor_bottom = 0.764
+offset_left = -51.8401
+offset_top = -606.12
+offset_right = 52.1599
+offset_bottom = -0.120056
+texture = ExtResource("14_48gbp")
