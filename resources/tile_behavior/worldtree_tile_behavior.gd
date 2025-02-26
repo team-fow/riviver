@@ -7,7 +7,7 @@ var clear_radius: int
 
 
 func start() -> void:
-	if tile.get_neighbors().any(Tile.matches.bind([Tile.Type.SMOG])):
+	if tile.get_neighbors().any(Tile.is_type.bind([Tile.Type.SMOG])):
 		trigger()
 
 

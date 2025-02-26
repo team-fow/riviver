@@ -16,4 +16,4 @@ script = ExtResource("1_k072r")
 name = "Dirt_road"
 sprite_sheet = SubResource("Resource_afjdo")
 z_index = 0
-flammable = false
+tags = PackedStringArray()

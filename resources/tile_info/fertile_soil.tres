@@ -16,4 +16,4 @@ script = ExtResource("1_v4kdb")
 name = "Fertile_soil"
 sprite_sheet = SubResource("Resource_76jyj")
 z_index = 0
-flammable = false
+tags = PackedStringArray()

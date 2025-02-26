@@ -16,4 +16,4 @@ script = ExtResource("2_r7fjs")
 name = "Riverbed"
 sprite_sheet = SubResource("Resource_bn4uf")
 z_index = 0
-flammable = false
+tags = PackedStringArray()

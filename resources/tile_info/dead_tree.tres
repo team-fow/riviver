@@ -13,7 +13,7 @@ sprite_offset = Vector2(0, 0)
 
 [resource]
 script = ExtResource("1_daaol")
-name = "Dead_tree"
+name = "Dead Tree"
 sprite_sheet = SubResource("Resource_u6p3g")
 z_index = 0
-flammable = false
+tags = PackedStringArray()

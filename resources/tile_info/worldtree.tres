@@ -10,7 +10,7 @@ script = ExtResource("3_rft0u")
 texture = ExtResource("4_1jwe8")
 sheet_size = Vector2i(1, 1)
 sheet_picking = 0
-sprite_offset = Vector2(0, -100)
+sprite_offset = Vector2(0, -88)
 
 [resource]
 script = ExtResource("2_3xd20")
@@ -18,4 +18,4 @@ name = "Worldtree"
 sprite_sheet = SubResource("Resource_muvk2")
 z_index = 0
 behavior = ExtResource("1_odbh5")
-flammable = false
+tags = PackedStringArray()

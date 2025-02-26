@@ -18,4 +18,4 @@ name = "Forest"
 sprite_sheet = SubResource("Resource_ue70s")
 z_index = 0
 behavior = ExtResource("1_3f5fj")
-flammable = true
+tags = PackedStringArray("forest", "flammable")

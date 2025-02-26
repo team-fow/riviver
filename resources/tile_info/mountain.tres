@@ -16,4 +16,4 @@ script = ExtResource("1_y8qdv")
 name = "Mountain"
 sprite_sheet = SubResource("Resource_08fsj")
 z_index = 0
-flammable = false
+tags = PackedStringArray()

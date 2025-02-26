@@ -22,4 +22,4 @@ sprite_sheet = SubResource("Resource_4xlxp")
 material = SubResource("CanvasItemMaterial_84dcn")
 z_index = 0
 behavior = ExtResource("3_1h2t6")
-flammable = false
+tags = PackedStringArray()

@@ -16,4 +16,4 @@ script = ExtResource("1_kvt88")
 name = "Empty Tile"
 sprite_sheet = SubResource("Resource_pl73q")
 z_index = 0
-flammable = false
+tags = PackedStringArray()

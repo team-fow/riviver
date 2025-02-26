@@ -2,5 +2,5 @@ extends TileBehavior
 
 
 func tick() -> void:
-	if tile.get_neighbors().all(Tile.matches.bind([Tile.Type.SHALLOW_WATER, Tile.Type.DEEP_WATER])):
+	if tile.get_neighbors().all(Tile.has_tag.bind("river")):
 		tile.type = Tile.Type.DEEP_WATER

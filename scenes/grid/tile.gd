@@ -80,7 +80,7 @@ func _set_type(value: Type) -> void:
 
 ## Returns an info resource for the tile.
 func get_info() -> TileInfo:
-	return ResourceLibrary.get_tile(type)
+	return ResourceLibrary.tiles[type]
 
 
 
@@ -113,7 +113,7 @@ func _redraw() -> void:
 			sheet_coords = info.sprite_sheet.pick_random()
 		
 		SpriteSheet.Picking.CONNECT_BOUNDARY:
-			var directions: Array[Grid.Direction] = get_neighbors().filter(Tile.matches.bind([type])).slice(0, 2).map(func(tile: Tile) -> int:
+			var directions: Array[Grid.Direction] = get_neighbors().filter(Tile.is_type.bind([type])).slice(0, 2).map(func(tile: Tile) -> int:
 				return Vector2(coords).angle_to_point(tile.coords) / TAU * 6
 			)
 			sheet_coords = info.sprite_sheet.pick_connected_boundary(directions.front(), directions.back())
@@ -148,12 +148,13 @@ func input(event: InputEventMouseButton) -> void:
 # helper
 
 ## Returns true if some tile's type is in some filter.
-static func matches(tile: Tile, filter: PackedInt32Array) -> bool:
-	return tile.type in filter
+static func is_type(tile: Tile, types: PackedInt32Array) -> bool:
+	return tile.type in types
 
 
-static func matches_not(tile: Tile, filter: PackedInt32Array) -> bool:
-	return not matches(tile, filter)
+## Returns true if a tile has some tag.
+static func has_tag(tile: Tile, tag: String) -> bool:
+	return tag in tile.get_info().tags
 
 
 ## Sets some tile's type.
@@ -175,7 +176,7 @@ func radiate_effect(callable: Callable, radius_squared: float, filter: PackedInt
 	await Game.grid.get_tree().create_timer(0.05).timeout
 	for neighbor: Tile in target.get_neighbors():
 		var distance: float = neighbor.coords.distance_squared_to(coords)
-		if matches(neighbor, filter) and distance < radius_squared and distance > target.coords.distance_squared_to(coords):
+		if is_type(neighbor, filter) and distance < radius_squared and distance > target.coords.distance_squared_to(coords):
 			callable.call(neighbor)
 			radiate_effect(callable, radius_squared, filter, false, neighbor)
 
