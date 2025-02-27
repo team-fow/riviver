@@ -24,7 +24,8 @@ enum Type {
 	DEEP_WATER,
 	FERTILE_SOIL,
 	TALLGRASS,
-	
+	WHEAT_FIELD,
+	FARMHOUSE,
 }
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.

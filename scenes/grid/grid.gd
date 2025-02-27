@@ -115,9 +115,10 @@ func radiate_effect(center: Tile, effect: Callable, filter: Callable, radius_squ
 
 
 func get_tiles_in_radius(center: Tile, filter: Callable, radius_squared: float, target: Tile = center) -> Array[Tile]:
-	var tiles: Array[Tile] = target.get_neighbors().filter(filter)
+	var tiles: Array[Tile]
 	for neighbor: Tile in target.get_neighbors():
 		if filter.call(neighbor) and center.coords.distance_squared_to(neighbor.coords) < radius_squared:
+			tiles.append(neighbor)
 			tiles.append_array(get_tiles_in_radius(center, filter, radius_squared, neighbor))
 	return tiles
 
