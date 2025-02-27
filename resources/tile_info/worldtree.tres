@@ -16,6 +16,6 @@ sprite_offset = Vector2(0, -88)
 script = ExtResource("2_3xd20")
 name = "Worldtree"
 sprite_sheet = SubResource("Resource_muvk2")
-z_index = 0
+sprite_z_index = 0
 behavior = ExtResource("1_odbh5")
 tags = PackedStringArray("unique")

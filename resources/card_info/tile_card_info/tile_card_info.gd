@@ -11,7 +11,7 @@ var recipes: Dictionary
 # Plays the card, converting the targetted tile into a tile of the result type
 func play(target: Tile):
 	target._set_type(recipe_vals[recipe_keys.find(target.type)])
-	target.radiate_effect(func (t): t._set_type(recipe_vals[recipe_keys.find(target.type)]), radius**2, Tile.is_type.bind(recipe_keys))
+	Game.grid.radiate_effect(target, func (t): t._set_type(recipe_vals[recipe_keys.find(target.type)]), Tile.is_type.bind(recipe_keys), radius ** 2)
 
 
 # Determines whether the card can be played on a certain tile and returns a bool

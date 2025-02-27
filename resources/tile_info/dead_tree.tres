@@ -15,5 +15,5 @@ sprite_offset = Vector2(0, 0)
 script = ExtResource("1_daaol")
 name = "Dead Tree"
 sprite_sheet = SubResource("Resource_u6p3g")
-z_index = 0
-tags = PackedStringArray()
+sprite_z_index = 0
+tags = PackedStringArray("wasteland")

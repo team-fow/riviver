@@ -9,9 +9,9 @@ extends "res://resources/card_info/card_info.gd"
 # Plays the card, converting the targetted tile into a tile of the result type
 func play(target: Tile):
 	if not targets_water:
-		target.radiate_effect(Tile.set_type.bind(Tile.Type.RIVERBED), radius**2, _can_erode, true)
+		Game.grid.radiate_effect(target, Tile.revitalize, _can_erode, radius ** 2, true)
 	else:
-		target.radiate_effect(Tile.set_type.bind(Tile.Type.DIRT), radius**2, Tile.has_tag.bind("river"), true)
+		Game.grid.radiate_effect(target, Tile.set_type.bind(Tile.Type.DIRT), Tile.has_tag.bind("river"), radius ** 2, true)
 
 
 func _can_erode(tile: Tile) -> bool:

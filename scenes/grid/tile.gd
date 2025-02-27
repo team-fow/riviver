@@ -103,8 +103,8 @@ func queue_tick() -> void:
 func _redraw() -> void:
 	var info: TileInfo = get_info()
 	RenderingServer.canvas_item_clear(rid)
-	RenderingServer.canvas_item_set_material(rid, info.material.get_rid() if info.material else RID())
-	RenderingServer.canvas_item_set_z_index(rid, info.z_index)
+	RenderingServer.canvas_item_set_material(rid, info.sprite_material.get_rid() if info.sprite_material else RID())
+	RenderingServer.canvas_item_set_z_index(rid, info.sprite_z_index)
 	
 	var sheet_coords: Vector2i
 	
@@ -168,17 +168,6 @@ static func revitalize(tile: Tile) -> void:
 		Tile.Type.WASTELAND: tile.type = Tile.Type.GRASS
 		Tile.Type.RIVERBED: tile.type = Tile.Type.SHALLOW_WATER
 		Tile.Type.DEAD_TREE: tile.type = Tile.Type.FOREST
-
-
-## Calls a callable on tiles outward in some radius.
-func radiate_effect(callable: Callable, radius_squared: float, filter: Callable, affect_center: bool = false, target: Tile = self) -> void:
-	if affect_center: callable.call(target)
-	await Game.grid.get_tree().create_timer(0.05).timeout
-	for neighbor: Tile in target.get_neighbors():
-		var distance: float = neighbor.coords.distance_squared_to(coords)
-		if filter.call(neighbor) and distance < radius_squared and distance > target.coords.distance_squared_to(coords):
-			callable.call(neighbor)
-			radiate_effect(callable, radius_squared, filter, false, neighbor)
 
 
 

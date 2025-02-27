@@ -101,6 +101,35 @@ static func get_adjacent_coords(coords: Vector2i) -> Array[Vector2i]:
 
 
 
+# helper
+
+## Calls a callable on tiles around a center tile.
+func radiate_effect(center: Tile, effect: Callable, filter: Callable, radius_squared: float, affect_center: bool = false, target: Tile = center) -> void:
+	if affect_center: effect.call(target)
+	await Game.grid.get_tree().create_timer(0.05).timeout
+	for neighbor: Tile in target.get_neighbors():
+		var distance: float = center.coords.distance_squared_to(neighbor.coords)
+		if filter.call(neighbor) and distance < radius_squared and distance > center.coords.distance_squared_to(target.coords):
+			effect.call(neighbor)
+			radiate_effect(center, effect, filter, radius_squared, false, neighbor)
+
+
+func get_tiles_in_radius(center: Tile, filter: Callable, radius_squared: float, target: Tile = center) -> Array[Tile]:
+	var tiles: Array[Tile] = target.get_neighbors().filter(filter)
+	for neighbor: Tile in target.get_neighbors():
+		if filter.call(neighbor) and center.coords.distance_squared_to(neighbor.coords) < radius_squared:
+			tiles.append_array(get_tiles_in_radius(center, filter, radius_squared, neighbor))
+	return tiles
+
+
+## Returns all contiguous tiles matching a filter.
+func get_contiguous_tiles(tile: Tile, filter: Callable) -> Array[Tile]:
+	var tiles: Array[Tile] = tile.get_neighbors().filter(filter)
+	tiles.append_array(tiles.map(get_contiguous_tiles.bind(filter)))
+	return tiles
+
+
+
 # virtual
 
 static func _static_init() -> void:

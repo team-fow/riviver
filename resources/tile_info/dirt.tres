@@ -16,4 +16,4 @@ script = ExtResource("1_c2mqs")
 name = "Dirt"
 sprite_sheet = SubResource("Resource_j77qg")
 z_index = 0
-tags = Array[int]([])
+tags = PackedStringArray()
