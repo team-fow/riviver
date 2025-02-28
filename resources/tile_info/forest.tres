@@ -16,6 +16,6 @@ sprite_offset = Vector2(0, -65)
 script = ExtResource("1_h2awg")
 name = "Forest"
 sprite_sheet = SubResource("Resource_ue70s")
-z_index = 0
+sprite_z_index = 0
 behavior = ExtResource("1_3f5fj")
 tags = PackedStringArray("forest", "flammable")
