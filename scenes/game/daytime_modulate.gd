@@ -14,7 +14,7 @@ enum Season { SPRING, SUMMER, FALL, WINTER }  # Enum for seasons (0 -> SPRING, 1
 var season: int = Season.SPRING  # Current season (initially Spring, using the enum value directly)
 const SEASON_LENGTH: int = 6  # Number of days in each season 
 
-# Control how much longer the night should last (night_scale is greater than 1 to make night longer)
+# Control how much longer the night should last (night_scale is greater than 1 to make night longer High Number than 1 = Longer Nights , Lower Number than 1 = Faster Night)
 const NIGHT_SCALE: float = 1.5  # Scale factor for the night (1.5 means night will last 1.5x longer than day)
 
 func _process(delta):
