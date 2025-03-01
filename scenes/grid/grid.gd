@@ -14,7 +14,6 @@ enum Direction {
 static var _map: TileMapLayer # Used for coordinate math.
 
 var _chunks: Dictionary # Loaded chunks.
-var _highlights: Dictionary # Active tile highlights.
 
 @onready var tick_timer: Timer = $TickTimer ## Coordinates ticks.
 
@@ -104,17 +103,13 @@ static func get_adjacent_coords(coords: Vector2i) -> Array[Vector2i]:
 
 # highlights
 
-func add_highlight(coords: Array[Vector2i]) -> void:
-	if coords in _highlights: remove_highlight(coords)
-	var highlight: RID = RenderingServer.canvas_item_create()
-	for coord: Vector2i in coords:
-		preload("res://resources/sprite_sheet/highlight.tres").draw(highlight, Vector2i.ZERO, Grid.coords_to_point(coord))
-	_highlights[coords] = highlight
+func add_highlight(coords: Vector2i, color: Color) -> void:
+	RenderingServer.canvas_item_set_modulate(get_tile(coords).rid, color)
 
 
-func remove_highlight(coords: Array[Vector2i]) -> void:
-	RenderingServer.free_rid(_highlights[coords])
-	_highlights.erase(coords)
+func remove_highlight(coords: Vector2i) -> void:
+	RenderingServer.canvas_item_set_modulate(get_tile(coords).rid, Color.WHITE)
+
 
 
 # helper

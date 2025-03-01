@@ -7,6 +7,7 @@ var type: Tile.Type
 
 @onready var tools: ItemList = $Margins/Toolbox/Tools
 @onready var tiles: ItemList = $Margins/Toolbox/Tiles
+@onready var highlight_color: ColorPickerButton = $Margins/Toolbox/HighlightColor
 @onready var coords_label: Label = $Margins/Bar/Label
 
 
@@ -19,10 +20,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				Game.grid.get_tile(coords).type = type
 		
 		Tool.HIGHLIGHT:
-			if event.is_action_pressed("click"):
-				pass
-			if event.is_action_released("click"):
-				pass
+			if Input.is_action_pressed("click"):
+				Game.grid.add_highlight(coords, highlight_color.color)
+			elif Input.is_action_pressed("right_click"):
+				Game.grid.remove_highlight(coords)
 	
 	if event is InputEventMouseMotion:
 		var chunk: Chunk = Game.grid.get_chunk(Grid.get_chunk_coords(coords))
@@ -57,6 +58,7 @@ func _on_tool_selected(idx: int) -> void:
 	tool = idx as Tool
 	
 	tiles.visible = tool == Tool.TYPE
+	highlight_color.visible = tool == Tool.HIGHLIGHT
 
 
 
