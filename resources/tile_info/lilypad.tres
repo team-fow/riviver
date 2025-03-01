@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://bnge3vtlrntdk"]
+
+[ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_m4ch4"]
+[ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_6l48a"]
+[ext_resource type="Texture2D" uid="uid://cl10ec434f7xn" path="res://assets/tiles/lilypad.png" id="3_2a8vn"]
+
+[sub_resource type="Resource" id="Resource_hkr00"]
+script = ExtResource("2_6l48a")
+texture = ExtResource("3_2a8vn")
+sheet_size = Vector2i(2, 2)
+sheet_picking = 1
+sprite_offset = Vector2(0, 0)
+
+[resource]
+script = ExtResource("1_m4ch4")
+name = "Lilypad"
+sprite_sheet = SubResource("Resource_hkr00")
+sprite_z_index = 0
+tags = PackedStringArray()

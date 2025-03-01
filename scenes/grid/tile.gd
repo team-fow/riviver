@@ -26,6 +26,13 @@ enum Type {
 	TALLGRASS,
 	WHEAT_FIELD,
 	FARMHOUSE,
+	BEEHIVE,
+	LILYPAD,
+	STUMP,
+	PAVED_ROAD,
+	WINDMILL,
+	HOLLOW_TREE,
+	
 }
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.
