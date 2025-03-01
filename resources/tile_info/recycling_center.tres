@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RefineryTileInfo" load_steps=2 format=3 uid="uid://bh1k4rnxdvpdx"]
+
+[ext_resource type="Script" path="res://resources/tile_info/refinery_tile_info.gd" id="1_yj38e"]
+
+[resource]
+script = ExtResource("1_yj38e")
+duration = 0.0
+input_material = 0
+input_amount = 2
+output_cards = PackedStringArray("growth")
+population = 0
+name = "Recycling Center"
+sprite_z_index = 0
+tags = PackedStringArray()

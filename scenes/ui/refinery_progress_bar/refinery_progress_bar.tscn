@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dold8hqtf8wo4"]
+
+[ext_resource type="Script" path="res://scenes/ui/refinery_progress_bar/refinery_progress_bar.gd" id="1_e86ji"]
+[ext_resource type="Texture2D" uid="uid://qi17v6gouqgf" path="res://assets/ui/refinery_progress_bar.png" id="2_a4tit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v1mi"]
+atlas = ExtResource("2_a4tit")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_413s6"]
+atlas = ExtResource("2_a4tit")
+region = Rect2(12, 0, 12, 12)
+
+[node name="RefineryProgressBar" type="Node2D"]
+script = ExtResource("1_e86ji")
+
+[node name="Radial" type="TextureProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.01
+fill_mode = 4
+texture_under = SubResource("AtlasTexture_4v1mi")
+texture_progress = SubResource("AtlasTexture_413s6")
