@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-enum Tool {NONE, TYPE}
+enum Tool {NONE, TYPE, HIGHLIGHT}
 
 var tool: Tool
 var type: Tile.Type
@@ -17,6 +17,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		Tool.TYPE:
 			if Input.is_action_pressed("click"):
 				Game.grid.get_tile(coords).type = type
+		
+		Tool.HIGHLIGHT:
+			if event.is_action_pressed("click"):
+				pass
+			if event.is_action_released("click"):
+				pass
 	
 	if event is InputEventMouseMotion:
 		var chunk: Chunk = Game.grid.get_chunk(Grid.get_chunk_coords(coords))

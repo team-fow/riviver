@@ -19,10 +19,11 @@ var color: Color ## The color of the middle of the first sprite.
 
 
 ## Draws a sprite on a canvas item.
-func draw(rid: RID, coords: Vector2i = Vector2i.ZERO) -> void:
+func draw(rid: RID, coords: Vector2i = Vector2i.ZERO, position: Vector2 = Vector2.ZERO) -> void:
 	var target_rect := Rect2(-sprite_size/2, sprite_size)
 	var src_rect := Rect2(coords * sprite_size, sprite_size)
 	target_rect.position += sprite_offset
+	target_rect.position += position
 	RenderingServer.canvas_item_add_texture_rect_region(rid, target_rect, texture, src_rect)
 
 

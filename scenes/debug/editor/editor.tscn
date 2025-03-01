@@ -31,10 +31,11 @@ text = "Tools"
 layout_mode = 2
 theme_override_constants/h_separation = 16
 auto_height = true
-item_count = 2
-max_columns = 2
+item_count = 3
+max_columns = 0
 item_0/text = "None"
 item_1/text = "Type"
+item_2/text = "Highlight"
 
 [node name="Tiles" type="ItemList" parent="Margins/Toolbox"]
 visible = false

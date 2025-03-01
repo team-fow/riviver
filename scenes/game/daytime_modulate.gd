@@ -1,6 +1,8 @@
 class_name Clock
 extends CanvasModulate
 
+signal day_ended
+
 # Daytime Management
 const DAY_LENGTH: float = 120.0  # Duration of a full day, in seconds.
 var time: float = DAY_LENGTH / 2  # Current time, in seconds.
@@ -29,6 +31,7 @@ func _process(delta):
 	# Check if a day has passed and increment the day counter
 	if time < adjusted_delta:  # This checks if the time has reset (indicating a new day)
 		day_counter += 1
+		day_ended.emit()
 	
 	# Increment the season every 6 days
 	season = int(day_counter / SEASON_LENGTH) % 4  # Map to the correct season enum value
@@ -41,6 +44,3 @@ func _process(delta):
 
 	# Set the color based on time of day
 	color = gradient.sample(sin(time / DAY_LENGTH * PI) * 0.5 + 0.5)
-
-	# Debug: Print the day counter, current season, and year counter (optional)
-	print("Day: ", day_counter, "Season: ", Season.values()[season], "Year: ", year_counter)

@@ -3,19 +3,19 @@
 [ext_resource type="Script" path="res://resources/tile_behavior/worldtree_sapling.gd" id="1_vvn0r"]
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="2_nkdb8"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="3_qrfo3"]
-[ext_resource type="Texture2D" uid="uid://ufg2lkjjv5xk" path="res://assets/tiles/yggdrasil.png" id="4_tbwl3"]
+[ext_resource type="Texture2D" uid="uid://c12sh7hqcp2f3" path="res://assets/tiles/worldtree_sapling.png" id="4_nt8e0"]
 
 [sub_resource type="Resource" id="Resource_muvk2"]
 script = ExtResource("3_qrfo3")
-texture = ExtResource("4_tbwl3")
+texture = ExtResource("4_nt8e0")
 sheet_size = Vector2i(1, 1)
 sheet_picking = 0
-sprite_offset = Vector2(0, -5)
+sprite_offset = Vector2(-4, -48)
 
 [resource]
 script = ExtResource("2_nkdb8")
 name = "Worldtree Sapling"
 sprite_sheet = SubResource("Resource_muvk2")
-z_index = 0
+sprite_z_index = 0
 behavior = ExtResource("1_vvn0r")
 tags = PackedStringArray("unique")

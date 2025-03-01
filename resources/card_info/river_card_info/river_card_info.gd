@@ -1,5 +1,5 @@
 class_name RiverCardInfo
-extends "res://resources/card_info/card_info.gd"
+extends CardInfo
 
 
 @export var targets_water: bool ## Whether the card targets a water tile (and thus is sedimentation) or not (and thus is erosion)
