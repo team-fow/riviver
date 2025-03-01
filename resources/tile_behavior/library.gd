@@ -1,6 +1,6 @@
 extends TileBehavior
 
 
-func input(event: InputEventMouseButton) -> void:
-	if event.pressed:
+func input(type: InputType) -> void:
+	if type == InputType.CLICK:
 		Game.camera.move_to(tile.coords)

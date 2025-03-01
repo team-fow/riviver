@@ -14,6 +14,7 @@ enum Direction {
 static var _map: TileMapLayer # Used for coordinate math.
 
 var _chunks: Dictionary # Loaded chunks.
+var _hovered_tile: Tile # The tile the cursor is currently over.
 
 @onready var tick_timer: Timer = $TickTimer ## Coordinates ticks.
 
@@ -125,13 +126,26 @@ func radiate_effect(center: Tile, effect: Callable, filter: Callable, radius_squ
 			radiate_effect(center, effect, filter, radius_squared, false, neighbor)
 
 
+## Returns all tiles in a radius that match a filter callable.
 func get_tiles_in_radius(center: Tile, filter: Callable, radius_squared: float, target: Tile = center) -> Array[Tile]:
 	var tiles: Array[Tile]
 	for neighbor: Tile in target.get_neighbors():
-		if filter.call(neighbor) and center.coords.distance_squared_to(neighbor.coords) < radius_squared:
+		var distance: float = center.coords.distance_squared_to(neighbor.coords)
+		if filter.call(neighbor) and distance < radius_squared and distance > center.coords.distance_squared_to(target.coords):
 			tiles.append(neighbor)
 			tiles.append_array(get_tiles_in_radius(center, filter, radius_squared, neighbor))
 	return tiles
+
+
+## Returns tiles that match a filter callable by looping over each tile's neighbors.
+func expand_neighborhood(neighborhood: Array[Tile], filter: Callable, depth: int) -> Array[Tile]:
+	while depth:
+		for tile: Tile in neighborhood.duplicate():
+			for neighbor: Tile in tile.get_neighbors():
+				if filter.call(neighbor) and neighbor not in neighborhood:
+					neighborhood.append(neighbor)
+		depth -= 1
+	return neighborhood
 
 
 ## Returns all contiguous tiles matching a filter.
@@ -154,6 +168,16 @@ static func _static_init() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	# tile input
-	if event is InputEventMouseButton:
+	if event is InputEventMouse:
 		var tile: Tile = get_tile(point_to_coords(get_local_mouse_position()))
-		if tile: tile.input(event)
+		
+		if event is InputEventMouseMotion:
+			if tile and _hovered_tile and tile != _hovered_tile:
+				_hovered_tile.input(TileBehavior.InputType.MOUSE_EXIT)
+				tile.input(TileBehavior.InputType.MOUSE_ENTER)
+		elif event.is_action_pressed("click"):
+			_hovered_tile.input(TileBehavior.InputType.CLICK)
+		elif event.is_action_pressed("right_click"):
+			_hovered_tile.input(TileBehavior.InputType.RIGHT_CLICK)
+		
+		_hovered_tile = tile

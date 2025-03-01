@@ -148,8 +148,8 @@ func stop_rendering() -> void:
 
 # input
 
-func input(event: InputEventMouseButton) -> void:
-	if behavior: behavior.input(event)
+func input(type: TileBehavior.InputType) -> void:
+	if behavior: behavior.input(type)
 
 
 

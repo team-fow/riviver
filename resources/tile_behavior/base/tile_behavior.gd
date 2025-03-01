@@ -2,6 +2,13 @@ class_name TileBehavior
 extends Resource
 ## Handles custom tile behavior logic.
 
+enum InputType {
+	CLICK,
+	RIGHT_CLICK,
+	MOUSE_ENTER,
+	MOUSE_EXIT,
+}
+
 var tile: Tile ## The tile this behavior is attached to.
 var is_tick_queued: bool ## Whether a tick has already been queued for this tile.
 
@@ -25,7 +32,7 @@ func stop() -> void:
 
 
 ## Called when the tile recieves mouse input.
-func input(event: InputEventMouseButton) -> void:
+func input(type: InputType) -> void:
 	pass
 
 

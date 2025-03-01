@@ -16,11 +16,4 @@ func play(target: Tile):
 
 # Determines whether the card can be played on a certain tile and returns a bool
 func can_be_played(target: Tile) -> bool:
-	print(target.type)
-	print(recipes.keys())
-	
-	if target.type in recipe_keys:
-		return true
-	else:
-		return false
-		
+	return target.type in recipe_keys
