@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeatherCardInfo" load_steps=2 format=3 uid="uid://vk7wf58gtok3"]
+
+[ext_resource type="Script" path="res://resources/card_info/weather_card_info/weather_card_info.gd" id="1_hieh7"]
+
+[resource]
+script = ExtResource("1_hieh7")
+weather = 1
+name = "Rain"
+material = 0
+material_cost = 0
+text = ""

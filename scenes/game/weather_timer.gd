@@ -45,7 +45,12 @@ func _change_weather():
 # Timer callback function
 func _on_weather_timer_timeout():
 	# Randomly choose a weather condition from the enum
-	current_weather = Weather.values()[randi_range(0, Weather.size() - 1)]  # Correctly access enum values
+	set_weather(Weather.values()[randi_range(0, Weather.size() - 1)])
+
+
+## Sets the current weather.
+func set_weather(type: Weather) -> void:
+	current_weather = type
 	
 	# Print the current weather condition for debugging
 	match current_weather:

@@ -21,7 +21,7 @@ const SEASON_LENGTH: int = 6  # Number of days in each season
 # Control how much longer the night should last (night_scale is greater than 1 to make night longer High Number than 1 = Longer Nights , Lower Number than 1 = Faster Night)
 const NIGHT_SCALE: float = 1.5  # Scale factor for the night (1.5 means night will last 1.5x longer than day)
 
-@onready var weather_timer: Timer = $Weather
+@onready var weather: Timer = $Weather
 
 
 func _process(delta):
@@ -53,4 +53,4 @@ func _process(delta):
 
 func update_color() -> void:
 	var daytime_color: Color = daytime_gradient.sample(sin(time / DAY_LENGTH * PI) * 0.5 + 0.5)
-	color = daytime_color.lerp(weather_colors[weather_timer.current_weather], 0.5)
+	color = daytime_color.lerp(weather_colors[weather.current_weather], 0.5)

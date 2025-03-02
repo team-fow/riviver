@@ -17,11 +17,12 @@ var retracted = false
 
 
 func _ready() -> void:
-	for i in 2:
-		add_card("growth")
-		add_card("erosion")
-		add_card("sedimentation")
 	add_card("worldtree")
+	add_card("growth")
+	add_card("erosion")
+	add_card("sedimentation")
+	add_card("rain")
+	add_card("storm")
 
 # modifying list
 
