@@ -6,7 +6,7 @@ const CARD_SEPARATION: float = Card.SIZE.x * 1.25 ## Horizontal spacing between 
 const MAX_FAN_ROTATION: float = 0 ## Maximum rotation for fanning.
 const MAX_FAN_OFFSET: float = 0 ## Maximum vertical offset for fanning.
 const HOVERED_CARD_SCALE := Vector2(1.2, 1.2) ## Scaling applied to the currently hovered card.
-const HIGHLIGHT_COLOR := Color(1.2, 1.2, 1.2) ## Highlight applied to playable tiles.
+const HIGHLIGHT_COLOR := Color("#ddffbb") ## Highlight applied to playable tiles.
 
 var cards: Array[Card] ## All cards stored in this list.
 var tween: Tween
