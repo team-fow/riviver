@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://resources/tile_behavior/base/harvester_tile_behavior.gd" id="1_bugs6"]
 [ext_resource type="Script" path="res://resources/tile_info/harvester_tile_info.gd" id="1_erxf5"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_etiyw"]
-[ext_resource type="Texture2D" uid="uid://df6dxjq68li84" path="res://assets/tiles/farmhouse.png" id="3_32hbs"]
+[ext_resource type="Texture2D" uid="uid://djhs6e7vegynu" path="res://assets/tiles/farmhouse.png" id="3_32hbs"]
 
 [sub_resource type="Resource" id="Resource_upq6a"]
 script = ExtResource("2_etiyw")
 texture = ExtResource("3_32hbs")
 sheet_size = Vector2i(1, 1)
 sheet_picking = 0
-sprite_offset = Vector2(0, 0)
+sprite_offset = Vector2(0, -35)
 
 [resource]
 script = ExtResource("1_erxf5")
