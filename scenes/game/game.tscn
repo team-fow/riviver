@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://262wfv063anm"]
+[gd_scene load_steps=21 format=3 uid="uid://262wfv063anm"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_tllol"]
 [ext_resource type="PackedScene" uid="uid://bgbhlhlnbj02o" path="res://scenes/ui/ui.tscn" id="2_42qev"]
@@ -9,23 +9,50 @@
 [ext_resource type="Script" path="res://scenes/game/daytime_modulate.gd" id="5_5kbi3"]
 [ext_resource type="Script" path="res://scenes/game/player.gd" id="5_cgng6"]
 [ext_resource type="PackedScene" uid="uid://prfpthf047d3" path="res://scenes/hand/hand.tscn" id="6_kslhd"]
+[ext_resource type="Texture2D" uid="uid://ddl4541x665kr" path="res://assets/vfx/rain.png" id="9_4ki6i"]
 [ext_resource type="Script" path="res://scenes/game/weather_timer.gd" id="9_fdmxf"]
+[ext_resource type="Texture2D" uid="uid://cowy6qnpcnbp3" path="res://assets/vfx/lightning.png" id="12_jop53"]
+[ext_resource type="Texture2D" uid="uid://df5ge6ujigoen" path="res://assets/vfx/clouds.png" id="13_p86f5"]
+
+[sub_resource type="Gradient" id="Gradient_astqh"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_paisk"]
+gradient = SubResource("Gradient_astqh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ygc3o"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(80, -200, 0)
+emission_shape = 3
+emission_box_extents = Vector3(500, 0, 1)
+angle_min = -20.0
+angle_max = -20.0
+direction = Vector3(-1, 2, 0)
+spread = 0.0
+initial_velocity_min = 300.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 98, 0)
+color_initial_ramp = SubResource("GradientTexture1D_paisk")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xynk8"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_7qvrj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w2nkn"]
+curve = SubResource("Curve_7qvrj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rctim"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -100, 0)
+emission_shape = 3
+emission_box_extents = Vector3(400, 0, 1)
+alpha_curve = SubResource("CurveTexture_w2nkn")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tllol")
-
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-visible = false
-
-[node name="Color" type="ColorRect" parent="Background"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
 
 [node name="UI" parent="." instance=ExtResource("2_42qev")]
 visible = false
@@ -54,10 +81,41 @@ scale = Vector2(0.75, 0.75)
 
 [node name="Clock" type="CanvasModulate" parent="."]
 script = ExtResource("5_5kbi3")
+weather_colors = PackedColorArray(1, 1, 1, 1, 0.447801, 0.64907, 1, 1, 0.631661, 0.359109, 1, 1)
 
-[node name="weather_timer" type="Timer" parent="."]
+[node name="Weather" type="Timer" parent="Clock" node_paths=PackedStringArray("rain_particles", "lightning_particles", "cloud_sprite")]
 script = ExtResource("9_fdmxf")
+rain_particles = NodePath("../../Camera/Rain")
+lightning_particles = NodePath("../../Camera/Lightning")
+cloud_sprite = NodePath("../../Camera/Clouds")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 script = ExtResource("4_70hti")
+
+[node name="Rain" type="GPUParticles2D" parent="Camera"]
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_ygc3o")
+texture = ExtResource("9_4ki6i")
+lifetime = 1.25
+visibility_rect = Rect2(0, 0, 0, 0)
+
+[node name="Lightning" type="GPUParticles2D" parent="Camera"]
+material = SubResource("CanvasItemMaterial_xynk8")
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_rctim")
+texture = ExtResource("12_jop53")
+lifetime = 1.25
+explosiveness = 0.25
+visibility_rect = Rect2(0, 0, 0, 0)
+
+[node name="Clouds" type="Sprite2D" parent="Camera"]
+visible = false
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-334, -200)
+texture = ExtResource("13_p86f5")
+centered = false
+
+[connection signal="weather_changed" from="Clock/Weather" to="Clock" method="_on_weather_changed"]
