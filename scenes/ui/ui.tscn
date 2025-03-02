@@ -48,6 +48,7 @@ offset_right = -80.0
 offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PanelRiver" type="TextureRect" parent="Pause Panel"]
 layout_mode = 1
@@ -210,6 +211,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 
 [node name="Pane" type="TextureRect" parent="Building Menu"]
 layout_mode = 1

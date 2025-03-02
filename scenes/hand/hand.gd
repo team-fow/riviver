@@ -21,6 +21,7 @@ func _ready() -> void:
 	add_card("growth")
 	add_card("erosion")
 	add_card("sedimentation")
+	add_card("fish")
 	add_card("rain")
 	add_card("storm")
 

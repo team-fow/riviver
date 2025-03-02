@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d07mlmj1dwuj5"]
+
+[ext_resource type="Script" path="res://resources/card_info/river_card_info/fish_card_info.gd" id="1_psn1y"]
+
+[resource]
+script = ExtResource("1_psn1y")
+amount = 20
+name = "Fish"
+material = 0
+material_cost = 0
+text = "Populates the river with fish."
