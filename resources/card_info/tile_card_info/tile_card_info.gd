@@ -1,5 +1,5 @@
 class_name TileCardInfo
-extends "res://resources/card_info/card_info.gd"
+extends CardInfo
 
 
 @export var recipe_keys: Array[Tile.Type]

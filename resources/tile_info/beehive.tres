@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://bbyh3uospuhr2"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=6 format=3 uid="uid://bbyh3uospuhr2"]
 
+[ext_resource type="Script" path="res://resources/tile_behavior/beehive.gd" id="1_3mrc3"]
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_i4gi5"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_f12lb"]
 [ext_resource type="Texture2D" uid="uid://brumbq7hwmwnx" path="res://assets/tiles/beehive.png" id="3_ymphk"]
@@ -16,4 +17,5 @@ script = ExtResource("1_i4gi5")
 name = "Beehive"
 sprite_sheet = SubResource("Resource_syu43")
 sprite_z_index = 0
+behavior = ExtResource("1_3mrc3")
 tags = PackedStringArray()

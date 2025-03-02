@@ -16,6 +16,6 @@ sprite_offset = Vector2(0, 0)
 script = ExtResource("1_tb430")
 name = "Deep Water"
 sprite_sheet = SubResource("Resource_7g64o")
-z_index = 0
+sprite_z_index = 0
 behavior = ExtResource("1_rioab")
 tags = PackedStringArray("river")

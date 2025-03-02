@@ -11,6 +11,7 @@ enum MaterialType {
 	LUMBER,
 	ENERGY,
 	RAINDROPS,
+	STARS
 }
 
 var _material_amounts: PackedInt32Array # List of material counts. Index with MaterialType.
