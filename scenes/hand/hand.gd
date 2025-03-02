@@ -19,6 +19,7 @@ var retracted = false
 func _ready() -> void:
 	add_card("worldtree")
 	add_card("growth")
+	add_card("fertilizer")
 	add_card("erosion")
 	add_card("sedimentation")
 	add_card("fish")

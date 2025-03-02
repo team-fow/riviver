@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TileCardInfo" load_steps=2 format=3 uid="uid://dcb3e8683kh87"]
+
+[ext_resource type="Script" path="res://resources/card_info/tile_card_info/tile_card_info.gd" id="1_k8crp"]
+
+[resource]
+script = ExtResource("1_k8crp")
+recipe_keys = Array[int]([20])
+recipe_vals = Array[int]([22])
+radius = 2.0
+name = "Fertilizer"
+material = 0
+material_cost = 0
+text = "Grow stuff in a radius"
