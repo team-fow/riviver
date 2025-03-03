@@ -313,3 +313,11 @@ theme_override_font_sizes/font_size = 48
 text = "NEWSCASTER"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="Animal Den" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
