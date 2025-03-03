@@ -18,4 +18,4 @@ name = "Worldtree"
 sprite_sheet = SubResource("Resource_muvk2")
 sprite_z_index = 0
 behavior = ExtResource("1_odbh5")
-tags = PackedStringArray("unique")
+tags = PackedStringArray("unique", "permanent")

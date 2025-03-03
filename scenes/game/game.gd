@@ -11,7 +11,7 @@ static var river: River ## Manages the river state.
 static var player: Player ## Manages player cards & materials.
 static var clock: Clock ## Manages time & weather.
 static var camera: Camera2D ## Manages chunk loading.
-
+static var town_manager: TownManager ## Manages town expansion
 
 ## Writes the current game state to disk.
 static func write() -> void:
@@ -73,5 +73,7 @@ func _ready() -> void:
 	player = $Player
 	clock = $Clock
 	camera = $Camera
+	town_manager = $TownManager
+	town_manager.start_building()
 	# loading save
 	read()

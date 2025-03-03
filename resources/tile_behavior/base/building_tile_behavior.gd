@@ -3,8 +3,8 @@ extends TileBehavior
 
 
 func start() -> void:
-	super()
+	Game.town_manager.track_tile(tile)
 
 
 func stop() -> void:
-	super()
+	Game.town_manager.untrack_tile(tile)

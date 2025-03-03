@@ -15,5 +15,5 @@ sprite_offset = Vector2(0, 0)
 script = ExtResource("1_c2mqs")
 name = "Dirt"
 sprite_sheet = SubResource("Resource_j77qg")
-z_index = 0
-tags = PackedStringArray()
+sprite_z_index = 0
+tags = PackedStringArray("terrain")

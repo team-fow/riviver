@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://ty6y14l17vcd"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=6 format=3 uid="uid://ty6y14l17vcd"]
 
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_7piml"]
+[ext_resource type="Script" path="res://resources/tile_behavior/base/building_tile_behavior.gd" id="1_uesur"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_omytp"]
 [ext_resource type="Texture2D" uid="uid://creeldkv487wq" path="res://assets/tiles/paved_road.png" id="3_72j3i"]
 
@@ -16,4 +17,5 @@ script = ExtResource("1_7piml")
 name = "Paved road"
 sprite_sheet = SubResource("Resource_aq7wf")
 sprite_z_index = 0
-tags = PackedStringArray()
+behavior = ExtResource("1_uesur")
+tags = PackedStringArray("town")

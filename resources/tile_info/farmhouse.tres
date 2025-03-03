@@ -22,4 +22,4 @@ name = "Farmhouse"
 sprite_sheet = SubResource("Resource_upq6a")
 sprite_z_index = 0
 behavior = ExtResource("1_bugs6")
-tags = PackedStringArray()
+tags = PackedStringArray("town")

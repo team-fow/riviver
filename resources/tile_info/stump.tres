@@ -16,4 +16,4 @@ script = ExtResource("1_lbjwr")
 name = "Stump"
 sprite_sheet = SubResource("Resource_qobrb")
 sprite_z_index = 0
-tags = PackedStringArray()
+tags = PackedStringArray("terrain")

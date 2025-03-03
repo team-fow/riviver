@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://262wfv063anm"]
+[gd_scene load_steps=22 format=3 uid="uid://262wfv063anm"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_tllol"]
 [ext_resource type="PackedScene" uid="uid://bgbhlhlnbj02o" path="res://scenes/ui/ui.tscn" id="2_42qev"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scenes/game/weather_timer.gd" id="9_fdmxf"]
 [ext_resource type="Texture2D" uid="uid://cowy6qnpcnbp3" path="res://assets/vfx/lightning.png" id="12_jop53"]
 [ext_resource type="Texture2D" uid="uid://df5ge6ujigoen" path="res://assets/vfx/clouds.png" id="13_p86f5"]
+[ext_resource type="Script" path="res://scenes/town/town_manager.gd" id="14_4lcu7"]
 
 [sub_resource type="Gradient" id="Gradient_astqh"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961)
@@ -117,5 +118,8 @@ modulate = Color(1, 1, 1, 0.501961)
 position = Vector2(-334, -200)
 texture = ExtResource("13_p86f5")
 centered = false
+
+[node name="TownManager" type="Node" parent="."]
+script = ExtResource("14_4lcu7")
 
 [connection signal="weather_changed" from="Clock/Weather" to="Clock" method="_on_weather_changed"]

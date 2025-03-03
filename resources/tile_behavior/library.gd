@@ -1,4 +1,4 @@
-extends TileBehavior
+extends BuildingTileBehavior
 
 
 func input(type: InputType) -> void:

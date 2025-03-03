@@ -15,5 +15,5 @@ sprite_offset = Vector2(0, 0)
 script = ExtResource("1_v4kdb")
 name = "Fertile_soil"
 sprite_sheet = SubResource("Resource_76jyj")
-z_index = 0
-tags = PackedStringArray()
+sprite_z_index = 0
+tags = PackedStringArray("terrain")

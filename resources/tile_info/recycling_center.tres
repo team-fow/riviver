@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="RefineryTileInfo" load_steps=2 format=3 uid="uid://bh1k4rnxdvpdx"]
+[gd_resource type="Resource" script_class="RefineryTileInfo" load_steps=3 format=3 uid="uid://bh1k4rnxdvpdx"]
 
+[ext_resource type="Script" path="res://resources/tile_behavior/base/building_tile_behavior.gd" id="1_x045q"]
 [ext_resource type="Script" path="res://resources/tile_info/refinery_tile_info.gd" id="1_yj38e"]
 
 [resource]
@@ -7,8 +8,9 @@ script = ExtResource("1_yj38e")
 duration = 0.0
 input_material = 0
 input_amount = 2
-output_cards = PackedStringArray("growth")
+output_cards = PackedStringArray("growth", "town")
 population = 0
 name = "Recycling Center"
 sprite_z_index = 0
+behavior = ExtResource("1_x045q")
 tags = PackedStringArray()

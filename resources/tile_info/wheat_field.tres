@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="TileInfo" load_steps=5 format=3 uid="uid://blk4i8ujoque3"]
+[gd_resource type="Resource" script_class="TileInfo" load_steps=6 format=3 uid="uid://blk4i8ujoque3"]
 
 [ext_resource type="Script" path="res://resources/tile_info/tile_info.gd" id="1_0od3r"]
+[ext_resource type="Script" path="res://resources/tile_behavior/base/building_tile_behavior.gd" id="1_actd1"]
 [ext_resource type="Script" path="res://resources/sprite_sheet/sprite_sheet.gd" id="2_7m56d"]
 [ext_resource type="Texture2D" uid="uid://cuq2lcyfc6hww" path="res://assets/tiles/wheat_field.png" id="3_mq3hl"]
 
@@ -16,4 +17,5 @@ script = ExtResource("1_0od3r")
 name = "Wheat Field"
 sprite_sheet = SubResource("Resource_s2g11")
 sprite_z_index = 0
-tags = PackedStringArray()
+behavior = ExtResource("1_actd1")
+tags = PackedStringArray("town")
