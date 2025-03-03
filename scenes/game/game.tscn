@@ -124,4 +124,3 @@ centered = false
 script = ExtResource("14_4lcu7")
 
 [connection signal="weather_changed" from="Clock/Weather" to="Clock" method="_on_weather_changed"]
-[connection signal="chunks_changed" from="Camera" to="Player/HandLayer/Hand" method="_on_camera_chunks_changed"]

@@ -1,8 +1,6 @@
 extends Camera2D
 ## Manages chunk loading.
 
-signal chunks_changed(old_chunk_coords: Vector2i)
-
 const SPEED: float = 250 ## Movement speed.
 const LOAD_RANGE: int = 1 ## Distance (in chunks) at which chunks are loaded.
 const UNLOAD_RANGE: int = 4 ## Distance (in chunks) at which chunks are unloaded.
@@ -45,7 +43,6 @@ func _process(delta: float) -> void:
 				if not Game.grid.is_chunk_loaded(lchunk_coords):
 					Game.grid.load_chunk(lchunk_coords)
 		# updating var
-		chunks_changed.emit(chunk_coords)
 		chunk_coords = new_chunk_coords
 
 

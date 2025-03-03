@@ -25,6 +25,14 @@ func get_tile(coords: Vector2i) -> Tile:
 	return _tiles[coords.x][coords.y] if _tiles[coords.x] else null
 
 
+## Returns a list of all tiles in the chunk.
+func get_tiles() -> Array[Tile]:
+	var tiles: Array[Tile]
+	for row: Array[Tile] in _tiles:
+		tiles.append_array(row)
+	return tiles
+
+
 
 # loading & unloading
 
