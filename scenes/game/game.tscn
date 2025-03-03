@@ -113,6 +113,7 @@ explosiveness = 0.25
 visibility_rect = Rect2(0, 0, 0, 0)
 
 [node name="Clouds" type="Sprite2D" parent="Camera"]
+visible = false
 modulate = Color(1, 1, 1, 0.501961)
 position = Vector2(-334, -200)
 scale = Vector2(0.982353, 1)
