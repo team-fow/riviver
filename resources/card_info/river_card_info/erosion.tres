@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="RiverCardInfo" load_steps=2 format=3 uid="uid://x7mdprb6j0hq"]
+[gd_resource type="Resource" script_class="RiverCardInfo" load_steps=3 format=3 uid="uid://x7mdprb6j0hq"]
 
 [ext_resource type="Script" path="res://resources/card_info/river_card_info/river_card_info.gd" id="1_mivg8"]
+[ext_resource type="Texture2D" uid="uid://cwsdmf4y6rw4t" path="res://assets/cards/mystery.jpg" id="1_n4ohv"]
 
 [resource]
 script = ExtResource("1_mivg8")
 targets_water = false
 radius = 2.0
-name = "Erosion"
+name = "Erode"
 material = 0
 material_cost = 0
+art = ExtResource("1_n4ohv")
 text = "The river erodes the bank, breaking down soil and widening the river."

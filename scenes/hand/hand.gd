@@ -2,11 +2,12 @@ class_name Hand
 extends Node2D
 
 const TWEEN_DURATION: float = 0.1 ## Duration of tweening effects.
-const CARD_SEPARATION: float = Card.SIZE.x * 1.25 ## Horizontal spacing between cards.
+const CARD_SEPARATION: float = Card.SIZE.x * 1 ## Horizontal spacing between cards.
 const MAX_FAN_ROTATION: float = 0 ## Maximum rotation for fanning.
 const MAX_FAN_OFFSET: float = 0 ## Maximum vertical offset for fanning.
-const HOVERED_CARD_SCALE := Vector2(1.2, 1.2) ## Scaling applied to the currently hovered card.
-const HIGHLIGHT_COLOR := Color("#ddffbb") ## Highlight applied to playable tiles.
+const HOVERED_CARD_SCALE := Vector2(1.25, 1.25) ## Scaling applied to the currently hovered card.
+const HIGHLIGHT_COLOR := Color(0.75, 0.75, 0.75) ## Highlight applied to playable tiles.
+#ddffbb
 
 var cards: Array[Card] ## All cards stored in this list.
 var tween: Tween
@@ -20,8 +21,8 @@ func _ready() -> void:
 	add_card("worldtree")
 	add_card("growth")
 	add_card("fertilizer")
-	add_card("erosion")
-	add_card("sedimentation")
+	add_card("erode")
+	add_card("sedimentate")
 	add_card("fish")
 	add_card("rain")
 	add_card("storm")
@@ -171,17 +172,23 @@ func _unhandled_input(event: InputEvent) -> void:
 # highlighting
 
 ## Highlights all visible tiles a card can be played on in some color.
-func highlight_playable(card: Card) -> void:
-	var start: Vector2i = Game.grid.get_chunk(Game.camera.chunk_coords - Vector2i.ONE).tile_offset
+func highlight_playable(card: Card, chunk_coords: Vector2i = Game.camera.chunk_coords) -> void:
+	var start: Vector2i = Game.grid.get_chunk(chunk_coords - Vector2i.ONE).tile_offset
 	for x: int in Chunk.SIZE.x * 3:
 		for y: int in Chunk.SIZE.y * 3:
 			var tile: Tile = Game.grid.get_tile(start + Vector2i(x, y))
-			if tile and card.info.can_be_played(tile):
+			if tile and not card.info.can_be_played(tile):
 				Game.grid.add_highlight(tile.coords, HIGHLIGHT_COLOR)
 
 ## Unhighlights all visible tiles.
-func unhighlight_playable(card: Card) -> void:
-	var start: Vector2i = Game.grid.get_chunk(Game.camera.chunk_coords - Vector2i.ONE).tile_offset
+func unhighlight_playable(card: Card, chunk_coords: Vector2i = Game.camera.chunk_coords) -> void:
+	var start: Vector2i = Game.grid.get_chunk(chunk_coords - Vector2i.ONE).tile_offset
 	for x: int in Chunk.SIZE.x * 3:
 		for y: int in Chunk.SIZE.y * 3:
 			Game.grid.remove_highlight(start + Vector2i(x, y))
+
+
+func _on_camera_chunks_changed(old_chunk_coords: Vector2i) -> void:
+	if held_card:
+		unhighlight_playable(held_card, old_chunk_coords)
+		highlight_playable(held_card)

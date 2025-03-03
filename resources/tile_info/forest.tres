@@ -10,7 +10,7 @@ script = ExtResource("2_fkjl3")
 texture = ExtResource("4_yhpoj")
 sheet_size = Vector2i(3, 1)
 sheet_picking = 1
-sprite_offset = Vector2(0, -65)
+sprite_offset = Vector2(0, -31)
 
 [resource]
 script = ExtResource("1_h2awg")

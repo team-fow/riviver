@@ -1,6 +1,8 @@
 extends Camera2D
 ## Manages chunk loading.
 
+signal chunks_changed(old_chunk_coords: Vector2i)
+
 const SPEED: float = 250 ## Movement speed.
 const LOAD_RANGE: int = 1 ## Distance (in chunks) at which chunks are loaded.
 const UNLOAD_RANGE: int = 4 ## Distance (in chunks) at which chunks are unloaded.
@@ -31,20 +33,20 @@ func _process(delta: float) -> void:
 	
 	var new_chunk_coords: Vector2i = Grid.get_chunk_coords(Grid.point_to_coords(position))
 	if new_chunk_coords != chunk_coords:
-		chunk_coords = new_chunk_coords
-		
 		# unloading chunks
 		for chunk: Chunk in Game.grid.get_loaded_chunks():
-			var diff: Vector2i = (chunk.chunk_coords - chunk_coords).abs()
+			var diff: Vector2i = (chunk.chunk_coords - new_chunk_coords).abs()
 			if diff[diff.max_axis_index()] > UNLOAD_RANGE:
 				Game.grid.unload_chunk(chunk.chunk_coords)
-		
 		# loading chunks
 		for x: int in range(-LOAD_RANGE, LOAD_RANGE + 1):
 			for y: int in range(-LOAD_RANGE, LOAD_RANGE + 1):
-				var lchunk_coords: Vector2i = chunk_coords + Vector2i(x, y)
+				var lchunk_coords: Vector2i = new_chunk_coords + Vector2i(x, y)
 				if not Game.grid.is_chunk_loaded(lchunk_coords):
 					Game.grid.load_chunk(lchunk_coords)
+		# updating var
+		chunks_changed.emit(chunk_coords)
+		chunk_coords = new_chunk_coords
 
 
 func _unhandled_key_input(_event: InputEvent) -> void:

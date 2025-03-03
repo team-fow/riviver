@@ -9,8 +9,8 @@ enum Weather {
 	STORM
 }
 
-const WEATHER_MIN_TIME: float = 5.0
-const WEATHER_MAX_TIME: float = 10.0
+const WEATHER_MIN_TIME: float = 30.0
+const WEATHER_MAX_TIME: float = 120.0
 
 @export var rain_particles: GPUParticles2D
 @export var lightning_particles: GPUParticles2D

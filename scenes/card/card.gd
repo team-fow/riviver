@@ -27,5 +27,5 @@ func set_input(value: bool) -> void:
 
 func _ready() -> void:
 	name_label.text = info.name
-	art.texture = info.art
+	background.texture = info.art
 	description.text = info.text

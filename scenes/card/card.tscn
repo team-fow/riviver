@@ -1,24 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqu74yknhc5pv"]
+[gd_scene load_steps=7 format=3 uid="uid://dqu74yknhc5pv"]
 
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="1_nemah"]
-[ext_resource type="Texture2D" uid="uid://b5xh81m5jrn5x" path="res://assets/tiles/fire.png" id="2_y674x"]
+[ext_resource type="Texture2D" uid="uid://cwsdmf4y6rw4t" path="res://assets/cards/mystery.jpg" id="2_um0q2"]
+[ext_resource type="FontFile" uid="uid://bqvxymmitovii" path="res://assets/ui/font/amarante.ttf" id="3_ndoiv"]
 [ext_resource type="Texture2D" uid="uid://cd626hwn2es4g" path="res://assets/tiles/default.png" id="3_uq6we"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2dh6"]
+bg_color = Color(0.746261, 0.696745, 0.652725, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.116741, 0.116741, 0.116741, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4usem"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.746261, 0.696745, 0.652725, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.116741, 0.116741, 0.116741, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="Card" type="Control"]
-custom_minimum_size = Vector2(200, 300)
+texture_filter = 4
+custom_minimum_size = Vector2(256, 362.193)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -150.0
-offset_right = 100.0
-offset_bottom = 150.0
+offset_left = -128.0
+offset_top = -181.096
+offset_right = 128.0
+offset_bottom = 181.096
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(100, 150)
+pivot_offset = Vector2(128, 181.096)
 script = ExtResource("1_nemah")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -28,7 +58,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y674x")
+texture = ExtResource("2_um0q2")
+expand_mode = 1
 
 [node name="Margins" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -37,30 +68,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="Info" type="VBoxContainer" parent="Margins"]
 layout_mode = 2
 
 [node name="Name" type="Label" parent="Margins/Info"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ndoiv")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_l2dh6")
 text = "Name"
 horizontal_alignment = 1
 
 [node name="Art" type="TextureRect" parent="Margins/Info"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 texture = ExtResource("3_uq6we")
 
 [node name="Description" type="Label" parent="Margins/Info"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 size_flags_stretch_ratio = 4.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("3_ndoiv")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_4usem")
 text = "Description"
 horizontal_alignment = 1
 vertical_alignment = 1

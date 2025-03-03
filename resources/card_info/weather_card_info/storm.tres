@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="WeatherCardInfo" load_steps=2 format=3 uid="uid://ba2yj3pnruvll"]
+[gd_resource type="Resource" script_class="WeatherCardInfo" load_steps=3 format=3 uid="uid://ba2yj3pnruvll"]
 
+[ext_resource type="Texture2D" uid="uid://b7gvojfjx0uhp" path="res://assets/cards/storm.jpg" id="1_lhr37"]
 [ext_resource type="Script" path="res://resources/card_info/weather_card_info/weather_card_info.gd" id="1_qrquy"]
 
 [resource]
@@ -8,4 +9,5 @@ weather = 2
 name = "Storm"
 material = 0
 material_cost = 0
-text = ""
+art = ExtResource("1_lhr37")
+text = "Summons a storm."

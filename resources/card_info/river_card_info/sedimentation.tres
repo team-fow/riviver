@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="RiverCardInfo" load_steps=2 format=3 uid="uid://c4fuoxe3sk03k"]
+[gd_resource type="Resource" script_class="RiverCardInfo" load_steps=3 format=3 uid="uid://c4fuoxe3sk03k"]
 
+[ext_resource type="Texture2D" uid="uid://cwsdmf4y6rw4t" path="res://assets/cards/mystery.jpg" id="1_5j2ph"]
 [ext_resource type="Script" path="res://resources/card_info/river_card_info/river_card_info.gd" id="1_7f2i6"]
 
 [resource]
 script = ExtResource("1_7f2i6")
 targets_water = true
 radius = 2.0
-name = "Sedimentation"
+name = "Sedimentate"
 material = 0
 material_cost = 0
+art = ExtResource("1_5j2ph")
 text = "The river deposits soil and minerals on the bank, creating new land."
