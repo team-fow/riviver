@@ -170,9 +170,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	# tile input
 	if event is InputEventMouse:
 		var tile: Tile = get_tile(point_to_coords(get_local_mouse_position()))
+		if not tile or not _hovered_tile: return
 		
 		if event is InputEventMouseMotion:
-			if tile and _hovered_tile and tile != _hovered_tile:
+			if tile != _hovered_tile:
 				_hovered_tile.input(TileBehavior.InputType.MOUSE_EXIT)
 				tile.input(TileBehavior.InputType.MOUSE_ENTER)
 		elif event.is_action_pressed("click"):

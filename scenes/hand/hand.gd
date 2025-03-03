@@ -2,7 +2,7 @@ class_name Hand
 extends Node2D
 
 const TWEEN_DURATION: float = 0.1 ## Duration of tweening effects.
-const CARD_SEPARATION: float = Card.SIZE.x * 1 ## Horizontal spacing between cards.
+const CARD_SEPARATION: float = Card.SIZE.x + 8 ## Horizontal spacing between cards.
 const MAX_FAN_ROTATION: float = 0 ## Maximum rotation for fanning.
 const MAX_FAN_OFFSET: float = 0 ## Maximum vertical offset for fanning.
 const HOVERED_CARD_SCALE := Vector2(1.25, 1.25) ## Scaling applied to the currently hovered card.

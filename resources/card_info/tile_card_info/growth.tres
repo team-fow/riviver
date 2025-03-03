@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_w63e3")
-recipe_keys = Array[int]([15, 6, 5])
-recipe_vals = Array[int]([12, 5, 11])
-radius = 2.0
+recipe_keys = Array[int]([15, 6, 5, 13, 14])
+recipe_vals = Array[int]([12, 5, 11, 6, 11])
+radius = 4.0
 name = "Growth"
 material = 0
 material_cost = 0

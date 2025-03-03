@@ -1,7 +1,7 @@
 class_name Card
 extends Control
 
-const SIZE := Vector2(200, 300)
+const SIZE := Vector2(256, 362.193)
 
 var info: CardInfo = load("res://resources/card_info/test_card.tres") ## Info resource.
 var tween: Tween

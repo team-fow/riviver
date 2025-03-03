@@ -32,7 +32,6 @@ enum Type {
 	PAVED_ROAD,
 	WINDMILL,
 	HOLLOW_TREE,
-	
 }
 
 const SIZE := Vector2(24, 16) ## Size, in pixels.
