@@ -71,6 +71,7 @@ func get_neighbors() -> Array[Tile]:
 # Ticks and redraws when type is changed.
 func _set_type(value: Type) -> void:
 	if type == value: return
+	if Tile.has_tag(self, "fixed"): return # type can't be changed if the tile has the "fixed" tag
 	type = value
 	_redraw()
 	# behavior
