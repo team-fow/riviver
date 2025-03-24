@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=4 uid="uid://81bpw6rvsl2r"]
+
+[ext_resource type="TileSet" uid="uid://efnoobl2bdx4" path="res://assets/tiles/tileset.tres" id="1_x0e5n"]
+
+[node name="Grid" type="TileMapLayer"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD/////AAACAAAAAAD///7/AAABAAAAAAD+////AAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAAAAAAAAAACAAAAAAAAAP//AAACAAAAAAAAAP7/AAACAAAAAAD///3/AAABAAAAAAAAAP3/AAACAAAAAAAAAPz/AAACAAAAAAD///v/AAACAAAAAAD///z/AAABAAAAAAD+//3/AAACAAAAAAD+//7/AAACAAAAAAD9////AAACAAAAAAD+/wAAAAACAAAAAAD+/wEAAAACAAAAAAD//wIAAAACAAAAAAD//wMAAAACAAAAAAAAAAIAAAABAAAAAAAAAAEAAAACAAAAAAABAAAAAAACAAAAAAABAP//AAACAAAAAAABAP7/AAACAAAAAAA=")
+tile_set = ExtResource("1_x0e5n")
+occlusion_enabled = false
+collision_enabled = false
+navigation_enabled = false
