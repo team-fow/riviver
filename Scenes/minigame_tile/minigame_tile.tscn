@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://85lycb6ahpb"]
 
-[ext_resource type="Script" uid="uid://cdkvtsdv0mq6a" path="res://scenes/minigame_tile/minigame_tile.gd" id="1_3hr0a"]
+[ext_resource type="Script" uid="uid://cdkvtsdv0mq6a" path="res://Scenes/minigame_tile/minigame_tile.gd" id="1_3hr0a"]
 [ext_resource type="Texture2D" uid="uid://dcwhfkke18vyi" path="res://assets/minigame_marker.png" id="1_u2k62"]
 
 [sub_resource type="Gradient" id="Gradient_u2k62"]
