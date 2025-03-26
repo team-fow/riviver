@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2uoqrprp063b"
-path="res://.godot/imported/Organic_.png-b38a0f779b6905106e820070ecc37b3d.ctex"
+path="res://.godot/imported/compost_bin.png-84f67be138284edf80a2b9b895c2ede2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/Organic_.png"
-dest_files=["res://.godot/imported/Organic_.png-b38a0f779b6905106e820070ecc37b3d.ctex"]
+source_file="res://assets/minigames/trash/compost_bin.png"
+dest_files=["res://.godot/imported/compost_bin.png-84f67be138284edf80a2b9b895c2ede2.ctex"]
 
 [params]
 

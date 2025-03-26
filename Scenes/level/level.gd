@@ -1,25 +1,24 @@
 class_name Level
 extends Node2D
 
-@export var minigames: Array[Minigame] # An array containing all of the minigames present in the level
+var minigames: Array[Minigame] # An array containing all of the minigames present in the level
 var minigames_completed : int = 0 # How many minigames the player has currently completed
 var scores: Dictionary[Minigame, float] # Stores the score for each minigame
 
 @onready var grid: TileMapLayer = $Grid
+@onready var animator: AnimationPlayer = $Animator
 
 
 # Open a minigame
 func open_minigame(game : Minigame) -> void:
-	var move_grid: Tween = get_tree().create_tween()
-	move_grid.tween_property(grid, "position", Vector2(-250.0, 0.0), 0.1)
+	animator.play("move_grid")
 	game.show()
 	
 	
 # Close a minigame
 func close_minigame(game: Minigame) -> void:
-	game.hide()	
-	var move_grid: Tween = get_tree().create_tween()
-	move_grid.tween_property(grid, "position", Vector2(0.0, 0.0), 0.1)
+	game.hide()
+	animator.play_backwards("move_grid")
 
 
 # Close a completed minigame
@@ -45,6 +44,7 @@ func _on_settings_pressed() -> void:
 	
 
 func _ready() -> void:
-	for minigame in minigames:
+	for minigame in $Minigames.get_children():
+		minigames.append(minigame)
 		minigame.started.connect(open_minigame)
 		minigame.ended.connect(end_minigame)

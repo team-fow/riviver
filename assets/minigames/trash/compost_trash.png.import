@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3codjr7o5dvx"
-path="res://.godot/imported/test.png-48ae8e6318a5a81fb993f30e2f135130.ctex"
+uid="uid://dswfrwvjdbdgc"
+path="res://.godot/imported/compost_trash.png-7b47c699f9c8e071044b067a3defe430.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/test.png"
-dest_files=["res://.godot/imported/test.png-48ae8e6318a5a81fb993f30e2f135130.ctex"]
+source_file="res://assets/minigames/trash/compost_trash.png"
+dest_files=["res://.godot/imported/compost_trash.png-7b47c699f9c8e071044b067a3defe430.ctex"]
 
 [params]
 
