@@ -12,4 +12,4 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 
 
 func _ready() -> void:
-	minigame.ended.connect(queue_free) # frees itself when the minigame is completed
+	minigame.ended.connect(queue_free.unbind(2)) # frees itself when the minigame is completed
