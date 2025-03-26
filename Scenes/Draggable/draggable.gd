@@ -15,14 +15,22 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			global_position = get_global_mouse_position()
 		elif event.is_action_released("click"):
-			held = false
-			dropped.emit()
-			_drop()
+			drop()
 	else:
 		if event.is_action_pressed("click") && hovered:
-			held = true
-			grabbed.emit()
-			_grab()
+			grab()
+
+
+func grab() -> void:
+	held = true
+	grabbed.emit()
+	_grab()
+
+
+func drop() -> void:
+	held = false
+	dropped.emit()
+	_drop()
 
 
 
@@ -30,6 +38,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _grab() -> void: pass
 func _drop() -> void: pass
+
 
 
 # Virtual
