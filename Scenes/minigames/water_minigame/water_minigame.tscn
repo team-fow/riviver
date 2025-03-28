@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddb05cvkx1t8x"]
+
+[ext_resource type="Script" uid="uid://03s6p8nxnaum" path="res://scenes/minigames/water_minigame/water_minigame.gd" id="1_apnnh"]
+[ext_resource type="Script" uid="uid://cb7sjvdpw6w7q" path="res://scenes/minigames/water_minigame/pipe_grid.gd" id="2_avfrl"]
+[ext_resource type="Script" uid="uid://dy3qsn7pijtkf" path="res://scenes/minigames/water_minigame/pipes_holder.gd" id="3_6nc0b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apnnh"]
+size = Vector2(290, 290)
+
+[node name="WaterMinigame" type="Node2D"]
+script = ExtResource("1_apnnh")
+start_point = Vector2i(2, 0)
+end_point = Vector2i(2, 4)
+pipe_def = Dictionary[String, int]({
+"UPDOWN": 5
+})
+metadata/_custom_type_script = "uid://03s6p8nxnaum"
+
+[node name="Grid" type="Area2D" parent="."]
+position = Vector2(0, -51)
+script = ExtResource("2_avfrl")
+
+[node name="GridCollision" type="CollisionShape2D" parent="Grid"]
+shape = SubResource("RectangleShape2D_apnnh")
+
+[node name="WaterPanel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -250.0
+offset_right = 150.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="WaterPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Pause" type="Button" parent="WaterPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Pause"
+
+[node name="RunWater" type="Button" parent="WaterPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Run Water"
+
+[node name="Pipes" type="Node2D" parent="."]
+position = Vector2(0, 150)
+script = ExtResource("3_6nc0b")
+
+[connection signal="area_entered" from="Grid" to="Grid" method="_on_area_entered"]
+[connection signal="area_exited" from="Grid" to="Grid" method="_on_area_exited"]
+[connection signal="pressed" from="WaterPanel/MarginContainer/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="WaterPanel/MarginContainer/RunWater" to="." method="_on_run_water_pressed"]

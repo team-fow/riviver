@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/level/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
 [ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="3_vuhcl"]
-[ext_resource type="Script" uid="uid://d1hsmangbi8t5" path="res://scenes/minigames/minigame.gd" id="4_m88n2"]
 [ext_resource type="PackedScene" uid="uid://cxyyfgdo1704o" path="res://scenes/minigames/plant_minigame/plant_minigame.tscn" id="5_hnne4"]
+[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://scenes/minigames/water_minigame/water_minigame.tscn" id="5_vpf64"]
 [ext_resource type="Texture2D" uid="uid://tcr64w81ajfd" path="res://assets/levelbg.png" id="6_vpf64"]
 
 [sub_resource type="Animation" id="Animation_hnne4"]
@@ -78,7 +78,7 @@ scale = Vector2(0.33, 0.33)
 
 [node name="WaterTile" parent="Grid" node_paths=PackedStringArray("minigame") instance=ExtResource("3_vuhcl")]
 position = Vector2(300, -300)
-minigame = NodePath("../../Minigames/Water")
+minigame = NodePath("../../Minigames/WaterMinigame")
 
 [node name="PlantingTile" parent="Grid" node_paths=PackedStringArray("minigame") instance=ExtResource("3_vuhcl")]
 position = Vector2(-900, 300)
@@ -88,29 +88,12 @@ minigame = NodePath("../../Minigames/PlantMinigame")
 position = Vector2(500, 0)
 scale = Vector2(0.33, 0.33)
 
-[node name="Water" type="Node2D" parent="Minigames"]
-physics_interpolation_mode = 2
-visible = false
-script = ExtResource("4_m88n2")
-metadata/_custom_type_script = "uid://d1hsmangbi8t5"
-
-[node name="ColorRect" type="ColorRect" parent="Minigames/Water"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 1, 0, 1)
-
 [node name="PlantMinigame" parent="Minigames" instance=ExtResource("5_hnne4")]
 visible = false
 plant_count = 2
+
+[node name="WaterMinigame" parent="Minigames" instance=ExtResource("5_vpf64")]
+visible = false
 
 [node name="Camera" type="Camera2D" parent="."]
 
