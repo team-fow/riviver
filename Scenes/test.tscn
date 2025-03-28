@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhafk6aw7y0u3"]
 
-[ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://Scenes/grid/grid.tscn" id="1_bl13t"]
-[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://Scenes/minigame_tile/minigame_tile.tscn" id="2_iyx0m"]
-[ext_resource type="Script" uid="uid://d1hsmangbi8t5" path="res://Scenes/minigames/minigame.gd" id="3_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="1_bl13t"]
+[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="2_iyx0m"]
+[ext_resource type="Script" uid="uid://d1hsmangbi8t5" path="res://scenes/minigames/minigame.gd" id="3_iyx0m"]
 
 [node name="Test" type="Node2D"]
 

@@ -3,6 +3,7 @@ extends Node2D
 
 var minigames: Array[Minigame] # An array containing all of the minigames present in the level
 var minigames_completed : int = 0 # How many minigames the player has currently completed
+var current_minigame: Minigame # The currently active minigame.
 var scores: Dictionary[Minigame, float] # Stores the score for each minigame
 
 @onready var grid: TileMapLayer = $Grid
@@ -11,13 +12,19 @@ var scores: Dictionary[Minigame, float] # Stores the score for each minigame
 
 # Open a minigame
 func open_minigame(game : Minigame) -> void:
-	animator.play("move_grid")
+	if current_minigame:
+		current_minigame.set_paused(true)
+	else:
+		animator.play("move_grid")
+	current_minigame = game
+	game.set_paused(false)
 	game.show()
 	
 	
 # Close a minigame
 func close_minigame(game: Minigame) -> void:
-	game.hide()
+	current_minigame = null
+	game.set_paused(true)
 	animator.play_backwards("move_grid")
 
 
