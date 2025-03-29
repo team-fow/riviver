@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv2w76q5b3f65"
-path="res://.godot/imported/Lvl - Unlocked.png-f2fc8a9b7bfaa2ac10501b6467b15e4b.ctex"
+uid="uid://kjhrbpibvxys"
+path="res://.godot/imported/Pins.png-d1b0b4470156510d26c82fccf9d3e1b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lvlselection/Lvl - Unlocked.png"
-dest_files=["res://.godot/imported/Lvl - Unlocked.png-f2fc8a9b7bfaa2ac10501b6467b15e4b.ctex"]
+source_file="res://assets/lvlselection/Pins.png"
+dest_files=["res://.godot/imported/Pins.png-d1b0b4470156510d26c82fccf9d3e1b7.ctex"]
 
 [params]
 

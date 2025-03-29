@@ -4,7 +4,6 @@ extends Node2D
 var minigames: Array[Minigame] # An array containing all of the minigames present in the level
 var minigames_completed : int = 0 # How many minigames the player has currently completed
 var current_minigame: Minigame # The currently active minigame.
-var scores: Dictionary[Minigame, float] # Stores the score for each minigame
 
 @onready var grid: TileMapLayer = $Grid
 @onready var animator: AnimationPlayer = $Animator
@@ -31,10 +30,16 @@ func close_minigame(game: Minigame) -> void:
 # Close a completed minigame
 func end_minigame(game: Minigame, score: float) -> void:
 	minigames_completed += 1
-	scores.get_or_add(game, score)
 	close_minigame(game)
 	
-	
+	if minigames_completed == minigames.size():
+		var total_score: float = 0.0
+		for minigame: Minigame in minigames:
+			total_score += minigame.score
+		Save.set_level_score(Save.current_level, total_score / minigames.size())
+		get_tree().change_scene_to_file("res://scenes/worldmap/worldmap.tscn")
+
+
 # Return the player to the world map
 func _on_back_pressed() -> void:
 	pass # Replace with function body.

@@ -26,4 +26,5 @@ texture = SubResource("GradientTexture2D_3hr0a")
 polygon = PackedVector2Array(0, -300, 300, 0, 0, 300, -300, 0)
 
 [node name="Marker" type="Sprite2D" parent="."]
+scale = Vector2(25, 25)
 texture = ExtResource("1_u2k62")

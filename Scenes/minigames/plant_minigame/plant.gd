@@ -4,6 +4,8 @@ extends Area2D
 
 signal grown ## Emitted when the plant is fully grown.
 
+const PROGRESS_CAP: float = 30.0
+
 enum State { ## All states the plant can be in.
 	INITIAL, ## A hole needs to be dug.
 	HOLE_DUG, ## A hole has been dug. A seed needs to be planted.
@@ -13,6 +15,7 @@ enum State { ## All states the plant can be in.
 }
 
 var state: State : set = _set_state ## Current state.
+var progress: float
 
 # Sprites...
 @onready var hole_sprite: ColorRect = $HoleSprite
@@ -47,11 +50,14 @@ func _set_state(value: State) -> void:
 # input
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
-	if event.is_action_released("click") and has_overlapping_areas():
-		var tool: Area2D = get_overlapping_areas()[0]
-		if is_affected_by_tool(tool):
-			advance_state()
-			tool.drop()
+	if event is InputEventMouseMotion:
+		var overlapping_areas: Array[Area2D] = get_overlapping_areas()
+		if overlapping_areas and is_affected_by_tool(overlapping_areas[0]):
+			progress += event.velocity.length() / 1000
+			if progress > PROGRESS_CAP:
+				advance_state()
+				progress = 0.0
+
 
 
 

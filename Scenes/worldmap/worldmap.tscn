@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbxb3eqci27ne"]
+
+[ext_resource type="Script" uid="uid://bs3rdjxblu5ts" path="res://scenes/worldmap/worldmap.gd" id="1_gu2y1"]
+[ext_resource type="PackedScene" uid="uid://g3neivb600vu" path="res://scenes/worldmap/level_pin.tscn" id="2_mfk5f"]
+[ext_resource type="Texture2D" uid="uid://cjihxmop23yr" path="res://assets/lvlselection/Arrows.png" id="3_ac0hk"]
+[ext_resource type="PackedScene" uid="uid://dlsw63ll7nu8u" path="res://scenes/levels/1.tscn" id="3_eftsl"]
+[ext_resource type="PackedScene" uid="uid://cmwuew4y8876w" path="res://scenes/levels/2.tscn" id="4_tq5v4"]
+[ext_resource type="PackedScene" uid="uid://dl1lhyiuj21ri" path="res://scenes/levels/3.tscn" id="5_6hm3f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eftsl"]
+atlas = ExtResource("3_ac0hk")
+region = Rect2(0, 0, 100, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac0hk"]
+atlas = ExtResource("3_ac0hk")
+region = Rect2(0, 110, 100, 110)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mfk5f"]
+font_size = 64
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvp8y"]
+atlas = ExtResource("3_ac0hk")
+region = Rect2(100, 0, 100, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq5v4"]
+atlas = ExtResource("3_ac0hk")
+region = Rect2(100, 110, 100, 110)
+
+[node name="Worldmap" type="Node2D"]
+script = ExtResource("1_gu2y1")
+
+[node name="Levels" type="Node2D" parent="."]
+
+[node name="LevelPin1" parent="Levels" instance=ExtResource("2_mfk5f")]
+level_name = "Level 1"
+description = "textttt"
+scene = ExtResource("3_eftsl")
+
+[node name="LevelPin2" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(473, -153)
+level_name = "Level 2"
+scene = ExtResource("4_tq5v4")
+
+[node name="LevelPin3" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(943, 145)
+level_name = "Level 3"
+scene = ExtResource("5_6hm3f")
+
+[node name="Camera" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Margins" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="HBox" type="HBoxContainer" parent="UI/Margins"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 64
+
+[node name="LeftArrow" type="TextureButton" parent="UI/Margins/HBox"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_eftsl")
+texture_pressed = SubResource("AtlasTexture_ac0hk")
+texture_hover = SubResource("AtlasTexture_ac0hk")
+
+[node name="LevelInfo" type="VBoxContainer" parent="UI/Margins/HBox"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="UI/Margins/HBox/LevelInfo"]
+layout_mode = 2
+text = "Level name"
+label_settings = SubResource("LabelSettings_mfk5f")
+
+[node name="Description" type="Label" parent="UI/Margins/HBox/LevelInfo"]
+layout_mode = 2
+text = "Level description"
+label_settings = SubResource("LabelSettings_mfk5f")
+
+[node name="Play" type="Button" parent="UI/Margins/HBox/LevelInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Play"
+
+[node name="RightArrow" type="TextureButton" parent="UI/Margins/HBox"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_vvp8y")
+texture_pressed = SubResource("AtlasTexture_tq5v4")
+texture_hover = SubResource("AtlasTexture_tq5v4")
+
+[connection signal="pressed" from="UI/Margins/HBox/LeftArrow" to="." method="select_prev_level"]
+[connection signal="pressed" from="UI/Margins/HBox/LevelInfo/Play" to="." method="play_selected_level"]
+[connection signal="pressed" from="UI/Margins/HBox/RightArrow" to="." method="select_next_level"]

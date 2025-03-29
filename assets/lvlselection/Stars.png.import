@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d16a6af8u1xas"
-path="res://.godot/imported/Lvl - Completed.png-b711624925941d70fc9236a1ed866df3.ctex"
+uid="uid://c3v4y3yo4uy0w"
+path="res://.godot/imported/Stars.png-b98646bc498d1e49ea75ae8d80ba9738.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lvlselection/Lvl - Completed.png"
-dest_files=["res://.godot/imported/Lvl - Completed.png-b711624925941d70fc9236a1ed866df3.ctex"]
+source_file="res://assets/lvlselection/Stars.png"
+dest_files=["res://.godot/imported/Stars.png-b98646bc498d1e49ea75ae8d80ba9738.ctex"]
 
 [params]
 

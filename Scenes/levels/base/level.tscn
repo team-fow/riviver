@@ -1,10 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=7 format=3 uid="uid://cj0nv5djx71e4"]
 
-[ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/level/level.gd" id="1_olbeb"]
+[ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
-[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="3_vuhcl"]
-[ext_resource type="PackedScene" uid="uid://cxyyfgdo1704o" path="res://scenes/minigames/plant_minigame/plant_minigame.tscn" id="5_hnne4"]
-[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://scenes/minigames/water_minigame/water_minigame.tscn" id="5_vpf64"]
 [ext_resource type="Texture2D" uid="uid://tcr64w81ajfd" path="res://assets/levelbg.png" id="6_vpf64"]
 
 [sub_resource type="Animation" id="Animation_hnne4"]
@@ -76,18 +73,11 @@ metadata/_custom_type_script = "uid://b421ge4x0q0r7"
 [node name="Grid" parent="." instance=ExtResource("2_qtcrp")]
 scale = Vector2(0.33, 0.33)
 
-[node name="WaterTile" parent="Grid" node_paths=PackedStringArray("minigame") instance=ExtResource("3_vuhcl")]
-position = Vector2(300, -300)
-minigame = NodePath("../../Minigames/WaterMinigame")
-
-[node name="PlantingTile" parent="Grid" node_paths=PackedStringArray("minigame") instance=ExtResource("3_vuhcl")]
-position = Vector2(-900, 300)
-minigame = NodePath("../../Minigames/PlantMinigame")
-
 [node name="Minigames" type="Node2D" parent="."]
 position = Vector2(500, 0)
 scale = Vector2(0.33, 0.33)
 
+<<<<<<< Updated upstream:Scenes/level/level.tscn
 [node name="PlantMinigame" parent="Minigames" instance=ExtResource("5_hnne4")]
 visible = false
 plant_count = 2
@@ -99,6 +89,8 @@ pipe_def = Dictionary[String, int]({
 "UPDOWNFILTER": 1
 })
 
+=======
+>>>>>>> Stashed changes:Scenes/levels/base/level.tscn
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]

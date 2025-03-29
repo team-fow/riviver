@@ -18,3 +18,10 @@ func start() -> void:
 func set_paused(paused: bool) -> void:
 	visible = not paused
 	process_mode = PROCESS_MODE_DISABLED if paused else PROCESS_MODE_ALWAYS
+
+
+
+# virtual
+
+func _ready() -> void:
+	set_paused(true)

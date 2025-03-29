@@ -11,11 +11,6 @@ func _grab() -> void:
 func _drop() -> void:
 	_display_effect()
 	create_tween().tween_property(self, "position", initial_position, 0.1)
-	
-	for area: Area2D in get_overlapping_areas():
-		if area is PlantMinigamePlant and area.is_affected_by_tool(self):
-			area.advance_state()
-			break
 
 
 # displaying effect

@@ -9,6 +9,8 @@ var held_tool: Area2D
 var plants: Array[Area2D]
 
 @onready var background: ColorRect = $Background
+@onready var timer_label: Label = $Background/TimerLabel
+@onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
@@ -26,6 +28,27 @@ func _ready() -> void:
 
 func _on_plant_grown() -> void:
 	plants_grown += 1
-	
-	if plants_grown == plant_count:
-		ended.emit(self, 1.0)
+	if plants_grown == plant_count: end()
+
+
+func end() -> void:
+	for plant: PlantMinigamePlant in plants:
+		score += plant.state / PlantMinigamePlant.State.WATERED
+	score /= plants.size()
+	ended.emit(self, score)
+
+
+
+# timer
+
+func start() -> void:
+	super()
+	timer.start()
+
+
+func _process(_delta: float) -> void:
+	timer_label.text = str(roundf(timer.time_left))
+
+
+func _on_timeout() -> void:
+	end()
