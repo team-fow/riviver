@@ -8,6 +8,7 @@
 size = Vector2(290, 290)
 
 [node name="WaterMinigame" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_apnnh")
 start_point = Vector2i(2, 0)
 end_point = Vector2i(2, 4)

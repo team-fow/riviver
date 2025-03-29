@@ -6,7 +6,7 @@ signal dropped
 
 var held: bool = false
 var hovered: bool = false
-const HOVERED_SCALE := Vector2(1.25, 1.25)
+var curr_tween: Tween
 
 
 # Handles clicking and dragging
@@ -14,7 +14,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if held:
 		if event is InputEventMouseMotion:
 			global_position = get_global_mouse_position()
+			var mouse_velocity_x: float = event.screen_velocity.x
+			if curr_tween: curr_tween.kill()
+			curr_tween = get_tree().create_tween()
+			curr_tween.tween_property(self, "rotation_degrees", mouse_velocity_x*9.0/100.0, 0.1)
 		elif event.is_action_released("click"):
+			if curr_tween: curr_tween.kill()
+			curr_tween = get_tree().create_tween()
+			curr_tween.tween_property(self, "rotation_degrees", 0, 0.05)
 			drop()
 	else:
 		if event.is_action_pressed("click") && hovered:
