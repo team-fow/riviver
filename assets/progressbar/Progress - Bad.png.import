@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bde1txb7rlcn6"
-path="res://.godot/imported/Star - Filled.png-f857805a574a8f5eead8535cd253c835.ctex"
+uid="uid://doiayfkdp6u7j"
+path="res://.godot/imported/Progress - Bad.png-8ede99e55446dc2b93f8a219e34946e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Level Selection UI/Star - Filled.png"
-dest_files=["res://.godot/imported/Star - Filled.png-f857805a574a8f5eead8535cd253c835.ctex"]
+source_file="res://assets/progressbar/Progress - Bad.png"
+dest_files=["res://.godot/imported/Progress - Bad.png-8ede99e55446dc2b93f8a219e34946e6.ctex"]
 
 [params]
 

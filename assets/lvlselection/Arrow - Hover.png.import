@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpceuilq00wr8"
-path="res://.godot/imported/Lvl - Completed 2.png-9afbb5f3a5e6658e740909db838caae4.ctex"
+uid="uid://cjihxmop23yr"
+path="res://.godot/imported/Arrow - Hover.png-c816113993937ec9628e31da1bd6e310.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Level Selection UI/Lvl - Completed 2.png"
-dest_files=["res://.godot/imported/Lvl - Completed 2.png-9afbb5f3a5e6658e740909db838caae4.ctex"]
+source_file="res://assets/lvlselection/Arrow - Hover.png"
+dest_files=["res://.godot/imported/Arrow - Hover.png-c816113993937ec9628e31da1bd6e310.ctex"]
 
 [params]
 

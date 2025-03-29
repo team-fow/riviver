@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg53rteg7kl0n"
-path="res://.godot/imported/Lvl - Locked.png-e7dc5ee883e4545b7c74660c083c14ac.ctex"
+uid="uid://bwkctjujmbm86"
+path="res://.godot/imported/Progress - Not Completed.png-628fd6d936cfaea33397e8690d53a50d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Level Selection UI/Lvl - Locked.png"
-dest_files=["res://.godot/imported/Lvl - Locked.png-e7dc5ee883e4545b7c74660c083c14ac.ctex"]
+source_file="res://assets/progressbar/Progress - Not Completed.png"
+dest_files=["res://.godot/imported/Progress - Not Completed.png-628fd6d936cfaea33397e8690d53a50d.ctex"]
 
 [params]
 

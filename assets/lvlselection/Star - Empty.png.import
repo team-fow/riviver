@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c860ebnkrg1ic"
-path="res://.godot/imported/Star - Empty.png-8438eb402466dd97352df0a47ad7e4e0.ctex"
+path="res://.godot/imported/Star - Empty.png-79f049a403ae1d9202d298b75c293da9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Level Selection UI/Star - Empty.png"
-dest_files=["res://.godot/imported/Star - Empty.png-8438eb402466dd97352df0a47ad7e4e0.ctex"]
+source_file="res://assets/lvlselection/Star - Empty.png"
+dest_files=["res://.godot/imported/Star - Empty.png-79f049a403ae1d9202d298b75c293da9.ctex"]
 
 [params]
 

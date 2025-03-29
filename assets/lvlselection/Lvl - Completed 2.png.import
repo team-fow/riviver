@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3xv10uwms0ck"
-path="res://.godot/imported/Lvl Info Pane.png-efa87e869dc152b4261215e2a44d711d.ctex"
+uid="uid://cpceuilq00wr8"
+path="res://.godot/imported/Lvl - Completed 2.png-de16400f839aca8d7b6711d28849e0aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Level Selection UI/Lvl Info Pane.png"
-dest_files=["res://.godot/imported/Lvl Info Pane.png-efa87e869dc152b4261215e2a44d711d.ctex"]
+source_file="res://assets/lvlselection/Lvl - Completed 2.png"
+dest_files=["res://.godot/imported/Lvl - Completed 2.png-de16400f839aca8d7b6711d28849e0aa.ctex"]
 
 [params]
 

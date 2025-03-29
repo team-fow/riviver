@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjihxmop23yr"
-path="res://.godot/imported/Arrow - Hover.png-65345ca044744afda4e3dd11ae841153.ctex"
+uid="uid://bv4r2evmqkjm8"
+path="res://.godot/imported/Progress - Medium.png-a98f3a9fd51f1de2347e159b9738b505.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Level Selection UI/Arrow - Hover.png"
-dest_files=["res://.godot/imported/Arrow - Hover.png-65345ca044744afda4e3dd11ae841153.ctex"]
+source_file="res://assets/progressbar/Progress - Medium.png"
+dest_files=["res://.godot/imported/Progress - Medium.png-a98f3a9fd51f1de2347e159b9738b505.ctex"]
 
 [params]
 

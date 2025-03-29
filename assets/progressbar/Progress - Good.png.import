@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtxgndmen53qy"
-path="res://.godot/imported/Arrow - Default.png-0ca6eae8aadf3abc84466f9d36510d60.ctex"
+uid="uid://c6essl676njn3"
+path="res://.godot/imported/Progress - Good.png-4e6808ee6c4cf2a73993bcef84464831.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Level Selection UI/Arrow - Default.png"
-dest_files=["res://.godot/imported/Arrow - Default.png-0ca6eae8aadf3abc84466f9d36510d60.ctex"]
+source_file="res://assets/progressbar/Progress - Good.png"
+dest_files=["res://.godot/imported/Progress - Good.png-4e6808ee6c4cf2a73993bcef84464831.ctex"]
 
 [params]
 
