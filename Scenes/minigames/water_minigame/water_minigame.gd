@@ -16,8 +16,7 @@ func start() -> void:
 	super()
 	for p:String in pipe_def.keys():
 		for i:int in pipe_def[p]:
-			var new_pipe: Pipe = load("res://Scenes/minigames/water_minigame/pipes/pipe.tscn").instantiate()
-			new_pipe.holes = Pipe.string_to_directions(p)
+			var new_pipe: Pipe = Pipe.create_pipe(p)
 			pipes.add_pipe(new_pipe)
 			new_pipe.grabbed.connect(func(): held_pipe = new_pipe)
 			new_pipe.dropped.connect(func(): drop_pipe(new_pipe))
@@ -33,8 +32,36 @@ func redraw() -> void:
 
 
 # Converts a string from grid_def to its appropriate texture
-func get_texture(s: String) -> Texture2D:
-	return load("res://icon.svg")
+static func get_texture(s: String) -> Texture2D:
+	var straight: Texture2D = preload("res://assets/minigames/water/Straight_.png")
+	var curve: Texture2D = preload("res://assets/minigames/water/Curve.png")
+	var filter: Texture2D = preload("res://assets/minigames/water/Water_filter_.png")
+	match s:
+		"UPDOWN": return straight
+		"DOWNLEFT": return curve
+		"LEFTRIGHT": 
+			var image = straight.get_image()
+			image.rotate_90(CLOCKWISE)
+			return ImageTexture.create_from_image(image)
+		"UPLEFT": 
+			var image = curve.get_image()
+			image.rotate_90(CLOCKWISE)
+			return ImageTexture.create_from_image(image)
+		"UPRIGHT": 
+			var image = curve.get_image()
+			image.rotate_180()
+			return ImageTexture.create_from_image(image)
+		"DOWNRIGHT": 
+			var image = curve.get_image()
+			image.rotate_90(COUNTERCLOCKWISE)
+			return ImageTexture.create_from_image(image)
+		"LEFTRIGHTFILTER": 
+			var image = filter.get_image()
+			image.rotate_90(CLOCKWISE)
+			return ImageTexture.create_from_image(image)
+		"UPDOWNFILTER": 
+			return filter	
+		_: return preload("res://icon.svg")
 
 
 # Handles when a pipe is dropped
@@ -45,7 +72,9 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 		var local_coords: Vector2 = grid.to_local(get_global_mouse_position())
 		var grid_coords: Vector2i = grid.position_to_coords(local_coords)
 		if grid_def.get(grid_coords) == null:
-			grid_def.get_or_add(grid_coords, Pipe.directions_to_string(dropped_pipe.holes))
+			var val: String = Pipe.directions_to_string(dropped_pipe.holes)
+			if dropped_pipe.is_filter: val += "FILTER"
+			grid_def.get_or_add(grid_coords, val)
 			pipes.remove_child(dropped_pipe)
 			pipes.pipes.erase(dropped_pipe)
 			pipes.order_pipes()
@@ -59,8 +88,9 @@ func check_water() -> bool:
 	var curr_coords: Vector2i = start_point
 	var connecting_from: Pipe.DIRECTIONS = Pipe.DIRECTIONS.UP
 	var curr_contents = grid_def.get(curr_coords)
+	var filtered = false
 	while curr_contents != null:
-		print(curr_contents + " at " + str(curr_coords))
+		if curr_contents.containsn("FILTER"): filtered = true
 		if curr_contents == "ROCK": return false
 		else:
 			var pipe_dir : Array[Pipe.DIRECTIONS] = Pipe.string_to_directions(curr_contents)
@@ -68,7 +98,7 @@ func check_water() -> bool:
 			else:
 				pipe_dir.erase(connecting_from)
 				connecting_from = Pipe.flip_direction(pipe_dir[0])
-				if curr_coords == end_point and connecting_from == Pipe.DIRECTIONS.UP: return true
+				if curr_coords == end_point and connecting_from == Pipe.DIRECTIONS.UP: return filtered
 				else:
 					curr_coords = Pipe.dir_to_vector(pipe_dir[0]) + curr_coords
 					curr_contents = grid_def.get(curr_coords)

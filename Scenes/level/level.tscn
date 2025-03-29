@@ -94,6 +94,10 @@ plant_count = 2
 
 [node name="WaterMinigame" parent="Minigames" instance=ExtResource("5_vpf64")]
 visible = false
+pipe_def = Dictionary[String, int]({
+"UPDOWN": 5,
+"UPDOWNFILTER": 1
+})
 
 [node name="Camera" type="Camera2D" parent="."]
 
