@@ -15,3 +15,7 @@ minigame = NodePath("../../Minigames/WaterMinigame")
 
 [node name="WaterMinigame" parent="Minigames" index="0" instance=ExtResource("3_f00r8")]
 visible = false
+pipe_def = Dictionary[String, int]({
+"UPDOWN": 5,
+"UPDOWNFILTER": 1
+})

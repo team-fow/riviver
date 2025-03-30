@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://grvs0q6j6ufd"]
+
+[ext_resource type="Texture2D" uid="uid://doiayfkdp6u7j" path="res://assets/progressbar/Progress - Bad.png" id="1_ct5cc"]
+[ext_resource type="Script" uid="uid://bfu4ytebn2hlr" path="res://scenes/levels/base/progress_bar_part.gd" id="2_l1hfv"]
+
+[node name="Node2D" type="TextureRect"]
+texture = ExtResource("1_ct5cc")
+script = ExtResource("2_l1hfv")

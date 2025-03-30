@@ -77,20 +77,6 @@ scale = Vector2(0.33, 0.33)
 position = Vector2(500, 0)
 scale = Vector2(0.33, 0.33)
 
-<<<<<<< Updated upstream:Scenes/level/level.tscn
-[node name="PlantMinigame" parent="Minigames" instance=ExtResource("5_hnne4")]
-visible = false
-plant_count = 2
-
-[node name="WaterMinigame" parent="Minigames" instance=ExtResource("5_vpf64")]
-visible = false
-pipe_def = Dictionary[String, int]({
-"UPDOWN": 5,
-"UPDOWNFILTER": 1
-})
-
-=======
->>>>>>> Stashed changes:Scenes/levels/base/level.tscn
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -111,14 +97,11 @@ text = "Restart"
 layout_mode = 2
 text = "Settings"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
-grow_horizontal = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+offset_left = 1692.0
+offset_top = 1000.0
+offset_right = 1732.0
+offset_bottom = 1040.0
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1

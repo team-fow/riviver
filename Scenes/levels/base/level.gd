@@ -7,6 +7,7 @@ var current_minigame: Minigame # The currently active minigame.
 
 @onready var grid: TileMapLayer = $Grid
 @onready var animator: AnimationPlayer = $Animator
+@onready var hbox_container: HBoxContainer = $UI/HBoxContainer
 
 
 # Open a minigame
@@ -60,3 +61,12 @@ func _ready() -> void:
 		minigames.append(minigame)
 		minigame.started.connect(open_minigame)
 		minigame.ended.connect(end_minigame)
+	
+	for i in 3:
+		var bar_part = load("res://scenes/minigames/plant_minigame/plant.tscn").instantiate()
+		hbox_container.add_child(bar_part)
+
+
+func _on_restart_pressedagzaga() -> void:
+	var wdwdwdwd: Node = load("res://scenes/minigames/plant_minigame/g.tscn").instantiate()
+	add_child(wdwdwdwd)
