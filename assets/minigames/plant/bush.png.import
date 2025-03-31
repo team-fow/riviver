@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://50tjlm6r8xfo"
-path="res://.godot/imported/shovel.png-fb8f1d3a519c6a3206c472962bc6535d.ctex"
+uid="uid://cioahb8rrwp6"
+path="res://.godot/imported/bush.png-4eb25d96692e07ac2a4cb2853a1d47b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minigames/plant/shovel.png"
-dest_files=["res://.godot/imported/shovel.png-fb8f1d3a519c6a3206c472962bc6535d.ctex"]
+source_file="res://assets/minigames/plant/bush.png"
+dest_files=["res://.godot/imported/bush.png-4eb25d96692e07ac2a4cb2853a1d47b7.ctex"]
 
 [params]
 

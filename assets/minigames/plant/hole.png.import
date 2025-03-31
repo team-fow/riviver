@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://50tjlm6r8xfo"
-path="res://.godot/imported/shovel.png-fb8f1d3a519c6a3206c472962bc6535d.ctex"
+uid="uid://bpw1r3i1ba713"
+path="res://.godot/imported/hole.png-f2220f4567b6dee11813276e239b046b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minigames/plant/shovel.png"
-dest_files=["res://.godot/imported/shovel.png-fb8f1d3a519c6a3206c472962bc6535d.ctex"]
+source_file="res://assets/minigames/plant/hole.png"
+dest_files=["res://.godot/imported/hole.png-f2220f4567b6dee11813276e239b046b.ctex"]
 
 [params]
 
