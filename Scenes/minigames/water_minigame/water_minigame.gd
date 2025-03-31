@@ -3,23 +3,26 @@ extends Minigame
 
 @onready var grid: PipeGrid = $Grid
 @onready var pipes: PipeHolder = $Pipes
+@onready var undo: Button = $Background/MarginContainer/Undo
 
 @export var start_point: Vector2i # The grid coordinates at which the water flow starts
 @export var end_point: Vector2i # The grid coordinates that the player is trying to reach
 @export var grid_def: Dictionary[Vector2i, String] # The dictionary that stores data about what is on the grid
 @export var pipe_def: Dictionary[String, int] # The dictionary that stores data about the pipes the player has access to
 
+var last_placed_at: Array[Vector2i] # The coordinates that the player last placed a pipe at
 var held_pipe: Pipe # The pipe currently held, if any
 
 
 func start() -> void:
 	super()
-	for p:String in pipe_def.keys():
-		for i:int in pipe_def[p]:
-			var new_pipe: Pipe = Pipe.create_pipe(p)
-			pipes.add_pipe(new_pipe)
-			new_pipe.grabbed.connect(func(): held_pipe = new_pipe)
-			new_pipe.dropped.connect(func(): drop_pipe(new_pipe))
+	if pipes.get_children().is_empty():
+		for p:String in pipe_def.keys():
+			for i:int in pipe_def[p]:
+				var new_pipe: Pipe = Pipe.create_pipe(p)
+				pipes.add_pipe(new_pipe)
+				new_pipe.grabbed.connect(func(): held_pipe = new_pipe)
+				new_pipe.dropped.connect(func(): drop_pipe(new_pipe))
 			
 
 # Redraw the grid
@@ -75,6 +78,8 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 			var val: String = Pipe.directions_to_string(dropped_pipe.holes)
 			if dropped_pipe.is_filter: val += "FILTER"
 			grid_def.get_or_add(grid_coords, val)
+			last_placed_at.push_front(grid_coords)
+			undo.disabled = false
 			pipes.remove_child(dropped_pipe)
 			pipes.pipes.erase(dropped_pipe)
 			pipes.order_pipes()
@@ -120,3 +125,16 @@ func _on_run_water_pressed() -> void:
 
 func _on_pause_pressed() -> void:
 	set_paused(true)
+
+
+func _on_undo_pressed() -> void:
+	var coords: Vector2i = last_placed_at[0]
+	var s: String = grid_def[coords]
+	var new_pipe: Pipe = Pipe.create_pipe(s)
+	pipes.add_pipe(new_pipe)
+	new_pipe.grabbed.connect(func(): held_pipe = new_pipe)
+	new_pipe.dropped.connect(func(): drop_pipe(new_pipe))
+	grid_def.erase(coords)
+	last_placed_at.pop_front()
+	if last_placed_at.is_empty(): undo.disabled = true
+	redraw()
