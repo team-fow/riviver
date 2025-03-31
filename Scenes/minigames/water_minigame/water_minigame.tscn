@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddb05cvkx1t8x"]
+[gd_scene load_steps=7 format=3 uid="uid://ddb05cvkx1t8x"]
 
 [ext_resource type="Script" uid="uid://03s6p8nxnaum" path="res://scenes/minigames/water_minigame/water_minigame.gd" id="1_apnnh"]
 [ext_resource type="Script" uid="uid://cb7sjvdpw6w7q" path="res://scenes/minigames/water_minigame/pipe_grid.gd" id="2_avfrl"]
 [ext_resource type="Script" uid="uid://dy3qsn7pijtkf" path="res://scenes/minigames/water_minigame/pipes_holder.gd" id="3_6nc0b"]
+[ext_resource type="Texture2D" uid="uid://ct8mm11nj0m38" path="res://assets/minigames/water/Pipe Container.png" id="3_unras"]
 [ext_resource type="Texture2D" uid="uid://bgqpbdcl6mxk4" path="res://assets/minigames/water/Soil Background.png" id="4_8de48"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apnnh"]
 size = Vector2(290, 290)
 
 [node name="WaterMinigame" type="Node2D"]
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 script = ExtResource("1_apnnh")
 start_point = Vector2i(2, 0)
 end_point = Vector2i(2, 4)
@@ -26,7 +27,7 @@ script = ExtResource("2_avfrl")
 [node name="GridCollision" type="CollisionShape2D" parent="Grid"]
 shape = SubResource("RectangleShape2D_apnnh")
 
-[node name="WaterPanel" type="PanelContainer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,25 +40,48 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="WaterPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
 layout_mode = 2
+offset_right = 300.0
+offset_bottom = 500.0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Pause" type="Button" parent="WaterPanel/MarginContainer"]
+[node name="Pause" type="Button" parent="Background/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Pause"
 
-[node name="RunWater" type="Button" parent="WaterPanel/MarginContainer"]
+[node name="RunWater" type="Button" parent="Background/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Run Water"
+
+[node name="Undo" type="Button" parent="Background/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+disabled = true
+text = "Undo"
+
+[node name="PipeHolder" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 451.707
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("3_unras")
+expand_mode = 5
 
 [node name="Pipes" type="Node2D" parent="."]
 z_index = 1
@@ -73,5 +97,6 @@ region_rect = Rect2(0, 0, 1640, 1640)
 
 [connection signal="area_entered" from="Grid" to="Grid" method="_on_area_entered"]
 [connection signal="area_exited" from="Grid" to="Grid" method="_on_area_exited"]
-[connection signal="pressed" from="WaterPanel/MarginContainer/Pause" to="." method="_on_pause_pressed"]
-[connection signal="pressed" from="WaterPanel/MarginContainer/RunWater" to="." method="_on_run_water_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/RunWater" to="." method="_on_run_water_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/Undo" to="." method="_on_undo_pressed"]

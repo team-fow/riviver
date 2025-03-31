@@ -7,6 +7,8 @@ enum DIRECTIONS {UP, DOWN, LEFT, RIGHT}
 var texture: Texture2D = preload("res://icon.svg") 
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var pipe_collision: CollisionShape2D = $PipeCollision
+
 const SIZE: Vector2 = Vector2(50.0, 50.0)
 
 
