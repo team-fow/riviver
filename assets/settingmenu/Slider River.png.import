@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eq1mwbit8wdh"
-path="res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"
+uid="uid://ci5qmj27a1sh8"
+path="res://.godot/imported/Slider River.png-d5b205ca139f949b3b17ef36ab20b498.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/Buttons-Default.png"
-dest_files=["res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"]
+source_file="res://assets/settingmenu/Slider River.png"
+dest_files=["res://.godot/imported/Slider River.png-d5b205ca139f949b3b17ef36ab20b498.ctex"]
 
 [params]
 

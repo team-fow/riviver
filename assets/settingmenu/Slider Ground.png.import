@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eq1mwbit8wdh"
-path="res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"
+uid="uid://d3mh1s3br08vq"
+path="res://.godot/imported/Slider Ground.png-8a5bc3e230c9b64aa68392a145c22e3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/Buttons-Default.png"
-dest_files=["res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"]
+source_file="res://assets/settingmenu/Slider Ground.png"
+dest_files=["res://.godot/imported/Slider Ground.png-8a5bc3e230c9b64aa68392a145c22e3c.ctex"]
 
 [params]
 
