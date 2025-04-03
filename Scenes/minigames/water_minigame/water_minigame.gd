@@ -70,7 +70,7 @@ static func get_texture(s: String) -> Texture2D:
 # Handles when a pipe is dropped
 func drop_pipe(dropped_pipe: Pipe) -> void:
 	if not grid.pipe_hovered:
-		dropped_pipe.position = Vector2.ZERO # Replace with a more robust "add to hand" function
+		pass
 	else:
 		var local_coords: Vector2 = grid.to_local(get_global_mouse_position())
 		var grid_coords: Vector2i = grid.position_to_coords(local_coords)
@@ -85,7 +85,7 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 			pipes.order_pipes()
 			redraw()
 		else:
-			dropped_pipe.position = Vector2.ZERO # Replace with a more robust "add to hand" function
+			pass
 		
 
 # Run the water and check if it flows properly
