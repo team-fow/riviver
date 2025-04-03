@@ -1,72 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjrf0x4vn50hb"]
+[gd_scene load_steps=6 format=3 uid="uid://bjrf0x4vn50hb"]
 
 [ext_resource type="Script" uid="uid://c6axy1ybxyeui" path="res://scenes/minigames/plant_minigame/plant.gd" id="1_wru0m"]
+[ext_resource type="Texture2D" uid="uid://cioahb8rrwp6" path="res://assets/minigames/plant/bush.png" id="2_2whjf"]
+[ext_resource type="Texture2D" uid="uid://bpw1r3i1ba713" path="res://assets/minigames/plant/hole.png" id="2_4kol2"]
+[ext_resource type="Texture2D" uid="uid://c2q1e52ntho5" path="res://assets/minigames/plant/soil_pile.png" id="3_2jvvw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3e3o"]
-size = Vector2(400, 626)
+size = Vector2(400, 483)
 
 [node name="Plant" type="Area2D"]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_wru0m")
 
-[node name="HoleSprite" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(400, 400)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_right = 200.0
-offset_bottom = 400.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+[node name="HoleSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_4kol2")
 
 [node name="SeedSprite" type="ColorRect" parent="HoleSprite"]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -49.0
-offset_top = -103.0
-offset_right = 49.0
+offset_left = -307.5
+offset_top = -211.0
+offset_right = -209.5
+offset_bottom = -108.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 color = Color(0.228593, 0.0917045, 0.0763567, 1)
 
-[node name="BushSprite" type="ColorRect" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -243.0
-offset_top = -435.0
-offset_right = 243.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-color = Color(0.213892, 0.462901, 0.38222, 1)
+[node name="BushSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -160)
+texture = ExtResource("2_2whjf")
 
-[node name="PileSprite" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(400, 100)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -100.0
-offset_right = 200.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.206914, 0.206914, 0.206913, 1)
+[node name="PileSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_2jvvw")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-position = Vector2(0, 87)
+position = Vector2(0, -137.5)
 shape = SubResource("RectangleShape2D_d3e3o")

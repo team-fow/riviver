@@ -1,19 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxyyfgdo1704o"]
+[gd_scene load_steps=12 format=3 uid="uid://cxyyfgdo1704o"]
 
 [ext_resource type="Script" uid="uid://baoa55ix5krny" path="res://scenes/minigames/plant_minigame/plant_minigame.gd" id="1_as2k8"]
+[ext_resource type="Texture2D" uid="uid://dgxpos8bwdowt" path="res://assets/minigames/plant/background.png" id="2_as2k8"]
 [ext_resource type="Script" uid="uid://v72byon5d5q5" path="res://scenes/minigames/plant_minigame/tool.gd" id="2_w505k"]
+[ext_resource type="Texture2D" uid="uid://sdesur8kvtqt" path="res://assets/minigames/plant/river_foreground.png" id="3_u147h"]
+[ext_resource type="Texture2D" uid="uid://50tjlm6r8xfo" path="res://assets/minigames/plant/shovel.png" id="4_tdc4o"]
+[ext_resource type="Texture2D" uid="uid://uoseo75odqxy" path="res://assets/minigames/plant/seed_bag.png" id="5_lln40"]
+[ext_resource type="Texture2D" uid="uid://ddsd46lv4a743" path="res://assets/minigames/plant/pot.png" id="6_lln40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1em36"]
-size = Vector2(100, 800)
+size = Vector2(280, 717)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxxmn"]
-size = Vector2(300, 300)
+size = Vector2(300, 459)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u147h"]
+size = Vector2(300, 459)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lln40"]
+size = Vector2(310, 395)
 
 [node name="PlantMinigame" type="Node2D"]
 script = ExtResource("1_as2k8")
 metadata/_custom_type_script = "uid://d1hsmangbi8t5"
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(500, 600)
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,7 +38,19 @@ offset_bottom = 1000.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.114897, 0.114897, 0.114897, 1)
+texture = ExtResource("2_as2k8")
+expand_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_u147h")
+expand_mode = 5
 
 [node name="TimerLabel" type="Label" parent="Background"]
 layout_mode = 1
@@ -36,15 +59,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
+offset_left = -99.0
+offset_top = -171.887
+offset_right = 100.0
+offset_bottom = -34.887
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "0:00"
 
 [node name="Plants" type="Node2D" parent="."]
+position = Vector2(0, 628)
 
 [node name="Tools" type="Node2D" parent="."]
 position = Vector2(0, -999)
@@ -54,36 +80,11 @@ position = Vector2(-546, 0)
 script = ExtResource("2_w505k")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
-[node name="Box" type="ColorRect" parent="Tools/Shovel"]
-custom_minimum_size = Vector2(100, 800)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.709102, 0.530883, 0.622017, 1)
-
-[node name="Label" type="Label" parent="Tools/Shovel"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -102.0
-offset_top = -44.0
-offset_right = 102.0
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Shovel"
+[node name="Sprite" type="Sprite2D" parent="Tools/Shovel"]
+texture = ExtResource("4_tdc4o")
 
 [node name="Shape" type="CollisionShape2D" parent="Tools/Shovel"]
+position = Vector2(-4, 0.5)
 shape = SubResource("RectangleShape2D_1em36")
 
 [node name="SeedBag" type="Area2D" parent="Tools"]
@@ -91,36 +92,11 @@ position = Vector2(-237, 0)
 script = ExtResource("2_w505k")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
-[node name="Box" type="ColorRect" parent="Tools/SeedBag"]
-custom_minimum_size = Vector2(300, 300)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -150.0
-offset_right = 150.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.709102, 0.530883, 0.622017, 1)
-
-[node name="Label" type="Label" parent="Tools/SeedBag"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -140.5
-offset_top = -44.0
-offset_right = 140.5
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Seed Bag"
+[node name="Sprite" type="Sprite2D" parent="Tools/SeedBag"]
+texture = ExtResource("5_lln40")
 
 [node name="Shape" type="CollisionShape2D" parent="Tools/SeedBag"]
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_gxxmn")
 
 [node name="SoilBag" type="Area2D" parent="Tools"]
@@ -128,74 +104,25 @@ position = Vector2(133, 0)
 script = ExtResource("2_w505k")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
-[node name="Box" type="ColorRect" parent="Tools/SoilBag"]
-custom_minimum_size = Vector2(300, 300)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -150.0
-offset_right = 150.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.709102, 0.530883, 0.622017, 1)
-
-[node name="Label" type="Label" parent="Tools/SoilBag"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -121.0
-offset_top = -44.0
-offset_right = 121.0
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Soil Bag"
+[node name="Sprite" type="Sprite2D" parent="Tools/SoilBag"]
+modulate = Color(0.582694, 0.325626, 0.236474, 1)
+texture = ExtResource("5_lln40")
 
 [node name="Shape" type="CollisionShape2D" parent="Tools/SoilBag"]
-shape = SubResource("RectangleShape2D_gxxmn")
+shape = SubResource("RectangleShape2D_u147h")
 
 [node name="WateringCan" type="Area2D" parent="Tools"]
 position = Vector2(514, 0)
 script = ExtResource("2_w505k")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
-[node name="Box" type="ColorRect" parent="Tools/WateringCan"]
-custom_minimum_size = Vector2(300, 300)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -150.0
-offset_right = 150.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.709102, 0.530883, 0.622017, 1)
-
-[node name="Label" type="Label" parent="Tools/WateringCan"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -208.0
-offset_top = -44.0
-offset_right = 208.0
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Watering Can"
+[node name="Sprite" type="Sprite2D" parent="Tools/WateringCan"]
+position = Vector2(39, -20)
+texture = ExtResource("6_lln40")
 
 [node name="Shape" type="CollisionShape2D" parent="Tools/WateringCan"]
-shape = SubResource("RectangleShape2D_gxxmn")
+position = Vector2(-17, -16.5)
+shape = SubResource("RectangleShape2D_lln40")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0

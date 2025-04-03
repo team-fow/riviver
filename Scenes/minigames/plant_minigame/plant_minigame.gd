@@ -8,7 +8,7 @@ var held_tool: Area2D
 
 var plants: Array[Area2D]
 
-@onready var background: ColorRect = $Background
+@onready var background: TextureRect = $Background
 @onready var timer_label: Label = $Background/TimerLabel
 @onready var timer: Timer = $Timer
 

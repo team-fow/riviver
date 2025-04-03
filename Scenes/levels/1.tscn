@@ -1,21 +1,32 @@
-[gd_scene load_steps=4 format=4 uid="uid://dlsw63ll7nu8u"]
+[gd_scene load_steps=5 format=4 uid="uid://dlsw63ll7nu8u"]
 
 [ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_ie7v7"]
-[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="2_le1x0"]
-[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://scenes/minigames/water_minigame/water_minigame.tscn" id="3_f00r8"]
+[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://scenes/minigames/trash_minigame/trash_object.tscn" id="3_0absb"]
+[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://scenes/minigames/trash_minigame/trash_minigame.tscn" id="3_x3ltn"]
+[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="4_f00r8"]
 
 [node name="Level" instance=ExtResource("1_ie7v7")]
 
 [node name="Grid" parent="." index="0"]
 tile_map_data = PackedByteArray("AAD/////AwAAAAAAAAD///7/BAAAAAAAAAD+////BAAAAAAAAAD//wAABAAAAAAAAAD//wEABAAAAAAAAAAAAAAAAwAAAAAAAAAAAP//AwAAAAAAAAAAAP7/AwAAAAAAAAD///3/BAAAAAAAAAAAAP3/AwAAAAAAAAAAAPz/AwAAAAAAAAD///v/AwAAAAAAAAD///z/BAAAAAAAAAD+//3/AwAAAAAAAAD+//7/AwAAAAAAAAD9////AwAAAAAAAAD+/wAAAwAAAAAAAAD+/wEAAwAAAAAAAAD//wIAAwAAAAAAAAD//wMAAwAAAAAAAAAAAAIABAAAAAAAAAAAAAEAAwAAAAAAAAABAAAAAwAAAAAAAAABAP//AwAAAAAAAAABAP7/AwAAAAAAAAA=")
 
-[node name="WaterTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_le1x0")]
-position = Vector2(281.818, -300)
-minigame = NodePath("../../Minigames/WaterMinigame")
+[node name="TrashObject1" parent="Grid" index="0" instance=ExtResource("3_0absb")]
+position = Vector2(-724.242, -484.849)
+rotation = 0.388766
 
-[node name="WaterMinigame" parent="Minigames" index="0" instance=ExtResource("3_f00r8")]
+[node name="TrashObject2" parent="Grid" index="1" instance=ExtResource("3_0absb")]
+position = Vector2(-36.3636, 969.697)
+rotation = -0.0943237
+
+[node name="TrashObject3" parent="Grid" index="2" instance=ExtResource("3_0absb")]
+position = Vector2(772.727, -130.303)
+rotation = -0.916388
+
+[node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("level", "trash_objects") instance=ExtResource("3_x3ltn")]
 visible = false
-pipe_def = Dictionary[String, int]({
-"UPDOWN": 5,
-"UPDOWNFILTER": 1
-})
+level = NodePath("../..")
+trash_objects = [NodePath("../../Grid/TrashObject1"), NodePath("../../Grid/TrashObject2"), NodePath("../../Grid/TrashObject3")]
+
+[node name="TrashBin" parent="Minigames/TrashMinigame" index="1" instance=ExtResource("4_f00r8")]
+position = Vector2(-27.2727, -57.5757)
+rotation = -0.139407

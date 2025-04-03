@@ -18,10 +18,10 @@ var state: State : set = _set_state ## Current state.
 var progress: float
 
 # Sprites...
-@onready var hole_sprite: ColorRect = $HoleSprite
+@onready var hole_sprite: Sprite2D = $HoleSprite
 @onready var seed_sprite: ColorRect = $HoleSprite/SeedSprite
-@onready var pile_sprite: ColorRect = $PileSprite
-@onready var bush_sprite: ColorRect = $BushSprite
+@onready var pile_sprite: Sprite2D = $PileSprite
+@onready var bush_sprite: Sprite2D = $BushSprite
 
 
 ## Moves the plant to the next state (see the State enum).

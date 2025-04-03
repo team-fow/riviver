@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7nn6mygdub2k"]
+
+[ext_resource type="Script" uid="uid://cuwfuf8wrau0q" path="res://scenes/minigames/trash_minigame/trash_object.gd" id="1_usk00"]
+[ext_resource type="Texture2D" uid="uid://bqrx5thi7tr4h" path="res://assets/minigames/trash/recycling_trash.png" id="2_pkg7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkg7f"]
+size = Vector2(129, 181)
+
+[node name="TrashObject" type="Area2D"]
+z_index = 1
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_usk00")
+metadata/_custom_type_script = "uid://bmx6wpyib1wc"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+texture = ExtResource("2_pkg7f")
+hframes = 6
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 8.5)
+shape = SubResource("RectangleShape2D_pkg7f")
