@@ -6,8 +6,10 @@ extends Draggable
 
 func _drop() -> void:
 	for area: Area2D in get_overlapping_areas():
-		if area is TrashBin and area.category == category:
+		if area is TrashBin:
 			queue_free()
+			if area.category != category:
+				print("false")
 
 
 func _ready() -> void:
