@@ -3,6 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://doiayfkdp6u7j" path="res://assets/progressbar/Progress - Bad.png" id="1_ct5cc"]
 [ext_resource type="Script" uid="uid://bfu4ytebn2hlr" path="res://scenes/levels/base/progress_bar_part.gd" id="2_l1hfv"]
 
-[node name="Node2D" type="TextureRect"]
+[node name="ProgressBarPart" type="TextureRect"]
+custom_minimum_size = Vector2(144, 113)
+offset_right = 130.0
+offset_bottom = 113.0
+mouse_filter = 2
 texture = ExtResource("1_ct5cc")
+expand_mode = 1
+stretch_mode = 3
 script = ExtResource("2_l1hfv")

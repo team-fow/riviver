@@ -7,7 +7,7 @@ var current_minigame: Minigame # The currently active minigame.
 
 @onready var grid: TileMapLayer = $Grid
 @onready var animator: AnimationPlayer = $Animator
-@onready var hbox_container: HBoxContainer = $UI/HBoxContainer
+@onready var help_panel: PanelContainer = $UI/Margins/HelpPanel
 
 
 # Open a minigame
@@ -43,7 +43,7 @@ func end_minigame(game: Minigame, score: float) -> void:
 
 # Return the player to the world map
 func _on_back_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/worldmap/worldmap.tscn")
 
 
 # Reset the current level
@@ -53,7 +53,11 @@ func _on_restart_pressed() -> void:
 
 # Open the settings menu
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	add_child(load("res://scenes/settings/settings.tscn").instantiate())
+
+
+func _on_help_pressed() -> void:
+	pass
 	
 
 func _ready() -> void:
@@ -61,3 +65,21 @@ func _ready() -> void:
 		minigames.append(minigame)
 		minigame.started.connect(open_minigame)
 		minigame.ended.connect(end_minigame)
+
+
+func _on_help_list_item_selected(idx: int) -> void:
+	if idx == 3: return
+	
+	var text: String
+	
+	if idx == 0: text = "Trash"
+	elif idx == 1: text = "Water"
+	elif idx == 2: text = "Plant"
+	
+	help_panel.get_node("Label").text = text
+	help_panel.show()
+
+
+func _on_help_panel_gui_input(event: InputEvent) -> void:
+	if event.is_action("click"):
+		help_panel.hide()

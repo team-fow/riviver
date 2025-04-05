@@ -10,24 +10,16 @@
 [node name="Grid" parent="." index="0"]
 tile_map_data = PackedByteArray("AAD/////AwAAAAAAAAD///7/BAAAAAAAAAD+////BAAAAAAAAAD//wAABAAAAAAAAAD//wEABAAAAAAAAAAAAAAAAwAAAAAAAAAAAP//AwAAAAAAAAAAAP7/AwAAAAAAAAD///3/BAAAAAAAAAAAAP3/AwAAAAAAAAAAAPz/AwAAAAAAAAD///v/AwAAAAAAAAD///z/BAAAAAAAAAD+//3/AwAAAAAAAAD+//7/AwAAAAAAAAD9////AwAAAAAAAAD+/wAAAwAAAAAAAAD+/wEAAwAAAAAAAAD//wIAAwAAAAAAAAD//wMAAwAAAAAAAAAAAAIABAAAAAAAAAAAAAEAAwAAAAAAAAABAAAAAwAAAAAAAAABAP//AwAAAAAAAAABAP7/AwAAAAAAAAA=")
 
-[node name="WaterTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_8jtne")]
-position = Vector2(281.818, -300)
-minigame = NodePath("../../Minigames/WaterMinigame")
-
-[node name="PlantTile" parent="Grid" index="1" node_paths=PackedStringArray("minigame") instance=ExtResource("2_8jtne")]
+[node name="PlantTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_8jtne")]
 position = Vector2(-918.182, 300)
 minigame = NodePath("../../Minigames/PlantMinigame")
 
-[node name="WaterMinigame" parent="Minigames" index="0" instance=ExtResource("3_mp0kl")]
-visible = false
-filters_needed = Array[String](["SANDFILTER"])
-grid_def = Dictionary[Vector2i, String]({
-Vector2i(0, 0): "ROCK"
-})
-pipe_def = Dictionary[String, int]({
-"UPDOWN": 5,
-"UPDOWNSANDFILTER": 1
-})
+[node name="WaterTile" parent="Grid" index="1" node_paths=PackedStringArray("minigame") instance=ExtResource("2_8jtne")]
+position = Vector2(281.818, -300)
+minigame = NodePath("../../Minigames/WaterMinigame")
 
-[node name="PlantMinigame" parent="Minigames" index="1" instance=ExtResource("4_souht")]
+[node name="PlantMinigame" parent="Minigames" index="0" instance=ExtResource("4_souht")]
+visible = false
+
+[node name="WaterMinigame" parent="Minigames" index="1" instance=ExtResource("3_mp0kl")]
 visible = false

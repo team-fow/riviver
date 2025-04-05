@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbxb3eqci27ne"]
+[gd_scene load_steps=17 format=3 uid="uid://bbxb3eqci27ne"]
 
 [ext_resource type="Script" uid="uid://bs3rdjxblu5ts" path="res://scenes/worldmap/worldmap.gd" id="1_gu2y1"]
 [ext_resource type="Texture2D" uid="uid://cimvtwbte26ei" path="res://assets/worldmap.png" id="2_8pao6"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dlsw63ll7nu8u" path="res://scenes/levels/1.tscn" id="3_eftsl"]
 [ext_resource type="PackedScene" uid="uid://cmwuew4y8876w" path="res://scenes/levels/2.tscn" id="4_tq5v4"]
 [ext_resource type="PackedScene" uid="uid://dl1lhyiuj21ri" path="res://scenes/levels/3.tscn" id="5_6hm3f"]
+[ext_resource type="Texture2D" uid="uid://d3xv10uwms0ck" path="res://assets/lvlselection/Lvl Info Pane.png" id="8_wqohx"]
+[ext_resource type="Texture2D" uid="uid://c5gm1aaf38coy" path="res://assets/lvlselection/Play Button - Hover.png" id="9_w84c3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eftsl"]
 atlas = ExtResource("3_ac0hk")
@@ -18,6 +20,15 @@ region = Rect2(0, 110, 100, 110)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mfk5f"]
 font_size = 64
+font_color = Color(0.498039, 0.54902, 0.713726, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w84c3"]
+font_size = 48
+font_color = Color(0.298039, 0.160784, 0.0392157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_anagn"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvp8y"]
 atlas = ExtResource("3_ac0hk")
@@ -39,18 +50,18 @@ texture = ExtResource("2_8pao6")
 
 [node name="LevelPin1" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-332, -252)
-level_name = "Level 1"
+level_name = "1"
 description = "textttt"
 scene = ExtResource("3_eftsl")
 
 [node name="LevelPin2" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(473, -279)
-level_name = "Level 2"
+level_name = "2"
 scene = ExtResource("4_tq5v4")
 
 [node name="LevelPin3" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(1245, 129)
-level_name = "Level 3"
+level_name = "3"
 scene = ExtResource("5_6hm3f")
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -63,16 +74,12 @@ position_smoothing_speed = 10.0
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -18.0
-offset_top = 92.0
-offset_right = -18.0
-offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_bottom = 75
 
 [node name="HBox" type="HBoxContainer" parent="UI/Margins"]
 layout_mode = 2
@@ -87,24 +94,84 @@ texture_normal = SubResource("AtlasTexture_eftsl")
 texture_pressed = SubResource("AtlasTexture_ac0hk")
 texture_hover = SubResource("AtlasTexture_ac0hk")
 
-[node name="LevelInfo" type="VBoxContainer" parent="UI/Margins/HBox"]
-custom_minimum_size = Vector2(600, 0)
+[node name="Background" type="TextureRect" parent="UI/Margins/HBox"]
+layout_mode = 2
+texture = ExtResource("8_wqohx")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Margins/HBox/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="LevelInfo" type="VBoxContainer" parent="UI/Margins/HBox/Background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Header" type="HBoxContainer" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="UI/Margins/HBox/LevelInfo"]
+[node name="Level" type="Label" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo/Header"]
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
-text = "Level name"
+size_flags_horizontal = 3
+text = "Level"
 label_settings = SubResource("LabelSettings_mfk5f")
+vertical_alignment = 1
 
-[node name="Description" type="Label" parent="UI/Margins/HBox/LevelInfo"]
+[node name="Description" type="Label" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo"]
 layout_mode = 2
 text = "Level description"
-label_settings = SubResource("LabelSettings_mfk5f")
+label_settings = SubResource("LabelSettings_w84c3")
+autowrap_mode = 2
 
-[node name="Play" type="Button" parent="UI/Margins/HBox/LevelInfo"]
+[node name="Number" type="Label" parent="UI/Margins/HBox/Background"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+offset_left = 391.0
+offset_top = 27.0
+offset_right = 452.0
+offset_bottom = 102.0
+rotation = 0.265394
+text = "1"
+label_settings = SubResource("LabelSettings_anagn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="TextureButton" parent="UI/Margins/HBox/Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 4.5
+offset_top = -115.0
+offset_right = 228.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 10
+texture_hover = ExtResource("9_w84c3")
+
+[node name="Label" type="Label" parent="UI/Margins/HBox/Background/Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.298039, 0.160784, 0.0392157, 1)
+theme_override_font_sizes/font_size = 48
 text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RightArrow" type="TextureButton" parent="UI/Margins/HBox"]
 layout_mode = 2
@@ -114,5 +181,5 @@ texture_pressed = SubResource("AtlasTexture_tq5v4")
 texture_hover = SubResource("AtlasTexture_tq5v4")
 
 [connection signal="pressed" from="UI/Margins/HBox/LeftArrow" to="." method="select_prev_level"]
-[connection signal="pressed" from="UI/Margins/HBox/LevelInfo/Play" to="." method="play_selected_level"]
+[connection signal="pressed" from="UI/Margins/HBox/Background/Play" to="." method="play_selected_level"]
 [connection signal="pressed" from="UI/Margins/HBox/RightArrow" to="." method="select_next_level"]

@@ -1,8 +1,54 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=21 format=3 uid="uid://cj0nv5djx71e4"]
 
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
+[ext_resource type="Script" uid="uid://i2u8nnx5uv18" path="res://scenes/levels/base/progress_bar.gd" id="3_tvt8h"]
+[ext_resource type="PackedScene" uid="uid://grvs0q6j6ufd" path="res://scenes/levels/base/progress_bar_part.tscn" id="4_d75sf"]
+[ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="5_likht"]
+[ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="6_2xtfm"]
 [ext_resource type="Texture2D" uid="uid://tcr64w81ajfd" path="res://assets/levelbg.png" id="6_vpf64"]
+[ext_resource type="Texture2D" uid="uid://b2jmi8ik2wrlj" path="res://assets/Help Pop-up.png" id="7_wtah3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xtfm"]
+atlas = ExtResource("5_likht")
+region = Rect2(128, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtah3"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(128, 0, 128, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sprtd"]
+texture = ExtResource("7_wtah3")
+texture_margin_left = 24.0
+texture_margin_top = 40.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_likht"]
+atlas = ExtResource("5_likht")
+region = Rect2(256, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sprtd"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(256, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbq67"]
+atlas = ExtResource("5_likht")
+region = Rect2(384, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hstm6"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(384, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd8iw"]
+atlas = ExtResource("5_likht")
+region = Rect2(0, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxgw7"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(0, 0, 128, 0)
 
 [sub_resource type="Animation" id="Animation_hnne4"]
 length = 0.001
@@ -81,27 +127,112 @@ scale = Vector2(0.33, 0.33)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Buttons" type="VBoxContainer" parent="UI"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Margins" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="Back" type="Button" parent="UI/Buttons"]
+[node name="Header" type="HBoxContainer" parent="UI/Margins"]
 layout_mode = 2
-text = "Back"
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+alignment = 1
 
-[node name="Restart" type="Button" parent="UI/Buttons"]
+[node name="ProgressBar" type="HBoxContainer" parent="UI/Margins/Header" node_paths=PackedStringArray("level")]
 layout_mode = 2
-text = "Restart"
+mouse_filter = 2
+script = ExtResource("3_tvt8h")
+level = NodePath("../../../..")
 
-[node name="Settings" type="Button" parent="UI/Buttons"]
+[node name="ProgressBarPart" parent="UI/Margins/Header/ProgressBar" instance=ExtResource("4_d75sf")]
 layout_mode = 2
-text = "Settings"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
-offset_left = 1692.0
-offset_top = 1000.0
-offset_right = 1732.0
-offset_bottom = 1040.0
+[node name="Buttons" type="HBoxContainer" parent="UI/Margins/Header"]
+layout_mode = 2
+
+[node name="Help" type="TextureButton" parent="UI/Margins/Header/Buttons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_2xtfm")
+texture_hover = SubResource("AtlasTexture_wtah3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Dropdown" type="PanelContainer" parent="UI/Margins/Header/Buttons/Help"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -333.0
+offset_top = 7.0
+offset_right = 338.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sprtd")
+
+[node name="HelpList" type="ItemList" parent="UI/Margins/Header/Buttons/Help/Dropdown"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+auto_height = true
+item_count = 4
+item_0/text = "Help me with the trash minigame!"
+item_1/text = "Help me with the water minigame!"
+item_2/text = "Help me with the plant minigame!"
+item_3/text = "Close"
+
+[node name="Restart" type="TextureButton" parent="UI/Margins/Header/Buttons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_likht")
+texture_hover = SubResource("AtlasTexture_sprtd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Left" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Settings" type="TextureButton" parent="UI/Margins/Left"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_gbq67")
+texture_hover = SubResource("AtlasTexture_hstm6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Back" type="TextureButton" parent="UI/Margins/Left"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_vd8iw")
+texture_hover = SubResource("AtlasTexture_bxgw7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HelpPanel" type="PanelContainer" parent="UI/Margins"]
+visible = false
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="UI/Margins/HelpPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Blahblahblah!!!!"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -121,6 +252,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_vpf64")
 }
 
-[connection signal="pressed" from="UI/Buttons/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="UI/Buttons/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="UI/Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/Margins/Header/Buttons/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="UI/Margins/Header/Buttons/Help" to="UI/Margins/Header/Buttons/Help/Dropdown" method="show"]
+[connection signal="item_selected" from="UI/Margins/Header/Buttons/Help/Dropdown/HelpList" to="." method="_on_help_list_item_selected"]
+[connection signal="item_selected" from="UI/Margins/Header/Buttons/Help/Dropdown/HelpList" to="UI/Margins/Header/Buttons/Help/Dropdown/HelpList" method="deselect"]
+[connection signal="item_selected" from="UI/Margins/Header/Buttons/Help/Dropdown/HelpList" to="UI/Margins/Header/Buttons/Help/Dropdown" method="hide" unbinds=1]
+[connection signal="pressed" from="UI/Margins/Header/Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI/Margins/Left/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/Margins/Left/Back" to="." method="_on_back_pressed"]
+[connection signal="gui_input" from="UI/Margins/HelpPanel" to="." method="_on_help_panel_gui_input"]

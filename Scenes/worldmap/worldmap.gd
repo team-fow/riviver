@@ -4,16 +4,16 @@ var selected_idx: int
 
 @onready var levels: Node2D = $Levels
 @onready var camera: Camera2D = $Camera
-@onready var level_name: Label = $UI/Margins/HBox/LevelInfo/Name
-@onready var level_description: Label = $UI/Margins/HBox/LevelInfo/Description
-@onready var play_button: Button = $UI/Margins/HBox/LevelInfo/Play
+@onready var level_name: Label = $UI/Margins/HBox/Background/Number
+@onready var level_description: Label = $UI/Margins/HBox/Background/MarginContainer/LevelInfo/Description
+@onready var play_button: TextureButton = $UI/Margins/HBox/Background/Play
 
 
 ## Selects the level at some index in the level order.
 func select_level(idx: int) -> void:
 	selected_idx = clampi(idx, 0, levels.get_child_count() - 1)
 	var pin: Node2D = levels.get_child(selected_idx)
-	camera.position = pin.position
+	camera.position = pin.position + Vector2(0, 50)
 	level_name.text = pin.level_name
 	level_description.text = pin.description
 	play_button.disabled = pin.locked
