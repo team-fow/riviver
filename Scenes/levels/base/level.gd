@@ -8,6 +8,7 @@ var current_minigame: Minigame # The currently active minigame.
 @onready var grid: TileMapLayer = $Grid
 @onready var animator: AnimationPlayer = $Animator
 @onready var help_panel: PanelContainer = $UI/Margins/HelpPanel
+@onready var summary: ColorRect = $UI/Summary
 
 
 # Open a minigame
@@ -38,12 +39,34 @@ func end_minigame(game: Minigame, score: float) -> void:
 		for minigame: Minigame in minigames:
 			total_score += minigame.score
 		Save.set_level_score(Save.current_level, total_score / minigames.size())
-		get_tree().change_scene_to_file("res://scenes/worldmap/worldmap.tscn")
+		do_summary()
 
+
+
+# summary
+
+func do_summary() -> void:
+	summary.show()
+	animator.play("open_summary")
+	await animator.animation_finished
+	
+	var score: float = Save.get_level_score(Save.current_level)
+	var stars: Control = summary.get_node("Content/Stars")
+	for i: int in stars.get_child_count():
+		stars.get_child(i).get_child(0).visible = score >= (i + 1) / 3.0
+
+
+func _on_summary_input(event: InputEvent) -> void:
+	if event.is_action_pressed("click"):
+		Save.change_scene("res://scenes/worldmap/worldmap.tscn")
+
+
+
+# other stuff
 
 # Return the player to the world map
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/worldmap/worldmap.tscn")
+	Save.change_scene("res://scenes/worldmap/worldmap.tscn")
 
 
 # Reset the current level

@@ -7,6 +7,9 @@ var data: Dictionary = {
 
 var current_level: int
 
+@onready var animator: AnimationPlayer = $Animator
+@onready var overlay_color: Control = $Overlay/ColorRect
+
 
 
 # levels
@@ -43,3 +46,16 @@ func write() -> void:
 func read() -> void:
 	data = bytes_to_var(FileAccess.get_file_as_bytes("user://save.cfg"))
 	get_tree().reload_current_scene()
+
+
+
+# transition
+
+func change_scene(file: String) -> void:
+	overlay_color.show()
+	animator.play("fade_in")
+	await animator.animation_finished
+	get_tree().change_scene_to_file(file)
+	animator.play_backwards("fade_in")
+	await animator.animation_finished
+	overlay_color.hide()

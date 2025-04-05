@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://dlsw63ll7nu8u"]
+[gd_scene load_steps=5 format=4 uid="uid://dlsw63ll7nu8u"]
 
 [ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_ie7v7"]
 [ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://scenes/minigames/trash_minigame/trash_object.tscn" id="3_0absb"]
-[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="3_4o7q8"]
 [ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://scenes/minigames/trash_minigame/trash_minigame.tscn" id="3_x3ltn"]
 [ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="4_f00r8"]
-[ext_resource type="PackedScene" uid="uid://cxyyfgdo1704o" path="res://scenes/minigames/plant_minigame/plant_minigame.tscn" id="6_4o7q8"]
 
 [node name="Level" instance=ExtResource("1_ie7v7")]
 
@@ -24,10 +22,6 @@ rotation = -0.0943237
 position = Vector2(772.727, -130.303)
 rotation = -0.916388
 
-[node name="MinigameTile" parent="Grid" index="3" node_paths=PackedStringArray("minigame") instance=ExtResource("3_4o7q8")]
-position = Vector2(293.939, -884.848)
-minigame = NodePath("../../Minigames/PlantMinigame")
-
 [node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("level", "trash_objects") instance=ExtResource("3_x3ltn")]
 visible = false
 level = NodePath("../..")
@@ -36,6 +30,3 @@ trash_objects = [NodePath("../../Grid/TrashObject1"), NodePath("../../Grid/Trash
 [node name="TrashBin" parent="Minigames/TrashMinigame" index="1" instance=ExtResource("4_f00r8")]
 position = Vector2(-27.2727, -57.5757)
 rotation = -0.139407
-
-[node name="PlantMinigame" parent="Minigames" index="1" instance=ExtResource("6_4o7q8")]
-visible = false

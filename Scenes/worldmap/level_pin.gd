@@ -1,8 +1,6 @@
 extends Node2D
 
-@export var level_name: String = "Level"
 @export_multiline var description: String = "Description"
-@export var scene: PackedScene
 
 var locked: bool = true
 

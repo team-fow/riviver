@@ -14,7 +14,7 @@ func select_level(idx: int) -> void:
 	selected_idx = clampi(idx, 0, levels.get_child_count() - 1)
 	var pin: Node2D = levels.get_child(selected_idx)
 	camera.position = pin.position + Vector2(0, 50)
-	level_name.text = pin.level_name
+	level_name.text = str(selected_idx + 1)
 	level_description.text = pin.description
 	play_button.disabled = pin.locked
 
@@ -32,7 +32,7 @@ func select_next_level() -> void:
 ## Opens the selected level.
 func play_selected_level() -> void:
 	Save.current_level = selected_idx
-	get_tree().change_scene_to_packed(levels.get_child(selected_idx).scene)
+	Save.change_scene("res://scenes/levels/%s.tscn" % str(selected_idx + 1))
 
 
 
