@@ -16,7 +16,12 @@ func select_level(idx: int) -> void:
 	camera.position = pin.position + Vector2(0, 50)
 	level_name.text = str(selected_idx + 1)
 	level_description.text = pin.description
+	
 	play_button.disabled = pin.locked
+	play_button.modulate.a = 0.5 if play_button.disabled else 1.0
+	
+	$UI/Margins/HBox/LeftArrow.modulate.a = 0.5 if selected_idx == 0 else 1.0
+	$UI/Margins/HBox/RightArrow.modulate.a = 0.5 if selected_idx == levels.get_child_count() - 1 else 1.0
 
 
 ## Selects the previous level sequentially.
