@@ -3,7 +3,7 @@ extends Draggable
 
 enum DIRECTIONS {UP, DOWN, LEFT, RIGHT}
 @export var holes: Array[DIRECTIONS]
-@export var is_filter: bool
+@export var filter_type: String = ""
 var texture: Texture2D = preload("res://icon.svg") 
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -64,7 +64,11 @@ static func dir_to_vector(dir: DIRECTIONS) -> Vector2i:
 static func create_pipe(s : String) -> Pipe:
 	var new_pipe: Pipe = load("res://Scenes/minigames/water_minigame/pipes/pipe.tscn").instantiate()
 	new_pipe.texture = WaterMinigame.get_texture(s)
-	new_pipe.is_filter = s.containsn("FILTER")
+	if s.containsn("SANDFILTER"):
+		new_pipe.filter_type = "SANDFILTER"
+	elif s.containsn("CARBONFILTER"):
+		new_pipe.filter_type = "CARBONFILTER"
+	else: new_pipe.filter_type = ""
 	new_pipe.holes = Pipe.string_to_directions(s) 
 	return new_pipe
 
