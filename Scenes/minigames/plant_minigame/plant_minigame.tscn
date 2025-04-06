@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxyyfgdo1704o"]
+[gd_scene load_steps=15 format=3 uid="uid://cxyyfgdo1704o"]
 
 [ext_resource type="Script" uid="uid://baoa55ix5krny" path="res://scenes/minigames/plant_minigame/plant_minigame.gd" id="1_as2k8"]
 [ext_resource type="Texture2D" uid="uid://dgxpos8bwdowt" path="res://assets/minigames/plant/background.png" id="2_as2k8"]
@@ -7,6 +7,25 @@
 [ext_resource type="Texture2D" uid="uid://50tjlm6r8xfo" path="res://assets/minigames/plant/shovel.png" id="4_tdc4o"]
 [ext_resource type="Texture2D" uid="uid://uoseo75odqxy" path="res://assets/minigames/plant/seed_bag.png" id="5_lln40"]
 [ext_resource type="Texture2D" uid="uid://ddsd46lv4a743" path="res://assets/minigames/plant/pot.png" id="6_lln40"]
+[ext_resource type="Texture2D" uid="uid://dskksw04p6gs0" path="res://assets/minigames/plant/soil_bag.png" id="7_qaipn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u147h"]
+draw_center = false
+border_width_left = 80
+border_width_top = 80
+border_width_right = 80
+border_color = Color(0.321741, 0.221577, 0.061539, 1)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaipn"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+bg_color = Color(0.462745, 0.615686, 0.737255, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1em36"]
 size = Vector2(280, 717)
@@ -15,7 +34,7 @@ size = Vector2(280, 717)
 size = Vector2(300, 459)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u147h"]
-size = Vector2(300, 459)
+size = Vector2(231, 459)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lln40"]
 size = Vector2(310, 395)
@@ -24,8 +43,9 @@ size = Vector2(310, 395)
 script = ExtResource("1_as2k8")
 metadata/_custom_type_script = "uid://d1hsmangbi8t5"
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="Control" parent="."]
 custom_minimum_size = Vector2(500, 600)
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -34,12 +54,25 @@ anchor_bottom = 0.5
 offset_left = -750.0
 offset_top = -1000.0
 offset_right = 750.0
-offset_bottom = 1000.0
+offset_bottom = 1121.77
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u147h")
+
+[node name="TextureRect" type="TextureRect" parent="Background/PanelContainer"]
+layout_mode = 2
 texture = ExtResource("2_as2k8")
-expand_mode = 5
+expand_mode = 1
+stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 1
@@ -67,13 +100,14 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_qaipn")
 text = "0:00"
 
 [node name="Plants" type="Node2D" parent="."]
 position = Vector2(0, 628)
 
 [node name="Tools" type="Node2D" parent="."]
-position = Vector2(0, -999)
+position = Vector2(0, -918)
 
 [node name="Shovel" type="Area2D" parent="Tools"]
 position = Vector2(-546, 0)
@@ -88,7 +122,7 @@ position = Vector2(-4, 0.5)
 shape = SubResource("RectangleShape2D_1em36")
 
 [node name="SeedBag" type="Area2D" parent="Tools"]
-position = Vector2(-237, 0)
+position = Vector2(-203, 0)
 script = ExtResource("2_w505k")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
@@ -106,9 +140,10 @@ metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
 [node name="Sprite" type="Sprite2D" parent="Tools/SoilBag"]
 modulate = Color(0.582694, 0.325626, 0.236474, 1)
-texture = ExtResource("5_lln40")
+texture = ExtResource("7_qaipn")
 
 [node name="Shape" type="CollisionShape2D" parent="Tools/SoilBag"]
+position = Vector2(-2.5, 0)
 shape = SubResource("RectangleShape2D_u147h")
 
 [node name="WateringCan" type="Area2D" parent="Tools"]
