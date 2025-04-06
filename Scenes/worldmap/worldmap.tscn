@@ -20,7 +20,7 @@ font_size = 64
 font_color = Color(0.498039, 0.54902, 0.713726, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w84c3"]
-font_size = 48
+font_size = 36
 font_color = Color(0.298039, 0.160784, 0.0392157, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_anagn"]
@@ -47,13 +47,15 @@ texture = ExtResource("2_8pao6")
 
 [node name="LevelPin1" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-1183, -229)
-description = "textttt"
+description = "Someone's littered all over! Your animal friends are in trouble..."
 
 [node name="LevelPin2" parent="Levels" instance=ExtResource("2_mfk5f")]
-position = Vector2(-277, -191)
+position = Vector2(-299, -216)
+description = "Some leaky pipes are polluting the water!"
 
 [node name="LevelPin3" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(377, -323)
+description = "The banks of the river are eroding!"
 
 [node name="Camera" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -119,6 +121,8 @@ vertical_alignment = 1
 
 [node name="Description" type="Label" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/line_spacing = -100
 text = "Level description"
 label_settings = SubResource("LabelSettings_w84c3")
 autowrap_mode = 2
