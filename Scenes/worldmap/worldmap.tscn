@@ -39,21 +39,21 @@ region = Rect2(100, 110, 100, 110)
 script = ExtResource("1_gu2y1")
 
 [node name="Worldmap" type="Sprite2D" parent="."]
-position = Vector2(-309, 7)
+position = Vector2(-309, -177)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_8pao6")
 
 [node name="Levels" type="Node2D" parent="."]
 
 [node name="LevelPin1" parent="Levels" instance=ExtResource("2_mfk5f")]
-position = Vector2(-332, -252)
+position = Vector2(-1183, -229)
 description = "textttt"
 
 [node name="LevelPin2" parent="Levels" instance=ExtResource("2_mfk5f")]
-position = Vector2(473, -279)
+position = Vector2(-277, -191)
 
 [node name="LevelPin3" parent="Levels" instance=ExtResource("2_mfk5f")]
-position = Vector2(1245, 129)
+position = Vector2(377, -323)
 
 [node name="Camera" type="Camera2D" parent="."]
 position_smoothing_enabled = true

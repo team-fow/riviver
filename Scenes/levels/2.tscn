@@ -23,6 +23,14 @@ visible = false
 
 [node name="WaterMinigame" parent="Minigames" index="1" instance=ExtResource("3_mp0kl")]
 visible = false
+filters_needed = Array[String](["SANDFILTER"])
+grid_def = Dictionary[Vector2i, String]({
+Vector2i(0, 0): "ROCK"
+})
+pipe_def = Dictionary[String, int]({
+"UPDOWN": 5,
+"UPDOWNSANDFILTER": 1
+})
 
 [node name="Margins" parent="UI" index="0"]
 mouse_filter = 2
