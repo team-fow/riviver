@@ -1,7 +1,38 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://efnoobl2bdx4"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://efnoobl2bdx4"]
 
+[ext_resource type="Texture2D" uid="uid://d15nl22g1lsqr" path="res://assets/tiles/watertiles.PNG" id="1_5vi5a"]
 [ext_resource type="Texture2D" uid="uid://da2y0ei2myos4" path="res://assets/tiles/Basic_grass.png" id="1_yjwyg"]
+[ext_resource type="Texture2D" uid="uid://cb85m5e7u2wp" path="res://assets/tiles/grasstiles.PNG" id="2_e1exf"]
 [ext_resource type="Texture2D" uid="uid://d2uhn0nmsr4bj" path="res://assets/tiles/Basic_water_.png" id="2_rqevj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7gcy8"]
+texture = ExtResource("1_5vi5a")
+texture_region_size = Vector2i(736, 733)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6i4yi"]
+texture = ExtResource("2_e1exf")
+texture_region_size = Vector2i(733, 733)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yjwyg"]
 texture = ExtResource("1_yjwyg")
@@ -18,3 +49,5 @@ tile_shape = 1
 tile_size = Vector2i(600, 600)
 sources/3 = SubResource("TileSetAtlasSource_yjwyg")
 sources/4 = SubResource("TileSetAtlasSource_rqevj")
+sources/0 = SubResource("TileSetAtlasSource_7gcy8")
+sources/1 = SubResource("TileSetAtlasSource_6i4yi")
