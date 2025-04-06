@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjrf0x4vn50hb"]
+[gd_scene load_steps=7 format=3 uid="uid://bjrf0x4vn50hb"]
 
 [ext_resource type="Script" uid="uid://c6axy1ybxyeui" path="res://scenes/minigames/plant_minigame/plant.gd" id="1_wru0m"]
 [ext_resource type="Texture2D" uid="uid://cioahb8rrwp6" path="res://assets/minigames/plant/bush.png" id="2_2whjf"]
 [ext_resource type="Texture2D" uid="uid://bpw1r3i1ba713" path="res://assets/minigames/plant/hole.png" id="2_4kol2"]
 [ext_resource type="Texture2D" uid="uid://c2q1e52ntho5" path="res://assets/minigames/plant/soil_pile.png" id="3_2jvvw"]
+[ext_resource type="Texture2D" uid="uid://c3hov601hoxr7" path="res://assets/minigames/plant/seed.png" id="3_83s8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3e3o"]
 size = Vector2(400, 483)
@@ -15,20 +16,9 @@ script = ExtResource("1_wru0m")
 [node name="HoleSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_4kol2")
 
-[node name="SeedSprite" type="ColorRect" parent="HoleSprite"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -307.5
-offset_top = -211.0
-offset_right = -209.5
-offset_bottom = -108.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-color = Color(0.228593, 0.0917045, 0.0763567, 1)
+[node name="SeedSprite" type="Sprite2D" parent="HoleSprite"]
+position = Vector2(0, 26.6667)
+texture = ExtResource("3_83s8x")
 
 [node name="BushSprite" type="Sprite2D" parent="."]
 visible = false

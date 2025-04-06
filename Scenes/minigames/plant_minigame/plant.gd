@@ -19,7 +19,7 @@ var progress: float
 
 # Sprites...
 @onready var hole_sprite: Sprite2D = $HoleSprite
-@onready var seed_sprite: ColorRect = $HoleSprite/SeedSprite
+@onready var seed_sprite: Sprite2D = $HoleSprite/SeedSprite
 @onready var pile_sprite: Sprite2D = $PileSprite
 @onready var bush_sprite: Sprite2D = $BushSprite
 
