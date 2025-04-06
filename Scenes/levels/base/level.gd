@@ -60,6 +60,7 @@ func do_summary() -> void:
 	explosion.lifetime = explosion.lifetime * score
 	explosion.emitting = true
 
+	summary.mouse_filter = Control.MOUSE_FILTER_PASS
 
 func _on_summary_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
