@@ -10,6 +10,7 @@
 size = Vector2(290, 290)
 
 [node name="WaterMinigame" type="Node2D"]
+z_index = 1
 scale = Vector2(4, 4)
 script = ExtResource("1_apnnh")
 start_point = Vector2i(2, 0)
@@ -46,6 +47,7 @@ color = Color(0, 0, 0, 1)
 layout_mode = 2
 offset_right = 300.0
 offset_bottom = 500.0
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5

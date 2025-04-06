@@ -11,7 +11,10 @@ var initial_scale: Vector2 = scale
 
 
 func eat(trash: Draggable) -> void:
-	pass
+	if trash.category != category:
+		modulate = Color.CRIMSON
+		await get_tree().create_timer(0.5).timeout
+		modulate = Color.WHITE
 
 
 func _mouse_enter() -> void:

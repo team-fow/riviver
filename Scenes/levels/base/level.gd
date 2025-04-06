@@ -9,6 +9,7 @@ var current_minigame: Minigame # The currently active minigame.
 @onready var animator: AnimationPlayer = $Animator
 @onready var help_panel: PanelContainer = $UI/Margins/HelpPanel
 @onready var summary: ColorRect = $UI/Summary
+@onready var explosion: CPUParticles2D = $UI/Summary/Content/Explosion
 
 
 # Open a minigame
@@ -54,6 +55,10 @@ func do_summary() -> void:
 	var stars: Control = summary.get_node("Content/Stars")
 	for i: int in stars.get_child_count():
 		stars.get_child(i).get_child(0).visible = score >= (i + 1) / 3.0
+	
+	explosion.speed_scale = explosion.speed_scale * score
+	explosion.lifetime = explosion.lifetime * score
+	explosion.emitting = true
 
 
 func _on_summary_input(event: InputEvent) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=26 format=3 uid="uid://cj0nv5djx71e4"]
 
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
@@ -57,6 +57,15 @@ region = Rect2(0, 0, 124, 0)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixrk0"]
 atlas = ExtResource("7_sprtd")
 region = Rect2(124, 0, 124, 0)
+
+[sub_resource type="Curve" id="Curve_wtah3"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 200), 0.0, 0.0, 0, 0, Vector2(0.982954, -146.067), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_sprtd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.58427), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_hnne4"]
 length = 0.001
@@ -171,6 +180,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
@@ -276,6 +286,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
 
 [node name="Content" type="VBoxContainer" parent="UI/Summary"]
@@ -414,6 +425,27 @@ theme_override_colors/font_color = Color(0.964706, 0.819608, 0.560784, 1)
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 32
 text = "Click anywhere to continue..."
+
+[node name="Explosion" type="CPUParticles2D" parent="UI/Summary/Content"]
+z_index = 5
+position = Vector2(350, 150)
+emitting = false
+amount = 50
+lifetime = 2.0
+one_shot = true
+speed_scale = 3.5
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 50.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+linear_accel_curve = SubResource("Curve_wtah3")
+scale_amount_min = 20.0
+scale_amount_max = 50.0
+scale_amount_curve = SubResource("Curve_sprtd")
+color = Color(0.584314, 0.615686, 0.192157, 1)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
