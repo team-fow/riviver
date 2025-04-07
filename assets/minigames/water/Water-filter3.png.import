@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eq1mwbit8wdh"
-path="res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"
+uid="uid://77s23awdlvk0"
+path="res://.godot/imported/Water-filter3.png-4c5dc50c1dd3d3ea4bec2e49f1c19246.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/Buttons-Default.png"
-dest_files=["res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"]
+source_file="res://assets/minigames/water/Water-filter3.png"
+dest_files=["res://.godot/imported/Water-filter3.png-4c5dc50c1dd3d3ea4bec2e49f1c19246.ctex"]
 
 [params]
 
