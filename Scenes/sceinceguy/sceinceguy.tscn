@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://fx4mgq00nc5p"]
+[gd_scene load_steps=12 format=3 uid="uid://fx4mgq00nc5p"]
 
 [ext_resource type="Script" uid="uid://cuvkll4cav41p" path="res://scenes/sceinceguy/sceinceguy.gd" id="1_erwwe"]
 [ext_resource type="Texture2D" uid="uid://b6ga2cg8yh1hu" path="res://assets/sceinceguy/science_guy_happy.png" id="2_erwwe"]
@@ -27,8 +27,6 @@ texture_margin_right = 150.0
 texture_margin_bottom = 220.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-
-[sub_resource type="FontVariation" id="FontVariation_ejcc5"]
 
 [sub_resource type="Animation" id="Animation_6pb4g"]
 length = 0.001
@@ -130,24 +128,21 @@ color = Color(0.843137, 0.564706, 0.556863, 1)
 
 [node name="Cont" type="Label" parent="Label"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -98.5
-offset_top = -92.0
-offset_right = 195.5
-offset_bottom = -47.0
-grow_horizontal = 2
+offset_left = -589.0
+offset_top = -166.0
+offset_right = -116.0
+offset_bottom = -78.0
+grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 1
-theme_override_colors/font_color = Color(0.839216, 0.67451, 0.380392, 1)
-theme_override_colors/font_outline_color = Color(0.407843, 0.282353, 0.0470588, 1)
-theme_override_constants/outline_size = 32
-theme_override_fonts/font = SubResource("FontVariation_ejcc5")
-theme_override_font_sizes/font_size = 32
-text = "Click to continue..."
+theme_override_colors/font_color = Color(0.729412, 0.686275, 0.596078, 1)
+theme_override_font_sizes/font_size = 48
+text = "Click to continue...▼"
 
 [node name="Sprite" type="TextureRect" parent="."]
 layout_mode = 1
