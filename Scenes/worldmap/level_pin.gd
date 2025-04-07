@@ -14,7 +14,7 @@ func _ready() -> void:
 		locked = false
 		sprite.frame = 1
 		if Save.is_level_completed(idx):
-			sprite.frame = randi_range(2, 3)
+			sprite.frame = 2
 	
 	var score: float = Save.get_level_score(idx)
 	for i: int in stars.get_child_count():

@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://kjhrbpibvxys" path="res://assets/lvlselection/Pins.png" id="2_dxr2f"]
 [ext_resource type="Texture2D" uid="uid://c3v4y3yo4uy0w" path="res://assets/lvlselection/Stars.png" id="3_bxby6"]
 
+[sub_resource type="Animation" id="Animation_n73mj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_bxby6"]
 resource_name = "flick"
 step = 0.1
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.174533, -0.174533, 0.0872665, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_n73mj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n73mj"]
