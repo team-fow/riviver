@@ -7,6 +7,8 @@ var selected_idx: int
 @onready var level_name: Label = $UI/Margins/HBox/Background/Number
 @onready var level_description: Label = $UI/Margins/HBox/Background/MarginContainer/LevelInfo/Description
 @onready var play_button: TextureButton = $UI/Margins/HBox/Background/Play
+@onready var left_arrow: TextureButton = $UI/Margins/HBox/LeftArrow
+@onready var right_arrow: TextureButton = $UI/Margins/HBox/RightArrow
 
 
 ## Selects the level at some index in the level order.
@@ -22,18 +24,20 @@ func select_level(idx: int) -> void:
 	play_button.disabled = pin.locked
 	play_button.get_child(0).visible = not pin.locked
 	
-	$UI/Margins/HBox/LeftArrow.visible = selected_idx != 0
-	$UI/Margins/HBox/RightArrow.visible = selected_idx != levels.get_child_count() - 1
+	left_arrow.visible = selected_idx != 0
+	right_arrow.visible = selected_idx != levels.get_child_count() - 1
 
 
 ## Selects the previous level sequentially.
 func select_prev_level() -> void:
 	select_level(selected_idx - 1)
+	#Input.warp_mouse(left_arrow.get_screen_position())
 
 
 ## Selects the next level sequentially.
 func select_next_level() -> void:
 	select_level(selected_idx + 1)
+	#Input.warp_mouse(right_arrow.get_screen_position())
 
 
 ## Opens the selected level.
