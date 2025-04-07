@@ -15,5 +15,5 @@ func _drop() -> void:
 func _ready() -> void:
 	super()
 	$Sprite.texture = load("res://assets/minigames/trash/%s_trash.png" % category)
-	$Sprite.hframes = {"landfill": 5, "recycling": 6, "compost": 6, "hazardous": 3}[category]
+	$Sprite.hframes = {"landfill": 4, "recycling": 6, "compost": 6, "hazardous": 3}[category]
 	$Sprite.frame = randi() % $Sprite.hframes

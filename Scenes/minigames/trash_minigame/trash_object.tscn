@@ -8,7 +8,7 @@ size = Vector2(129, 181)
 
 [node name="TrashObject" type="Area2D"]
 z_index = 1
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 script = ExtResource("1_usk00")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 

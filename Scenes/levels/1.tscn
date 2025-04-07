@@ -8,18 +8,18 @@
 [node name="Level" instance=ExtResource("1_ie7v7")]
 
 [node name="Grid" parent="." index="0"]
-tile_map_data = PackedByteArray("AAD/////AwAAAAAAAAD///7/BAAAAAAAAAD+////BAAAAAAAAAD//wAABAAAAAAAAAD//wEABAAAAAAAAAAAAAAAAwAAAAAAAAAAAP//AwAAAAAAAAAAAP7/AwAAAAAAAAD///3/BAAAAAAAAAAAAP3/AwAAAAAAAAAAAPz/AwAAAAAAAAD///v/AwAAAAAAAAD///z/BAAAAAAAAAD+//3/AwAAAAAAAAD+//7/AwAAAAAAAAD9////AwAAAAAAAAD+/wAAAwAAAAAAAAD+/wEAAwAAAAAAAAD//wIAAwAAAAAAAAD//wMAAwAAAAAAAAAAAAIABAAAAAAAAAAAAAEAAwAAAAAAAAABAAAAAwAAAAAAAAABAP//AwAAAAAAAAABAP7/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD/////AwAAAAAAAAD///7/AAACAAIAAAD+////AAACAAIAAAD//wAAAAABAAIAAAD//wEAAAAAAAIAAAAAAAAAAwAAAAAAAAAAAP//AQACAAIAAAAAAP7/AwAAAAAAAAD///3/AAABAAAAAAAAAP3/AwAAAAAAAAAAAPz/AQACAAEAAAD///v/AQACAAAAAAD///z/AAAAAAEAAAD+//3/AQACAAIAAAD+//7/AwAAAAAAAAD9////AwAAAAAAAAD+/wAAAQABAAAAAAD+/wEAAQAAAAMAAAD//wIAAQACAAEAAAD//wMAAwAAAAAAAAAAAAIABAAAAAAAAAAAAAEAAwAAAAAAAAABAAAAAQABAAEAAAABAP//AQAAAAAAAAABAP7/AQAAAAIAAAA=")
 
 [node name="TrashObject1" parent="Grid" index="0" instance=ExtResource("3_0absb")]
-position = Vector2(-724.242, -484.849)
+position = Vector2(-906.061, -354.545)
 rotation = 0.388766
 
 [node name="TrashObject2" parent="Grid" index="1" instance=ExtResource("3_0absb")]
-position = Vector2(-36.3636, 969.697)
+position = Vector2(-24.2425, 509.091)
 rotation = -0.0943237
 
 [node name="TrashObject3" parent="Grid" index="2" instance=ExtResource("3_0absb")]
-position = Vector2(772.727, -130.303)
+position = Vector2(572.727, -609.091)
 rotation = -0.916388
 
 [node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("level", "trash_objects") instance=ExtResource("3_x3ltn")]
