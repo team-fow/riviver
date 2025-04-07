@@ -4,6 +4,7 @@ extends Minigame
 @onready var grid: PipeGrid = $Grid
 @onready var pipes: PipeHolder = $Pipes
 @onready var undo: TextureButton = $Background/MarginContainer/Undo
+@onready var filters_needed_label: Label = $"Background/MarginContainer/Filters Needed"
 
 @export var start_point: Vector2i # The grid coordinates at which the water flow starts
 @export var end_point: Vector2i # The grid coordinates that the player is trying to reach
@@ -164,3 +165,11 @@ func _on_undo_pressed() -> void:
 	last_placed_at.pop_front()
 	if last_placed_at.is_empty(): undo.disabled = true
 	redraw()
+
+
+func _ready() -> void:
+	filters_needed_label.text += "\n"
+	for filtertype : String in filters_needed:
+		match filtertype:
+			"SANDFILTER": filters_needed_label.text += " Sand "
+			"CARBONFILTER": filters_needed_label.text += " Carbon "

@@ -1,7 +1,7 @@
 class_name PipeHolder
 extends Node2D
 
-const SEPARATION: float = Pipe.SIZE.x
+var SEPARATION: float = Pipe.SIZE.x * PipeStack.SCALE.x + 10
 const TWEEN_DURATION: float = 0.1
 
 var tween: Tween

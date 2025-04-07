@@ -1,6 +1,7 @@
 class_name PipeStack
 extends Node2D
 
+const SCALE: Vector2 = Vector2(0.75, 0.75)
 var pipes_in_stack: int
 @onready var label: Label = $Label
 
@@ -24,3 +25,6 @@ func _on_child_order_changed() -> void:
 			if child == pipe_children[0]: child.input_pickable = true
 			else: child.input_pickable = false
 		
+
+func _ready() -> void:
+	scale = SCALE
