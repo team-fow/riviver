@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=31 format=3 uid="uid://cj0nv5djx71e4"]
 
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
@@ -6,9 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="5_likht"]
 [ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="6_2xtfm"]
 [ext_resource type="Texture2D" uid="uid://tcr64w81ajfd" path="res://assets/levelbg.png" id="6_vpf64"]
+[ext_resource type="PackedScene" uid="uid://fx4mgq00nc5p" path="res://scenes/sceinceguy/sceinceguy.tscn" id="7_bxgw7"]
 [ext_resource type="Texture2D" uid="uid://c3v4y3yo4uy0w" path="res://assets/lvlselection/Stars.png" id="7_sprtd"]
 [ext_resource type="Texture2D" uid="uid://b4kncsh4jcd40" path="res://assets/winbg.png" id="7_vd8iw"]
 [ext_resource type="Texture2D" uid="uid://b2jmi8ik2wrlj" path="res://assets/Help Pop-up.png" id="7_wtah3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbq67"]
+atlas = ExtResource("5_likht")
+region = Rect2(384, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hstm6"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(384, 0, 128, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xtfm"]
 atlas = ExtResource("5_likht")
@@ -34,14 +43,6 @@ region = Rect2(256, 0, 128, 0)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sprtd"]
 atlas = ExtResource("6_2xtfm")
 region = Rect2(256, 0, 128, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gbq67"]
-atlas = ExtResource("5_likht")
-region = Rect2(384, 0, 128, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hstm6"]
-atlas = ExtResource("6_2xtfm")
-region = Rect2(384, 0, 128, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vd8iw"]
 atlas = ExtResource("5_likht")
@@ -310,53 +311,6 @@ mouse_filter = 2
 script = ExtResource("3_tvt8h")
 level = NodePath("../../../..")
 
-[node name="Buttons" type="HBoxContainer" parent="UI/Margins/Header"]
-layout_mode = 2
-
-[node name="Help" type="TextureButton" parent="UI/Margins/Header/Buttons"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = SubResource("AtlasTexture_2xtfm")
-texture_hover = SubResource("AtlasTexture_wtah3")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Dropdown" type="PanelContainer" parent="UI/Margins/Header/Buttons/Help"]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -333.0
-offset_top = 7.0
-offset_right = 338.0
-offset_bottom = 275.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_sprtd")
-
-[node name="HelpList" type="ItemList" parent="UI/Margins/Header/Buttons/Help/Dropdown"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-auto_height = true
-item_count = 4
-item_0/text = "Help me with the trash minigame!"
-item_1/text = "Help me with the water minigame!"
-item_2/text = "Help me with the plant minigame!"
-item_3/text = "Close"
-
-[node name="Restart" type="TextureButton" parent="UI/Margins/Header/Buttons"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = SubResource("AtlasTexture_likht")
-texture_hover = SubResource("AtlasTexture_sprtd")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="Left" type="VBoxContainer" parent="UI/Margins"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -370,6 +324,50 @@ texture_hover = SubResource("AtlasTexture_hstm6")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Help" type="TextureButton" parent="UI/Margins/Left"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_2xtfm")
+texture_hover = SubResource("AtlasTexture_wtah3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Dropdown" type="PanelContainer" parent="UI/Margins/Left/Help"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 62.0
+offset_top = -115.0
+offset_right = 733.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sprtd")
+
+[node name="HelpList" type="ItemList" parent="UI/Margins/Left/Help/Dropdown"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+auto_height = true
+item_count = 4
+item_0/text = "Help me with the trash minigame!"
+item_1/text = "Help me with the water minigame!"
+item_2/text = "Help me with the plant minigame!"
+item_3/text = "Close"
+
+[node name="Restart" type="TextureButton" parent="UI/Margins/Left"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_likht")
+texture_hover = SubResource("AtlasTexture_sprtd")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="Back" type="TextureButton" parent="UI/Margins/Left"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -379,17 +377,11 @@ texture_hover = SubResource("AtlasTexture_bxgw7")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="HelpPanel" type="PanelContainer" parent="UI/Margins"]
+[node name="Scienceguy" parent="UI/Margins" instance=ExtResource("7_bxgw7")]
 visible = false
-custom_minimum_size = Vector2(600, 300)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
 size_flags_vertical = 8
-
-[node name="Label" type="Label" parent="UI/Margins/HelpPanel"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Blahblahblah!!!!"
 
 [node name="Summary" type="TextureRect" parent="UI"]
 visible = false
@@ -589,13 +581,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_vpf64")
 }
 
-[connection signal="pressed" from="UI/Margins/Header/Buttons/Help" to="." method="_on_help_pressed"]
-[connection signal="pressed" from="UI/Margins/Header/Buttons/Help" to="UI/Margins/Header/Buttons/Help/Dropdown" method="show"]
-[connection signal="item_selected" from="UI/Margins/Header/Buttons/Help/Dropdown/HelpList" to="." method="_on_help_list_item_selected"]
-[connection signal="item_selected" from="UI/Margins/Header/Buttons/Help/Dropdown/HelpList" to="UI/Margins/Header/Buttons/Help/Dropdown/HelpList" method="deselect"]
-[connection signal="item_selected" from="UI/Margins/Header/Buttons/Help/Dropdown/HelpList" to="UI/Margins/Header/Buttons/Help/Dropdown" method="hide" unbinds=1]
-[connection signal="pressed" from="UI/Margins/Header/Buttons/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="UI/Margins/Left/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/Margins/Left/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="UI/Margins/Left/Help" to="UI/Margins/Left/Help/Dropdown" method="show"]
+[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/HelpList" to="." method="do_tutorial"]
+[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/HelpList" to="UI/Margins/Left/Help/Dropdown/HelpList" method="deselect"]
+[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/HelpList" to="UI/Margins/Left/Help/Dropdown" method="hide" unbinds=1]
+[connection signal="pressed" from="UI/Margins/Left/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="UI/Margins/Left/Back" to="." method="_on_back_pressed"]
-[connection signal="gui_input" from="UI/Margins/HelpPanel" to="." method="_on_help_panel_gui_input"]
 [connection signal="gui_input" from="UI/Summary" to="." method="_on_summary_input"]
