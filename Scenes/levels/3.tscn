@@ -47,9 +47,9 @@ Vector2i(2, 1): "ROCK"
 pipe_def = Dictionary[String, int]({
 "DOWNLEFT": 1,
 "DOWNRIGHT": 1,
-"LEFTRIGHT": 1,
+"LEFTRIGHT": 2,
 "LEFTRIGHTSANDFILTER": 1,
-"UPDOWN": 2,
+"UPDOWN": 3,
 "UPDOWNCARBONFILTER": 1,
 "UPLEFT": 1,
 "UPRIGHT": 1
