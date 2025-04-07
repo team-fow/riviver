@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbxb3eqci27ne"]
+[gd_scene load_steps=15 format=3 uid="uid://bbxb3eqci27ne"]
 
 [ext_resource type="Script" uid="uid://bs3rdjxblu5ts" path="res://scenes/worldmap/worldmap.gd" id="1_gu2y1"]
 [ext_resource type="Texture2D" uid="uid://bhfi7dq57s5c2" path="res://assets/worldmap.png" id="2_8pao6"]
@@ -26,6 +26,10 @@ font_color = Color(0.298039, 0.160784, 0.0392157, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_anagn"]
 font_size = 48
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_tq5v4"]
+variation_embolden = 1.0
+variation_transform = Transform2D(1, 0, 0, 0.75, 0, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvp8y"]
 atlas = ExtResource("3_ac0hk")
@@ -160,11 +164,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.298039, 0.160784, 0.0392157, 1)
-theme_override_font_sizes/font_size = 48
-text = "Play"
+theme_override_fonts/font = SubResource("FontVariation_tq5v4")
+theme_override_font_sizes/font_size = 56
+text = "PLAY!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
