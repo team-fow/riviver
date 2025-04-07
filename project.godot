@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="riviver"
-run/main_scene="uid://bbxb3eqci27ne"
+run/main_scene="uid://b5yxuq7mhdep3"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

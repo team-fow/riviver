@@ -67,3 +67,7 @@ func change_scene(file: String) -> void:
 	animator.play_backwards("fade_in")
 	await animator.animation_finished
 	overlay_color.hide()
+
+
+func start_music() -> void:
+	$Music.play()
