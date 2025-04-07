@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=30 format=3 uid="uid://cj0nv5djx71e4"]
 
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="6_2xtfm"]
 [ext_resource type="Texture2D" uid="uid://tcr64w81ajfd" path="res://assets/levelbg.png" id="6_vpf64"]
 [ext_resource type="Texture2D" uid="uid://c3v4y3yo4uy0w" path="res://assets/lvlselection/Stars.png" id="7_sprtd"]
+[ext_resource type="Texture2D" uid="uid://b4kncsh4jcd40" path="res://assets/winbg.png" id="7_vd8iw"]
 [ext_resource type="Texture2D" uid="uid://b2jmi8ik2wrlj" path="res://assets/Help Pop-up.png" id="7_wtah3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xtfm"]
@@ -50,13 +51,21 @@ region = Rect2(0, 0, 128, 0)
 atlas = ExtResource("6_2xtfm")
 region = Rect2(0, 0, 128, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sgsui"]
-atlas = ExtResource("7_sprtd")
-region = Rect2(0, 0, 124, 0)
+[sub_resource type="Gradient" id="Gradient_sprtd"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 0, 0.32549, 0, 0, 0, 0)
+metadata/_snap_enabled = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixrk0"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vd8iw"]
+gradient = SubResource("Gradient_sprtd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noljr"]
 atlas = ExtResource("7_sprtd")
-region = Rect2(124, 0, 124, 0)
+region = Rect2(124, 0, 124, 130)
 
 [sub_resource type="Curve" id="Curve_wtah3"]
 _limits = [-200.0, 200.0, 0.0, 1.0]
@@ -64,8 +73,16 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 200), 0.0, 0.0, 0, 0, Vec
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_sprtd"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.58427), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.316092, 1), 0.0, 0.0, 0, 0, Vector2(0.887931, 0.599119), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgsui"]
+atlas = ExtResource("7_sprtd")
+region = Rect2(0, 0, 124, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixrk0"]
+atlas = ExtResource("7_sprtd")
+region = Rect2(124, 0, 124, 0)
 
 [sub_resource type="Animation" id="Animation_hnne4"]
 length = 0.001
@@ -105,6 +122,54 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Summary/Content/Explosion:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Summary/Content/Stars/Star1/Fill:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/Summary/Content/Stars/Star2/Fill:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("UI/Summary/Content/Stars/Star3/Fill:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_qkmgm"]
 resource_name = "move_grid"
@@ -137,7 +202,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2xtfm"]
 resource_name = "open_summary"
-length = 0.2
+length = 1.1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -150,6 +215,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Summary/Content/Explosion:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Summary/Content/Stars/Star1/Fill:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Summary/Content/Stars/Star2/Fill:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Summary/Content/Stars/Star3/Fill:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vpf64"]
@@ -278,7 +391,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Blahblahblah!!!!"
 
-[node name="Summary" type="ColorRect" parent="UI"]
+[node name="Summary" type="TextureRect" parent="UI"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,7 +399,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.501961)
+texture = ExtResource("7_vd8iw")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/Summary"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_vd8iw")
 
 [node name="Content" type="VBoxContainer" parent="UI/Summary"]
 layout_mode = 1
@@ -303,18 +426,40 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Explosion" type="CPUParticles2D" parent="UI/Summary/Content"]
+position = Vector2(546.5, 484)
+emitting = false
+amount = 50
+texture = SubResource("AtlasTexture_noljr")
+lifetime = 2.0
+one_shot = true
+speed_scale = 3.5
+explosiveness = 0.5
+emission_shape = 1
+emission_sphere_radius = 50.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+linear_accel_curve = SubResource("Curve_wtah3")
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_sprtd")
+
 [node name="Label" type="Label" parent="UI/Summary/Content"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.965576, 0.819114, 0.562733, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 24
-theme_override_font_sizes/font_size = 48
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0.186237, 0.149507, 0.0338728, 1)
+theme_override_constants/outline_size = 64
+theme_override_font_sizes/font_size = 128
 text = "LEVEL COMPLETE!"
 
 [node name="Stars" type="Control" parent="UI/Summary/Content"]
-custom_minimum_size = Vector2(700, 300)
+custom_minimum_size = Vector2(700, 600)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
 
 [node name="Star1" type="TextureRect" parent="UI/Summary/Content/Stars"]
@@ -420,31 +565,11 @@ texture = SubResource("AtlasTexture_ixrk0")
 [node name="Label2" type="Label" parent="UI/Summary/Content"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.964706, 0.819608, 0.560784, 1)
-theme_override_constants/outline_size = 16
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0.184314, 0.14902, 0.0352941, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 48
 text = "Click anywhere to continue..."
-
-[node name="Explosion" type="CPUParticles2D" parent="UI/Summary/Content"]
-z_index = 5
-position = Vector2(350, 150)
-emitting = false
-amount = 50
-lifetime = 2.0
-one_shot = true
-speed_scale = 3.5
-explosiveness = 1.0
-emission_shape = 1
-emission_sphere_radius = 50.0
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 200.0
-initial_velocity_max = 200.0
-linear_accel_curve = SubResource("Curve_wtah3")
-scale_amount_min = 20.0
-scale_amount_max = 50.0
-scale_amount_curve = SubResource("Curve_sprtd")
-color = Color(0.584314, 0.615686, 0.192157, 1)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1

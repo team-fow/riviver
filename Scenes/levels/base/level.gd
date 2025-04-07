@@ -8,7 +8,7 @@ var current_minigame: Minigame # The currently active minigame.
 @onready var grid: TileMapLayer = $Grid
 @onready var animator: AnimationPlayer = $Animator
 @onready var help_panel: PanelContainer = $UI/Margins/HelpPanel
-@onready var summary: ColorRect = $UI/Summary
+@onready var summary: Control = $UI/Summary
 @onready var explosion: CPUParticles2D = $UI/Summary/Content/Explosion
 
 
@@ -58,7 +58,6 @@ func do_summary() -> void:
 	
 	explosion.speed_scale = explosion.speed_scale * score
 	explosion.lifetime = explosion.lifetime * score
-	explosion.emitting = true
 
 	summary.mouse_filter = Control.MOUSE_FILTER_PASS
 

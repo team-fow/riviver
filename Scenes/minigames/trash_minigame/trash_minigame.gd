@@ -38,7 +38,6 @@ func end() -> void:
 		if child is TrashBin:
 			tween.tween_property(child, "position:x", child.position.x + 800.0, 0.5)
 			tween.tween_property(child, "modulate:a", 0.0, 0.5)
-	tween.set_parallel(false).tween_interval(0.5)
 	await tween.finished
 	
 	animator.play("drive_truck")
