@@ -47,6 +47,8 @@ func end() -> void:
 			tween.tween_property(child, "modulate:a", 0.0, 0.5)
 	await tween.finished
 	
+	$Animation/Bottom/Center/Expression.frame = floori(score)
+
 	animator.play("drive_truck")
 	await animator.animation_finished
 	

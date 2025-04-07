@@ -10,13 +10,12 @@ func _on_sfx_volume_changed(value: float) -> void:
 
 
 func _on_back_pressed() -> void:
-	pass # Replace with function body.
+	Save.read()
 
 
 func _on_save_pressed() -> void:
-	pass # Replace with function body.
+	Save.write()
 
 
 func _on_continue_pressed() -> void:
-	print(1)
 	queue_free()

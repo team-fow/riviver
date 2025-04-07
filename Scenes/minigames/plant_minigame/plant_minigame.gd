@@ -20,7 +20,7 @@ func _ready() -> void:
 	# adding plants
 	for i: int in plant_count:
 		var plant: Area2D = preload("res://scenes/minigames/plant_minigame/plant.tscn").instantiate()
-		plant.position.x = background.position.x + background.size.x / plant_count * (i + 0.5)
+		plant.position.x = background.position.x + 50 + (background.size.x - 50) / plant_count * (i + 0.5)
 		plant.grown.connect(_on_plant_grown)
 		plants.append(plant)
 		$Plants.add_child(plant)

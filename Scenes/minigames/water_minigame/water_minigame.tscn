@@ -1,15 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddb05cvkx1t8x"]
+[gd_scene load_steps=20 format=3 uid="uid://ddb05cvkx1t8x"]
 
 [ext_resource type="Script" uid="uid://03s6p8nxnaum" path="res://scenes/minigames/water_minigame/water_minigame.gd" id="1_apnnh"]
 [ext_resource type="Script" uid="uid://cb7sjvdpw6w7q" path="res://scenes/minigames/water_minigame/pipe_grid.gd" id="2_avfrl"]
 [ext_resource type="Script" uid="uid://dy3qsn7pijtkf" path="res://scenes/minigames/water_minigame/pipes_holder.gd" id="3_6nc0b"]
+[ext_resource type="Texture2D" uid="uid://f0r70veacp8d" path="res://assets/minigames/water/pipe_entrance.png" id="3_lcuwq"]
 [ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="3_n36uu"]
 [ext_resource type="Texture2D" uid="uid://ct8mm11nj0m38" path="res://assets/minigames/water/Pipe Container.png" id="3_unras"]
 [ext_resource type="Texture2D" uid="uid://bgqpbdcl6mxk4" path="res://assets/minigames/water/Soil Background.png" id="4_8de48"]
 [ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="4_lcuwq"]
+[ext_resource type="StyleBox" uid="uid://yt1wxt7qn1jr" path="res://assets/Buttons/button_hover.tres" id="5_l1bk7"]
+[ext_resource type="StyleBox" uid="uid://78a5ftygbdck" path="res://assets/Buttons/button_normal.tres" id="6_ll52j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apnnh"]
 size = Vector2(290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcuwq"]
+atlas = ExtResource("3_unras")
+region = Rect2(0, 1800, 1640, 560)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3e8u"]
 atlas = ExtResource("3_n36uu")
@@ -39,10 +46,6 @@ region = Rect2(256, 0, 128, 128)
 atlas = ExtResource("4_lcuwq")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lcuwq"]
-atlas = ExtResource("3_unras")
-region = Rect2(0, 1800, 1640, 560)
-
 [node name="WaterMinigame" type="Node2D"]
 z_index = 1
 scale = Vector2(4, 4)
@@ -56,7 +59,7 @@ metadata/_custom_type_script = "uid://03s6p8nxnaum"
 
 [node name="Grid" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(0, -51)
+position = Vector2(0, -43.75)
 script = ExtResource("2_avfrl")
 
 [node name="GridCollision" type="CollisionShape2D" parent="Grid"]
@@ -68,48 +71,74 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -250.0
-offset_right = 250.0
-offset_bottom = 350.0
+offset_left = -230.0
+offset_top = -262.0
+offset_right = 232.0
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="PipeHolder" type="TextureRect" parent="Background"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -175.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = SubResource("AtlasTexture_lcuwq")
+expand_mode = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="Background"]
-layout_mode = 2
-offset_right = 500.0
-offset_bottom = 600.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_bottom = 10
 
-[node name="Pause" type="TextureButton" parent="Background/MarginContainer"]
+[node name="Top" type="HBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Back" type="TextureButton" parent="Background/MarginContainer/Top"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 4
 texture_normal = SubResource("AtlasTexture_n3e8u")
 texture_pressed = SubResource("AtlasTexture_l1bk7")
 texture_hover = SubResource("AtlasTexture_n36uu")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="RunWater" type="Button" parent="Background/MarginContainer"]
+[node name="Filters Needed" type="Label" parent="Background/MarginContainer/Top"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 20
-text = "Run Water"
+size_flags_horizontal = 6
+size_flags_vertical = 1
+text = "Filter(s) Needed:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Undo" type="TextureButton" parent="Background/MarginContainer"]
+[node name="Undo" type="TextureButton" parent="Background/MarginContainer/Top"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 0
+size_flags_vertical = 4
 disabled = true
 texture_normal = SubResource("AtlasTexture_ll52j")
 texture_pressed = SubResource("AtlasTexture_vqru3")
@@ -118,48 +147,46 @@ texture_disabled = SubResource("AtlasTexture_iwc6x")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Filters Needed" type="Label" parent="Background/MarginContainer"]
+[node name="Bottom" type="HBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="RunWater" type="Button" parent="Background/MarginContainer/Bottom"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Filter(s) Needed:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PipeHolder" type="TextureRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -225.0
-offset_right = 250.0
-offset_bottom = -55.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-texture = SubResource("AtlasTexture_lcuwq")
-expand_mode = 1
-stretch_mode = 5
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = ExtResource("5_l1bk7")
+theme_override_styles/pressed = ExtResource("5_l1bk7")
+theme_override_styles/normal = ExtResource("6_ll52j")
+text = "Run Water"
 
 [node name="Pipes" type="Node2D" parent="."]
 z_index = 1
-position = Vector2(0, 225)
+position = Vector2(5.5, 176.75)
 script = ExtResource("3_6nc0b")
 
 [node name="GridBackground" type="Sprite2D" parent="."]
-position = Vector2(-0.166672, -50.8333)
+position = Vector2(-0.166672, -43.5833)
 scale = Vector2(0.175813, 0.175813)
 texture = ExtResource("4_8de48")
 region_enabled = true
 region_rect = Rect2(0, 0, 1640, 1640)
 
+[node name="PipeEntrance" type="Sprite2D" parent="GridBackground"]
+position = Vector2(0.948007, -788.717)
+scale = Vector2(0.710983, 0.710983)
+texture = ExtResource("3_lcuwq")
+
+[node name="PipeExit" type="Sprite2D" parent="GridBackground"]
+position = Vector2(0.948007, 791.087)
+scale = Vector2(0.710983, 0.710983)
+texture = ExtResource("3_lcuwq")
+flip_v = true
+
 [connection signal="area_entered" from="Grid" to="Grid" method="_on_area_entered"]
 [connection signal="area_exited" from="Grid" to="Grid" method="_on_area_exited"]
-[connection signal="pressed" from="Background/MarginContainer/Pause" to="." method="_on_pause_pressed"]
-[connection signal="pressed" from="Background/MarginContainer/RunWater" to="." method="_on_run_water_pressed"]
-[connection signal="pressed" from="Background/MarginContainer/Undo" to="." method="_on_undo_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/Top/Back" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/Top/Undo" to="." method="_on_undo_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/Bottom/RunWater" to="." method="_on_run_water_pressed"]

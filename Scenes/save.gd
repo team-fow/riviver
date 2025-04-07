@@ -3,9 +3,8 @@ extends Node
 var data: Dictionary = {
 	"name": "Player",
 	"levels": [0.0, 0.0, 0.0],
+	"current_level": 0,
 }
-
-var current_level: int
 
 @onready var animator: AnimationPlayer = $Animator
 @onready var overlay_color: Control = $Overlay/ColorRect
@@ -34,18 +33,27 @@ func set_level_score(idx: int, score: float) -> void:
 	data.levels[idx] = maxf(score, data.levels[idx])
 
 
+func get_current_level() -> int:
+	return data.current_level
+
+
+func set_current_level(idx: int) -> void:
+	data.current_level = idx
+
+
 
 # file
 
 func write() -> void:
 	var file: FileAccess = FileAccess.open("user://save.cfg", FileAccess.WRITE)
-	file.store_var(data)
+	file.store_string(JSON.stringify(data))
 	file.close()
 
 
 func read() -> void:
-	data = bytes_to_var(FileAccess.get_file_as_bytes("user://save.cfg"))
-	get_tree().reload_current_scene()
+	if not FileAccess.file_exists("user://save.cfg"): return
+	data = JSON.parse_string(FileAccess.get_file_as_string("user://save.cfg"))
+	change_scene("res://scenes/worldmap/worldmap.tscn")
 
 
 

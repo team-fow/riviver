@@ -42,7 +42,7 @@ func select_next_level() -> void:
 
 ## Opens the selected level.
 func play_selected_level() -> void:
-	Save.current_level = selected_idx
+	Save.set_current_level(selected_idx)
 	Save.change_scene("res://scenes/levels/%s.tscn" % str(selected_idx + 1))
 
 
@@ -50,7 +50,7 @@ func play_selected_level() -> void:
 # virtual
 
 func _ready() -> void:
-	select_level(Save.current_level)
+	select_level(Save.get_current_level())
 	camera.reset_smoothing()
 
 
@@ -60,3 +60,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		select_prev_level()
 	elif event.is_action_pressed("move_right"):
 		select_next_level()
+
+
+func _on_settings_pressed() -> void:
+	add_child(load("res://scenes/settings/settings.tscn").instantiate())

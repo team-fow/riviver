@@ -7,12 +7,14 @@ enum Sprite {
 	HAPPY,
 }
 
+@onready var animator: AnimationPlayer = $Animator
 
 
 func set_sprite(value: Sprite) -> void:
 	match value:
-		Sprite.FRUSTRATED: $Sprite.texture = load("res://assets/sceinceguy/science_guy_frustrated.png")
-		Sprite.HAPPY: $Sprite.texture = load("res://assets/sceinceguy/science_guy_happy.png")
+		Sprite.FRUSTRATED: $Sprite.texture = preload("res://assets/sceinceguy/science_guy_frustrated.png")
+		Sprite.HAPPY: $Sprite.texture = preload("res://assets/sceinceguy/science_guy_happy.png")
+	animator.play("bob_sprite")
 
 
 func set_text(text: String) -> void:

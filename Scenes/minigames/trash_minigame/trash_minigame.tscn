@@ -8,6 +8,7 @@
 
 [sub_resource type="Animation" id="Animation_qvkc5"]
 length = 0.001
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,7 +31,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(279, -45.134)]
+"values": [Vector2(379, 10.866)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -54,7 +55,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 1692)]
+"values": [Vector2(0, 2000)]
 }
 
 [sub_resource type="Animation" id="Animation_svkof"]
@@ -83,7 +84,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(2.3, 2.4, 2.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(279, 17.866), Vector2(279, -45.134), Vector2(279, -45.134)]
+"values": [Vector2(379, 107.866), Vector2(379, 10.866), Vector2(379, 10.866)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -145,8 +146,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 492.0
-offset_bottom = 492.0
+offset_top = 800.0
+offset_bottom = 800.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -180,22 +181,11 @@ mouse_filter = 2
 texture = ExtResource("4_2yne7")
 expand_mode = 5
 
-[node name="Expression" type="TextureRect" parent="Animation/Bottom/Center"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -216.0
-offset_top = -539.0
-offset_right = -43.0
-offset_bottom = -366.0
-grow_horizontal = 0
-grow_vertical = 0
-mouse_filter = 2
+[node name="Expression" type="Sprite2D" parent="Animation/Bottom/Center"]
+position = Vector2(379, 10.866)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_svkof")
-expand_mode = 3
+hframes = 2
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 process_mode = 3

@@ -40,7 +40,7 @@ func end_minigame(game: Minigame, score: float) -> void:
 		var total_score: float = 0.0
 		for minigame: Minigame in minigames:
 			total_score += minigame.score
-		Save.set_level_score(Save.current_level, total_score / minigames.size())
+		Save.set_level_score(Save.get_current_level(), total_score / minigames.size())
 		do_summary()
 
 
@@ -50,7 +50,7 @@ func end_minigame(game: Minigame, score: float) -> void:
 func do_summary() -> void:
 	summary.show()
 	
-	var score: float = Save.get_level_score(Save.current_level)
+	var score: float = Save.get_level_score(Save.get_current_level())
 	var stars: Control = summary.get_node("Content/Stars")
 	for i: int in stars.get_child_count():
 		stars.get_child(i).get_child(0).visible = score >= (i + 1) / 3.0
@@ -92,7 +92,7 @@ func _ready() -> void:
 		minigames.append(minigame)
 		minigame.started.connect(open_minigame)
 		minigame.ended.connect(end_minigame)
-	do_tutorial(Save.current_level)
+	do_tutorial(Save.get_current_level())
 
 
 func do_tutorial(idx: int) -> void:
@@ -106,9 +106,8 @@ func do_tutorial(idx: int) -> void:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Find some trash on the map.")
 			await scienceguy.set_text("Then, click and hold to drag it to our trash bins!")
-			await scienceguy.set_text("We have to be careful and put each piece of trash in the right bin...")
+			await scienceguy.set_text("We have to be careful to put each piece of trash in the right bin...")
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
-			await scienceguy.set_text("...or the recycling center will be sad!")
 			await scienceguy.set_text("If the trash isn't sorted right, the recycling center can't recycle it.")
 		1:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
@@ -123,9 +122,9 @@ func do_tutorial(idx: int) -> void:
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 			await scienceguy.set_text("Our river is eroding! The dirt is being swept away by the water.")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-			await scienceguy.set_text("Luckily, I brought my gardening supplies! If we grow plants, their roots will stop erosion!")
+			await scienceguy.set_text("Luckily, plants' roots can stop erosion!")
 			await scienceguy.set_text("Click on a sandy riverbank and use our tools to plant a plant!")
-			await scienceguy.set_text("Use the tools in order by dragging them and wiggling them over the plant spots.")
+			await scienceguy.set_text("Use the tools by dragging and wiggling them over the plant spots in order.")
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 			await scienceguy.set_text("Be quick! After some time, rain will sweep away the rest of the dirt.")
 	

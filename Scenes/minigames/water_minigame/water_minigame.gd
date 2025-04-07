@@ -3,8 +3,8 @@ extends Minigame
 
 @onready var grid: PipeGrid = $Grid
 @onready var pipes: PipeHolder = $Pipes
-@onready var undo: TextureButton = $Background/MarginContainer/Undo
-@onready var filters_needed_label: Label = $"Background/MarginContainer/Filters Needed"
+@onready var undo: TextureButton = $Background/MarginContainer/Top/Undo
+@onready var filters_needed_label: Label = $"Background/MarginContainer/Top/Filters Needed"
 
 @export var start_point: Vector2i # The grid coordinates at which the water flow starts
 @export var end_point: Vector2i # The grid coordinates that the player is trying to reach
@@ -151,7 +151,7 @@ func _on_run_water_pressed() -> void:
 
 
 func _on_pause_pressed() -> void:
-	set_paused(true)
+	$"../../".close_minigame(self)
 
 
 func _on_undo_pressed() -> void:

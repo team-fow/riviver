@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxyyfgdo1704o"]
+[gd_scene load_steps=18 format=3 uid="uid://cxyyfgdo1704o"]
 
 [ext_resource type="Script" uid="uid://baoa55ix5krny" path="res://scenes/minigames/plant_minigame/plant_minigame.gd" id="1_as2k8"]
 [ext_resource type="Texture2D" uid="uid://dgxpos8bwdowt" path="res://assets/minigames/plant/background.png" id="2_as2k8"]
@@ -49,6 +49,18 @@ size = Vector2(231, 459)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lln40"]
 size = Vector2(310, 395)
+
+[sub_resource type="Animation" id="Animation_qaipn"]
+resource_name = "water"
+
+[sub_resource type="Animation" id="Animation_moiwv"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6y7wg"]
+_data = {
+&"RESET": SubResource("Animation_moiwv"),
+&"water": SubResource("Animation_qaipn")
+}
 
 [node name="PlantMinigame" type="Node2D"]
 script = ExtResource("1_as2k8")
@@ -104,9 +116,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -131.0
-offset_top = -299.89
+offset_top = -176.89
 offset_right = 132.0
-offset_bottom = -162.89
+offset_bottom = -39.8899
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -173,5 +185,10 @@ shape = SubResource("RectangleShape2D_lln40")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6y7wg")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timeout"]

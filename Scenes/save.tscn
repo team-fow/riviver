@@ -44,7 +44,7 @@ _data = {
 script = ExtResource("1_3sv4i")
 
 [node name="Overlay" type="CanvasLayer" parent="."]
-layer = 3
+layer = 4
 
 [node name="ColorRect" type="ColorRect" parent="Overlay"]
 visible = false
