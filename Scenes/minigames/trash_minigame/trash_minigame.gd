@@ -16,7 +16,7 @@ func _ready() -> void:
 	total_trash = trash_objects.size()
 	for trash: TrashObject in trash_objects:
 		trash.grabbed.connect(_on_trash_grabbed)
-		trash.dropped.connect(_on_trash_dropped.bind(trash))
+		trash.eaten.connect(_on_trash_eaten.bind(trash))
 	for child: Node in get_children():
 		if child is TrashBin:
 			child.trash_added.connect(func(correct: bool): if correct: trash_correct+=1)
@@ -28,7 +28,7 @@ func _on_trash_grabbed() -> void:
 	close_timer.stop()
 
 
-func _on_trash_dropped(trash: TrashObject) -> void:
+func _on_trash_eaten(trash: TrashObject) -> void:
 	trash_objects.erase(trash)
 	
 	if trash_objects.is_empty():

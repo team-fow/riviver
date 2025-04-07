@@ -40,7 +40,7 @@ func _set_state(value: State) -> void:
 	# showing/hiding sprites based on current state
 	hole_sprite.visible = state >= State.HOLE_DUG and state < State.HOLE_FILLED
 	seed_sprite.visible = state >= State.SEED_PLANTED
-	pile_sprite.visible = state >= State.HOLE_FILLED
+	pile_sprite.visible = state == State.HOLE_FILLED
 	bush_sprite.visible = state >= State.WATERED
 	# emitting grown signal
 	if state == State.WATERED: grown.emit()

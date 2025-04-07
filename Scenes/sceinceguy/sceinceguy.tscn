@@ -89,5 +89,6 @@ offset_top = -165.0
 offset_right = 476.0
 offset_bottom = 309.0
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_erwwe")
 expand_mode = 3

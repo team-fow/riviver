@@ -1,6 +1,8 @@
 class_name TrashObject
 extends Draggable
 
+signal eaten
+
 @export_enum("landfill", "recycling", "compost", "hazardous") var category: String = "landfill"
 
 
@@ -8,6 +10,7 @@ func _drop() -> void:
 	for area: Area2D in get_overlapping_areas():
 		if area is TrashBin:
 			area.eat(self)
+			eaten.emit()
 			queue_free()
 
 

@@ -145,8 +145,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 579.0
-offset_bottom = 579.0
+offset_top = 492.0
+offset_bottom = 492.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -156,9 +156,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 1855.0
+offset_left = -668.0
 offset_top = -359.0
-offset_right = 2570.0
+offset_right = 47.0
 grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("3_y28rm")
@@ -198,6 +198,7 @@ texture = ExtResource("5_svkof")
 expand_mode = 3
 
 [node name="Animator" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_svkof")
 }
