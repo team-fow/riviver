@@ -23,3 +23,7 @@ func _mouse_enter() -> void:
 
 func _mouse_exit() -> void:
 	scale = initial_scale
+
+
+func _ready() -> void:
+	$Sprite.texture = load("res://assets/minigames/trash/%s_bin.png" % category)
