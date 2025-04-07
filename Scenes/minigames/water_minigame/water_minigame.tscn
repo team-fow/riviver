@@ -1,13 +1,43 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddb05cvkx1t8x"]
+[gd_scene load_steps=16 format=3 uid="uid://ddb05cvkx1t8x"]
 
 [ext_resource type="Script" uid="uid://03s6p8nxnaum" path="res://scenes/minigames/water_minigame/water_minigame.gd" id="1_apnnh"]
 [ext_resource type="Script" uid="uid://cb7sjvdpw6w7q" path="res://scenes/minigames/water_minigame/pipe_grid.gd" id="2_avfrl"]
 [ext_resource type="Script" uid="uid://dy3qsn7pijtkf" path="res://scenes/minigames/water_minigame/pipes_holder.gd" id="3_6nc0b"]
+[ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="3_n36uu"]
 [ext_resource type="Texture2D" uid="uid://ct8mm11nj0m38" path="res://assets/minigames/water/Pipe Container.png" id="3_unras"]
 [ext_resource type="Texture2D" uid="uid://bgqpbdcl6mxk4" path="res://assets/minigames/water/Soil Background.png" id="4_8de48"]
+[ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="4_lcuwq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apnnh"]
 size = Vector2(290, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3e8u"]
+atlas = ExtResource("3_n36uu")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1bk7"]
+atlas = ExtResource("4_lcuwq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n36uu"]
+atlas = ExtResource("4_lcuwq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll52j"]
+atlas = ExtResource("3_n36uu")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqru3"]
+atlas = ExtResource("4_lcuwq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u2sk"]
+atlas = ExtResource("4_lcuwq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwc6x"]
+atlas = ExtResource("4_lcuwq")
+region = Rect2(256, 0, 128, 128)
 
 [node name="WaterMinigame" type="Node2D"]
 z_index = 1
@@ -53,24 +83,36 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Pause" type="Button" parent="Background/MarginContainer"]
+[node name="Pause" type="TextureButton" parent="Background/MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Pause"
+texture_normal = SubResource("AtlasTexture_n3e8u")
+texture_pressed = SubResource("AtlasTexture_l1bk7")
+texture_hover = SubResource("AtlasTexture_n36uu")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="RunWater" type="Button" parent="Background/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_font_sizes/font_size = 20
 text = "Run Water"
 
-[node name="Undo" type="Button" parent="Background/MarginContainer"]
+[node name="Undo" type="TextureButton" parent="Background/MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 disabled = true
-text = "Undo"
+texture_normal = SubResource("AtlasTexture_ll52j")
+texture_pressed = SubResource("AtlasTexture_vqru3")
+texture_hover = SubResource("AtlasTexture_3u2sk")
+texture_disabled = SubResource("AtlasTexture_iwc6x")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="PipeHolder" type="TextureRect" parent="Background"]
 layout_mode = 1

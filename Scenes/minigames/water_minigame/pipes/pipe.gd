@@ -4,12 +4,14 @@ extends Draggable
 enum DIRECTIONS {UP, DOWN, LEFT, RIGHT}
 @export var holes: Array[DIRECTIONS]
 @export var filter_type: String = ""
-var texture: Texture2D = preload("res://icon.svg") 
+var texture: Texture2D = preload("res://icon.svg")
+var initial_scale: Vector2 = scale 
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var pipe_collision: CollisionShape2D = $PipeCollision
 
 const SIZE: Vector2 = Vector2(50.0, 50.0)
+const HOVER_SCALE: Vector2 = Vector2(1.1, 1.1)
 
 
 # Functions for identifying the behavior of a pipe from a string identifier and vice-versa
@@ -76,3 +78,15 @@ static func create_pipe(s : String) -> Pipe:
 func _ready() -> void:
 	super()
 	sprite_2d.texture = texture
+
+
+func _on_mouse_entered():
+	super()
+	z_index += 2
+	scale = initial_scale * HOVER_SCALE
+	
+	
+func _on_mouse_exited():
+	super()
+	z_index -= 2
+	scale = initial_scale

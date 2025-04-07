@@ -3,7 +3,7 @@ extends Minigame
 
 @onready var grid: PipeGrid = $Grid
 @onready var pipes: PipeHolder = $Pipes
-@onready var undo: Button = $Background/MarginContainer/Undo
+@onready var undo: TextureButton = $Background/MarginContainer/Undo
 
 @export var start_point: Vector2i # The grid coordinates at which the water flow starts
 @export var end_point: Vector2i # The grid coordinates that the player is trying to reach
