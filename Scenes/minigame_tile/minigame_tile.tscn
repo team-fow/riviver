@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://85lycb6ahpb"]
+[gd_scene load_steps=12 format=3 uid="uid://85lycb6ahpb"]
 
 [ext_resource type="Script" uid="uid://cdkvtsdv0mq6a" path="res://scenes/minigame_tile/minigame_tile.gd" id="1_3hr0a"]
 [ext_resource type="Texture2D" uid="uid://dcwhfkke18vyi" path="res://assets/minigame_marker.png" id="1_u2k62"]
@@ -15,6 +15,44 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
 
+[sub_resource type="Gradient" id="Gradient_jaodb"]
+interpolation_mode = 1
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yhkwy"]
+gradient = SubResource("Gradient_jaodb")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_yhkwy"]
+_data = [Vector2(0.432836, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ljg1i"]
+curve = SubResource("Curve_yhkwy")
+
+[sub_resource type="Curve" id="Curve_jaodb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.858209, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yhkwy"]
+curve = SubResource("Curve_jaodb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jaodb"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 200.0
+initial_velocity_max = 250.0
+gravity = Vector3(50, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_yhkwy")
+alpha_curve = SubResource("CurveTexture_ljg1i")
+
 [node name="MinigameTile" type="Area2D"]
 script = ExtResource("1_3hr0a")
 
@@ -26,7 +64,14 @@ texture = SubResource("GradientTexture2D_3hr0a")
 polygon = PackedVector2Array(0, -300, 300, 0, 0, 300, -300, 0)
 
 [node name="Marker" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(25, 25)
 texture = ExtResource("1_u2k62")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -102)
+scale = Vector2(2, 2)
+texture = SubResource("GradientTexture2D_yhkwy")
+lifetime = 2.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_jaodb")

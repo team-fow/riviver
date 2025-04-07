@@ -75,7 +75,7 @@ func do_intro_cutscene() -> void:
 	level_info.hide()
 	scienceguy.show()
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-	await scienceguy.set_text("Welcome to Riviver!")
+	await scienceguy.set_text("Hi, I'm John Furrero! Welcome to Riviver.")
 	scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 	await scienceguy.set_text("Our beloved river has been polluted...")
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
