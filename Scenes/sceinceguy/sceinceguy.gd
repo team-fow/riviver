@@ -7,8 +7,6 @@ enum Sprite {
 	HAPPY,
 }
 
-@onready var label: Label = $PanelContainer/Label
-
 
 
 func set_sprite(value: Sprite) -> void:
@@ -18,7 +16,7 @@ func set_sprite(value: Sprite) -> void:
 
 
 func set_text(text: String) -> void:
-	label.text = text
+	$Label.text = text
 	await next
 
 
