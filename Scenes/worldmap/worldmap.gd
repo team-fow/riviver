@@ -13,15 +13,17 @@ var selected_idx: int
 func select_level(idx: int) -> void:
 	selected_idx = clampi(idx, 0, levels.get_child_count() - 1)
 	var pin: Node2D = levels.get_child(selected_idx)
+	pin.flick()
+	
 	camera.position = pin.position + Vector2(0, 50)
 	level_name.text = str(selected_idx + 1)
 	level_description.text = pin.description
 	
 	play_button.disabled = pin.locked
-	play_button.modulate.a = 0.5 if play_button.disabled else 1.0
+	play_button.get_child(0).visible = not pin.locked
 	
-	$UI/Margins/HBox/LeftArrow.modulate.a = 0.5 if selected_idx == 0 else 1.0
-	$UI/Margins/HBox/RightArrow.modulate.a = 0.5 if selected_idx == levels.get_child_count() - 1 else 1.0
+	$UI/Margins/HBox/LeftArrow.visible = selected_idx != 0
+	$UI/Margins/HBox/RightArrow.visible = selected_idx != levels.get_child_count() - 1
 
 
 ## Selects the previous level sequentially.

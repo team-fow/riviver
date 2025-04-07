@@ -19,3 +19,8 @@ func _ready() -> void:
 	var score: float = Save.get_level_score(idx)
 	for i: int in stars.get_child_count():
 		stars.get_child(i).frame = 1 if score >= (i + 1) / 3.0 else 0
+
+
+func flick() -> void:
+	$Animator.stop()
+	$Animator.play("flick")
