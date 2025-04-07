@@ -18,6 +18,7 @@ func eat(trash: Draggable) -> void:
 		trash_added.emit(false)
 	else:	
 		trash_added.emit(true)
+	$SFX.play(0.0)
 
 
 func _mouse_enter() -> void:

@@ -19,6 +19,7 @@ func set_sprite(value: Sprite) -> void:
 
 func set_text(text: String) -> void:
 	$Label.text = text
+	$Voice.play(0.0)
 	await next
 
 

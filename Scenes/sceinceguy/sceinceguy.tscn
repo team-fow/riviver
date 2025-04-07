@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://fx4mgq00nc5p"]
+[gd_scene load_steps=13 format=3 uid="uid://fx4mgq00nc5p"]
 
 [ext_resource type="Script" uid="uid://cuvkll4cav41p" path="res://scenes/sceinceguy/sceinceguy.gd" id="1_erwwe"]
 [ext_resource type="Texture2D" uid="uid://b6ga2cg8yh1hu" path="res://assets/sceinceguy/science_guy_happy.png" id="2_erwwe"]
 [ext_resource type="Texture2D" uid="uid://bnxbqbijt6er6" path="res://assets/sceinceguy/chatbox.png" id="3_ejcc5"]
+[ext_resource type="AudioStream" uid="uid://c64yg2rp253fn" path="res://assets/audio/voice.mp3" id="4_6pb4g"]
 
 [sub_resource type="Gradient" id="Gradient_ejcc5"]
 colors = PackedColorArray(0, 0, 0, 0.537255, 0, 0, 0, 0)
@@ -29,6 +30,21 @@ axis_stretch_vertical = 1
 
 [sub_resource type="FontVariation" id="FontVariation_ejcc5"]
 
+[sub_resource type="Animation" id="Animation_6pb4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_ejcc5"]
 resource_name = "bob_sprite"
 length = 0.3
@@ -46,26 +62,16 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(0.975, 0.975), Vector2(1, 1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_6pb4g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y6rsw"]
 _data = {
 &"RESET": SubResource("Animation_6pb4g"),
 &"bob_sprite": SubResource("Animation_ejcc5")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6pb4g"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("4_6pb4g")
 
 [node name="Scienceguy" type="Control"]
 custom_minimum_size = Vector2(600, 300)
@@ -160,3 +166,7 @@ expand_mode = 1
 libraries = {
 &"": SubResource("AnimationLibrary_y6rsw")
 }
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_6pb4g")
+bus = &"SFX"
