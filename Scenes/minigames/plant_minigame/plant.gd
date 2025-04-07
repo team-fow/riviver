@@ -56,6 +56,8 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 			progress += event.velocity.length() / 1000
 			if progress > PROGRESS_CAP:
 				advance_state()
+				if overlapping_areas[0] is Tool:
+					overlapping_areas[0].drop()
 				progress = 0.0
 
 

@@ -3,8 +3,8 @@ extends Minigame
 @export_range(1, 3) var plant_count: int = 1
 var plants_grown: int
 
-var tools: Array[Area2D]
-var held_tool: Area2D
+var tools: Array[Tool]
+var held_tool: Tool
 
 var plants: Array[Area2D]
 
@@ -15,7 +15,7 @@ var plants: Array[Area2D]
 
 func _ready() -> void:
 	# setting up tools
-	for tool: Area2D in $Tools.get_children():
+	for tool: Tool in $Tools.get_children():
 		tools.append(tool)
 	# adding plants
 	for i: int in plant_count:
@@ -35,6 +35,7 @@ func end() -> void:
 	for plant: PlantMinigamePlant in plants:
 		score += plant.state / PlantMinigamePlant.State.WATERED
 	score /= plants.size()
+	await get_tree().create_timer(1.0).timeout
 	ended.emit(self, score)
 
 

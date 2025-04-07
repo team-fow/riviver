@@ -1,3 +1,4 @@
+class_name Tool
 extends Draggable
 
 var initial_position: Vector2 = position
