@@ -47,31 +47,19 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Animation/Bottom:modulate")
-tracks/3/interp = 1
+tracks/3/path = NodePath("Animation/Bottom:position")
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Animation/Bottom:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 1260)]
+"values": [Vector2(0, 1692)]
 }
 
 [sub_resource type="Animation" id="Animation_svkof"]
 resource_name = "drive_truck"
-length = 4.1
+length = 5.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,7 +68,7 @@ tracks/0/path = NodePath("Animation/Bottom/Truck:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.2),
+"times": PackedFloat32Array(0.4, 1.4, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-692, -359), Vector2(1655, -359), Vector2(1855, -359)]
@@ -92,7 +80,7 @@ tracks/1/path = NodePath("Animation/Bottom/Center/Expression:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.9, 2, 2.2),
+"times": PackedFloat32Array(2.3, 2.4, 2.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(279, 17.866), Vector2(279, -45.134), Vector2(279, -45.134)]
@@ -104,7 +92,7 @@ tracks/2/path = NodePath("Animation/Bottom/Center/Expression:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.9, 2),
+"times": PackedFloat32Array(2.3, 2.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -112,26 +100,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Animation/Bottom:modulate")
-tracks/3/interp = 1
+tracks/3/path = NodePath("Animation/Bottom:position")
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(3.9, 4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 4, 4.2, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Animation/Bottom:position")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(3.8, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 1260), Vector2(0, 1617)]
+"values": [Vector2(0, 1692), Vector2(0, 1260), Vector2(0, 1260), Vector2(0, 1260), Vector2(0, 1260), Vector2(0, 1779)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_svkof"]
@@ -164,14 +140,13 @@ texture = ExtResource("2_ptk86")
 expand_mode = 3
 
 [node name="Bottom" type="Control" parent="Animation"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 60.0
-offset_bottom = 60.0
+offset_top = 492.0
+offset_bottom = 492.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -181,9 +156,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -692.0
+offset_left = -668.0
 offset_top = -359.0
-offset_right = 23.0
+offset_right = 47.0
 grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("3_y28rm")
@@ -213,9 +188,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -216.0
-offset_top = -476.0
+offset_top = -539.0
 offset_right = -43.0
-offset_bottom = -303.0
+offset_bottom = -366.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
