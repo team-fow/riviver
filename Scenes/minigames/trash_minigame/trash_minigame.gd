@@ -33,11 +33,12 @@ func _on_trash_dropped(trash: TrashObject) -> void:
 func end() -> void:
 	score = 1.0
 	
-	var tween: Tween = create_tween()
+	var tween: Tween = create_tween().set_parallel().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	for child: Node in get_children():
 		if child is TrashBin:
-			tween.tween_property(child, "position:x", child.position.x + 400.0, 0.2)
-			tween.tween_property(child, "modulate:a", 0.0, 0.2)
+			tween.tween_property(child, "position:x", child.position.x + 800.0, 0.5)
+			tween.tween_property(child, "modulate:a", 0.0, 0.5)
+	tween.set_parallel(false).tween_interval(0.5)
 	await tween.finished
 	
 	animator.play("drive_truck")
