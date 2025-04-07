@@ -48,7 +48,7 @@ region = Rect2(256, 0, 128, 128)
 
 [node name="WaterMinigame" type="Node2D"]
 z_index = 1
-scale = Vector2(4, 4)
+scale = Vector2(5, 5)
 script = ExtResource("1_apnnh")
 start_point = Vector2i(2, 0)
 end_point = Vector2i(2, 4)
