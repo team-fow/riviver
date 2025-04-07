@@ -108,7 +108,7 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 			pipes.create_or_add_to_stack(dropped_pipe)
 			var tween: Tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
 			tween.tween_property(dropped_pipe, "position", Vector2.ZERO, 0.1)
-			tween.tween_property(dropped_pipe, "rotation", Vector2.ZERO, 0.1)
+			tween.tween_property(dropped_pipe, "rotation", 0.0, 0.1)
 			await tween.finished
 		
 

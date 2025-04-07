@@ -1,7 +1,7 @@
 class_name TrashBin
 extends Area2D
 
-signal trash_added
+signal trash_added(correct: bool)
 
 const HOVER_SCALE: Vector2 = Vector2(1.1, 1.1)
 
@@ -15,6 +15,9 @@ func eat(trash: Draggable) -> void:
 		modulate = Color.CRIMSON
 		await get_tree().create_timer(0.5).timeout
 		modulate = Color.WHITE
+		trash_added.emit(false)
+	else:	
+		trash_added.emit(true)
 
 
 func _mouse_enter() -> void:

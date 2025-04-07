@@ -41,7 +41,6 @@ category = "recycling"
 
 [node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("level", "trash_objects") instance=ExtResource("4_8jtne")]
 visible = false
-scale = Vector2(1, 1)
 level = NodePath("../..")
 trash_objects = [NodePath("../../Grid/TrashObject1"), NodePath("../../Grid/TrashObject2"), NodePath("../../Grid/TrashObject3"), NodePath("../../Grid/TrashObject4"), NodePath("../../Grid/TrashObject5")]
 
