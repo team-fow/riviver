@@ -52,13 +52,13 @@ region = Rect2(0, 0, 128, 0)
 atlas = ExtResource("6_2xtfm")
 region = Rect2(0, 0, 128, 0)
 
-[sub_resource type="Gradient" id="Gradient_sprtd"]
+[sub_resource type="Gradient" id="Gradient_vd8iw"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 0, 0.32549, 0, 0, 0, 0)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vd8iw"]
-gradient = SubResource("Gradient_sprtd")
+gradient = SubResource("Gradient_vd8iw")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)

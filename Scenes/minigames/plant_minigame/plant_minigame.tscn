@@ -108,6 +108,19 @@ mouse_filter = 2
 texture = ExtResource("3_u147h")
 expand_mode = 5
 
+[node name="TextureRect3" type="TextureRect" parent="Background/PanelContainer/TextureRect2"]
+show_behind_parent = true
+layout_mode = 2
+offset_left = 6.0
+offset_top = -41.3093
+offset_right = 1406.0
+offset_bottom = 191.271
+size_flags_vertical = 8
+mouse_filter = 2
+texture = ExtResource("3_u147h")
+expand_mode = 5
+stretch_mode = 1
+
 [node name="TimerLabel" type="Label" parent="Background"]
 layout_mode = 1
 anchors_preset = 7

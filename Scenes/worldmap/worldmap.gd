@@ -9,6 +9,8 @@ var selected_idx: int
 @onready var play_button: TextureButton = $UI/Margins/HBox/Background/Play
 @onready var left_arrow: TextureButton = $UI/Margins/HBox/LeftArrow
 @onready var right_arrow: TextureButton = $UI/Margins/HBox/RightArrow
+@onready var scienceguy: Control = $UI/Margins2/Scienceguy
+@onready var level_info: HBoxContainer = $UI/Margins/HBox
 
 
 ## Selects the level at some index in the level order.
@@ -52,6 +54,9 @@ func play_selected_level() -> void:
 func _ready() -> void:
 	select_level(Save.get_current_level())
 	camera.reset_smoothing()
+	
+	if not Save.data.get("did_intro_cutscene"):
+		do_intro_cutscene()
 
 
 # Keyboard navigation between levels
@@ -64,3 +69,17 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func _on_settings_pressed() -> void:
 	add_child(load("res://scenes/settings/settings.tscn").instantiate())
+
+
+func do_intro_cutscene() -> void:
+	level_info.hide()
+	scienceguy.show()
+	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
+	await scienceguy.set_text("Welcome to Riviver!")
+	scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
+	await scienceguy.set_text("Our beloved river has been polluted...")
+	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
+	await scienceguy.set_text("Let's fix this, together!")
+	scienceguy.hide()
+	Save.data.did_intro_cutscene = true
+	level_info.show()

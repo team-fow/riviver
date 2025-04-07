@@ -101,10 +101,10 @@ func do_tutorial(idx: int) -> void:
 	match idx:
 		0:
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
-			await scienceguy.set_text("It looks like someone has been littering...")
+			await scienceguy.set_text("Gah! So much trash! It looks like someone has been littering...")
 			await scienceguy.set_text("This is unacceptable! We need to clean this up!")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-			await scienceguy.set_text("Find some trash on the map.")
+			await scienceguy.set_text("Find trash in the world.")
 			await scienceguy.set_text("Then, click and hold to drag it to our trash bins!")
 			await scienceguy.set_text("We have to be careful to put each piece of trash in the right bin...")
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
@@ -116,7 +116,8 @@ func do_tutorial(idx: int) -> void:
 			await scienceguy.set_text("All those dirty chemicals will make our water dirty too!")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Click the factory to investigate.")
-			await scienceguy.set_text("To fix the leak, drag pipes into the ground and connect them together.")
+			await scienceguy.set_text("To fix the leak, drag pipes onto the ground and connect them together.")
+			await scienceguy.set_text("You can't place pipes on rocks, so plan around them!")
 			await scienceguy.set_text("Remember to use special filter pipes to clean the water!")
 		2:
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)

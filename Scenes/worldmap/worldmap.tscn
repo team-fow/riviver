@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bbxb3eqci27ne"]
+[gd_scene load_steps=20 format=3 uid="uid://bbxb3eqci27ne"]
 
 [ext_resource type="Script" uid="uid://bs3rdjxblu5ts" path="res://scenes/worldmap/worldmap.gd" id="1_gu2y1"]
 [ext_resource type="Texture2D" uid="uid://bhfi7dq57s5c2" path="res://assets/worldmap.png" id="2_8pao6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="7_wqohx"]
 [ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="8_w84c3"]
 [ext_resource type="Texture2D" uid="uid://d3xv10uwms0ck" path="res://assets/lvlselection/Lvl Info Pane.png" id="8_wqohx"]
+[ext_resource type="PackedScene" uid="uid://fx4mgq00nc5p" path="res://scenes/sceinceguy/sceinceguy.tscn" id="9_anagn"]
 [ext_resource type="Texture2D" uid="uid://c5gm1aaf38coy" path="res://assets/lvlselection/Play Button - Hover.png" id="9_w84c3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eftsl"]
@@ -200,6 +201,24 @@ texture_normal = SubResource("AtlasTexture_anagn")
 texture_hover = SubResource("AtlasTexture_ghqh1")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Margins2" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Scienceguy" parent="UI/Margins2" instance=ExtResource("9_anagn")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [connection signal="pressed" from="UI/Margins/HBox/LeftArrow" to="." method="select_prev_level"]
 [connection signal="pressed" from="UI/Margins/HBox/Background/Play" to="." method="play_selected_level"]
