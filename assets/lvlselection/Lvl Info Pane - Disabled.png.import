@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eq1mwbit8wdh"
-path="res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"
+uid="uid://di6lsm7y1vmh7"
+path="res://.godot/imported/Lvl Info Pane - Disabled.png-af8ec004bf6ee690b23b4aa3f38bc101.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/Buttons-Default.png"
-dest_files=["res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"]
+source_file="res://assets/lvlselection/Lvl Info Pane - Disabled.png"
+dest_files=["res://.godot/imported/Lvl Info Pane - Disabled.png-af8ec004bf6ee690b23b4aa3f38bc101.ctex"]
 
 [params]
 
