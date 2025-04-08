@@ -11,6 +11,7 @@ var selected_idx: int
 @onready var right_arrow: TextureButton = $UI/Margins/HBox/RightArrow
 @onready var scienceguy: Control = $UI/Margins2/Scienceguy
 @onready var level_info: HBoxContainer = $UI/Margins/HBox
+@onready var mask: TextureRect = $PollutedMap/Mask
 
 
 ## Selects the level at some index in the level order.
@@ -54,6 +55,11 @@ func play_selected_level() -> void:
 func _ready() -> void:
 	select_level(Save.get_current_level())
 	camera.reset_smoothing()
+	
+	var idx: int = range(levels.get_child_count()).rfind_custom(Save.is_level_completed)
+	if idx != -1:
+		var map_rect: Rect2 = mask.get_parent().get_rect()
+		mask.texture.fill_from.x = (levels.get_child(idx).position.x + 250 - map_rect.position.x) / map_rect.size.x
 	
 	if not Save.data.get("did_intro_cutscene"):
 		do_intro_cutscene()

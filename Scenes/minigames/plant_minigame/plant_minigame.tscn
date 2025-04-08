@@ -50,11 +50,11 @@ size = Vector2(231, 459)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lln40"]
 size = Vector2(310, 395)
 
-[sub_resource type="Animation" id="Animation_qaipn"]
-resource_name = "water"
-
 [sub_resource type="Animation" id="Animation_moiwv"]
 length = 0.001
+
+[sub_resource type="Animation" id="Animation_qaipn"]
+resource_name = "water"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6y7wg"]
 _data = {
@@ -176,7 +176,6 @@ script = ExtResource("2_w505k")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
 [node name="Sprite" type="Sprite2D" parent="Tools/SoilBag"]
-modulate = Color(0.582694, 0.325626, 0.236474, 1)
 texture = ExtResource("7_qaipn")
 
 [node name="Shape" type="CollisionShape2D" parent="Tools/SoilBag"]

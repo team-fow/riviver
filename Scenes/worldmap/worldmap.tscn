@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bbxb3eqci27ne"]
+[gd_scene load_steps=23 format=3 uid="uid://bbxb3eqci27ne"]
 
 [ext_resource type="Script" uid="uid://bs3rdjxblu5ts" path="res://scenes/worldmap/worldmap.gd" id="1_gu2y1"]
 [ext_resource type="Texture2D" uid="uid://bhfi7dq57s5c2" path="res://assets/worldmap.png" id="2_8pao6"]
@@ -10,6 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://d3xv10uwms0ck" path="res://assets/lvlselection/Lvl Info Pane.png" id="8_wqohx"]
 [ext_resource type="PackedScene" uid="uid://fx4mgq00nc5p" path="res://scenes/sceinceguy/sceinceguy.tscn" id="9_anagn"]
 [ext_resource type="Texture2D" uid="uid://c5gm1aaf38coy" path="res://assets/lvlselection/Play Button - Hover.png" id="9_w84c3"]
+
+[sub_resource type="Gradient" id="Gradient_anagn"]
+offsets = PackedFloat32Array(0, 0.2)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghqh1"]
+gradient = SubResource("Gradient_anagn")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eftsl"]
 atlas = ExtResource("3_ac0hk")
@@ -60,6 +68,7 @@ scale = Vector2(1.523, 1.523)
 texture = ExtResource("3_anagn")
 
 [node name="Mask" type="TextureRect" parent="PollutedMap"]
+clip_children = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -69,6 +78,7 @@ offset_right = -2047.27
 offset_bottom = -541.366
 grow_horizontal = 2
 grow_vertical = 2
+texture = SubResource("GradientTexture2D_ghqh1")
 
 [node name="LushMap" type="Sprite2D" parent="PollutedMap/Mask"]
 position = Vector2(2047.28, 541.366)
