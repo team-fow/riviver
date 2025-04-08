@@ -357,7 +357,7 @@ item_count = 4
 item_0/text = "Help me with the trash minigame!"
 item_1/text = "Help me with the water minigame!"
 item_2/text = "Help me with the plant minigame!"
-item_3/text = "Close"
+item_3/text = "Cancel"
 
 [node name="Restart" type="TextureButton" parent="UI/Margins/Left"]
 custom_minimum_size = Vector2(100, 100)

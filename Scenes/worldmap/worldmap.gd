@@ -12,6 +12,7 @@ var selected_idx: int
 @onready var scienceguy: Control = $UI/Margins2/Scienceguy
 @onready var level_info: HBoxContainer = $UI/Margins/HBox
 @onready var mask: TextureRect = $PollutedMap/Mask
+@onready var disabled_level_selector: TextureRect = $UI/Margins/HBox/Background/Disabled
 
 
 ## Selects the level at some index in the level order.
@@ -26,6 +27,7 @@ func select_level(idx: int) -> void:
 	
 	play_button.disabled = pin.locked
 	play_button.get_child(0).visible = not pin.locked
+	disabled_level_selector.visible = pin.locked
 	
 	left_arrow.visible = selected_idx != 0
 	right_arrow.visible = selected_idx != levels.get_child_count() - 1

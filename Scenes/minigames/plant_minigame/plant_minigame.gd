@@ -9,6 +9,7 @@ var held_tool: Tool
 var plants: Array[Area2D]
 
 @onready var background: Control = $Background
+@onready var water: TextureRect = $Background/PanelContainer/Water
 @onready var timer_label: Label = $Background/TimerLabel
 @onready var timer: Timer = $Timer
 
@@ -36,6 +37,10 @@ func end() -> void:
 	for plant: PlantMinigamePlant in plants:
 		total_score += float(plant.state) / PlantMinigamePlant.State.WATERED
 	score = total_score / plants.size()
+	
+	if score < 0.75:
+		water.texture = preload("res://assets/minigames/plant/eroded_river_foreground.png")
+	
 	await get_tree().create_timer(1.0).timeout
 	ended.emit(self, score)
 

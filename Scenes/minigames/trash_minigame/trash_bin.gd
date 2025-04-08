@@ -5,9 +5,11 @@ signal trash_added(correct: bool)
 
 const HOVER_SCALE: Vector2 = Vector2(1.1, 1.1)
 
+@export_enum("landfill", "recycling", "compost", "hazardous") var category: String = "landfill"
+
 var initial_scale: Vector2 = scale
 
-@export_enum("landfill", "recycling", "compost", "hazardous") var category: String = "landfill"
+@onready var label: Label = $Sprite/Label
 
 
 func eat(trash: Draggable) -> void:
@@ -31,3 +33,4 @@ func _mouse_exit() -> void:
 
 func _ready() -> void:
 	$Sprite.texture = load("res://assets/minigames/trash/%s_bin.png" % category)
+	label.text = category.capitalize()

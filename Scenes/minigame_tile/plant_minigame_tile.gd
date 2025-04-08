@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func _on_minigame_ended() -> void:
 	var map: TileMapLayer = $"../"
-	map.set_cell(map.local_to_map(position), 3, Vector2i.ZERO)
+	map.set_cell(map.local_to_map(position), 4 if minigame.score < 0.75 else 3, Vector2i.ZERO)

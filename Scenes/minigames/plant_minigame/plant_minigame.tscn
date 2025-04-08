@@ -24,10 +24,10 @@ corner_radius_top_left = 150
 corner_radius_top_right = 150
 corner_radius_bottom_right = 150
 corner_radius_bottom_left = 150
-expand_margin_left = 150.0
-expand_margin_top = 150.0
-expand_margin_right = 150.0
-expand_margin_bottom = 150.0
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaipn"]
 content_margin_left = 32.0
@@ -94,32 +94,19 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u147h")
 
-[node name="TextureRect" type="TextureRect" parent="Background/PanelContainer"]
+[node name="Bg" type="TextureRect" parent="Background/PanelContainer"]
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("2_as2k8")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="TextureRect2" type="TextureRect" parent="Background/PanelContainer"]
+[node name="Water" type="TextureRect" parent="Background/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
 texture = ExtResource("3_u147h")
 expand_mode = 5
-
-[node name="TextureRect3" type="TextureRect" parent="Background/PanelContainer/TextureRect2"]
-show_behind_parent = true
-layout_mode = 2
-offset_left = 6.0
-offset_top = -41.3093
-offset_right = 1406.0
-offset_bottom = 191.271
-size_flags_vertical = 8
-mouse_filter = 2
-texture = ExtResource("3_u147h")
-expand_mode = 5
-stretch_mode = 1
 
 [node name="TimerLabel" type="Label" parent="Background"]
 layout_mode = 1
@@ -197,6 +184,7 @@ shape = SubResource("RectangleShape2D_lln40")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0
+one_shot = true
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {

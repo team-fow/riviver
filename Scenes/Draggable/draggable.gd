@@ -26,6 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	else:
 		if event.is_action_pressed("click") && hovered:
 			grab()
+			get_viewport().set_input_as_handled()
 
 
 func grab() -> void:

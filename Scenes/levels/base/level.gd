@@ -26,6 +26,7 @@ func open_minigame(game : Minigame) -> void:
 	
 # Close a minigame
 func close_minigame(game: Minigame) -> void:
+	if game != current_minigame: return
 	current_minigame = null
 	game.set_paused(true)
 	animator.play_backwards("move_grid")
