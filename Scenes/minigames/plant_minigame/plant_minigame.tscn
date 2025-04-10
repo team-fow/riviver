@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=3 uid="uid://cxyyfgdo1704o"]
 
-[ext_resource type="Script" uid="uid://baoa55ix5krny" path="res://scenes/minigames/plant_minigame/plant_minigame.gd" id="1_as2k8"]
-[ext_resource type="Texture2D" uid="uid://dgxpos8bwdowt" path="res://assets/minigames/plant/background.png" id="2_as2k8"]
-[ext_resource type="Script" uid="uid://v72byon5d5q5" path="res://scenes/minigames/plant_minigame/tool.gd" id="2_w505k"]
+[ext_resource type="Script" uid="uid://baoa55ix5krny" path="res://Scenes/minigames/plant_minigame/plant_minigame.gd" id="1_as2k8"]
+[ext_resource type="Texture2D" uid="uid://dbbgj85eqdcil" path="res://assets/minigames/plant/background.png" id="2_as2k8"]
+[ext_resource type="Script" uid="uid://v72byon5d5q5" path="res://Scenes/minigames/plant_minigame/tool.gd" id="2_w505k"]
 [ext_resource type="Texture2D" uid="uid://sdesur8kvtqt" path="res://assets/minigames/plant/river_foreground.png" id="3_u147h"]
 [ext_resource type="Texture2D" uid="uid://50tjlm6r8xfo" path="res://assets/minigames/plant/shovel.png" id="4_tdc4o"]
 [ext_resource type="Texture2D" uid="uid://uoseo75odqxy" path="res://assets/minigames/plant/seed_bag.png" id="5_lln40"]
-[ext_resource type="Texture2D" uid="uid://ddsd46lv4a743" path="res://assets/minigames/plant/pot.png" id="6_lln40"]
+[ext_resource type="Texture2D" uid="uid://ddsd46lv4a743" path="res://assets/minigames/plant/pot_animation.png" id="6_lln40"]
 [ext_resource type="Texture2D" uid="uid://dskksw04p6gs0" path="res://assets/minigames/plant/soil_bag.png" id="7_qaipn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u147h"]
