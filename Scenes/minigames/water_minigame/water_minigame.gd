@@ -18,7 +18,8 @@ var held_pipe: Pipe # The pipe currently held, if any
 
 func start() -> void:
 	super()
-	if pipes.get_children().is_empty():
+	pipes.minigame = self
+	if pipes.h_box_container.get_children().is_empty():
 		for p:String in pipe_def.keys():
 			for i:int in pipe_def[p]:
 				var new_pipe: Pipe = Pipe.create_pipe(p)
@@ -90,8 +91,8 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 	if not grid.pipe_hovered:
 		pipes.create_or_add_to_stack(dropped_pipe)
 		var tween: Tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(dropped_pipe, "position", Vector2.ZERO, 0.1)
-		tween.tween_property(dropped_pipe, "rotation", 0, 0.1)
+		tween.tween_property(dropped_pipe, "position", Vector2(32,32), 0.1)
+		tween.tween_property(dropped_pipe, "rotation", 0.0, 0.1)
 		await tween.finished
 	else:
 		var local_coords: Vector2 = grid.to_local(get_global_mouse_position())
@@ -108,7 +109,7 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 		else:
 			pipes.create_or_add_to_stack(dropped_pipe)
 			var tween: Tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
-			tween.tween_property(dropped_pipe, "position", Vector2.ZERO, 0.1)
+			tween.tween_property(dropped_pipe, "position", Vector2(32,32), 0.1)
 			tween.tween_property(dropped_pipe, "rotation", 0.0, 0.1)
 			await tween.finished
 		

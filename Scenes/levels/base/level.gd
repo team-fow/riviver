@@ -7,7 +7,6 @@ var current_minigame: Minigame # The currently active minigame.
 
 @onready var grid: TileMapLayer = $Grid
 @onready var animator: AnimationPlayer = $Animator
-@onready var help_panel: PanelContainer = $UI/Margins/HelpPanel
 @onready var summary: Control = $UI/Summary
 @onready var explosion: CPUParticles2D = $UI/Summary/Content/Explosion
 @onready var scienceguy: Control = $UI/Margins/Scienceguy

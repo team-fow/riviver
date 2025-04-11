@@ -1,7 +1,7 @@
 class_name PipeStack
-extends Node2D
+extends Container
 
-const SCALE: Vector2 = Vector2(0.75, 0.75)
+const SCALE: Vector2 = Vector2(1.25, 1.25)
 var pipes_in_stack: int
 @onready var label: Label = $Label
 
@@ -11,6 +11,7 @@ func add_pipe(pipe: Pipe) -> void:
 		pipe.reparent(self)
 	else:
 		add_child(pipe)
+		pipe.position += Vector2(32, 32)
 
 
 func _on_child_order_changed() -> void:
