@@ -182,13 +182,13 @@ flip_v = true
 
 [node name="Pipes" type="ScrollContainer" parent="."]
 z_index = 1
-custom_minimum_size = Vector2(300, 115)
+custom_minimum_size = Vector2(300, 90)
 offset_left = -147.8
 offset_top = 138.4
 offset_right = 152.2
-offset_bottom = 253.4
-size_flags_horizontal = 6
-size_flags_vertical = 6
+offset_bottom = 228.4
+size_flags_horizontal = 4
+size_flags_vertical = 4
 horizontal_scroll_mode = 4
 vertical_scroll_mode = 0
 script = ExtResource("3_6nc0b")
