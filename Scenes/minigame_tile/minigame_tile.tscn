@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://85lycb6ahpb"]
 
-[ext_resource type="Script" uid="uid://cdkvtsdv0mq6a" path="res://scenes/minigame_tile/minigame_tile.gd" id="1_3hr0a"]
+[ext_resource type="Script" uid="uid://cdkvtsdv0mq6a" path="res://Scenes/minigame_tile/minigame_tile.gd" id="1_3hr0a"]
 
 [sub_resource type="Gradient" id="Gradient_u2k62"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
