@@ -5,6 +5,22 @@ var pipe_hovered : bool
 @onready var grid_collision: CollisionShape2D = $GridCollision
 
 
+func _draw() -> void:
+	var grid_size: Vector2 =  grid_collision.shape.size 
+	var grid_top_left: Vector2 = Vector2(-grid_size.x/2.0, -grid_size.y/2.0)
+	var grid_fifth: Vector2 = grid_size/5.0
+	var points: PackedVector2Array
+	for i in range(1,5):
+		var point_a: Vector2 = Vector2(grid_top_left.x + (grid_fifth.x * i), grid_top_left.y)
+		var point_b: Vector2 = Vector2(grid_top_left.x + (grid_fifth.x * i), grid_top_left.y + grid_size.y)
+		points.append_array([point_a, point_b])
+	for i in range(1,5):
+		var point_a: Vector2 = Vector2(grid_top_left.x, grid_top_left.y + (grid_fifth.y * i))
+		var point_b: Vector2 = Vector2(grid_top_left.x + grid_size.x, grid_top_left.y + (grid_fifth.y * i))
+		points.append_array([point_a, point_b])
+	draw_multiline(points, Color.WEB_GRAY)
+
+
 # Given a texture, places it on the grid at the given coordinates as a Sprite2D
 func place_on_grid(coords: Vector2i, t: Texture2D, n: String) -> void:
 	var local_coords: Vector2 = coords_to_position(coords)
