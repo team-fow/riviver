@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eq1mwbit8wdh"
-path="res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"
+uid="uid://dgyymcj8tcpjm"
+path="res://.godot/imported/water_sprites.png-bf823548b5e25a25db7e5fbb6a24e3fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/Buttons-Default.png"
-dest_files=["res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"]
+source_file="res://assets/tiles/water_sprites.png"
+dest_files=["res://.godot/imported/water_sprites.png-bf823548b5e25a25db7e5fbb6a24e3fc.ctex"]
 
 [params]
 
