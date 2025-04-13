@@ -11,7 +11,7 @@ func add_pipe(pipe: Pipe) -> void:
 		pipe.reparent(self)
 	else:
 		add_child(pipe)
-		pipe.position = size / 2.0
+		pipe.position = Vector2(97.5, 97.5)
 
 
 func _on_child_order_changed() -> void:
@@ -23,6 +23,7 @@ func _on_child_order_changed() -> void:
 	else:
 		self.show()
 		for child in pipe_children:
+			child.position = Vector2(97.5, 97.5)
 			if child == pipe_children[0]: child.input_pickable = true
 			else: child.input_pickable = false
 		

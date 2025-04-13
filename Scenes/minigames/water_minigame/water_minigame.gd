@@ -91,7 +91,7 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 	if not grid.pipe_hovered:
 		pipes.create_or_add_to_stack(dropped_pipe)
 		var tween: Tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(dropped_pipe, "position", Vector2(32,32), 0.1)
+		tween.tween_property(dropped_pipe, "position", Vector2(97.5,97.5), 0.1)
 		tween.tween_property(dropped_pipe, "rotation", 0.0, 0.1)
 		await tween.finished
 	else:
@@ -109,7 +109,7 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 		else:
 			pipes.create_or_add_to_stack(dropped_pipe)
 			var tween: Tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
-			tween.tween_property(dropped_pipe, "position", Vector2(32,32), 0.1)
+			tween.tween_property(dropped_pipe, "position", Vector2(97.5,97.5), 0.1)
 			tween.tween_property(dropped_pipe, "rotation", 0.0, 0.1)
 			await tween.finished
 		
