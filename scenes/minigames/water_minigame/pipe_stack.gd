@@ -11,13 +11,13 @@ func add_pipe(pipe: Pipe) -> void:
 		pipe.reparent(self)
 	else:
 		add_child(pipe)
-		pipe.position += Vector2(32, 32)
+		pipe.position = size / 2.0
 
 
 func _on_child_order_changed() -> void:
 	var pipe_children : Array[Node] = get_children().filter(func(child): return child is Pipe)
 	pipes_in_stack = pipe_children.size()
-	label.text = str(pipes_in_stack)
+	label.text = "x" + str(pipes_in_stack)
 	if pipes_in_stack == 0:
 		self.hide()
 	else:

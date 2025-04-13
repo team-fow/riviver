@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://4h2gntffvy7i" path="res://assets/minigames/water/Straight_.png" id="2_vpkmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccbsm"]
-size = Vector2(62, 62)
+size = Vector2(195, 195)
 
 [node name="Pipe" type="Area2D"]
 script = ExtResource("1_j4mew")
@@ -12,10 +12,8 @@ holes = Array[int]([0, 1])
 metadata/_custom_type_script = "uid://cln3t80qvjmjo"
 
 [node name="PipeCollision" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_ccbsm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.57628e-07, 8.82149e-06)
-scale = Vector2(0.12, 0.12)
+scale = Vector2(0.375, 0.375)
 texture = ExtResource("2_vpkmp")
