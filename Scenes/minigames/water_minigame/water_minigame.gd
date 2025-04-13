@@ -3,8 +3,8 @@ extends Minigame
 
 @onready var grid: PipeGrid = $Grid
 @onready var pipes: PipeHolder = $Pipes
-@onready var undo: TextureButton = $Background/MarginContainer/Top/Undo
-@onready var filters_needed_label: Label = $"Background/MarginContainer/Top/Filters Needed"
+@onready var undo: TextureButton = $Background/Margins/Top/Back
+@onready var filters_needed_label: Label = $Background/Margins/Top/Filters/VBox/Filters
 
 @export var start_point: Vector2i # The grid coordinates at which the water flow starts
 @export var end_point: Vector2i # The grid coordinates that the player is trying to reach
@@ -91,7 +91,7 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 	if not grid.pipe_hovered:
 		pipes.create_or_add_to_stack(dropped_pipe)
 		var tween: Tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(dropped_pipe, "position", Vector2(32,32), 0.1)
+		tween.tween_property(dropped_pipe, "position", Vector2(97.5,97.5), 0.1)
 		tween.tween_property(dropped_pipe, "rotation", 0.0, 0.1)
 		await tween.finished
 	else:
@@ -109,7 +109,7 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 		else:
 			pipes.create_or_add_to_stack(dropped_pipe)
 			var tween: Tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
-			tween.tween_property(dropped_pipe, "position", Vector2(32,32), 0.1)
+			tween.tween_property(dropped_pipe, "position", Vector2(97.5,97.5), 0.1)
 			tween.tween_property(dropped_pipe, "rotation", 0.0, 0.1)
 			await tween.finished
 		
@@ -169,8 +169,9 @@ func _on_undo_pressed() -> void:
 
 
 func _ready() -> void:
-	filters_needed_label.text += "\n"
-	for filtertype : String in filters_needed:
-		match filtertype:
-			"SANDFILTER": filters_needed_label.text += " Sand "
-			"CARBONFILTER": filters_needed_label.text += " Carbon "
+	" ".join(filters_needed.map(func (x: String) -> String:
+		match x:
+			"SANDFILTER": return "Sand"
+			"CARBONFILTER": return "Carbon"
+			_: return "???"
+	))

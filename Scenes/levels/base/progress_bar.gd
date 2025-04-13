@@ -14,9 +14,4 @@ func _ready() -> void:
 
 
 func _on_minigame_ended(minigame: Minigame, score: float, part: Control) -> void:
-	if score < 0.5:
-		part.set_sprite(part.Sprite.BAD)
-	elif score < 1.0:
-		part.set_sprite(part.Sprite.MEDIUM)
-	else:
-		part.set_sprite(part.Sprite.GOOD)
+	part.set_value(score)

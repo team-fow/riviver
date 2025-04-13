@@ -28,7 +28,7 @@ func place_on_grid(coords: Vector2i, t: Texture2D, n: String) -> void:
 	var grid_size: Vector2 =  grid_collision.shape.size 
 	to_place.texture = t
 	to_place.position = local_coords
-	to_place.scale = Vector2(0.12, 0.12)
+	to_place.scale = Vector2(0.3076923077, 0.3076923077)
 	to_place.set_meta("Type", n)
 	add_child(to_place)
 
