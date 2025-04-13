@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=4 uid="uid://dlsw63ll7nu8u"]
 
-[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_ie7v7"]
-[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://scenes/minigames/trash_minigame/trash_object.tscn" id="3_0absb"]
-[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://scenes/minigames/trash_minigame/trash_minigame.tscn" id="3_x3ltn"]
-[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="4_f00r8"]
+[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://Scenes/levels/base/level.tscn" id="1_ie7v7"]
+[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://Scenes/minigames/trash_minigame/trash_object.tscn" id="3_0absb"]
+[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://Scenes/minigames/trash_minigame/trash_minigame.tscn" id="3_x3ltn"]
+[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://Scenes/minigames/trash_minigame/trash_bin.tscn" id="4_f00r8"]
 
 [node name="Level" instance=ExtResource("1_ie7v7")]
 
 [node name="Grid" parent="." index="0"]
-tile_map_data = PackedByteArray("AAD/////AwAAAAAAAAD///7/AAACAAIAAAD+////AAACAAIAAAD//wAAAAABAAIAAAD//wEAAAAAAAIAAAAAAAAAAwAAAAAAAAAAAP//AQACAAIAAAAAAP7/AwAAAAAAAAD///3/AAABAAAAAAAAAP3/AwAAAAAAAAAAAPz/AQACAAEAAAD///v/AQACAAAAAAD///z/AAAAAAEAAAD+//3/AQACAAIAAAD+//7/AwAAAAAAAAD9////AwAAAAAAAAD+/wAAAQABAAAAAAD+/wEAAQAAAAMAAAD//wIAAQACAAEAAAD//wMAAwAAAAAAAAAAAAIABAAAAAAAAAAAAAEAAwAAAAAAAAABAAAAAQABAAEAAAABAP//AQAAAAAAAAABAP7/AQAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAD/////BwABAAIAAAD///7/AAACAAIAAAD+////AAACAAIAAAD//wAAAAABAAIAAAD//wEAAAAAAAIAAAAAAAAABwAAAAMAAAAAAP//BwABAAAAAAAAAP7/BwABAAIAAAD///3/AAABAAAAAAAAAP3/BwACAAAAAAAAAPz/BwAAAAMAAAD///v/BwABAAMAAAD///z/BwAAAAMAAAD+//3/BwABAAEAAAD+//7/BwAAAAMAAAD9////BwAAAAAAAAD+/wAABwABAAIAAAD+/wEABwAAAAIAAAD//wIABwAAAAMAAAD//wMABwAAAAMAAAAAAAIABwAAAAMAAAAAAAEABwAAAAMAAAABAAAABwAAAAMAAAABAP//BwAAAAMAAAABAP7/BwAAAAMAAAA=")
 
 [node name="TrashObject1" parent="Grid" index="0" instance=ExtResource("3_0absb")]
 position = Vector2(-906.061, -354.545)

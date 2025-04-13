@@ -1,16 +1,16 @@
 [gd_scene load_steps=7 format=4 uid="uid://cmwuew4y8876w"]
 
-[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_afygv"]
-[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="2_8jtne"]
-[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://scenes/minigames/trash_minigame/trash_object.tscn" id="3_afygv"]
-[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://scenes/minigames/water_minigame/water_minigame.tscn" id="3_mp0kl"]
-[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://scenes/minigames/trash_minigame/trash_minigame.tscn" id="4_8jtne"]
-[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="5_mp0kl"]
+[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://Scenes/levels/base/level.tscn" id="1_afygv"]
+[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://Scenes/minigame_tile/minigame_tile.tscn" id="2_8jtne"]
+[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://Scenes/minigames/trash_minigame/trash_object.tscn" id="3_afygv"]
+[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://Scenes/minigames/water_minigame/water_minigame.tscn" id="3_mp0kl"]
+[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://Scenes/minigames/trash_minigame/trash_minigame.tscn" id="4_8jtne"]
+[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://Scenes/minigames/trash_minigame/trash_bin.tscn" id="5_mp0kl"]
 
 [node name="Level2" instance=ExtResource("1_afygv")]
 
 [node name="Grid" parent="." index="0"]
-tile_map_data = PackedByteArray("AAD/////AQABAAEAAAD///7/AAACAAIAAAD+////AAACAAEAAAD//wAAAAACAAIAAAD//wEAAAAAAAIAAAAAAAAAAQACAAEAAAAAAP//AQACAAIAAAAAAP7/AgAAAAAAAAD///3/AAAAAAAAAAAAAP3/AwAAAAAAAAAAAPz/AQABAAMAAAD///v/AQACAAEAAAD///z/AAABAAEAAAD+//3/AQAAAAIAAAD+//7/AQACAAEAAAD9////AQABAAMAAAD+/wAAAQAAAAAAAAD+/wEAAwAAAAAAAAD//wIAAwAAAAAAAAD//wMAAQAAAAEAAAAAAAIAAAACAAIAAAAAAAEAAQACAAMAAAABAAAAAwAAAAAAAAABAP//AQABAAIAAAABAP7/AQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD/////BwABAAIAAAD///7/AAACAAIAAAD+////BAAAAAAAAAD//wAAAAACAAIAAAD//wEAAAAAAAIAAAAAAAAABwADAAMAAAAAAP//BwADAAEAAAAAAP7/AgAAAAAAAAD///3/AAAAAAAAAAAAAP3/BwAAAAMAAAAAAPz/BwABAAMAAAD///v/BwAAAAMAAAD///z/BwAAAAAAAAD+//3/BwABAAAAAAD+//7/BwAAAAMAAAD9////BwACAAAAAAD+/wAABwACAAAAAAD+/wEABwAAAAMAAAD//wIABwAAAAMAAAD//wMABwAAAAMAAAAAAAIAAAACAAIAAAAAAAEABwACAAIAAAABAAAABwADAAMAAAABAP//BwACAAMAAAABAP7/BwADAAIAAAA=")
 
 [node name="WaterTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_8jtne")]
 position = Vector2(281.818, -300)

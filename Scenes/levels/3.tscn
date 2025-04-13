@@ -1,18 +1,18 @@
 [gd_scene load_steps=9 format=4 uid="uid://dl1lhyiuj21ri"]
 
-[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_t3mkv"]
-[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="2_cddsv"]
-[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://scenes/minigames/water_minigame/water_minigame.tscn" id="3_sc0rx"]
-[ext_resource type="Script" uid="uid://dv7rmsc7ratin" path="res://scenes/minigame_tile/plant_minigame_tile.gd" id="3_si25r"]
-[ext_resource type="PackedScene" uid="uid://cxyyfgdo1704o" path="res://scenes/minigames/plant_minigame/plant_minigame.tscn" id="4_2n3hm"]
-[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://scenes/minigames/trash_minigame/trash_object.tscn" id="4_si25r"]
-[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://scenes/minigames/trash_minigame/trash_minigame.tscn" id="7_bg5fu"]
-[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="8_y87mq"]
+[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://Scenes/levels/base/level.tscn" id="1_t3mkv"]
+[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://Scenes/minigame_tile/minigame_tile.tscn" id="2_cddsv"]
+[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://Scenes/minigames/water_minigame/water_minigame.tscn" id="3_sc0rx"]
+[ext_resource type="Script" path="res://scenes/minigame_tile/plant_minigame_tile.gd" id="3_si25r"]
+[ext_resource type="PackedScene" uid="uid://cxyyfgdo1704o" path="res://Scenes/minigames/plant_minigame/plant_minigame.tscn" id="4_2n3hm"]
+[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://Scenes/minigames/trash_minigame/trash_object.tscn" id="4_si25r"]
+[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://Scenes/minigames/trash_minigame/trash_minigame.tscn" id="7_bg5fu"]
+[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://Scenes/minigames/trash_minigame/trash_bin.tscn" id="8_y87mq"]
 
 [node name="Level" instance=ExtResource("1_t3mkv")]
 
 [node name="Grid" parent="." index="0"]
-tile_map_data = PackedByteArray("AAD/////BQAAAAAAADD///7/AAACAAIAAAD+////AAABAAIAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAAAAAAAAwAAAAAAAAAAAP//AwAAAAAAAAAAAP7/AQABAAEAAAD///3/AAACAAIAAAAAAP3/AwAAAAAAAAAAAPz/AQACAAIAAAD///v/AQABAAAAAAD///z/AAAAAAEAAAD+//3/BQAAAAAAAAD+//7/AwAAAAAAAAD9////AQABAAMAAAD+/wAAAwAAAAAAAAD+/wEAAQACAAEAAAD//wIAAgAAAAAAAAD//wMAAwAAAAAAAAAAAAIAAAACAAAAAAAAAAEAAwAAAAAAAAABAAAAAQAAAAMAAAABAP//AQAAAAAAAAABAP7/AQABAAIAAAA=")
+tile_map_data = PackedByteArray("AAD/////BQAAAAAAADD///7/AAACAAIAAAD+////AAABAAIAAAD//wAAAAACAAIAAAD//wEAAAACAAIAAAAAAAAABwAAAAMAAAAAAP//BwAAAAMAAAAAAP7/BwABAAAAAAD///3/AAACAAIAAAAAAP3/BwAAAAMAAAAAAPz/BwAAAAIAAAD///v/BwACAAAAAAD///z/AAAAAAEAAAD+//3/BQAAAAAAAAD+//7/BwADAAEAAAD9////BwACAAIAAAD+/wAABwADAAMAAAD+/wEABwABAAEAAAD//wIAAgAAAAAAAAD//wMABwAAAAMAAAAAAAIAAAACAAAAAAAAAAEABwACAAEAAAABAAAABwAAAAMAAAABAP//BwAAAAMAAAABAP7/BwADAAAAAAA=")
 
 [node name="MinigameTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_cddsv")]
 position = Vector2(-600, -600)
