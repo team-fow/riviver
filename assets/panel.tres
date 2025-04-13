@@ -1,0 +1,20 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c36ax7xm4d61w"]
+
+[ext_resource type="Texture2D" uid="uid://8vylc6ldr57c" path="res://assets/frame.png" id="1_cp1qp"]
+
+[resource]
+content_margin_left = 280.0
+content_margin_top = 130.0
+content_margin_right = 200.0
+content_margin_bottom = 150.0
+texture = ExtResource("1_cp1qp")
+texture_margin_left = 225.0
+texture_margin_top = 343.0
+texture_margin_right = 150.0
+texture_margin_bottom = 220.0
+expand_margin_left = 190.0
+expand_margin_top = 80.0
+expand_margin_right = 105.0
+expand_margin_bottom = 95.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

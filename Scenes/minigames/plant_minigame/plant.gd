@@ -22,6 +22,7 @@ var progress: float
 @onready var seed_sprite: Sprite2D = $HoleSprite/SeedSprite
 @onready var pile_sprite: Sprite2D = $PileSprite
 @onready var bush_sprite: Sprite2D = $BushSprite
+@onready var root_sprite: Sprite2D = $RootSprite
 
 
 ## Moves the plant to the next state (see the State enum).
@@ -42,6 +43,7 @@ func _set_state(value: State) -> void:
 	seed_sprite.visible = state >= State.SEED_PLANTED
 	pile_sprite.visible = state == State.HOLE_FILLED
 	bush_sprite.visible = state >= State.WATERED
+	root_sprite.visible = state >= State.WATERED
 	# emitting grown signal
 	if state == State.WATERED: grown.emit()
 

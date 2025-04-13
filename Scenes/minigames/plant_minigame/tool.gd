@@ -2,6 +2,7 @@ class_name Tool
 extends Draggable
 
 var initial_position: Vector2 = position
+var initial_scale: Vector2 = scale
 
 
 
@@ -19,8 +20,7 @@ func _drop() -> void:
 func _display_effect() -> void:
 	var will_have_effect: bool = _will_drop_have_effect()
 	modulate.a = 1.0 if will_have_effect else 0.5
-	scale.x = 1.0 if will_have_effect else 0.9
-	scale.y = scale.x
+	scale = (Vector2.ONE if will_have_effect else Vector2(0.9, 0.9)) * initial_scale
 
 
 func _will_drop_have_effect() -> bool:

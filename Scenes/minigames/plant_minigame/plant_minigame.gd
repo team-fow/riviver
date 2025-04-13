@@ -1,5 +1,7 @@
 extends Minigame
 
+const PLANT_SEPARATION: float = 400.0
+
 @export_range(1, 3) var plant_count: int = 1
 var plants_grown: int
 
@@ -12,6 +14,7 @@ var plants: Array[Area2D]
 @onready var water: TextureRect = $Background/PanelContainer/Water
 @onready var timer_label: Label = $Background/TimerLabel
 @onready var timer: Timer = $Timer
+@onready var animator: AnimationPlayer = $Animator
 
 
 func _ready() -> void:
@@ -21,10 +24,11 @@ func _ready() -> void:
 	# adding plants
 	for i: int in plant_count:
 		var plant: Area2D = preload("res://scenes/minigames/plant_minigame/plant.tscn").instantiate()
-		plant.position.x = background.position.x + 50 + (background.size.x - 50) / plant_count * (i + 0.5)
+		plant.position.x = PLANT_SEPARATION * i
 		plant.grown.connect(_on_plant_grown)
 		plants.append(plant)
 		$Plants.add_child(plant)
+	$Plants.position.x = (plant_count - 1) * PLANT_SEPARATION * -0.5
 
 
 func _on_plant_grown() -> void:
@@ -40,8 +44,10 @@ func end() -> void:
 	
 	if score < 0.75:
 		water.texture = preload("res://assets/minigames/plant/eroded_river_foreground.png")
+		water.z_index = 1
 	
-	await get_tree().create_timer(1.0).timeout
+	animator.play("water")
+	await animator.animation_finished
 	ended.emit(self, score)
 
 
@@ -54,7 +60,7 @@ func start() -> void:
 
 
 func _process(_delta: float) -> void:
-	timer_label.text = str(roundf(timer.time_left))
+	timer_label.text = str(roundi(timer.time_left)) + "s"
 
 
 func _on_timeout() -> void:
