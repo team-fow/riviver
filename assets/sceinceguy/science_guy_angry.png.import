@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdisylbwu2p47"
-path="res://.godot/imported/button_base.png-49912d6b09de76cdbe0c9fa07408ace1.ctex"
+uid="uid://dkqxsfiqmxyaw"
+path="res://.godot/imported/science_guy_angry.png-cb402cdf6aa9247e5ae855f5bf7dfede.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Buttons/button_base.png"
-dest_files=["res://.godot/imported/button_base.png-49912d6b09de76cdbe0c9fa07408ace1.ctex"]
+source_file="res://assets/sceinceguy/science_guy_angry.png"
+dest_files=["res://.godot/imported/science_guy_angry.png-cb402cdf6aa9247e5ae855f5bf7dfede.ctex"]
 
 [params]
 

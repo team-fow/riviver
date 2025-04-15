@@ -5,6 +5,7 @@ signal next
 enum Sprite {
 	FRUSTRATED,
 	HAPPY,
+	ANGRY,
 }
 
 @onready var animator: AnimationPlayer = $Animator
@@ -14,6 +15,7 @@ func set_sprite(value: Sprite) -> void:
 	match value:
 		Sprite.FRUSTRATED: $Sprite.texture = preload("res://assets/sceinceguy/science_guy_frustrated.png")
 		Sprite.HAPPY: $Sprite.texture = preload("res://assets/sceinceguy/science_guy_happy.png")
+		Sprite.ANGRY: $Sprite.texture = preload("res://assets/sceinceguy/science_guy_angry.png")
 	animator.play("bob_sprite")
 
 

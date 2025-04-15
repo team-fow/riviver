@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://fx4mgq00nc5p"]
+[gd_scene load_steps=13 format=3 uid="uid://fx4mgq00nc5p"]
 
 [ext_resource type="Script" uid="uid://cuvkll4cav41p" path="res://scenes/sceinceguy/sceinceguy.gd" id="1_erwwe"]
 [ext_resource type="Texture2D" uid="uid://b6ga2cg8yh1hu" path="res://assets/sceinceguy/science_guy_happy.png" id="2_erwwe"]
+[ext_resource type="FontFile" uid="uid://cih6y73fncdtg" path="res://assets/fonts/Body - Quicksand Bold.ttf" id="2_y6rsw"]
 [ext_resource type="Texture2D" uid="uid://bnxbqbijt6er6" path="res://assets/sceinceguy/chatbox.png" id="3_ejcc5"]
 [ext_resource type="AudioStream" uid="uid://c64yg2rp253fn" path="res://assets/audio/voice.mp3" id="4_6pb4g"]
 
@@ -109,11 +110,12 @@ scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(0, 308)
 mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_y6rsw")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxTexture_6pb4g")
-text = "Text text text text text text
-Text text text text text text
-Text text text text text text"
+text = "Text text text text text
+Text text text text text
+Text text text text text"
 autowrap_mode = 2
 
 [node name="Color" type="ColorRect" parent="Label"]
@@ -141,6 +143,7 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 1
 theme_override_colors/font_color = Color(0.565026, 0.521013, 0.428828, 1)
+theme_override_fonts/font = ExtResource("2_y6rsw")
 theme_override_font_sizes/font_size = 48
 text = "Click to continue...▼"
 
