@@ -85,14 +85,14 @@ offset_bottom = -46.0
 grow_vertical = 0
 script = ExtResource("1_erwwe")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Gradient" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -267.0
-offset_top = -354.0
+offset_top = -578.0
 offset_right = 1547.0
 offset_bottom = 46.0
 grow_horizontal = 2
@@ -168,3 +168,16 @@ libraries = {
 [node name="Voice" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_6pb4g")
 bus = &"SFX"
+
+[node name="Layer" type="CanvasLayer" parent="."]
+
+[node name="Mousetrap" type="Control" parent="Layer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="gui_input" from="Layer/Mousetrap" to="." method="_on_gui_input"]

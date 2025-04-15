@@ -1,8 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=39 format=3 uid="uid://cj0nv5djx71e4"]
 
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
+[ext_resource type="Texture2D" uid="uid://5xr8r54e4cnn" path="res://assets/particles/particle-petals.png" id="3_bxgw7"]
 [ext_resource type="Script" uid="uid://i2u8nnx5uv18" path="res://scenes/levels/base/progress_bar.gd" id="3_tvt8h"]
+[ext_resource type="Texture2D" uid="uid://0q1iljbxuofx" path="res://assets/particles/particle-leaves.png" id="5_hstm6"]
 [ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="5_likht"]
 [ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="6_2xtfm"]
 [ext_resource type="Texture2D" uid="uid://tcr64w81ajfd" path="res://assets/levelbg.png" id="6_vpf64"]
@@ -272,6 +274,55 @@ _data = {
 &"move_grid": SubResource("Animation_qkmgm"),
 &"open_summary": SubResource("Animation_2xtfm")
 }
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sgsui"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_gbq67"]
+_data = [Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_hstm6"]
+curve = SubResource("Curve_gbq67")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ixrk0"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 800.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 400, 0)
+scale_curve = SubResource("CurveTexture_hstm6")
+anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gbq67"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bxgw7"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 200, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 500.0
+emission_ring_inner_radius = 500.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 800.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 400, 0)
+scale_curve = SubResource("CurveTexture_hstm6")
+anim_offset_max = 1.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_olbeb")
@@ -580,6 +631,33 @@ stretch_mode = 1
 libraries = {
 &"": SubResource("AnimationLibrary_vpf64")
 }
+
+[node name="LeafParticles" type="GPUParticles2D" parent="."]
+z_index = -1
+material = SubResource("CanvasItemMaterial_sgsui")
+position = Vector2(500, 0)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 64
+texture = ExtResource("5_hstm6")
+one_shot = true
+preprocess = 0.33
+explosiveness = 0.9
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ixrk0")
+
+[node name="PetalParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_gbq67")
+position = Vector2(500, 0)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 64
+texture = ExtResource("3_bxgw7")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.75
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_bxgw7")
 
 [connection signal="pressed" from="UI/Margins/Left/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/Margins/Left/Help" to="." method="_on_help_pressed"]

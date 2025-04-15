@@ -10,6 +10,8 @@ var current_minigame: Minigame # The currently active minigame.
 @onready var summary: Control = $UI/Summary
 @onready var explosion: CPUParticles2D = $UI/Summary/Content/Explosion
 @onready var scienceguy: Control = $UI/Margins/Scienceguy
+@onready var leaf_particles: GPUParticles2D = $LeafParticles
+@onready var petal_particles: GPUParticles2D = $PetalParticles
 
 
 # Open a minigame
@@ -35,6 +37,9 @@ func close_minigame(game: Minigame) -> void:
 func end_minigame(game: Minigame, score: float) -> void:
 	minigames_completed += 1
 	close_minigame(game)
+	
+	leaf_particles.emitting = true
+	petal_particles.emitting = true
 	
 	if minigames_completed == minigames.size():
 		var total_score: float = 0.0
@@ -89,9 +94,10 @@ func _on_help_pressed() -> void:
 
 func _ready() -> void:
 	for minigame in $Minigames.get_children():
-		minigames.append(minigame)
-		minigame.started.connect(open_minigame)
-		minigame.ended.connect(end_minigame)
+		if minigame is Minigame:
+			minigames.append(minigame)
+			minigame.started.connect(open_minigame)
+			minigame.ended.connect(end_minigame)
 	do_tutorial(Save.get_current_level())
 
 
@@ -100,7 +106,7 @@ func do_tutorial(idx: int) -> void:
 	
 	match idx:
 		0:
-			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
+			scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
 			await scienceguy.set_text("Gah! So much trash! It looks like someone has been littering...")
 			await scienceguy.set_text("This is unacceptable! We need to clean this up!")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
@@ -112,7 +118,7 @@ func do_tutorial(idx: int) -> void:
 		1:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("That factory looks like it has a leak.")
-			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
+			scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
 			await scienceguy.set_text("All those dirty chemicals will make our water dirty too!")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Click the factory to investigate.")
@@ -120,7 +126,7 @@ func do_tutorial(idx: int) -> void:
 			await scienceguy.set_text("You can't place pipes on rocks, so plan around them!")
 			await scienceguy.set_text("Remember to use special filter pipes to clean the water!")
 		2:
-			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
+			scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
 			await scienceguy.set_text("Our river is eroding! The dirt is being swept away by the water.")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Luckily, plants' roots can stop erosion!")
