@@ -29,6 +29,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="riviver"
 
+[gui]
+
+theme/custom_font="uid://cih6y73fncdtg"
+
 [input]
 
 click={
