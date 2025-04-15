@@ -5,6 +5,7 @@ signal eaten
 
 @export_enum("landfill", "recycling", "compost", "hazardous") var category: String = "landfill"
 
+var type: int
 var initial_scale: Vector2i = scale
 
 
@@ -29,3 +30,4 @@ func _ready() -> void:
 	$Sprite.texture = load("res://assets/minigames/trash/%s_trash.png" % category)
 	$Sprite.hframes = {"landfill": 4, "recycling": 6, "compost": 6, "hazardous": 3}[category]
 	$Sprite.frame = randi() % $Sprite.hframes
+	type = $Sprite.frame
