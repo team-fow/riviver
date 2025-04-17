@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bbxb3eqci27ne"]
+[gd_scene load_steps=28 format=3 uid="uid://bbxb3eqci27ne"]
 
 [ext_resource type="Script" uid="uid://bs3rdjxblu5ts" path="res://scenes/worldmap/worldmap.gd" id="1_gu2y1"]
 [ext_resource type="Texture2D" uid="uid://bhfi7dq57s5c2" path="res://assets/worldmap.png" id="2_8pao6"]
@@ -60,10 +60,124 @@ region = Rect2(384, 0, 128, 0)
 atlas = ExtResource("8_w84c3")
 region = Rect2(384, 0, 128, 0)
 
+[sub_resource type="Animation" id="Animation_ghqh1"]
+resource_name = "intro"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1788, 0), Vector2(-1183, -229)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Levels:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Margins:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PollutedMap:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gfvk6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1788, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Margins:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Levels:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PollutedMap:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lfmi5"]
+resource_name = "fade_from_black"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jmavi"]
+_data = {
+&"RESET": SubResource("Animation_gfvk6"),
+&"fade_from_black": SubResource("Animation_lfmi5"),
+&"intro": SubResource("Animation_ghqh1")
+}
+
 [node name="Worldmap" type="Node2D"]
 script = ExtResource("1_gu2y1")
 
 [node name="PollutedMap" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 position = Vector2(-309, -177)
 scale = Vector2(1.523, 1.523)
 texture = ExtResource("3_anagn")
@@ -87,6 +201,7 @@ scale = Vector2(0.328299, 0.328299)
 texture = ExtResource("2_8pao6")
 
 [node name="Levels" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 
 [node name="LevelPin1" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-1183, -229)
@@ -101,12 +216,14 @@ position = Vector2(377, -323)
 description = "The banks of the river are eroding!"
 
 [node name="Camera" type="Camera2D" parent="."]
+position = Vector2(1788, 0)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Margins" type="MarginContainer" parent="UI"]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -258,6 +375,11 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jmavi")
+}
 
 [connection signal="pressed" from="UI/Margins/HBox/LeftArrow" to="." method="select_prev_level"]
 [connection signal="pressed" from="UI/Margins/HBox/Background/Play" to="." method="play_selected_level"]

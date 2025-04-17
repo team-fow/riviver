@@ -13,6 +13,7 @@ var selected_idx: int
 @onready var level_info: HBoxContainer = $UI/Margins/HBox
 @onready var mask: TextureRect = $PollutedMap/Mask
 @onready var disabled_level_selector: TextureRect = $UI/Margins/HBox/Background/Disabled
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 ## Selects the level at some index in the level order.
@@ -55,16 +56,16 @@ func play_selected_level() -> void:
 # virtual
 
 func _ready() -> void:
-	select_level(Save.get_current_level())
-	camera.reset_smoothing()
-	
 	var idx: int = range(levels.get_child_count()).rfind_custom(Save.is_level_completed)
 	if idx != -1:
 		var map_rect: Rect2 = mask.get_parent().get_rect()
 		mask.texture.fill_from.x = (levels.get_child(idx).position.x + 250 - map_rect.position.x) / map_rect.size.x
 	
 	if not Save.data.get("did_intro_cutscene"):
-		do_intro_cutscene()
+		await do_intro_cutscene()
+		
+	select_level(Save.get_current_level())
+	camera.reset_smoothing()
 
 
 # Keyboard navigation between levels
@@ -84,6 +85,7 @@ func do_intro_cutscene() -> void:
 	scienceguy.show()
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 	await scienceguy.set_text("Hi, I'm John Furrero! Welcome to Riviver.")
+	animation_player.play("intro")
 	scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 	await scienceguy.set_text("Our beloved river has been polluted...")
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
