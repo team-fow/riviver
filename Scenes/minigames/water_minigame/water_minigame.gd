@@ -3,7 +3,7 @@ extends Minigame
 
 @onready var grid: PipeGrid = $Grid
 @onready var pipes: PipeHolder = $Pipes
-@onready var undo: TextureButton = $Background/Margins/Top/Back
+@onready var undo: TextureButton = $Background/Margins/Top/Undo
 @onready var filters_needed_label: Label = $Background/Margins/Top/Filters/VBox/Filters
 
 @export var start_point: Vector2i # The grid coordinates at which the water flow starts
@@ -74,7 +74,7 @@ static func get_texture(s: String) -> Texture2D:
 			image.rotate_90(CLOCKWISE)
 			return ImageTexture.create_from_image(image)
 		"UPDOWNCARBONFILTER": 
-			return filter	
+			return filter
 		"ROCK":
 			var image = rock.get_image()
 			var rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -168,9 +168,23 @@ func _on_undo_pressed() -> void:
 
 
 func _ready() -> void:
-	" ".join(filters_needed.map(func (x: String) -> String:
+	filters_needed_label.text = ", ".join(filters_needed.map(func (x: String) -> String:
 		match x:
-			"SANDFILTER": return "Sand"
-			"CARBONFILTER": return "Carbon"
+			"SANDFILTER": return "Dust"
+			"CARBONFILTER": return "Organics"
 			_: return "???"
 	))
+
+
+func _on_grid_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event.is_action_pressed("click"):
+		var coords: Vector2i = grid.position_to_coords(grid.get_local_mouse_position())
+		if coords in grid_def and grid_def[coords] != "ROCK":
+			var pipe: Pipe = Pipe.create_pipe(grid_def[coords])
+			pipes.create_or_add_to_stack(pipe)
+			pipe.grabbed.connect(func(): held_pipe = pipe)
+			pipe.dropped.connect(func(): drop_pipe(pipe))
+			grid_def.erase(coords)
+			last_placed_at.erase(coords)
+			if last_placed_at.is_empty(): undo.disabled = true
+			redraw()

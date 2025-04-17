@@ -55,7 +55,6 @@ category = "recycling"
 
 [node name="WaterMinigame" parent="Minigames" index="1" instance=ExtResource("3_mp0kl")]
 visible = false
-position = Vector2(-215.152, -175.758)
 filters_needed = Array[String](["SANDFILTER"])
 grid_def = Dictionary[Vector2i, String]({
 Vector2i(1, 1): "ROCK",

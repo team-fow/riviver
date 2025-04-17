@@ -1,9 +1,10 @@
 class_name PipeStack
-extends Container
+extends Control
 
 const SCALE: Vector2 = Vector2(1.25, 1.25)
 var pipes_in_stack: int
-@onready var label: Label = $Label
+@onready var label: Label = $Count
+@onready var tooltip: Label = $Tooltip
 
 
 func add_pipe(pipe: Pipe) -> void:
@@ -12,6 +13,10 @@ func add_pipe(pipe: Pipe) -> void:
 	else:
 		add_child(pipe)
 		pipe.position = Vector2(97.5, 97.5)
+		match pipe.filter_type:
+			"SANDFILTER": tooltip.text = "Sand Filter"
+			"CARBONFILTER": tooltip.text = "Carbon Filter"
+			_: tooltip.text = "Pipe"
 
 
 func _on_child_order_changed() -> void:
@@ -26,7 +31,14 @@ func _on_child_order_changed() -> void:
 			child.position = Vector2(97.5, 97.5)
 			if child == pipe_children[0]: child.input_pickable = true
 			else: child.input_pickable = false
-		
 
 func _ready() -> void:
 	scale = SCALE
+
+
+func _on_mouse_entered() -> void:
+	tooltip.show()
+
+
+func _on_mouse_exited() -> void:
+	tooltip.hide()

@@ -39,7 +39,7 @@ func end_minigame(game: Minigame, score: float) -> void:
 	close_minigame(game)
 	
 	leaf_particles.emitting = true
-	petal_particles.emitting = true
+	if score == 1.0: petal_particles.emitting = true
 	
 	if minigames_completed == minigames.size():
 		var total_score: float = 0.0

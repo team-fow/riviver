@@ -18,7 +18,7 @@ func _drop() -> void:
 
 
 func _mouse_enter() -> void:
-	scale = initial_scale * 1.1
+	scale = initial_scale * 1.2
 
 
 func _mouse_exit() -> void:
