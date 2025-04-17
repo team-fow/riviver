@@ -2,23 +2,22 @@ class_name PipeGrid
 extends Area2D
 
 var pipe_hovered : bool
+
 @onready var grid_collision: CollisionShape2D = $GridCollision
+@onready var grid_size: Vector2i = grid_collision.shape.size
+@onready var cell_size: Vector2 = grid_size / 5.0
 
 
 func _draw() -> void:
-	var grid_size: Vector2 =  grid_collision.shape.size 
-	var grid_top_left: Vector2 = Vector2(-grid_size.x/2.0, -grid_size.y/2.0)
-	var grid_fifth: Vector2 = grid_size/5.0
 	var points: PackedVector2Array
-	for i in range(1,5):
-		var point_a: Vector2 = Vector2(grid_top_left.x + (grid_fifth.x * i), grid_top_left.y)
-		var point_b: Vector2 = Vector2(grid_top_left.x + (grid_fifth.x * i), grid_top_left.y + grid_size.y)
-		points.append_array([point_a, point_b])
-	for i in range(1,5):
-		var point_a: Vector2 = Vector2(grid_top_left.x, grid_top_left.y + (grid_fifth.y * i))
-		var point_b: Vector2 = Vector2(grid_top_left.x + grid_size.x, grid_top_left.y + (grid_fifth.y * i))
-		points.append_array([point_a, point_b])
-	draw_multiline(points, Color.WEB_GRAY)
+	for x in range(1,5):
+		points.append(Vector2(cell_size.x * x, 0))
+		points.append(Vector2(cell_size.x * x, grid_size.y))
+	for y in range(1,5):
+		points.append(Vector2(0, cell_size.y * y))
+		points.append(Vector2(grid_size.y, cell_size.y * y))
+	draw_multiline(points, Color("#72523d"))
+	draw_rect(Rect2(Vector2.ZERO, grid_size), Color("#72523d"), false)
 
 
 # Given a texture, places it on the grid at the given coordinates as a Sprite2D
@@ -35,21 +34,12 @@ func place_on_grid(coords: Vector2i, t: Texture2D, n: String) -> void:
 
 # Converts grid coordinates to a position on the grid
 func coords_to_position(coords: Vector2i) -> Vector2:
-	coords =  Vector2i(clampi(coords.x, 0, 4), clampi(coords.y, 0, 4))
-	var grid_size: Vector2 =  grid_collision.shape.size 
-	var grid_top_left: Vector2 = Vector2(-grid_size.x/2.0, -grid_size.y/2.0)
-	var pos : Vector2 = grid_top_left + Vector2(grid_size.x/10.0, grid_size.y/10.0)
-	pos += Vector2((grid_size.x/5.0)*coords.x, (grid_size.y/5.0)*coords.y) 
-	return pos
+	return (Vector2(coords.clampi(0, 4)) + Vector2(0.5, 0.5)) * cell_size
 
 
 # Converts a position in local coordinates to grid coordinates
 func position_to_coords(pos: Vector2) -> Vector2i:
-	var grid_size: Vector2 =  grid_collision.shape.size 
-	var grid_top_left: Vector2 = Vector2(-grid_size.x/2.0, -grid_size.y/2.0)
-	pos = pos - grid_top_left
-	pos = pos * 4.0/(grid_size.x)
-	return pos.round()
+	return (pos / cell_size).floor()
 
 
 # Detecting when a pipe is dragged over the grid

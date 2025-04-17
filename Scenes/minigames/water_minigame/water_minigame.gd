@@ -95,8 +95,7 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 		tween.tween_property(dropped_pipe, "rotation", 0.0, 0.1)
 		await tween.finished
 	else:
-		var local_coords: Vector2 = grid.to_local(get_global_mouse_position())
-		var grid_coords: Vector2i = grid.position_to_coords(local_coords)
+		var grid_coords: Vector2i = grid.position_to_coords(grid.get_local_mouse_position())
 		if grid_def.get(grid_coords) == null:
 			var val: String = Pipe.directions_to_string(dropped_pipe.holes)
 			val += dropped_pipe.filter_type
