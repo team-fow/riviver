@@ -91,5 +91,8 @@ func do_intro_cutscene() -> void:
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 	await scienceguy.set_text("Let's fix this, together!")
 	scienceguy.hide()
+	if animation_player.is_playing():
+		animation_player.speed_scale *= 3
+		await animation_player.animation_finished
 	Save.data.did_intro_cutscene = true
 	level_info.show()
