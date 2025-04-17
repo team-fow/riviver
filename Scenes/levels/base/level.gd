@@ -20,6 +20,8 @@ func open_minigame(game : Minigame) -> void:
 		current_minigame.set_paused(true)
 	else:
 		animator.play("move_grid")
+	create_tween().tween_property(grid, "modulate", Color.WHITE if game is TrashMinigame else Color.GRAY, 0.1)
+	$Minigames/Animator.play("bob")
 	current_minigame = game
 	game.set_paused(false)
 	game.show()
@@ -27,6 +29,7 @@ func open_minigame(game : Minigame) -> void:
 	
 # Close a minigame
 func close_minigame(game: Minigame) -> void:
+	create_tween().tween_property(grid, "modulate", Color.WHITE, 0.1)
 	if game != current_minigame: return
 	current_minigame = null
 	game.set_paused(true)

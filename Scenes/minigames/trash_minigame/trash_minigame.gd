@@ -1,3 +1,4 @@
+class_name TrashMinigame
 extends Minigame
 
 const CLOSE_TIME: float = 4.0
