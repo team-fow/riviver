@@ -83,6 +83,7 @@ func _on_settings_pressed() -> void:
 func do_intro_cutscene() -> void:
 	$PollutedMap.modulate = Color.BLACK
 	$UI/Margins.modulate.a = 0.0
+	$Levels.modulate.a = 0.0
 	level_info.hide()
 	scienceguy.show()
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
