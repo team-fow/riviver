@@ -20,7 +20,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event.is_action_pressed("click"):
 				var particles = preload("res://scenes/click_particles.tscn").instantiate()
 				particles.position = get_local_mouse_position()
-				particles.set_type("water" if get_cell_source_id(mouse_coords) in [0, 4, 5] else "grass")
+				particles.set_type(get_cell_source_id(mouse_coords), get_cell_atlas_coords(mouse_coords))
 				add_child(particles)
 				_scale(PRESSED_SCALE)
 			elif event.is_action_released("click"):

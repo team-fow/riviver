@@ -33,12 +33,11 @@ scale_curve = SubResource("CurveTexture_o2edq")
 z_index = 5
 material = SubResource("CanvasItemMaterial_o2edq")
 emitting = false
-amount = 1
+amount = 2
 texture = ExtResource("1_v3xvk")
 one_shot = true
 explosiveness = 0.9
 process_material = SubResource("ParticleProcessMaterial_v3xvk")
 script = ExtResource("2_o2edq")
 
-[connection signal="finished" from="." to="." method="queue_free"]
-[connection signal="ready" from="." to="." method="restart"]
+[connection signal="finished" from="." to="." method="_on_finished"]
