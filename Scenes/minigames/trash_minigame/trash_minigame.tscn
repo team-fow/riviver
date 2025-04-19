@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://p1us3q7brykx"]
 
-[ext_resource type="Script" uid="uid://dvf3862fotjwh" path="res://scenes/minigames/trash_minigame/trash_minigame.gd" id="1_rebx8"]
+[ext_resource type="Script" uid="uid://dvf3862fotjwh" path="res://Scenes/minigames/trash_minigame/trash_minigame.gd" id="1_rebx8"]
 [ext_resource type="Texture2D" uid="uid://btb481e14fg8x" path="res://assets/minigames/trash/Truck_Back.png" id="2_ptk86"]
 [ext_resource type="Texture2D" uid="uid://c37h1tyrkjcff" path="res://assets/minigames/trash/Trash_Truck_.png" id="3_y28rm"]
 [ext_resource type="Texture2D" uid="uid://dqx8ju355yq74" path="res://assets/minigames/trash/Recycle_Center_.png" id="4_2yne7"]
