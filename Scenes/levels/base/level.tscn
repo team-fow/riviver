@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=43 format=3 uid="uid://cj0nv5djx71e4"]
 
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c3v4y3yo4uy0w" path="res://assets/lvlselection/Stars.png" id="7_sprtd"]
 [ext_resource type="Texture2D" uid="uid://b4kncsh4jcd40" path="res://assets/winbg.png" id="7_vd8iw"]
 [ext_resource type="Texture2D" uid="uid://b2jmi8ik2wrlj" path="res://assets/Help Pop-up.png" id="7_wtah3"]
+[ext_resource type="PackedScene" uid="uid://e8hf3i82opnr" path="res://scenes/pointer_tutorial/pointer_tutorial.tscn" id="13_hstm6"]
 
 [sub_resource type="Animation" id="Animation_hstm6"]
 length = 0.001
@@ -713,6 +714,10 @@ one_shot = true
 explosiveness = 0.75
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_bxgw7")
+
+[node name="PointerTutorial" parent="." instance=ExtResource("13_hstm6")]
+position = Vector2(0, 0)
+scale = Vector2(0.75, 0.75)
 
 [connection signal="pressed" from="UI/Margins/Left/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/Margins/Left/Help" to="." method="_on_help_pressed"]
