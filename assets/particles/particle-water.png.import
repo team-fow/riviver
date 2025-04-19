@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eq1mwbit8wdh"
-path="res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"
+uid="uid://b1tbyl74jt2e1"
+path="res://.godot/imported/particle-water.png-fd43a6df087a5f46e01d8315e348b8d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/Buttons-Default.png"
-dest_files=["res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"]
+source_file="res://assets/particles/particle-water.png"
+dest_files=["res://.godot/imported/particle-water.png-fd43a6df087a5f46e01d8315e348b8d2.ctex"]
 
 [params]
 

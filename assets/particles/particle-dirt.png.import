@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eq1mwbit8wdh"
-path="res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"
+uid="uid://b2l42pp8t3nfv"
+path="res://.godot/imported/particle-dirt.png-4ff4b7921d62ee4bed8aeac8247e7f24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/Buttons-Default.png"
-dest_files=["res://.godot/imported/Buttons-Default.png-a59f754b2e10bf81da90f5902875dc50.ctex"]
+source_file="res://assets/particles/particle-dirt.png"
+dest_files=["res://.godot/imported/particle-dirt.png-4ff4b7921d62ee4bed8aeac8247e7f24.ctex"]
 
 [params]
 
