@@ -28,8 +28,9 @@ position = Vector2(490.909, 387.879)
 rotation = 0.651558
 minigame = NodePath("../../Minigames/TrashMinigame")
 
-[node name="TrashMinigame" parent="Minigames" index="0" instance=ExtResource("5_rvt76")]
+[node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("trash_objects") instance=ExtResource("5_rvt76")]
 visible = false
+trash_objects = [NodePath("../../Grid/TrashObject"), NodePath("../../Grid/TrashObject2")]
 
 [node name="TrashBin" parent="Minigames/TrashMinigame" index="3" instance=ExtResource("6_v24ps")]
 position = Vector2(180, -546)
