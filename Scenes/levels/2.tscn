@@ -1,18 +1,11 @@
 [gd_scene load_steps=5 format=4 uid="uid://cmwuew4y8876w"]
 
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://Scenes/levels/base/level.tscn" id="1_afygv"]
 [ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://Scenes/minigame_tile/minigame_tile.tscn" id="2_8jtne"]
 [ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://Scenes/minigames/trash_minigame/trash_object.tscn" id="3_afygv"]
 [ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://Scenes/minigames/water_minigame/water_minigame.tscn" id="3_mp0kl"]
 [ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://Scenes/minigames/trash_minigame/trash_minigame.tscn" id="4_8jtne"]
 [ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://Scenes/minigames/trash_minigame/trash_bin.tscn" id="5_mp0kl"]
-=======
-[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_afygv"]
-[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://scenes/minigames/trash_minigame/trash_object.tscn" id="3_afygv"]
-[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://scenes/minigames/trash_minigame/trash_minigame.tscn" id="4_8jtne"]
-[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="5_mp0kl"]
->>>>>>> Stashed changes
 
 [node name="Level2" instance=ExtResource("1_afygv")]
 
