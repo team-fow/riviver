@@ -60,6 +60,12 @@ func change_texture() -> void:
 func start() -> void:
 	super()
 	timer.start()
+	if not Save.get_pointer_done(2):
+		for i in 2:
+			var tutorial_object : Tool = tools[0]
+			var plant : Area2D = plants[0]
+			await pointer.tutorial_point(tutorial_object.global_position, plant.global_position)
+		Save.set_pointer_done(2)		
 
 
 func _process(_delta: float) -> void:

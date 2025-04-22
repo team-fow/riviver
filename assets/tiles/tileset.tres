@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://efnoobl2bdx4"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://efnoobl2bdx4"]
 
 [ext_resource type="Texture2D" uid="uid://d15nl22g1lsqr" path="res://assets/tiles/watertiles.PNG" id="1_5vi5a"]
 [ext_resource type="Texture2D" uid="uid://da2y0ei2myos4" path="res://assets/tiles/Basic_grass.png" id="1_yjwyg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dhqo3ddd3nhls" path="res://assets/tiles/factory_plant.png" id="3_e1exf"]
 [ext_resource type="Texture2D" uid="uid://br2nodib703ox" path="res://assets/tiles/riverband.png" id="6_7gcy8"]
 [ext_resource type="Texture2D" uid="uid://clgle658y0h7m" path="res://assets/tiles/tile set.png" id="7_6i4yi"]
+[ext_resource type="Texture2D" uid="uid://7p1jnfi4e2k" path="res://assets/tiles/Basic_water_ 2.png" id="7_56ggb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7gcy8"]
 texture = ExtResource("1_5vi5a")
@@ -41,6 +42,7 @@ texture_region_size = Vector2i(733, 733)
 texture = ExtResource("3_e1exf")
 texture_region_size = Vector2i(900, 900)
 0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 20)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yjwyg"]
 texture = ExtResource("1_yjwyg")
@@ -56,6 +58,12 @@ texture_region_size = Vector2i(900, 900)
 texture = ExtResource("6_7gcy8")
 texture_region_size = Vector2i(900, 900)
 0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rrhjt"]
+texture = ExtResource("7_56ggb")
+texture_region_size = Vector2i(698, 763)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -80)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qrrm0"]
 texture = ExtResource("7_6i4yi")
@@ -96,3 +104,4 @@ sources/1 = SubResource("TileSetAtlasSource_6i4yi")
 sources/2 = SubResource("TileSetAtlasSource_56ggb")
 sources/5 = SubResource("TileSetAtlasSource_yeb3r")
 sources/7 = SubResource("TileSetAtlasSource_qrrm0")
+sources/6 = SubResource("TileSetAtlasSource_rrhjt")

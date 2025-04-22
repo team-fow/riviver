@@ -4,6 +4,7 @@ var data: Dictionary = {
 	"name": "Player",
 	"levels": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
 	"current_level": 0,
+	"pointer_tutorials_done": [false, false, false]
 }
 
 @onready var animator: AnimationPlayer = $Animator
@@ -41,6 +42,13 @@ func set_current_level(idx: int) -> void:
 	data.current_level = idx
 
 
+## Returns whether the pointer tutorial for a minigame is done (0 -> Trash, 1 -> Water, 2 -> Plant)
+func get_pointer_done(idx: int) -> bool:
+	return data.pointer_tutorials_done[idx]
+	
+
+func set_pointer_done(idx: int) -> void:
+	data.pointer_tutorials_done[idx] = true
 
 # file
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://b763vrhfuct7h"]
+[gd_scene load_steps=8 format=4 uid="uid://dsty0kfm6f28l"]
 
 [ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_ljm8n"]
 [ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="2_p5xfs"]
@@ -18,13 +18,15 @@ position = Vector2(293.939, -296.97)
 script = ExtResource("3_csx81")
 minigame = NodePath("../../Minigames/PlantMinigame")
 
-[node name="TrashObject" parent="Grid" index="1" instance=ExtResource("4_3nc6l")]
+[node name="TrashObject" parent="Grid" index="1" node_paths=PackedStringArray("minigame") instance=ExtResource("4_3nc6l")]
 position = Vector2(-157.576, -860.606)
 rotation = -0.393637
+minigame = NodePath("../../Minigames/TrashMinigame")
 
-[node name="TrashObject2" parent="Grid" index="2" instance=ExtResource("4_3nc6l")]
+[node name="TrashObject2" parent="Grid" index="2" node_paths=PackedStringArray("minigame") instance=ExtResource("4_3nc6l")]
 position = Vector2(490.909, 387.879)
 rotation = 0.651558
+minigame = NodePath("../../Minigames/TrashMinigame")
 
 [node name="TrashMinigame" parent="Minigames" index="0" instance=ExtResource("5_rvt76")]
 visible = false

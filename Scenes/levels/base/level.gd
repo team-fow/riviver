@@ -104,7 +104,14 @@ func _ready() -> void:
 			minigames.append(minigame)
 			minigame.started.connect(open_minigame)
 			minigame.ended.connect(end_minigame)
-	do_tutorial(Save.get_current_level())
+			minigame.pointer = pointer_tutorial
+	await do_tutorial(Save.get_current_level())
+	if not Save.get_pointer_done(0) && grid.get_children().any(func(tile): return tile is TrashObject):
+		for i in 2:
+			var tutorial_object : TrashObject = grid.get_children().filter(func(tile): return tile is TrashObject)[0]
+			var trash_minigame = tutorial_object.minigame
+			await pointer_tutorial.tutorial_point(tutorial_object.global_position, trash_minigame.global_position)
+		Save.set_pointer_done(0)
 
 
 func do_tutorial(idx: int) -> void:

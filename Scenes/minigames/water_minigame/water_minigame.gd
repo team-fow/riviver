@@ -26,7 +26,12 @@ func start() -> void:
 				pipes.create_or_add_to_stack(new_pipe)
 				new_pipe.grabbed.connect(func(): held_pipe = new_pipe)
 				new_pipe.dropped.connect(func(): drop_pipe(new_pipe))
-		redraw(true)		
+		redraw(true)
+	if not Save.get_pointer_done(1) && pipes.get_child(0).get_children().any(func(stack): return stack is PipeStack):
+		for i in 2:
+			var tutorial_object : PipeStack = pipes.get_child(0).get_children().filter(func(stack): return stack is PipeStack)[0]
+			await pointer.tutorial_point(tutorial_object.global_position, grid.grid_collision.global_position)
+		Save.set_pointer_done(1)			
 
 # Redraw the grid
 func redraw(draw_rocks: bool = false) -> void:

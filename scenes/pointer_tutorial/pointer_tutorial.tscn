@@ -5,6 +5,7 @@
 
 [node name="PointerTutorial" type="Sprite2D"]
 modulate = Color(1, 1, 1, 0)
+z_index = 20
 texture = ExtResource("1_4vg7u")
 centered = false
 offset = Vector2(-30, 0)

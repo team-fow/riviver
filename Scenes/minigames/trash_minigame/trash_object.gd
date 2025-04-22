@@ -7,6 +7,7 @@ signal eaten
 
 var type: int
 var initial_scale: Vector2i = scale
+@export var minigame: TrashMinigame
 
 
 func _drop() -> void:

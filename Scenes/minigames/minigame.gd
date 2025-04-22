@@ -6,6 +6,7 @@ signal ended(minigame: Minigame, score: float) ## Emitted when the minigame is c
 
 var score: float: ## How well the minigame was played, on a scale from 0 to 1.
 	set(value): score = clampf(value, 0.0, 1.0)
+var pointer: PointerTutorial ## The level pointer node
 
 @onready var level: Level = $"../../"
 

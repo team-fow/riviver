@@ -10,28 +10,33 @@
 [node name="Grid" parent="." index="0"]
 tile_map_data = PackedByteArray("AAD/////BwAAAAEAAAD///7/BwAAAAMAAAD+////BwAAAAMAAAD//wAABwABAAIAAAD//wEABAAAAAAAAAAAAAAABAAAAAAAAAAAAP//BAAAAAAAAAAAAP7/BAAAAAAAAAD///3/BAAAAAAAAAAAAP3/BwACAAEAAAAAAPz/BwAAAAMAAAD///v/BwAAAAMAAAD///z/BAAAAAAAAAD+//3/BwABAAIAAAD+//7/BwAAAAMAAAD9////BwAAAAIAAAD+/wAABwAAAAMAAAD+/wEABwAAAAMAAAD//wIABAAAAAAAAAD//wMABwAAAAMAAAAAAAIABwAAAAMAAAAAAAEABwAAAAMAAAABAAAABAAAAAAAAAABAP//BwAAAAEAAAABAP7/BwACAAAAAAA=")
 
-[node name="TrashObject1" parent="Grid" index="0" instance=ExtResource("3_afygv")]
+[node name="TrashObject1" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("3_afygv")]
 position = Vector2(-915.151, -375.757)
 rotation = 0.545164
 category = "recycling"
+minigame = NodePath("../../Minigames/TrashMinigame")
 
-[node name="TrashObject2" parent="Grid" index="1" instance=ExtResource("3_afygv")]
+[node name="TrashObject2" parent="Grid" index="1" node_paths=PackedStringArray("minigame") instance=ExtResource("3_afygv")]
 position = Vector2(296.97, -987.879)
 rotation = 1.02304
+minigame = NodePath("../../Minigames/TrashMinigame")
 
-[node name="TrashObject3" parent="Grid" index="2" instance=ExtResource("3_afygv")]
+[node name="TrashObject3" parent="Grid" index="2" node_paths=PackedStringArray("minigame") instance=ExtResource("3_afygv")]
 position = Vector2(-666.667, 515.152)
 rotation = -0.442019
 category = "recycling"
+minigame = NodePath("../../Minigames/TrashMinigame")
 
-[node name="TrashObject4" parent="Grid" index="3" instance=ExtResource("3_afygv")]
+[node name="TrashObject4" parent="Grid" index="3" node_paths=PackedStringArray("minigame") instance=ExtResource("3_afygv")]
 position = Vector2(633.333, 524.242)
 rotation = 1.11703
+minigame = NodePath("../../Minigames/TrashMinigame")
 
-[node name="TrashObject5" parent="Grid" index="4" instance=ExtResource("3_afygv")]
+[node name="TrashObject5" parent="Grid" index="4" node_paths=PackedStringArray("minigame") instance=ExtResource("3_afygv")]
 position = Vector2(563.636, -51.5151)
 rotation = -0.626965
 category = "recycling"
+minigame = NodePath("../../Minigames/TrashMinigame")
 
 [node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("level", "trash_objects") instance=ExtResource("4_8jtne")]
 visible = false
