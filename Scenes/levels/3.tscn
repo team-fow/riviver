@@ -11,7 +11,7 @@
 [node name="Level" instance=ExtResource("1_t3mkv")]
 
 [node name="Grid" parent="." index="0"]
-tile_map_data = PackedByteArray("AAD/////BAAAAAAAAAD///7/AgAAAAAAAAD+////BAAAAAAAAAD//wAABAAAAAAAAAD//wEABwAAAAMAAAAAAAAABwABAAAAAAAAAP//BAAAAAAAAAAAAP7/BAAAAAAAAAD///3/BwAAAAMAAAAAAP3/BwABAAIAAAAAAPz/BwADAAAAAAD///v/BwABAAEAAAD///z/BwABAAIAAAD+//3/BwAAAAMAAAD+//7/BAAAAAAAAAD9////BwAAAAMAAAD+/wAABwABAAMAAAD+/wEABwAAAAMAAAD//wIABwABAAIAAAD//wMABwADAAMAAAAAAAIABwAAAAMAAAAAAAEABwAAAAEAAAABAAAABAAAAAAAAAABAP//BwAAAAMAAAABAP7/BwAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAD/////BgAAAAAAAAD///7/AgAAAAAAAAD+////BgAAAAAAAAD//wAABgAAAAAAAAD//wEABwAAAAMAAAAAAAAABwABAAAAAAAAAP//BgAAAAAAAAAAAP7/BgAAAAAAAAD///3/BwAAAAMAAAAAAP3/BwABAAIAAAAAAPz/BwADAAAAAAD///v/BwABAAEAAAD///z/BwABAAIAAAD+//3/BwAAAAMAAAD+//7/BgAAAAAAAAD9////BwAAAAMAAAD+/wAABwABAAMAAAD+/wEABwAAAAMAAAD//wIABwABAAIAAAD//wMABwADAAMAAAAAAAIABwAAAAMAAAAAAAEABwAAAAEAAAABAAAABgAAAAAAAAABAP//BwAAAAMAAAABAP7/BwAAAAMAAAA=")
 
 [node name="WaterTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_cddsv")]
 position = Vector2(-318.182, -296.97)
@@ -41,9 +41,8 @@ rotation = 0.962579
 category = "recycling"
 minigame = NodePath("../../Minigames/TrashMinigame")
 
-[node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("level", "trash_objects") instance=ExtResource("7_bg5fu")]
+[node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("trash_objects") instance=ExtResource("7_bg5fu")]
 visible = false
-level = NodePath("../..")
 trash_objects = [NodePath("../../Grid/TrashObject"), NodePath("../../Grid/TrashObject2"), NodePath("../../Grid/TrashObject3"), NodePath("../../Grid/TrashObject4")]
 
 [node name="TrashBin" parent="Minigames/TrashMinigame" index="3" instance=ExtResource("8_y87mq")]

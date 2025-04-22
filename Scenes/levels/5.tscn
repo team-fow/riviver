@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="6_v24ps"]
 [ext_resource type="PackedScene" uid="uid://cxyyfgdo1704o" path="res://scenes/minigames/plant_minigame/plant_minigame.tscn" id="7_ljm8n"]
 
-[node name="Level4" instance=ExtResource("1_ljm8n")]
+[node name="Level5" instance=ExtResource("1_ljm8n")]
 
 [node name="Grid" parent="." index="0"]
-tile_map_data = PackedByteArray("AAD/////BAAAAAAAAAD///7/BAAAAAAAAAD+////BwAAAAMAAAD//wAABwAAAAMAAAD//wEABwAAAAEAAAAAAAAABAAAAAAAAAAAAP//BwADAAMAAAAAAP7/BQAAAAAAABD///3/BAAAAAAAAAAAAP3/BwAAAAMAAAAAAPz/BwACAAEAAAD///v/BwABAAEAAAD///z/BAAAAAAAAAD+//3/BwAAAAMAAAD+//7/BwADAAAAAAD9////BwACAAAAAAD+/wAABwABAAMAAAD+/wEABwAAAAMAAAD//wIABwABAAIAAAD//wMABwAAAAMAAAAAAAIABwABAAIAAAAAAAEABAAAAAAAAAABAAAABwACAAIAAAABAP//BwADAAIAAAABAP7/BwAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAD/////BgAAAAAAAAD///7/BgAAAAAAAAD+////BwAAAAMAAAD//wAABwAAAAMAAAD//wEABwAAAAEAAAAAAAAABgAAAAAAAAAAAP//BwADAAMAAAAAAP7/BQAAAAAAABD///3/BgAAAAAAAAAAAP3/BwAAAAMAAAAAAPz/BwACAAEAAAD///v/BwABAAEAAAD///z/BgAAAAAAAAD+//3/BwAAAAMAAAD+//7/BwADAAAAAAD9////BwACAAAAAAD+/wAABwABAAMAAAD+/wEABwAAAAMAAAD//wIABwABAAIAAAD//wMABwAAAAMAAAAAAAIABwABAAIAAAAAAAEABgAAAAAAAAABAAAABwACAAIAAAABAP//BwADAAIAAAABAP7/BwAAAAMAAAA=")
 
 [node name="MinigameTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_p5xfs")]
 position = Vector2(293.939, -296.97)

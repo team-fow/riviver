@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="6_033ma"]
 [ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://scenes/minigames/water_minigame/water_minigame.tscn" id="7_xbara"]
 
-[node name="Level4" instance=ExtResource("1_8xqld")]
+[node name="Level5" instance=ExtResource("1_8xqld")]
 
 [node name="Grid" parent="." index="0"]
 tile_map_data = PackedByteArray("AAD/////BwABAAIAAAD///7/BwAAAAMAAAD+////BwABAAIAAAD//wAABwAAAAMAAAD//wEABgAAAAAAAAAAAAAABgAAAAAAAAAAAP//BgAAAAAAAAAAAP7/AgAAAAAAAAD///3/BwAAAAMAAAAAAP3/BwAAAAMAAAAAAPz/BwADAAEAAAD///v/BwADAAIAAAD///z/BwADAAMAAAD+//3/BwAAAAMAAAD+//7/BwABAAMAAAD9////BwAAAAMAAAD+/wAABwAAAAMAAAD+/wEABwAAAAEAAAD//wIABgAAAAAAAAD//wMABwAAAAMAAAAAAAIABwAAAAIAAAAAAAEABwAAAAAAAAABAAAABgAAAAAAAAABAP//BwABAAEAAAABAP7/BwABAAAAAAA=")
