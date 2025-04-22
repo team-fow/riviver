@@ -3,9 +3,9 @@ extends Minigame
 
 const CLOSE_TIME: float = 4.0
 
-@export var level: Level
 @export var trash_objects: Array[TrashObject]
 
+@onready var level: Level = $"../../"
 @onready var close_timer: Timer = $CloseTimer
 @onready var animator: AnimationPlayer = $Animator
 

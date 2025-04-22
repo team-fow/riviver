@@ -32,9 +32,8 @@ position = Vector2(763.636, 78.7878)
 rotation = -0.849551
 category = "recycling"
 
-[node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("level", "trash_objects") instance=ExtResource("5_mowbc")]
+[node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("trash_objects") instance=ExtResource("5_mowbc")]
 visible = false
-level = NodePath("../..")
 trash_objects = [NodePath("../../Grid/TrashObject"), NodePath("../../Grid/TrashObject2"), NodePath("../../Grid/TrashObject3")]
 
 [node name="TrashBin" parent="Minigames/TrashMinigame" index="3" instance=ExtResource("6_033ma")]
