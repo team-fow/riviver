@@ -12,6 +12,7 @@ var current_minigame: Minigame # The currently active minigame.
 @onready var scienceguy: Control = $UI/Margins/Scienceguy
 @onready var leaf_particles: GPUParticles2D = $LeafParticles
 @onready var petal_particles: GPUParticles2D = $PetalParticles
+@onready var pointer_tutorial: PointerTutorial = $PointerTutorial
 
 
 # Open a minigame

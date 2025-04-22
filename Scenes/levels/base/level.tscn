@@ -716,7 +716,6 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_bxgw7")
 
 [node name="PointerTutorial" parent="." instance=ExtResource("13_hstm6")]
-position = Vector2(0, 0)
 scale = Vector2(0.75, 0.75)
 
 [connection signal="pressed" from="UI/Margins/Left/Settings" to="." method="_on_settings_pressed"]
