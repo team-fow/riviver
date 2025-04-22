@@ -45,6 +45,7 @@ func end() -> void:
 	animator.play("water")
 	await animator.animation_finished
 	ended.emit(self, score)
+	level.do_particles(score)
 
 
 func change_texture() -> void:

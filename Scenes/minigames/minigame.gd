@@ -7,6 +7,8 @@ signal ended(minigame: Minigame, score: float) ## Emitted when the minigame is c
 var score: float: ## How well the minigame was played, on a scale from 0 to 1.
 	set(value): score = clampf(value, 0.0, 1.0)
 
+@onready var level: Level = $"../../"
+
 
 ## Runs when the minigame starts. Overwrite.
 func start() -> void:

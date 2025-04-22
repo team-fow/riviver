@@ -142,12 +142,14 @@ func _on_run_water_pressed() -> void:
 		modulate = Color.GREEN
 		await get_tree().create_timer(0.5).timeout
 		score = 1.0
-		ended.emit(self, 1.0)
+		ended.emit(self, score)
+		level.do_particles(score)
 	else:
 		modulate = Color.RED
 		await get_tree().create_timer(0.5).timeout
 		score = 0.0
-		ended.emit(self, 0.0)
+		ended.emit(self, score)
+		level.do_particles(score)
 
 
 func _on_pause_pressed() -> void:

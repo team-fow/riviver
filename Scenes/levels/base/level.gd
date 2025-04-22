@@ -42,15 +42,17 @@ func end_minigame(game: Minigame, score: float) -> void:
 	minigames_completed += 1
 	close_minigame(game)
 	
-	leaf_particles.emitting = true
-	if score == 1.0: petal_particles.emitting = true
-	
 	if minigames_completed == minigames.size():
 		var total_score: float = 0.0
 		for minigame: Minigame in minigames:
 			total_score += minigame.score
 		Save.set_level_score(Save.get_current_level(), total_score / minigames.size())
 		do_summary()
+
+
+func do_particles(score: float) -> void:
+	leaf_particles.emitting = true
+	if score == 1.0: petal_particles.emitting = true
 
 
 
@@ -117,6 +119,7 @@ func do_tutorial(idx: int) -> void:
 			await scienceguy.set_text("Find trash in the level behind me.")
 			await scienceguy.set_text("Click on a piece of trash, hold it down, and then move the cursor around.")
 			await scienceguy.set_text("Then drag the trash into our trash bins!")
+			pointer_tutorial.tutorial_point(grid.get_child(0).global_position, $Minigames/TrashMinigame/TrashBin.global_position)
 		1:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Great job on finding and removing trash!")

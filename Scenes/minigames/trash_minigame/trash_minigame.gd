@@ -5,7 +5,6 @@ const CLOSE_TIME: float = 4.0
 
 @export var trash_objects: Array[TrashObject]
 
-@onready var level: Level = $"../../"
 @onready var close_timer: Timer = $CloseTimer
 @onready var animator: AnimationPlayer = $Animator
 
@@ -40,6 +39,7 @@ func _on_trash_eaten(trash: TrashObject) -> void:
 
 func end() -> void:
 	score = float(trash_correct)/float(total_trash)
+	level.do_particles(score)
 	
 	var tween: Tween = create_tween().set_parallel().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	for child: Node in get_children():
