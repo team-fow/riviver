@@ -8,24 +8,20 @@
 [node name="Level" instance=ExtResource("1_ie7v7")]
 
 [node name="Grid" parent="." index="0"]
-tile_map_data = PackedByteArray("AAD/////BwABAAIAAAD///7/AAACAAIAAAD+////AAACAAIAAAD//wAAAAABAAIAAAD//wEAAAAAAAIAAAAAAAAABwAAAAMAAAAAAP//BwABAAAAAAAAAP7/BwABAAIAAAD///3/AAABAAAAAAAAAP3/BwACAAAAAAAAAPz/BwAAAAMAAAD///v/BwABAAMAAAD///z/BwAAAAMAAAD+//3/BwABAAEAAAD+//7/BwAAAAMAAAD9////BwAAAAAAAAD+/wAABwABAAIAAAD+/wEABwAAAAIAAAD//wIABwAAAAMAAAD//wMABwAAAAMAAAAAAAIABwAAAAMAAAAAAAEABwAAAAMAAAABAAAABwAAAAMAAAABAP//BwAAAAMAAAABAP7/BwAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAD/////BwAAAAMAAAD///7/BwAAAAMAAAD+////BwAAAAMAAAD//wAABwAAAAMAAAD//wEABwAAAAMAAAAAAAAABwAAAAMAAAAAAP//BwAAAAMAAAAAAP7/BwAAAAMAAAD///3/BwAAAAMAAAAAAP3/BwAAAAMAAAAAAPz/BwAAAAMAAAD///v/BwAAAAMAAAD///z/BwAAAAMAAAD+//3/BwAAAAMAAAD+//7/BwABAAAAAAD9////BwAAAAAAAAD+/wAABwAAAAEAAAD+/wEABwABAAIAAAD//wIABwAAAAMAAAD//wMABwAAAAMAAAAAAAIABwAAAAMAAAAAAAEABwAAAAMAAAABAAAABwABAAIAAAABAP//BwACAAAAAAABAP7/BwADAAAAAAA=")
 
 [node name="TrashObject1" parent="Grid" index="0" instance=ExtResource("3_0absb")]
-position = Vector2(-906.061, -354.545)
+position = Vector2(-272.727, -378.788)
 rotation = 0.388766
 
 [node name="TrashObject2" parent="Grid" index="1" instance=ExtResource("3_0absb")]
-position = Vector2(-24.2425, 509.091)
-rotation = -0.0943237
-
-[node name="TrashObject3" parent="Grid" index="2" instance=ExtResource("3_0absb")]
-position = Vector2(572.727, -609.091)
-rotation = -0.916388
+position = Vector2(242.424, 15.1515)
+rotation = -0.544169
 
 [node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("level", "trash_objects") instance=ExtResource("3_x3ltn")]
 visible = false
 level = NodePath("../..")
-trash_objects = [NodePath("../../Grid/TrashObject1"), NodePath("../../Grid/TrashObject2"), NodePath("../../Grid/TrashObject3")]
+trash_objects = [NodePath("../../Grid/TrashObject1"), NodePath("../../Grid/TrashObject2")]
 
 [node name="TrashBin" parent="Minigames/TrashMinigame" index="1" instance=ExtResource("4_f00r8")]
 position = Vector2(-27.2727, -57.5757)

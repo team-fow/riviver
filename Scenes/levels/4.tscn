@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=4 uid="uid://kdp2l5yy8pt3"]
+
+[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_8xqld"]
+[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="2_q1k55"]
+[ext_resource type="Script" uid="uid://dv7rmsc7ratin" path="res://scenes/minigame_tile/plant_minigame_tile.gd" id="3_gpjcc"]
+[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://scenes/minigames/trash_minigame/trash_object.tscn" id="4_0u0gx"]
+[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://scenes/minigames/trash_minigame/trash_minigame.tscn" id="5_mowbc"]
+[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="6_033ma"]
+[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://scenes/minigames/water_minigame/water_minigame.tscn" id="7_xbara"]
+
+[node name="Level4" instance=ExtResource("1_8xqld")]
+
+[node name="Grid" parent="." index="0"]
+tile_map_data = PackedByteArray("AAD/////BwABAAIAAAD///7/BwAAAAMAAAD+////BwABAAIAAAD//wAABwAAAAMAAAD//wEABAAAAAAAAAAAAAAABAAAAAAAAAAAAP//BAAAAAAAAAAAAP7/AgAAAAAAAAD///3/BwAAAAMAAAAAAP3/BwAAAAMAAAAAAPz/BwADAAEAAAD///v/BwADAAIAAAD///z/BwADAAMAAAD+//3/BwAAAAMAAAD+//7/BwABAAMAAAD9////BwAAAAMAAAD+/wAABwAAAAMAAAD+/wEABwAAAAEAAAD//wIABAAAAAAAAAD//wMABwAAAAMAAAAAAAIABwAAAAIAAAAAAAEABwAAAAAAAAABAAAABAAAAAAAAAABAP//BwABAAEAAAABAP7/BwABAAAAAAA=")
+
+[node name="WaterTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_q1k55")]
+position = Vector2(284.848, -296.97)
+script = ExtResource("3_gpjcc")
+minigame = NodePath("../../Minigames/WaterMinigame")
+
+[node name="TrashObject" parent="Grid" index="1" instance=ExtResource("4_0u0gx")]
+position = Vector2(-290.909, -987.879)
+rotation = -0.393637
+
+[node name="TrashObject2" parent="Grid" index="2" instance=ExtResource("4_0u0gx")]
+position = Vector2(-896.97, 227.273)
+rotation = 0.525056
+category = "recycling"
+
+[node name="TrashObject3" parent="Grid" index="3" instance=ExtResource("4_0u0gx")]
+position = Vector2(763.636, 78.7878)
+rotation = -0.849551
+category = "recycling"
+
+[node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("level", "trash_objects") instance=ExtResource("5_mowbc")]
+visible = false
+level = NodePath("../..")
+trash_objects = [NodePath("../../Grid/TrashObject"), NodePath("../../Grid/TrashObject2"), NodePath("../../Grid/TrashObject3")]
+
+[node name="TrashBin" parent="Minigames/TrashMinigame" index="3" instance=ExtResource("6_033ma")]
+position = Vector2(0, -400)
+rotation = 0.215208
+
+[node name="TrashBin2" parent="Minigames/TrashMinigame" index="4" instance=ExtResource("6_033ma")]
+position = Vector2(0, 400)
+rotation = -0.0822912
+category = "recycling"
+
+[node name="WaterMinigame" parent="Minigames" index="1" instance=ExtResource("7_xbara")]
+visible = false
+filters_needed = Array[String](["SANDFILTER"])
+grid_def = Dictionary[Vector2i, String]({
+Vector2i(0, 0): "ROCK",
+Vector2i(0, 1): "ROCK",
+Vector2i(0, 2): "ROCK",
+Vector2i(0, 3): "ROCK",
+Vector2i(0, 4): "ROCK",
+Vector2i(2, 2): "ROCK",
+Vector2i(4, 0): "ROCK",
+Vector2i(4, 4): "ROCK"
+})
+pipe_def = Dictionary[String, int]({
+"DOWNLEFT": 1,
+"DOWNRIGHT": 1,
+"UPDOWN": 2,
+"UPDOWNSANDFILTER": 1,
+"UPLEFT": 1,
+"UPRIGHT": 1
+})
+
+[node name="Margins" parent="UI" index="0"]
+mouse_filter = 2

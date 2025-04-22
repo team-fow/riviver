@@ -231,15 +231,27 @@ texture = ExtResource("2_8pao6")
 [node name="Levels" type="Node2D" parent="."]
 
 [node name="LevelPin1" parent="Levels" instance=ExtResource("2_mfk5f")]
-position = Vector2(-1183, -229)
+position = Vector2(-1696, -279)
 description = "Someone's littered all over! Your animal friends are in trouble..."
 
 [node name="LevelPin2" parent="Levels" instance=ExtResource("2_mfk5f")]
-position = Vector2(-299, -216)
+position = Vector2(-1245, -225)
 description = "Some leaky pipes are polluting the water!"
 
 [node name="LevelPin3" parent="Levels" instance=ExtResource("2_mfk5f")]
-position = Vector2(377, -323)
+position = Vector2(-597, -237)
+description = "The banks of the river are eroding!"
+
+[node name="LevelPin4" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(-132, -238)
+description = "The banks of the river are eroding!"
+
+[node name="LevelPin5" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(324, -315)
+description = "The banks of the river are eroding!"
+
+[node name="LevelPin6" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(1010, -82)
 description = "The banks of the river are eroding!"
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -402,6 +414,18 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

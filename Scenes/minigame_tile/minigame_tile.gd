@@ -3,12 +3,15 @@ extends Area2D
 ## Triggers a minigame when clicked; disappears when the minigame is completed.
 ## Add your own sprites.
 
+signal clicked
+
 @export var minigame: Minigame ## Minigame to trigger when this node is clicked.
 
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
 		minigame.start()
+		clicked.emit()
 
 
 func _ready() -> void:

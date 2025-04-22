@@ -2,7 +2,7 @@ extends Node
 
 var data: Dictionary = {
 	"name": "Player",
-	"levels": [0.0, 0.0, 0.0],
+	"levels": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
 	"current_level": 0,
 }
 

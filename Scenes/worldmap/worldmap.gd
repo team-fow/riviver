@@ -57,7 +57,9 @@ func play_selected_level() -> void:
 
 func _ready() -> void:
 	var idx: int = range(levels.get_child_count()).rfind_custom(Save.is_level_completed)
-	if idx != -1:
+	if idx == -1:
+		mask.hide()
+	else:
 		var map_rect: Rect2 = mask.get_parent().get_rect()
 		mask.texture.fill_from.x = (levels.get_child(idx).position.x + 250 - map_rect.position.x) / map_rect.size.x
 	

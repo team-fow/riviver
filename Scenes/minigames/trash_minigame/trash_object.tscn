@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7nn6mygdub2k"]
 
-[ext_resource type="Script" uid="uid://cuwfuf8wrau0q" path="res://Scenes/minigames/trash_minigame/trash_object.gd" id="1_usk00"]
+[ext_resource type="Script" uid="uid://cuwfuf8wrau0q" path="res://scenes/minigames/trash_minigame/trash_object.gd" id="1_usk00"]
 [ext_resource type="Texture2D" uid="uid://c0p4g1ng3bcqu" path="res://assets/minigames/trash/recycling_trash.png" id="2_cs1ag"]
 [ext_resource type="Texture2D" uid="uid://dq0bs01k2y402" path="res://assets/minigames/trash/point light.png" id="3_jr7gt"]
 
@@ -15,8 +15,7 @@ metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_cs1ag")
-hframes = 3
-vframes = 2
+hframes = 6
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 8.5)
