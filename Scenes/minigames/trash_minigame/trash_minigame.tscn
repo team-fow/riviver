@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://p1us3q7brykx"]
+[gd_scene load_steps=11 format=3 uid="uid://p1us3q7brykx"]
 
 [ext_resource type="Script" uid="uid://dvf3862fotjwh" path="res://scenes/minigames/trash_minigame/trash_minigame.gd" id="1_rebx8"]
 [ext_resource type="Texture2D" uid="uid://bbthhw77l0kpp" path="res://assets/minigames/trash/trash_truck.png" id="2_qvkc5"]
 [ext_resource type="Texture2D" uid="uid://budalbt15ie0l" path="res://assets/minigames/trash/arrow.png" id="3_f7hqr"]
 [ext_resource type="Texture2D" uid="uid://c37h1tyrkjcff" path="res://assets/minigames/trash/Trash_Truck_.png" id="3_y28rm"]
 [ext_resource type="Texture2D" uid="uid://dqx8ju355yq74" path="res://assets/minigames/trash/Recycle_Center_.png" id="4_2yne7"]
+[ext_resource type="Texture2D" uid="uid://dwm3rh7jtt4nu" path="res://assets/minigames/trash/trashtrucklabel.png" id="4_f7hqr"]
 [ext_resource type="Texture2D" uid="uid://2k7mxk3y3qk8" path="res://assets/minigames/trash/happy.png" id="5_svkof"]
 
 [sub_resource type="Animation" id="Animation_qvkc5"]
@@ -151,6 +152,9 @@ texture = ExtResource("2_qvkc5")
 
 [node name="Arrow" type="Sprite2D" parent="Truck"]
 texture = ExtResource("3_f7hqr")
+
+[node name="Label" type="Sprite2D" parent="Truck"]
+texture = ExtResource("4_f7hqr")
 
 [node name="CloseTimer" type="Timer" parent="."]
 
