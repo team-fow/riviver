@@ -79,3 +79,11 @@ func change_scene(file: String) -> void:
 
 func start_music() -> void:
 	$Music.play()
+
+
+
+# screenshot
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("screenshot"):
+		get_viewport().get_texture().get_image().save_png("user://screenshot_%s.png" % Time.get_datetime_string_from_system())

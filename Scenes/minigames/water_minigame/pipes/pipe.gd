@@ -64,7 +64,7 @@ static func dir_to_vector(dir: DIRECTIONS) -> Vector2i:
 
 # Returns a pipe object given a string decriptor
 static func create_pipe(s : String) -> Pipe:
-	var new_pipe: Pipe = load("res://Scenes/minigames/water_minigame/pipes/pipe.tscn").instantiate()
+	var new_pipe: Pipe = load("uid://otg43e6qq22s").instantiate()
 	new_pipe.texture = WaterMinigame.get_texture(s)
 	if s.containsn("SANDFILTER"):
 		new_pipe.filter_type = "SANDFILTER"

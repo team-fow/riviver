@@ -232,23 +232,23 @@ texture = ExtResource("2_8pao6")
 
 [node name="LevelPin1" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-1696, -279)
-description = "Someone's littered all over! Your animal friends are in trouble..."
+description = "Someone's littered! Your animal friends are sad..."
 
 [node name="LevelPin2" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-1245, -225)
-description = "Even more litter! Let's sort this out..."
+description = "More litter! Let's sort this out..."
 
 [node name="LevelPin3" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-597, -237)
-description = "A factory has a leak! Fix it with your toolkit..."
+description = "A factory has a leak! Fix it with your tools..."
 
 [node name="LevelPin4" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-132, -238)
-description = "Dirty chemicals are getting into the water! If only we could filter them..."
+description = "The water is being polluted!"
 
 [node name="LevelPin5" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(324, -315)
-description = "The banks of the river are eroding!"
+description = "The river is eroding!"
 
 [node name="LevelPin6" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(1010, -82)
