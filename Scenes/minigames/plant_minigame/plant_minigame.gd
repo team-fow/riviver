@@ -64,7 +64,7 @@ func start() -> void:
 		for i in 2:
 			var tutorial_object : Tool = tools[0]
 			var plant : Area2D = plants[0]
-			await pointer.tutorial_point(tutorial_object.global_position, plant.global_position)
+			await pointer.tutorial_point(tutorial_object.global_position, plant.global_position, true)
 		Save.set_pointer_done(2)		
 
 
