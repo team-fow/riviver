@@ -66,6 +66,7 @@ func do_summary() -> void:
 	for i: int in stars.get_child_count():
 		stars.get_child(i).get_child(0).visible = score >= (i + 1) / 3.0
 	
+	$UI/Summary/Content/NextLevel.disabled = score <= 0.33
 	animator.play("open_summary")
 	await animator.animation_finished
 
