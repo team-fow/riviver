@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjrf0x4vn50hb"]
+[gd_scene load_steps=12 format=3 uid="uid://bjrf0x4vn50hb"]
 
 [ext_resource type="Script" uid="uid://c6axy1ybxyeui" path="res://scenes/minigames/plant_minigame/plant.gd" id="1_wru0m"]
 [ext_resource type="Texture2D" uid="uid://cioahb8rrwp6" path="res://assets/minigames/plant/bush.png" id="2_2whjf"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://c2q1e52ntho5" path="res://assets/minigames/plant/soil_pile.png" id="3_2jvvw"]
 [ext_resource type="Texture2D" uid="uid://c3hov601hoxr7" path="res://assets/minigames/plant/seed.png" id="3_83s8x"]
 [ext_resource type="Texture2D" uid="uid://bs4qr2agh74tr" path="res://assets/minigames/plant/root.png" id="7_71yum"]
+[ext_resource type="Texture2D" uid="uid://50tjlm6r8xfo" path="res://assets/minigames/plant/shovel.png" id="8_n75j4"]
+[ext_resource type="Texture2D" uid="uid://c3lbrr2ss6etv" path="res://assets/minigames/plant/bar-empty.png" id="8_xdgt4"]
+[ext_resource type="Texture2D" uid="uid://cth617caeb0py" path="res://assets/minigames/plant/bar-fill.png" id="9_n75j4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3e3o"]
 size = Vector2(500, 600)
@@ -43,3 +46,31 @@ texture = ExtResource("7_71yum")
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(-8, -110.667)
 shape = SubResource("RectangleShape2D_d3e3o")
+
+[node name="Progress" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 158.333
+offset_right = 115.0
+offset_bottom = 222.333
+grow_horizontal = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(115, 0)
+theme_override_constants/separation = 16
+
+[node name="Icon" type="TextureRect" parent="Progress"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_n75j4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bar" type="TextureProgressBar" parent="Progress"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 50.0
+texture_under = ExtResource("8_xdgt4")
+texture_progress = ExtResource("9_n75j4")
+texture_progress_offset = Vector2(8, 6)

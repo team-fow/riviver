@@ -15,7 +15,6 @@ enum State { ## All states the plant can be in.
 }
 
 var state: State : set = _set_state ## Current state.
-var progress: float
 
 # Sprites...
 @onready var hole_sprite: Sprite2D = $HoleSprite
@@ -23,6 +22,10 @@ var progress: float
 @onready var pile_sprite: Sprite2D = $PileSprite
 @onready var bush_sprite: Sprite2D = $BushSprite
 @onready var root_sprite: Sprite2D = $RootSprite
+
+@onready var progress: HBoxContainer = $Progress
+@onready var progress_bar: TextureProgressBar = $Progress/Bar
+@onready var progress_icon: TextureRect = $Progress/Icon
 
 
 ## Moves the plant to the next state (see the State enum).
@@ -44,6 +47,16 @@ func _set_state(value: State) -> void:
 	pile_sprite.visible = state == State.HOLE_FILLED
 	bush_sprite.visible = state >= State.WATERED
 	root_sprite.visible = state >= State.WATERED
+	# progress bar
+	progress.visible = state < State.WATERED
+	progress_icon.texture = [
+		load("res://assets/minigames/plant/shovel.png"),
+		load("res://assets/minigames/plant/seed_bag.png"),
+		load("res://assets/minigames/plant/soil_bag.png"),
+		load("res://assets/minigames/plant/pot_single.png"),
+		null,
+	][state]
+	
 	# emitting grown signal
 	if state == State.WATERED: grown.emit()
 
@@ -55,10 +68,10 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 	if event is InputEventMouseMotion:
 		for area: Area2D in get_overlapping_areas():
 			if area is Tool and is_affected_by_tool(area):
-				progress += event.velocity.length() / 1000
-				if progress > PROGRESS_CAP:
+				progress_bar.value += event.velocity.length() / 1000
+				if progress_bar.value == progress_bar.max_value:
 					advance_state()
-					progress = 0.0
+					progress_bar.value = 0.0
 
 
 

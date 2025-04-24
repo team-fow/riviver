@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddsd46lv4a743"
-path="res://.godot/imported/pot_animation.png-3cd265fbb496c3748abc726144c4a0b1.ctex"
+uid="uid://bkoukj0psnsqb"
+path="res://.godot/imported/pot_single.png-99f46915f7f9a56c30013880acff0186.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minigames/plant/pot_animation.png"
-dest_files=["res://.godot/imported/pot_animation.png-3cd265fbb496c3748abc726144c4a0b1.ctex"]
+source_file="res://assets/minigames/plant/pot_single.png"
+dest_files=["res://.godot/imported/pot_single.png-99f46915f7f9a56c30013880acff0186.ctex"]
 
 [params]
 
