@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://p1us3q7brykx"]
+[gd_scene load_steps=10 format=3 uid="uid://p1us3q7brykx"]
 
-[ext_resource type="Script" uid="uid://dvf3862fotjwh" path="res://Scenes/minigames/trash_minigame/trash_minigame.gd" id="1_rebx8"]
-[ext_resource type="Texture2D" uid="uid://btb481e14fg8x" path="res://assets/minigames/trash/Truck_Back.png" id="2_ptk86"]
+[ext_resource type="Script" uid="uid://dvf3862fotjwh" path="res://scenes/minigames/trash_minigame/trash_minigame.gd" id="1_rebx8"]
+[ext_resource type="Texture2D" uid="uid://bbthhw77l0kpp" path="res://assets/minigames/trash/trash_truck.png" id="2_qvkc5"]
+[ext_resource type="Texture2D" uid="uid://budalbt15ie0l" path="res://assets/minigames/trash/arrow.png" id="3_f7hqr"]
 [ext_resource type="Texture2D" uid="uid://c37h1tyrkjcff" path="res://assets/minigames/trash/Trash_Truck_.png" id="3_y28rm"]
 [ext_resource type="Texture2D" uid="uid://dqx8ju355yq74" path="res://assets/minigames/trash/Recycle_Center_.png" id="4_2yne7"]
 [ext_resource type="Texture2D" uid="uid://2k7mxk3y3qk8" path="res://assets/minigames/trash/happy.png" id="5_svkof"]
@@ -57,6 +58,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, 2000)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Truck:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.75, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_svkof"]
 resource_name = "drive_truck"
@@ -110,6 +123,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, 1692), Vector2(0, 1260), Vector2(0, 1260), Vector2(0, 1260), Vector2(0, 1260), Vector2(0, 1779)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Truck:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.75, 1), Vector2(1e-05, 1e-05)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_svkof"]
 _data = {
@@ -120,25 +145,16 @@ _data = {
 [node name="TrashMinigame" type="Node2D"]
 script = ExtResource("1_rebx8")
 
+[node name="Truck" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 1)
+texture = ExtResource("2_qvkc5")
+
+[node name="Arrow" type="Sprite2D" parent="Truck"]
+texture = ExtResource("3_f7hqr")
+
 [node name="CloseTimer" type="Timer" parent="."]
 
 [node name="Animation" type="CanvasLayer" parent="."]
-
-[node name="TruckBack" type="TextureRect" parent="Animation"]
-visible = false
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -1478.0
-offset_top = -513.5
-offset_bottom = 513.5
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_ptk86")
-expand_mode = 3
 
 [node name="Bottom" type="Control" parent="Animation"]
 layout_mode = 3
