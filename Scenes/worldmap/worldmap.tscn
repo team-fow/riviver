@@ -144,7 +144,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 4.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1788, 0), Vector2(-1183, -179)]
+"values": [Vector2(1788, 0), Vector2(-1696, -229)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -236,7 +236,7 @@ description = "Someone's littered all over! Your animal friends are in trouble..
 
 [node name="LevelPin2" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-1245, -225)
-description = "Even more litter! This time, there's a few more kinds..."
+description = "Even more litter! Let's sort this out..."
 
 [node name="LevelPin3" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-597, -237)
