@@ -8,6 +8,7 @@ const CLOSE_TIME: float = 4.0
 @onready var close_timer: Timer = $CloseTimer
 @onready var animator: AnimationPlayer = $Animator
 
+var bins: Array[TrashBin]
 var trash_correct: int = 0
 var total_trash: int
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 		trash.eaten.connect(_on_trash_eaten.bind(trash))
 	for child: Node in get_children():
 		if child is TrashBin:
+			bins.append(child)
 			child.trash_added.connect(func(correct: bool): if correct: trash_correct+=1)
 	close_timer.timeout.connect(level.close_minigame.bind(self))
 

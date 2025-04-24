@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=46 format=3 uid="uid://cj0nv5djx71e4"]
 
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
@@ -78,6 +78,10 @@ texture_margin_right = 24.0
 texture_margin_bottom = 24.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixrk0"]
+content_margin_left = 6.0
+content_margin_right = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_likht"]
 atlas = ExtResource("5_likht")
@@ -474,23 +478,35 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 62.0
-offset_top = -115.0
-offset_right = 733.0
-offset_bottom = 153.0
+offset_left = 61.0
+offset_top = -111.0
+offset_right = 732.0
+offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_sprtd")
 
-[node name="HelpList" type="ItemList" parent="UI/Margins/Left/Help/Dropdown"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margins/Left/Help/Dropdown"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Margins/Left/Help/Dropdown/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.828197, 0.828197, 0.828197, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ixrk0")
+text = "Help me with..."
+
+[node name="HelpList" type="ItemList" parent="UI/Margins/Left/Help/Dropdown/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 auto_height = true
-item_count = 4
-item_0/text = "Help me with the trash minigame!"
-item_1/text = "Help me with the water minigame!"
-item_2/text = "Help me with the plant minigame!"
-item_3/text = "Cancel"
+item_count = 6
+item_0/text = "Picking up trash"
+item_1/text = "Sorting trash"
+item_2/text = "Moving pipes"
+item_3/text = "Filtering with pipes"
+item_4/text = "Planting plants"
+item_5/text = "Final test"
 
 [node name="Restart" type="TextureButton" parent="UI/Margins/Left"]
 custom_minimum_size = Vector2(100, 100)
@@ -760,9 +776,9 @@ scale = Vector2(0.75, 0.75)
 [connection signal="pressed" from="UI/Margins/Left/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/Margins/Left/Help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="UI/Margins/Left/Help" to="UI/Margins/Left/Help/Dropdown" method="show"]
-[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/HelpList" to="." method="do_tutorial"]
-[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/HelpList" to="UI/Margins/Left/Help/Dropdown/HelpList" method="deselect"]
-[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/HelpList" to="UI/Margins/Left/Help/Dropdown" method="hide" unbinds=1]
+[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/VBoxContainer/HelpList" to="." method="do_tutorial"]
+[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Left/Help/Dropdown/VBoxContainer/HelpList" method="deselect"]
+[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Left/Help/Dropdown" method="hide" unbinds=1]
 [connection signal="pressed" from="UI/Margins/Left/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="UI/Margins/Left/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="UI/Summary/Content/NextLevel" to="." method="_on_next_level_pressed"]

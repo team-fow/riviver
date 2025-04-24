@@ -33,21 +33,25 @@ minigame = NodePath("../../Minigames/TrashMinigame")
 [node name="TrashObject2" parent="Grid" index="4" node_paths=PackedStringArray("minigame") instance=ExtResource("4_xmsj2")]
 position = Vector2(-215.151, -1130.3)
 rotation = 0.61124
+category = "recycling"
 minigame = NodePath("../../Minigames/TrashMinigame")
 
 [node name="TrashObject3" parent="Grid" index="5" node_paths=PackedStringArray("minigame") instance=ExtResource("4_xmsj2")]
 position = Vector2(315.151, 818.182)
 rotation = -0.906097
+category = "recycling"
 minigame = NodePath("../../Minigames/TrashMinigame")
 
 [node name="TrashObject4" parent="Grid" index="6" node_paths=PackedStringArray("minigame") instance=ExtResource("4_xmsj2")]
 position = Vector2(-906.061, 248.485)
 rotation = 0.102043
+category = "compost"
 minigame = NodePath("../../Minigames/TrashMinigame")
 
 [node name="TrashObject5" parent="Grid" index="7" node_paths=PackedStringArray("minigame") instance=ExtResource("4_xmsj2")]
 position = Vector2(-278.788, 678.788)
 rotation = 0.873323
+category = "compost"
 minigame = NodePath("../../Minigames/TrashMinigame")
 
 [node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("trash_objects") instance=ExtResource("5_bl2v8")]
@@ -62,6 +66,11 @@ category = "recycling"
 [node name="TrashBin2" parent="Minigames/TrashMinigame" index="4" instance=ExtResource("6_0bgan")]
 position = Vector2(338, 250)
 rotation = 0.308793
+category = "compost"
+
+[node name="TrashBin3" parent="Minigames/TrashMinigame" index="5" instance=ExtResource("6_0bgan")]
+position = Vector2(-314, 58)
+rotation = -0.167819
 
 [node name="PlantMinigame" parent="Minigames" index="1" instance=ExtResource("7_my386")]
 visible = false

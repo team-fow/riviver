@@ -8,13 +8,13 @@ func _ready() -> void:
 
 func set_type(source_id: int, tile_id: Vector2i) -> void:
 	# water
-	if source_id in [0, 4, 5]:
-		texture = preload("res://assets/particles/particle-leaves.png")
-		material.particles_anim_h_frames = 2
+	if source_id == 6:
+		texture = preload("res://assets/particles/particle-water.png")
+		material.particles_anim_h_frames = 3
 	# sand
 	elif source_id == 7 and (tile_id == Vector2i(3, 1) or tile_id.x > 1 and tile_id.y > 1):
-		texture = preload("res://assets/particles/particle-leaves.png")
-		material.particles_anim_h_frames = 2
+		texture = preload("res://assets/particles/particle-dirt.png")
+		material.particles_anim_h_frames = 3
 	# grass
 	else:
 		texture = preload("res://assets/particles/particle-leaves.png")
