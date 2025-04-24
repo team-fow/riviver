@@ -24,6 +24,8 @@ Save="*res://scenes/save.tscn"
 window/size/viewport_width=2000
 window/size/viewport_height=1200
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://ciutxn0jxodau"
+mouse_cursor/custom_image_hotspot=Vector2(8, 0)
 
 [dotnet]
 
