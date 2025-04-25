@@ -14,19 +14,22 @@ var initial_scale: Vector2 = scale
 
 func eat(trash: Draggable) -> void:
 	if trash.category != category:
-		var right_trash: TrashBin = get_parent().bins[get_parent().bins.find(func(x): x.category == trash.category)]
-		modulate = Color.CRIMSON
-		right_trash.modulate = Color.LIME
-		await get_tree().create_timer(0.5).timeout
-		modulate = Color.WHITE
-		right_trash.modulate = Color.WHITE
+		color(Color.CRIMSON)
+		for bin: TrashBin in get_parent().bins:
+			if bin.category == trash.category:
+				bin.color(Color.LIME)
+				break
 		trash_added.emit(false)
 	else:
-		modulate = Color.LIME
-		await get_tree().create_timer(0.5).timeout
-		modulate = Color.WHITE
+		color(Color.LIME)
 		trash_added.emit(true)
 	$SFX.play(0.0)
+
+
+func color(color: Color) -> void:
+	modulate = color
+	await get_tree().create_timer(0.5).timeout
+	modulate = Color.WHITE
 
 
 func _mouse_enter() -> void:
