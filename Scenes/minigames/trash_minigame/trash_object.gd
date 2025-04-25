@@ -6,7 +6,7 @@ signal eaten
 @export_enum("landfill", "recycling", "compost", "hazardous") var category: String = "landfill"
 
 var type: int
-@onready var initial_scale: Vector2i = scale
+@onready var initial_scale: Vector2 = scale
 @export var minigame: TrashMinigame
 
 
