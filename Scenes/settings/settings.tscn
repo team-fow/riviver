@@ -1,11 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2qyitlu15gqq"]
+[gd_scene load_steps=17 format=3 uid="uid://b2qyitlu15gqq"]
 
 [ext_resource type="Texture2D" uid="uid://mb2bmjy08u14" path="res://assets/settingmenu/Panel.png" id="1_26ncd"]
 [ext_resource type="Script" uid="uid://724jr6r1625l" path="res://scenes/settings/settings.gd" id="1_v1hle"]
-[ext_resource type="Texture2D" uid="uid://crjdbkvtfkuh" path="res://assets/settingmenu/Buttons.png" id="2_vu5fi"]
+[ext_resource type="Texture2D" uid="uid://bkip2yu1bdstl" path="res://assets/settingmenu/load.png" id="3_h6son"]
 [ext_resource type="Texture2D" uid="uid://ci5qmj27a1sh8" path="res://assets/settingmenu/Slider River.png" id="3_tt6xx"]
 [ext_resource type="Texture2D" uid="uid://d3mh1s3br08vq" path="res://assets/settingmenu/Slider Ground.png" id="4_1slea"]
-[ext_resource type="FontFile" uid="uid://dl7neeb3tuqrp" path="res://assets/robotoserif.ttf" id="6_vghtj"]
+[ext_resource type="Texture2D" uid="uid://br670ft462mdf" path="res://assets/settingmenu/load_hover.png" id="4_vimye"]
+[ext_resource type="Texture2D" uid="uid://d3iprp7r8shc0" path="res://assets/settingmenu/save.png" id="5_p7ghj"]
+[ext_resource type="Texture2D" uid="uid://mnn8uvq8fltw" path="res://assets/settingmenu/save_hover.png" id="6_p57yh"]
+[ext_resource type="Texture2D" uid="uid://b2ydkb8m0c4t7" path="res://assets/settingmenu/play.png" id="7_vgacw"]
+[ext_resource type="Texture2D" uid="uid://cwk3oxg8pa3p4" path="res://assets/settingmenu/play_hover.png" id="8_kol0p"]
 
 [sub_resource type="Gradient" id="Gradient_v1hle"]
 offsets = PackedFloat32Array(0, 0.1, 0.9, 1)
@@ -16,17 +20,11 @@ metadata/_snap_enabled = true
 gradient = SubResource("Gradient_v1hle")
 fill_to = Vector2(0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1slea"]
-atlas = ExtResource("2_vu5fi")
-region = Rect2(0, 0, 435, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tt6xx"]
-atlas = ExtResource("2_vu5fi")
-region = Rect2(435, 0, 435, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vu5fi"]
-atlas = ExtResource("2_vu5fi")
-region = Rect2(870, 0, 435, 0)
+[sub_resource type="LabelSettings" id="LabelSettings_p57yh"]
+font_size = 64
+font_color = Color(0.898039, 0.890196, 0.756863, 1)
+outline_size = 32
+outline_color = Color(0.25098, 0.247059, 0.211765, 1)
 
 [sub_resource type="Animation" id="Animation_vghtj"]
 length = 0.001
@@ -129,7 +127,24 @@ offset_left = 178.0
 offset_top = 640.0
 offset_right = 613.0
 offset_bottom = 940.0
-texture_normal = SubResource("AtlasTexture_1slea")
+texture_normal = ExtResource("3_h6son")
+texture_hover = ExtResource("4_vimye")
+
+[node name="Label" type="Label" parent="Control/Mask/Background/Back"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -42.5
+offset_right = 77.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Load"
+label_settings = SubResource("LabelSettings_p57yh")
 
 [node name="Save" type="TextureButton" parent="Control/Mask/Background"]
 layout_mode = 0
@@ -137,7 +152,25 @@ offset_left = 780.0
 offset_top = 640.0
 offset_right = 1215.0
 offset_bottom = 940.0
-texture_normal = SubResource("AtlasTexture_tt6xx")
+texture_normal = ExtResource("5_p7ghj")
+texture_hover = ExtResource("6_p57yh")
+
+[node name="Label" type="Label" parent="Control/Mask/Background/Save"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -42.5
+offset_right = 77.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Save"
+label_settings = SubResource("LabelSettings_p57yh")
+horizontal_alignment = 1
 
 [node name="Continue" type="TextureButton" parent="Control/Mask/Background"]
 layout_mode = 0
@@ -145,7 +178,24 @@ offset_left = 1393.0
 offset_top = 640.0
 offset_right = 1828.0
 offset_bottom = 940.0
-texture_normal = SubResource("AtlasTexture_vu5fi")
+texture_normal = ExtResource("7_vgacw")
+texture_hover = ExtResource("8_kol0p")
+
+[node name="Label" type="Label" parent="Control/Mask/Background/Continue"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -42.5
+offset_right = 77.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continue"
+label_settings = SubResource("LabelSettings_p57yh")
 
 [node name="SFXSlider" type="TextureRect" parent="Control/Mask/Background"]
 layout_mode = 0
@@ -207,7 +257,6 @@ offset_bottom = 153.75
 grow_horizontal = 0
 rotation = 0.523599
 theme_override_colors/font_color = Color(0.886262, 0.886261, 0.886262, 1)
-theme_override_fonts/font = ExtResource("6_vghtj")
 theme_override_font_sizes/font_size = 80
 text = "Settings"
 

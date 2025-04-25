@@ -21,7 +21,10 @@ func eat(trash: Draggable) -> void:
 		modulate = Color.WHITE
 		right_trash.modulate = Color.WHITE
 		trash_added.emit(false)
-	else:	
+	else:
+		modulate = Color.LIME
+		await get_tree().create_timer(0.5).timeout
+		modulate = Color.WHITE
 		trash_added.emit(true)
 	$SFX.play(0.0)
 
