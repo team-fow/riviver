@@ -1,6 +1,7 @@
 extends HBoxContainer
 
 @export var level: Level
+var tween: Tween
 
 
 func _ready() -> void:
@@ -14,4 +15,10 @@ func _ready() -> void:
 
 
 func _on_minigame_ended(minigame: Minigame, score: float, part: Control) -> void:
+	tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(1.2,1.2),0.2)
+	await tween.finished
 	part.set_value(score)
+	tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(1.0,1.0),0.2)
+	await tween.finished
