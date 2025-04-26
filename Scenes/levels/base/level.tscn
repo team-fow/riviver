@@ -687,7 +687,7 @@ pivot_offset = Vector2(65, 65)
 mouse_filter = 2
 texture = SubResource("AtlasTexture_ixrk0")
 
-[node name="NextLevel" type="Button" parent="UI/Summary"]
+[node name="RetryLevel" type="Button" parent="UI/Summary"]
 layout_mode = 2
 offset_left = 680.0
 offset_top = 666.0
@@ -705,7 +705,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hstm6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_noljr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_srqya")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_em4rp")
-text = "Next level"
+text = "Retry Level"
 
 [node name="WorldMap" type="Button" parent="UI/Summary"]
 layout_mode = 2
@@ -782,5 +782,5 @@ scale = Vector2(0.75, 0.75)
 [connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Left/Help/Dropdown" method="hide" unbinds=1]
 [connection signal="pressed" from="UI/Margins/Left/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="UI/Margins/Left/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="UI/Summary/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="UI/Summary/RetryLevel" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="UI/Summary/WorldMap" to="." method="_on_world_map_pressed"]

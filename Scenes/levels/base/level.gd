@@ -64,12 +64,11 @@ func do_summary() -> void:
 	var stars: Array[Control] = [summary.get_node("Star1"), summary.get_node("Star2"), summary.get_node("Star3")]
 	for i: int in stars.size():
 		stars[i].get_child(0).visible = score >= (i + 1) / 3.0
-	
-	summary.get_node("NextLevel").disabled = score <= 0.33 or Save.get_current_level() == Save.data.levels.size()
 	animator.play("open_summary")
 	await animator.animation_finished
 
 	summary.mouse_filter = Control.MOUSE_FILTER_PASS
+
 
 func _on_summary_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
@@ -184,8 +183,7 @@ func do_tutorial(idx: int) -> void:
 
 
 func _on_next_level_pressed() -> void:
-	Save.set_current_level(Save.get_current_level() + 1)
-	Save.change_scene("res://scenes/levels/%s.tscn" % str(Save.get_current_level() + 1))
+	get_tree().reload_current_scene()
 
 
 func _on_world_map_pressed() -> void:
