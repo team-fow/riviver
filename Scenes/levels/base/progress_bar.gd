@@ -15,6 +15,7 @@ func _ready() -> void:
 
 
 func _on_minigame_ended(minigame: Minigame, score: float, part: Control) -> void:
+	pivot_offset = size/2.0
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", Vector2(1.2,1.2),0.2)
 	await tween.finished
