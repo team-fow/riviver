@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 @export_multiline var description: String = "Description"
 
@@ -19,6 +19,11 @@ func _ready() -> void:
 	var score: float = Save.get_level_score(idx)
 	for i: int in stars.get_child_count():
 		stars.get_child(i).frame = 1 if score >= (i + 1) / 3.0 else 0
+
+
+func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("click"):
+		$"../../".select_level(get_index())
 
 
 func flick() -> void:

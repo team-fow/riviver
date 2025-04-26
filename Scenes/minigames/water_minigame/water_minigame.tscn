@@ -1,20 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://ddb05cvkx1t8x"]
+[gd_scene load_steps=21 format=3 uid="uid://ddb05cvkx1t8x"]
 
 [ext_resource type="Script" uid="uid://03s6p8nxnaum" path="res://scenes/minigames/water_minigame/water_minigame.gd" id="1_apnnh"]
 [ext_resource type="Script" uid="uid://cb7sjvdpw6w7q" path="res://scenes/minigames/water_minigame/pipe_grid.gd" id="2_avfrl"]
+[ext_resource type="Texture2D" uid="uid://cibxl5agxvg5k" path="res://assets/minigames/water/toolbox.png" id="2_ll52j"]
 [ext_resource type="Script" uid="uid://dy3qsn7pijtkf" path="res://scenes/minigames/water_minigame/pipes_holder.gd" id="3_6nc0b"]
 [ext_resource type="Texture2D" uid="uid://f0r70veacp8d" path="res://assets/minigames/water/pipe_entrance.png" id="3_lcuwq"]
 [ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="3_n36uu"]
-[ext_resource type="Texture2D" uid="uid://ct8mm11nj0m38" path="res://assets/minigames/water/Pipe Container.png" id="3_unras"]
 [ext_resource type="Texture2D" uid="uid://bgqpbdcl6mxk4" path="res://assets/minigames/water/Soil Background.png" id="4_8de48"]
 [ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="4_lcuwq"]
 [ext_resource type="StyleBox" uid="uid://yt1wxt7qn1jr" path="res://assets/Buttons/button_hover.tres" id="5_l1bk7"]
 [ext_resource type="StyleBox" uid="uid://78a5ftygbdck" path="res://assets/Buttons/button_normal.tres" id="6_ll52j"]
 [ext_resource type="StyleBox" uid="uid://c36ax7xm4d61w" path="res://assets/panel.tres" id="13_jyaov"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lcuwq"]
-atlas = ExtResource("3_unras")
-region = Rect2(0, 1800, 1640, 560)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3e8u"]
 atlas = ExtResource("3_n36uu")
@@ -93,6 +89,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="PipeHolder" type="TextureRect" parent="Background"]
+visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 12
@@ -105,8 +102,7 @@ grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-texture = SubResource("AtlasTexture_lcuwq")
-expand_mode = 1
+texture = ExtResource("2_ll52j")
 
 [node name="Margins" type="MarginContainer" parent="Background"]
 layout_mode = 1

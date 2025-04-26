@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://bbxb3eqci27ne"]
+[gd_scene load_steps=35 format=3 uid="uid://bbxb3eqci27ne"]
 
 [ext_resource type="Script" uid="uid://bs3rdjxblu5ts" path="res://scenes/worldmap/worldmap.gd" id="1_gu2y1"]
 [ext_resource type="Texture2D" uid="uid://bhfi7dq57s5c2" path="res://assets/worldmap.png" id="2_8pao6"]
 [ext_resource type="PackedScene" uid="uid://g3neivb600vu" path="res://scenes/worldmap/level_pin.tscn" id="2_mfk5f"]
 [ext_resource type="Texture2D" uid="uid://cjihxmop23yr" path="res://assets/lvlselection/Arrows.png" id="3_ac0hk"]
 [ext_resource type="Texture2D" uid="uid://b7iy3mqccr66" path="res://assets/worldmap_polluted.jpeg" id="3_anagn"]
+[ext_resource type="Texture2D" uid="uid://0q1iljbxuofx" path="res://assets/particles/particle-leaves.png" id="4_lfmi5"]
 [ext_resource type="Texture2D" uid="uid://di6lsm7y1vmh7" path="res://assets/lvlselection/Lvl Info Pane - Disabled.png" id="7_ghqh1"]
 [ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="7_wqohx"]
 [ext_resource type="FontFile" uid="uid://spxt4d4jaukj" path="res://assets/fonts/Title - Iciel Cadena.ttf" id="8_gfvk6"]
@@ -20,6 +21,33 @@ metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ghqh1"]
 gradient = SubResource("Gradient_anagn")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jmavi"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_lfmi5"]
+_data = [Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_jmavi"]
+curve = SubResource("Curve_lfmi5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bbwh6"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(0, 541.5, 0)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 200, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_jmavi")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eftsl"]
 atlas = ExtResource("3_ac0hk")
@@ -227,6 +255,15 @@ texture = SubResource("GradientTexture2D_ghqh1")
 position = Vector2(2047.28, 541.366)
 scale = Vector2(0.328299, 0.328299)
 texture = ExtResource("2_8pao6")
+
+[node name="FillParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_jmavi")
+position = Vector2(-1006, -177)
+scale = Vector2(1.523, 1.523)
+emitting = false
+amount = 80
+texture = ExtResource("4_lfmi5")
+process_material = SubResource("ParticleProcessMaterial_bbwh6")
 
 [node name="Levels" type="Node2D" parent="."]
 

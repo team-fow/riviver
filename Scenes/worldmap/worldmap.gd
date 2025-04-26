@@ -14,6 +14,8 @@ var selected_idx: int
 @onready var mask: TextureRect = $PollutedMap/Mask
 @onready var disabled_level_selector: TextureRect = $UI/Margins/HBox/Background/Disabled
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var fill_particles: GPUParticles2D = $FillParticles
+
 
 
 ## Selects the level at some index in the level order.
@@ -30,20 +32,20 @@ func select_level(idx: int) -> void:
 	play_button.get_child(0).visible = not pin.locked
 	disabled_level_selector.visible = pin.locked
 	
-	left_arrow.visible = selected_idx != 0
-	right_arrow.visible = selected_idx != levels.get_child_count() - 1
+	left_arrow.disabled = selected_idx == 0
+	left_arrow.modulate.a = 0.0 if left_arrow.disabled else 1.0
+	right_arrow.disabled = selected_idx == levels.get_child_count() - 1
+	right_arrow.modulate.a = 0.0 if right_arrow.disabled else 1.0
 
 
 ## Selects the previous level sequentially.
 func select_prev_level() -> void:
 	select_level(selected_idx - 1)
-	#Input.warp_mouse(left_arrow.get_screen_position())
 
 
 ## Selects the next level sequentially.
 func select_next_level() -> void:
 	select_level(selected_idx + 1)
-	#Input.warp_mouse(right_arrow.get_screen_position())
 
 
 ## Opens the selected level.
@@ -60,14 +62,26 @@ func _ready() -> void:
 	if idx == -1:
 		mask.hide()
 	else:
-		var map_rect: Rect2 = mask.get_parent().get_rect()
-		mask.texture.fill_from.x = (levels.get_child(idx).position.x + 250 - map_rect.position.x) / map_rect.size.x
+		var x: float = get_pin_x(idx - 1) if idx > 0 else 0
+		mask.texture.fill_from.x = x / mask.get_parent().get_rect().size.x
+		fill_particles.position.x = (levels.get_child(idx - 1).position.x + 400) if idx > 0 else 0
+		x = get_pin_x(idx)
+		var tween := create_tween()
+		tween.tween_callback(fill_particles.set_emitting.bind(true))
+		tween.tween_interval(0.5)
+		tween.tween_property(mask.texture, "fill_from:x", x / mask.get_parent().get_rect().size.x, 1.0)
+		tween.parallel().tween_property(fill_particles, "position:x", levels.get_child(idx).position.x + 400, 1.0)
+		tween.tween_callback(fill_particles.set_emitting.bind(false))
 	
 	if not Save.data.get("did_intro_cutscene"):
 		await do_intro_cutscene()
 		
 	select_level(Save.get_current_level())
 	camera.reset_smoothing()
+
+
+func get_pin_x(idx: int) -> float:
+	return (levels.get_child(idx).position.x + 400 - mask.get_parent().get_rect().position.x)
 
 
 # Keyboard navigation between levels

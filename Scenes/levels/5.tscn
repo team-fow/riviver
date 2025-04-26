@@ -33,12 +33,12 @@ visible = false
 trash_objects = [NodePath("../../Grid/TrashObject"), NodePath("../../Grid/TrashObject2")]
 
 [node name="TrashBin" parent="Minigames/TrashMinigame" index="3" instance=ExtResource("6_v24ps")]
-position = Vector2(180, -546)
+position = Vector2(-72, -546)
 rotation = -0.0719506
 category = "recycling"
 
 [node name="TrashBin2" parent="Minigames/TrashMinigame" index="4" instance=ExtResource("6_v24ps")]
-position = Vector2(338, 250)
+position = Vector2(86, 250)
 rotation = 0.308793
 
 [node name="PlantMinigame" parent="Minigames" index="1" instance=ExtResource("7_ljm8n")]

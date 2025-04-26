@@ -8,7 +8,6 @@ var current_minigame: Minigame # The currently active minigame.
 @onready var grid: TileMapLayer = $Grid
 @onready var animator: AnimationPlayer = $Animator
 @onready var summary: Control = $UI/Summary
-@onready var explosion: CPUParticles2D = $UI/Summary/Content/Explosion
 @onready var scienceguy: Control = $UI/Margins/Scienceguy
 @onready var leaf_particles: GPUParticles2D = $LeafParticles
 @onready var petal_particles: GPUParticles2D = $PetalParticles
@@ -62,11 +61,11 @@ func do_summary() -> void:
 	await get_tree().create_timer(0.75).timeout
 	
 	var score: float = Save.get_level_score(Save.get_current_level())
-	var stars: Control = summary.get_node("Content/Stars")
-	for i: int in stars.get_child_count():
-		stars.get_child(i).get_child(0).visible = score >= (i + 1) / 3.0
+	var stars: Array[Control] = [summary.get_node("Star1"), summary.get_node("Star2"), summary.get_node("Star3")]
+	for i: int in stars.size():
+		stars[i].get_child(0).visible = score >= (i + 1) / 3.0
 	
-	$UI/Summary/Content/NextLevel.disabled = score <= 0.33
+	summary.get_node("NextLevel").disabled = score <= 0.33 or Save.get_current_level() == Save.data.levels.size()
 	animator.play("open_summary")
 	await animator.animation_finished
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=53 format=3 uid="uid://cj0nv5djx71e4"]
 
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
@@ -10,10 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://tcr64w81ajfd" path="res://assets/levelbg.png" id="6_vpf64"]
 [ext_resource type="PackedScene" uid="uid://fx4mgq00nc5p" path="res://scenes/sceinceguy/sceinceguy.tscn" id="7_bxgw7"]
 [ext_resource type="Texture2D" uid="uid://c3v4y3yo4uy0w" path="res://assets/lvlselection/Stars.png" id="7_sprtd"]
-[ext_resource type="Texture2D" uid="uid://b4kncsh4jcd40" path="res://assets/winbg.png" id="7_vd8iw"]
 [ext_resource type="Texture2D" uid="uid://b2jmi8ik2wrlj" path="res://assets/Help Pop-up.png" id="7_wtah3"]
-[ext_resource type="StyleBox" uid="uid://yt1wxt7qn1jr" path="res://assets/Buttons/button_hover.tres" id="10_sgsui"]
-[ext_resource type="StyleBox" uid="uid://78a5ftygbdck" path="res://assets/Buttons/button_normal.tres" id="11_ixrk0"]
+[ext_resource type="Texture2D" uid="uid://du08n1iych773" path="res://assets/summary.png" id="8_ixrk0"]
 [ext_resource type="PackedScene" uid="uid://e8hf3i82opnr" path="res://scenes/pointer_tutorial/pointer_tutorial.tscn" id="13_hstm6"]
 
 [sub_resource type="Animation" id="Animation_hstm6"]
@@ -132,6 +130,25 @@ region = Rect2(0, 0, 124, 0)
 atlas = ExtResource("7_sprtd")
 region = Rect2(124, 0, 124, 0)
 
+[sub_resource type="FontVariation" id="FontVariation_ixrk0"]
+variation_embolden = 0.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hstm6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_noljr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srqya"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_em4rp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgsui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_noljr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gttgk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bclco"]
+
 [sub_resource type="Animation" id="Animation_hnne4"]
 length = 0.001
 tracks/0/type = "value"
@@ -173,7 +190,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("UI/Summary/Content/Explosion:emitting")
+tracks/3/path = NodePath("UI/Summary/Explosion:emitting")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -185,31 +202,31 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("UI/Summary/Content/Stars/Star1/Fill:scale")
+tracks/4/path = NodePath("Minigames:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0.5, 0.5)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("UI/Summary/Content/Stars/Star2/Fill:scale")
+tracks/5/path = NodePath("UI/Summary:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": [false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("UI/Summary/Content/Stars/Star3/Fill:scale")
+tracks/6/path = NodePath("UI/Summary/Star3/Fill:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -221,26 +238,26 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Minigames:scale")
+tracks/7/path = NodePath("UI/Summary/Star2/Fill:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.5, 0.5)]
+"values": [Vector2(1, 1)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("UI/Summary:visible")
+tracks/8/path = NodePath("UI/Summary/Star1/Fill:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_qkmgm"]
@@ -274,7 +291,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2xtfm"]
 resource_name = "open_summary"
-length = 1.1
+length = 1.3
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -291,11 +308,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("UI/Summary/Content/Explosion:emitting")
+tracks/1/path = NodePath("UI/Summary/Explosion:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -303,50 +320,50 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("UI/Summary/Content/Stars/Star1/Fill:scale")
-tracks/2/interp = 2
+tracks/2/path = NodePath("UI/Summary:visible")
+tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("UI/Summary/Content/Stars/Star2/Fill:scale")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("UI/Summary/Content/Stars/Star3/Fill:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("UI/Summary:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Summary/Star3/Fill:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Summary/Star2/Fill:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/Summary/Star1/Fill:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vpf64"]
@@ -540,10 +557,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("7_vd8iw")
-stretch_mode = 1
+texture = ExtResource("8_ixrk0")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="UI/Summary"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -552,25 +571,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_vd8iw")
 
-[node name="Content" type="VBoxContainer" parent="UI/Summary"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -552.0
-offset_top = -496.0
-offset_right = 553.0
-offset_bottom = 496.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="Explosion" type="CPUParticles2D" parent="UI/Summary/Content"]
-position = Vector2(546.5, 484)
+[node name="Explosion" type="CPUParticles2D" parent="UI/Summary"]
+position = Vector2(994.5, 372)
 emitting = false
 amount = 50
 texture = SubResource("AtlasTexture_noljr")
@@ -589,37 +591,22 @@ scale_amount_min = 0.5
 scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_sprtd")
 
-[node name="Label" type="Label" parent="UI/Summary/Content"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_colors/font_outline_color = Color(0.186237, 0.149507, 0.0338728, 1)
-theme_override_constants/outline_size = 64
-theme_override_font_sizes/font_size = 128
-text = "LEVEL COMPLETE!"
-
-[node name="Stars" type="Control" parent="UI/Summary/Content"]
-custom_minimum_size = Vector2(700, 500)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-
-[node name="Star1" type="TextureRect" parent="UI/Summary/Content/Stars"]
+[node name="Star1" type="TextureRect" parent="UI/Summary"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -65.0
-offset_right = 130.0
-offset_bottom = 65.0
+offset_left = 651.0
+offset_top = -239.0
+offset_right = 781.0
+offset_bottom = -109.0
 grow_vertical = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(65, 65)
 mouse_filter = 2
 texture = SubResource("AtlasTexture_sgsui")
 
-[node name="Fill" type="TextureRect" parent="UI/Summary/Content/Stars/Star1"]
+[node name="Fill" type="TextureRect" parent="UI/Summary/Star1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -636,25 +623,22 @@ pivot_offset = Vector2(65, 65)
 mouse_filter = 2
 texture = SubResource("AtlasTexture_ixrk0")
 
-[node name="Star2" type="TextureRect" parent="UI/Summary/Content/Stars"]
+[node name="Star2" type="TextureRect" parent="UI/Summary"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -65.0
-offset_top = -65.0
-offset_right = 65.0
-offset_bottom = 65.0
-grow_horizontal = 2
+offset_left = 935.0
+offset_top = -297.0
+offset_right = 1065.0
+offset_bottom = -167.0
 grow_vertical = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(65, 65)
 mouse_filter = 2
 texture = SubResource("AtlasTexture_sgsui")
 
-[node name="Fill" type="TextureRect" parent="UI/Summary/Content/Stars/Star2"]
+[node name="Fill" type="TextureRect" parent="UI/Summary/Star2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -671,24 +655,22 @@ pivot_offset = Vector2(65, 65)
 mouse_filter = 2
 texture = SubResource("AtlasTexture_ixrk0")
 
-[node name="Star3" type="TextureRect" parent="UI/Summary/Content/Stars"]
+[node name="Star3" type="TextureRect" parent="UI/Summary"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -130.0
-offset_top = -65.0
-offset_bottom = 65.0
-grow_horizontal = 0
+offset_left = 1224.0
+offset_top = -239.0
+offset_right = 1354.0
+offset_bottom = -109.0
 grow_vertical = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(65, 65)
 mouse_filter = 2
 texture = SubResource("AtlasTexture_sgsui")
 
-[node name="Fill" type="TextureRect" parent="UI/Summary/Content/Stars/Star3"]
+[node name="Fill" type="TextureRect" parent="UI/Summary/Star3"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -705,25 +687,44 @@ pivot_offset = Vector2(65, 65)
 mouse_filter = 2
 texture = SubResource("AtlasTexture_ixrk0")
 
-[node name="NextLevel" type="Button" parent="UI/Summary/Content"]
+[node name="NextLevel" type="Button" parent="UI/Summary"]
 layout_mode = 2
+offset_left = 680.0
+offset_top = 666.0
+offset_right = 1312.0
+offset_bottom = 856.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 64
-theme_override_styles/hover = ExtResource("10_sgsui")
-theme_override_styles/pressed = ExtResource("10_sgsui")
-theme_override_styles/normal = ExtResource("11_ixrk0")
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.862745, 0.6, 0.160784, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = SubResource("FontVariation_ixrk0")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hstm6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_noljr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_srqya")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_em4rp")
 text = "Next level"
 
-[node name="WorldMap" type="Button" parent="UI/Summary/Content"]
+[node name="WorldMap" type="Button" parent="UI/Summary"]
 layout_mode = 2
+offset_left = 673.0
+offset_top = 895.0
+offset_right = 1326.0
+offset_bottom = 1095.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 48
-theme_override_styles/hover = ExtResource("10_sgsui")
-theme_override_styles/pressed = ExtResource("10_sgsui")
-theme_override_styles/normal = ExtResource("11_ixrk0")
-text = "Return to world map"
+theme_override_colors/font_outline_color = Color(0.862745, 0.6, 0.160784, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = SubResource("FontVariation_ixrk0")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sgsui")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_noljr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gttgk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bclco")
+text = "World map"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -781,5 +782,5 @@ scale = Vector2(0.75, 0.75)
 [connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Left/Help/Dropdown" method="hide" unbinds=1]
 [connection signal="pressed" from="UI/Margins/Left/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="UI/Margins/Left/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="UI/Summary/Content/NextLevel" to="." method="_on_next_level_pressed"]
-[connection signal="pressed" from="UI/Summary/Content/WorldMap" to="." method="_on_world_map_pressed"]
+[connection signal="pressed" from="UI/Summary/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="UI/Summary/WorldMap" to="." method="_on_world_map_pressed"]
