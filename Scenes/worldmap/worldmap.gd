@@ -63,13 +63,13 @@ func _ready() -> void:
 		mask.hide()
 	else:
 		var x: float = get_pin_x(idx - 1) if idx > 0 else 0
-		mask.texture.fill_from.x = x / mask.get_parent().get_rect().size.x
+		mask.texture.fill_from.x = x
 		fill_particles.position.x = (levels.get_child(idx - 1).position.x + 400) if idx > 0 else 0
 		x = get_pin_x(idx)
 		var tween := create_tween()
 		tween.tween_callback(fill_particles.set_emitting.bind(true))
 		tween.tween_interval(0.5)
-		tween.tween_property(mask.texture, "fill_from:x", x / mask.get_parent().get_rect().size.x, 1.0)
+		tween.tween_property(mask.texture, "fill_from:x", x, 1.0)
 		tween.parallel().tween_property(fill_particles, "position:x", levels.get_child(idx).position.x + 400, 1.0)
 		tween.tween_callback(fill_particles.set_emitting.bind(false))
 	
@@ -81,7 +81,7 @@ func _ready() -> void:
 
 
 func get_pin_x(idx: int) -> float:
-	return (levels.get_child(idx).position.x + 400 - mask.get_parent().get_rect().position.x)
+	return (levels.get_child(idx).position.x + 400 - mask.get_parent().get_rect().position.x) / mask.get_parent().get_rect().size.x
 
 
 # Keyboard navigation between levels

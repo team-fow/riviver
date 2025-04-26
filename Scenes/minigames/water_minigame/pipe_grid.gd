@@ -39,7 +39,7 @@ func coords_to_position(coords: Vector2i) -> Vector2:
 
 # Converts a position in local coordinates to grid coordinates
 func position_to_coords(pos: Vector2) -> Vector2i:
-	return (pos / cell_size).floor()
+	return (pos / cell_size).floor().clampf(0.0, 4.0)
 
 
 # Detecting when a pipe is dragged over the grid
