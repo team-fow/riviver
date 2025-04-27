@@ -75,7 +75,10 @@ func _ready() -> void:
 	
 	if not Save.data.get("did_intro_cutscene"):
 		await do_intro_cutscene()
-		
+	
+	if Save.is_level_completed(5) and not Save.data.get("did_outro_cutscene", false):
+		await do_outro_cutscene()
+	
 	select_level(Save.get_current_level())
 	camera.reset_smoothing()
 
@@ -106,12 +109,39 @@ func do_intro_cutscene() -> void:
 	await scienceguy.set_text("Hi, I'm John Furrero! Welcome to Riviver.")
 	animation_player.play("intro")
 	scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
-	await scienceguy.set_text("Our beloved river has been polluted...")
+	await scienceguy.set_text("Something awful has happened...")
+	scienceguy.set_sprite(scienceguy.Sprite.EVIL)
+	await scienceguy.set_text("RAGHHH!!! I control the forces of pollution.")
+	await scienceguy.set_text("Your precious river... is all dirty!")
+	scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
+	await scienceguy.set_text("Help me stop this villain!")
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-	await scienceguy.set_text("Let's fix this, together!")
+	await scienceguy.set_text("Let's clean this river, together!")
 	scienceguy.hide()
 	if animation_player.is_playing():
 		animation_player.speed_scale *= 3
 		await animation_player.animation_finished
 	Save.data.did_intro_cutscene = true
+	level_info.show()
+
+
+func do_outro_cutscene() -> void:
+	select_level(5)
+	camera.reset_smoothing()
+	level_info.hide()
+	scienceguy.show()
+	scienceguy.set_sprite(scienceguy.Sprite.EVIL_SCARED)
+	await scienceguy.set_text("Nooooo!")
+	await scienceguy.set_text("The river! It's green again!")
+	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
+	await scienceguy.set_text("Wow... you really did it!")
+	await scienceguy.set_text("Our river is back to normal!")
+	await scienceguy.set_text("You're a hero!")
+	scienceguy.set_sprite(scienceguy.Sprite.EVIL)
+	await scienceguy.set_text("You haven't seen the last of me, kid!")
+	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
+	await scienceguy.set_text("We'll meet again someday, too. Thank you!")
+	await scienceguy.set_text("Remember: keep it green!")
+	scienceguy.hide()
+	Save.data.did_outro_cutscene = true
 	level_info.show()
