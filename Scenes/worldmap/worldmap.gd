@@ -88,11 +88,16 @@ func get_pin_x(idx: int) -> float:
 
 
 # Keyboard navigation between levels
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_left"):
 		select_prev_level()
 	elif event.is_action_pressed("move_right"):
 		select_next_level()
+	elif event.is_action_pressed("click"):
+		var particles = preload("res://scenes/click_particles.tscn").instantiate()
+		particles.position = get_local_mouse_position()
+		particles.set_type_by_name("grass")
+		add_child(particles)
 
 
 func _on_settings_pressed() -> void:
