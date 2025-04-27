@@ -44,6 +44,7 @@ func end() -> void:
 	
 	animator.play("water")
 	await animator.animation_finished
+	is_completed = true
 	ended.emit(self, score)
 	level.do_particles(score)
 

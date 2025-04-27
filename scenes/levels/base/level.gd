@@ -2,7 +2,6 @@ class_name Level
 extends Node2D
 
 var minigames: Array[Minigame] # An array containing all of the minigames present in the level
-var minigames_completed : int = 0 # How many minigames the player has currently completed
 var current_minigame: Minigame # The currently active minigame.
 
 @onready var grid: TileMapLayer = $Grid
@@ -38,10 +37,9 @@ func close_minigame(game: Minigame) -> void:
 
 # Close a completed minigame
 func end_minigame(game: Minigame, score: float) -> void:
-	minigames_completed += 1
 	close_minigame(game)
 	
-	if minigames_completed == minigames.size():
+	if minigames.all(func(x: Minigame) -> bool: return x.is_completed):
 		var total_score: float = 0.0
 		for minigame: Minigame in minigames:
 			total_score += minigame.score

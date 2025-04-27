@@ -55,4 +55,5 @@ func end() -> void:
 	animator.play("drive_truck")
 	await animator.animation_finished
 	
+	is_completed = true
 	ended.emit(self, score)
