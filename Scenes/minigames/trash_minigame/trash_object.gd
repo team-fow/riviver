@@ -16,6 +16,7 @@ func _drop() -> void:
 			area.eat(self)
 			eaten.emit()
 			queue_free()
+			break
 
 
 func _mouse_enter() -> void:
