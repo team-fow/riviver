@@ -239,5 +239,6 @@ libraries = {
 }
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("8_7wdrx")
 bus = &"SFX"

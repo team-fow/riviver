@@ -20,7 +20,7 @@ func open_minigame(game : Minigame) -> void:
 		current_minigame.set_paused(true)
 	else:
 		animator.play("move_grid")
-	create_tween().tween_property(grid, "modulate", Color.WHITE if game is TrashMinigame else Color.GRAY, 0.1)
+	fade_grid(game is not TrashMinigame)
 	$Minigames/Animator.play("bob")
 	current_minigame = game
 	game.set_paused(false)
@@ -29,7 +29,7 @@ func open_minigame(game : Minigame) -> void:
 	
 # Close a minigame
 func close_minigame(game: Minigame) -> void:
-	create_tween().tween_property(grid, "modulate", Color.WHITE, 0.1)
+	fade_grid(false)
 	if game != current_minigame: return
 	current_minigame = null
 	game.set_paused(true)
@@ -53,6 +53,10 @@ func end_minigame(game: Minigame, score: float) -> void:
 func do_particles(score: float) -> void:
 	leaf_particles.emitting = true
 	if score == 1.0: petal_particles.emitting = true
+
+
+func fade_grid(value: bool) -> void:
+	create_tween().tween_property(grid, "modulate", Color.GRAY if value else Color.WHITE, 0.1)
 
 
 
@@ -115,7 +119,7 @@ func _ready() -> void:
 
 
 func do_tutorial(idx: int) -> void:
-	scienceguy.show()
+	toggle_dialogue(true)
 	
 	match idx:
 		0:
@@ -137,9 +141,9 @@ func do_tutorial(idx: int) -> void:
 			await scienceguy.set_text("If the trash isn't sorted right...")
 			await scienceguy.set_text("...no one will be able to recycle.")
 			if has_node("Minigames/TrashMinigame"):
-				scienceguy.hide()
+				toggle_dialogue(false)
 				await $Minigames/TrashMinigame.unpaused
-				scienceguy.show()
+				toggle_dialogue(true)
 				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 				await scienceguy.set_text("The recycling bin...")
 				await scienceguy.set_text("...is for clean paper, plastic, and glass.")
@@ -155,9 +159,9 @@ func do_tutorial(idx: int) -> void:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Click on the factory!")
 			if has_node("Minigames/WaterMinigame"):
-				scienceguy.hide()
+				toggle_dialogue(false)
 				await $Minigames/WaterMinigame.unpaused
-				scienceguy.show()
+				toggle_dialogue(true)
 				scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 				await scienceguy.set_text("What a mess!")
 				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
@@ -190,9 +194,9 @@ func do_tutorial(idx: int) -> void:
 			await scienceguy.set_text("Luckily, plants' roots can stop eroding!")
 			await scienceguy.set_text("Click on a sandy riverbank.")
 			if has_node("Minigames/PlantMinigame"):
-				scienceguy.hide()
+				toggle_dialogue(false)
 				await $Minigames/PlantMinigame.unpaused
-				scienceguy.show()
+				toggle_dialogue(true)
 				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 				await scienceguy.set_text("Use our gardening tools to plant a plant.")
 				await scienceguy.set_text("Drag the tools and wiggle them around!")
@@ -206,12 +210,17 @@ func do_tutorial(idx: int) -> void:
 			await scienceguy.set_text("This is the final level...")
 			await scienceguy.set_text("It's hard, but I believe you can do it!")
 			if has_node("Minigames/TrashMinigame"):
-				scienceguy.hide()
+				toggle_dialogue(false)
 				await $Minigames/TrashMinigame.unpaused
-				scienceguy.show()
+				toggle_dialogue(true)
 				await scienceguy.set_text("The compost bin is for old food.")
 	
-	scienceguy.hide()
+	toggle_dialogue(false)
+
+
+func toggle_dialogue(value: bool) -> void:
+	scienceguy.visible = value
+	fade_grid(value)
 
 
 func _on_next_level_pressed() -> void:

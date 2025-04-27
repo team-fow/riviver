@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dsty0kfm6f28l"]
+[gd_scene load_steps=9 format=4 uid="uid://dsty0kfm6f28l"]
 
 [ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_ljm8n"]
 [ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="2_p5xfs"]
@@ -8,10 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="6_v24ps"]
 [ext_resource type="PackedScene" uid="uid://cxyyfgdo1704o" path="res://scenes/minigames/plant_minigame/plant_minigame.tscn" id="7_ljm8n"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ljm8n"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
 [node name="Level5" instance=ExtResource("1_ljm8n")]
 
 [node name="Grid" parent="." index="0"]
-tile_map_data = PackedByteArray("AAD/////BgAAAAAAAAD///7/BgAAAAAAAAD+////BwAAAAMAAAD//wAABwAAAAMAAAD//wEABwAAAAEAAAAAAAAABgAAAAAAAAAAAP//BwADAAMAAAAAAP7/BQAAAAAAABD///3/BgAAAAAAAAAAAP3/BwAAAAMAAAAAAPz/BwACAAEAAAD///v/BwABAAEAAAD///z/BgAAAAAAAAD+//3/BwAAAAMAAAD+//7/BwADAAAAAAD9////BwACAAAAAAD+/wAABwABAAMAAAD+/wEABwAAAAMAAAD//wIABwABAAIAAAD//wMABwAAAAMAAAAAAAIABwABAAIAAAAAAAEABgAAAAAAAAABAAAABwACAAIAAAABAP//BwADAAIAAAABAP7/BwAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAD/////BgAAAAAAAAD///7/BgAAAAAAAAD+////BwAAAAMAAAD//wAABwAAAAMAAAD//wEABwAAAAEAAAAAAAAABgAAAAAAAAAAAP//BwAAAAMAAAAAAP7/BQAAAAAAABD///3/BgAAAAAAAAAAAP3/BwAAAAMAAAAAAPz/BwACAAEAAAD///v/BwABAAEAAAD///z/BgAAAAAAAAD+//3/BwAAAAMAAAD+//7/BwADAAAAAAD9////BwACAAAAAAD+/wAABwABAAMAAAD+/wEABwAAAAMAAAD//wIABwABAAIAAAD//wMABwAAAAMAAAAAAAIABwABAAIAAAAAAAEABgAAAAAAAAABAAAABwAAAAMAAAABAP//BwADAAIAAAABAP7/BwACAAMAAAA=")
 
 [node name="PlantTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_p5xfs")]
 position = Vector2(293.939, -296.97)
@@ -46,3 +53,6 @@ visible = false
 
 [node name="Margins" parent="UI" index="0"]
 mouse_filter = 2
+
+[node name="Particles" parent="UI/Margins/Header/Panel" index="1"]
+material = SubResource("CanvasItemMaterial_ljm8n")
