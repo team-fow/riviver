@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=62 format=3 uid="uid://cj0nv5djx71e4"]
 
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
@@ -83,6 +83,31 @@ texture_margin_right = 48.0
 texture_margin_bottom = 44.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o2edq"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_sgsui"]
+_data = [Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_ixrk0"]
+curve = SubResource("Curve_sgsui")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_noljr"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 200, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_ixrk0")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbq67"]
 atlas = ExtResource("5_likht")
@@ -528,6 +553,16 @@ theme_override_colors/font_outline_color = Color(0.192157, 0.34902, 0.00392157, 
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 32
 text = "Progress"
+
+[node name="Particles" type="GPUParticles2D" parent="UI/Margins/Header/Panel"]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_o2edq")
+position = Vector2(48, 90)
+emitting = false
+texture = ExtResource("5_hstm6")
+one_shot = true
+explosiveness = 0.75
+process_material = SubResource("ParticleProcessMaterial_noljr")
 
 [node name="ProgressBar" type="HBoxContainer" parent="UI/Margins/Header/Panel" node_paths=PackedStringArray("level")]
 custom_minimum_size = Vector2(0, 113)

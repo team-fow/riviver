@@ -59,7 +59,7 @@ func do_particles(score: float) -> void:
 # summary
 
 func do_summary() -> void:
-	await get_tree().create_timer(0.75).timeout
+	await get_tree().create_timer(2.0).timeout
 	
 	var score: float = Save.get_level_score(Save.get_current_level())
 	var stars: Array[Control] = [summary.get_node("Star1"), summary.get_node("Star2"), summary.get_node("Star3")]

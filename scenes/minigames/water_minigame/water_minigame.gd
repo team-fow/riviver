@@ -146,13 +146,13 @@ func _on_run_water_pressed() -> void:
 	$WaterSFX.play()
 	if check_water():
 		modulate = Color.GREEN
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1.0).timeout
 		score = 1.0
 		ended.emit(self, score)
 		level.do_particles(score)
 	else:
 		modulate = Color.RED
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1.0).timeout
 		score = 0.0
 		ended.emit(self, score)
 		level.do_particles(score)
