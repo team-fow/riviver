@@ -13,7 +13,8 @@ var curr_tween: Tween
 func _unhandled_input(event: InputEvent) -> void:
 	if held:
 		if event is InputEventMouseMotion:
-			global_position = get_global_mouse_position()
+			global_position = get_global_mouse_position().clamp(Vector2(-900.0, -500.0), Vector2(900.0, 500.0))
+			print(get_viewport_rect())
 			var mouse_velocity_x: float = event.screen_velocity.x
 			if curr_tween: curr_tween.kill()
 			curr_tween = get_tree().create_tween()
