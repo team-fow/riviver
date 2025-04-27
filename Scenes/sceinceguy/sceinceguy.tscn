@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://fx4mgq00nc5p"]
 
-[ext_resource type="Script" uid="uid://cuvkll4cav41p" path="res://Scenes/sceinceguy/sceinceguy.gd" id="1_erwwe"]
+[ext_resource type="Script" uid="uid://cuvkll4cav41p" path="res://scenes/sceinceguy/sceinceguy.gd" id="1_erwwe"]
 [ext_resource type="Texture2D" uid="uid://b6ga2cg8yh1hu" path="res://assets/sceinceguy/science_guy_happy.png" id="2_erwwe"]
 [ext_resource type="FontFile" uid="uid://cih6y73fncdtg" path="res://assets/fonts/Body - Quicksand Bold.ttf" id="2_y6rsw"]
 [ext_resource type="Texture2D" uid="uid://bnxbqbijt6er6" path="res://assets/sceinceguy/chatbox.png" id="3_ejcc5"]

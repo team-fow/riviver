@@ -6,6 +6,8 @@ enum Sprite {
 	FRUSTRATED,
 	HAPPY,
 	ANGRY,
+	EVIL,
+	EVIL_SCARED,
 }
 
 @onready var animator: AnimationPlayer = $Animator
@@ -16,6 +18,8 @@ func set_sprite(value: Sprite) -> void:
 		Sprite.FRUSTRATED: $Sprite.texture = preload("res://assets/sceinceguy/science_guy_frustrated.png")
 		Sprite.HAPPY: $Sprite.texture = preload("res://assets/sceinceguy/science_guy_happy.png")
 		Sprite.ANGRY: $Sprite.texture = preload("res://assets/sceinceguy/science_guy_angry.png")
+		Sprite.EVIL: $Sprite.texture = preload("res://assets/evil.png")
+		Sprite.EVIL_SCARED: $Sprite.texture = preload("res://assets/evil_scared.png")
 	animator.play("bob_sprite")
 
 
