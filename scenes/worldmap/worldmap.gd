@@ -78,11 +78,14 @@ func _ready() -> void:
 	
 	if not Save.data.get("did_intro_cutscene"):
 		await do_intro_cutscene()
-	
+	if Save.is_level_completed(0) and not Save.data.get("did_post_level_1_cutscene"):
+		do_post_level_1_cutscene()
+	if Save.is_level_completed(2) and not Save.data.get("did_post_level_3_cutscene"):
+		do_post_level_3_cutscene()
 	if Save.is_level_completed(5):
 		petal_particles.emitting = true
 		Save.set_music(preload("res://assets/audio/yay.mp3"))
-		if not Save.data.get("did_outro_cutscene", false):
+		if not Save.data.get("did_outro_cutscene"):
 			await do_outro_cutscene()
 	
 	select_level(Save.get_current_level())
@@ -136,6 +139,29 @@ func do_intro_cutscene() -> void:
 	level_info.show()
 
 
+func do_post_level_1_cutscene() -> void:
+	level_info.hide()
+	scienceguy.show()
+	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
+	await scienceguy.set_text("See that?")
+	await scienceguy.set_text("The world is becoming green again!")
+	scienceguy.hide()
+	Save.data.did_post_level_1_cutscene = true
+	level_info.show()
+
+
+func do_post_level_3_cutscene() -> void:
+	level_info.hide()
+	scienceguy.show()
+	scienceguy.set_sprite(scienceguy.Sprite.EASY)
+	await scienceguy.set_text("That was easy...")
+	scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
+	await scienceguy.set_text("What is Polluto plotting?")
+	scienceguy.hide()
+	Save.data.did_post_level_3_cutscene = true
+	level_info.show()
+
+
 func do_outro_cutscene() -> void:
 	select_level(5)
 	camera.reset_smoothing()
@@ -144,7 +170,7 @@ func do_outro_cutscene() -> void:
 	scienceguy.set_sprite(scienceguy.Sprite.EVIL_SCARED)
 	await scienceguy.set_text("NOOOOOO!")
 	await scienceguy.set_text("The RIVER! It's BLUE and GREEN again!")
-	await scienceguy.set_text("All the colors I HATE!")
+	await scienceguy.set_text("All the COLORS I HATE!")
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 	await scienceguy.set_text("That's right!")
 	await scienceguy.set_text("Wow... you really did it!")
