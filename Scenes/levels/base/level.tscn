@@ -52,6 +52,22 @@ _data = {
 &"bob": SubResource("Animation_gbq67")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_likht"]
+atlas = ExtResource("5_likht")
+region = Rect2(256, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sprtd"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(256, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd8iw"]
+atlas = ExtResource("5_likht")
+region = Rect2(0, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxgw7"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(0, 0, 128, 0)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbq67"]
 atlas = ExtResource("5_likht")
 region = Rect2(384, 0, 128, 0)
@@ -80,22 +96,6 @@ axis_stretch_vertical = 1
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixrk0"]
 content_margin_left = 6.0
 content_margin_right = 6.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_likht"]
-atlas = ExtResource("5_likht")
-region = Rect2(256, 0, 128, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sprtd"]
-atlas = ExtResource("6_2xtfm")
-region = Rect2(256, 0, 128, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vd8iw"]
-atlas = ExtResource("5_likht")
-region = Rect2(0, 0, 128, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bxgw7"]
-atlas = ExtResource("6_2xtfm")
-region = Rect2(0, 0, 128, 0)
 
 [sub_resource type="Gradient" id="Gradient_vd8iw"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -469,62 +469,6 @@ level = NodePath("../../../..")
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Settings" type="TextureButton" parent="UI/Margins/Left"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = SubResource("AtlasTexture_gbq67")
-texture_hover = SubResource("AtlasTexture_hstm6")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Help" type="TextureButton" parent="UI/Margins/Left"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = SubResource("AtlasTexture_2xtfm")
-texture_hover = SubResource("AtlasTexture_wtah3")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Dropdown" type="PanelContainer" parent="UI/Margins/Left/Help"]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 61.0
-offset_top = -111.0
-offset_right = 732.0
-offset_bottom = 269.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_sprtd")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margins/Left/Help/Dropdown"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/Margins/Left/Help/Dropdown/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.828197, 0.828197, 0.828197, 1)
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ixrk0")
-text = "Help me with..."
-
-[node name="HelpList" type="ItemList" parent="UI/Margins/Left/Help/Dropdown/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-auto_height = true
-item_count = 6
-item_0/text = "Picking up trash"
-item_1/text = "Sorting trash"
-item_2/text = "Moving pipes"
-item_3/text = "Filtering with pipes"
-item_4/text = "Planting plants"
-item_5/text = "Final test"
-
 [node name="Restart" type="TextureButton" parent="UI/Margins/Left"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -542,6 +486,68 @@ texture_normal = SubResource("AtlasTexture_vd8iw")
 texture_hover = SubResource("AtlasTexture_bxgw7")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Right" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+alignment = 2
+
+[node name="Settings" type="TextureButton" parent="UI/Margins/Right"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_gbq67")
+texture_hover = SubResource("AtlasTexture_hstm6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Help" type="TextureButton" parent="UI/Margins/Right"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_2xtfm")
+texture_hover = SubResource("AtlasTexture_wtah3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Dropdown" type="PanelContainer" parent="UI/Margins/Right/Help"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 61.0
+offset_top = -111.0
+offset_right = 732.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sprtd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margins/Right/Help/Dropdown"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Margins/Right/Help/Dropdown/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.828197, 0.828197, 0.828197, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ixrk0")
+text = "Help me with..."
+
+[node name="HelpList" type="ItemList" parent="UI/Margins/Right/Help/Dropdown/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+auto_height = true
+item_count = 6
+item_0/text = "Picking up trash"
+item_1/text = "Sorting trash"
+item_2/text = "Moving pipes"
+item_3/text = "Filtering with pipes"
+item_4/text = "Planting plants"
+item_5/text = "Final test"
 
 [node name="Scienceguy" parent="UI/Margins" instance=ExtResource("7_bxgw7")]
 visible = false
@@ -774,13 +780,13 @@ process_material = SubResource("ParticleProcessMaterial_bxgw7")
 [node name="PointerTutorial" parent="." instance=ExtResource("13_hstm6")]
 scale = Vector2(0.75, 0.75)
 
-[connection signal="pressed" from="UI/Margins/Left/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="UI/Margins/Left/Help" to="." method="_on_help_pressed"]
-[connection signal="pressed" from="UI/Margins/Left/Help" to="UI/Margins/Left/Help/Dropdown" method="show"]
-[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/VBoxContainer/HelpList" to="." method="do_tutorial"]
-[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Left/Help/Dropdown/VBoxContainer/HelpList" method="deselect"]
-[connection signal="item_selected" from="UI/Margins/Left/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Left/Help/Dropdown" method="hide" unbinds=1]
 [connection signal="pressed" from="UI/Margins/Left/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="UI/Margins/Left/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="UI/Margins/Right/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/Margins/Right/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="UI/Margins/Right/Help" to="UI/Margins/Right/Help/Dropdown" method="show"]
+[connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="." method="do_tutorial"]
+[connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" method="deselect"]
+[connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Right/Help/Dropdown" method="hide" unbinds=1]
 [connection signal="pressed" from="UI/Summary/RetryLevel" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="UI/Summary/WorldMap" to="." method="_on_world_map_pressed"]
