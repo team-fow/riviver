@@ -8,6 +8,7 @@ custom_minimum_size = Vector2(144, 113)
 offset_right = 130.0
 offset_bottom = 113.0
 pivot_offset = Vector2(72, 57.5)
+size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("1_ct5cc")
 expand_mode = 1

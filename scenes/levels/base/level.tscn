@@ -53,18 +53,13 @@ _data = {
 &"bob": SubResource("Animation_gbq67")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_srqya"]
-atlas = ExtResource("3_sgsui")
-region = Rect2(0, 0, 248, 184)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd8iw"]
+atlas = ExtResource("5_likht")
+region = Rect2(0, 0, 128, 0)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_em4rp"]
-texture = SubResource("AtlasTexture_srqya")
-texture_margin_left = 48.0
-texture_margin_top = 44.0
-texture_margin_right = 48.0
-texture_margin_bottom = 44.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxgw7"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(0, 0, 128, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_likht"]
 atlas = ExtResource("5_likht")
@@ -74,13 +69,20 @@ region = Rect2(256, 0, 128, 0)
 atlas = ExtResource("6_2xtfm")
 region = Rect2(256, 0, 128, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vd8iw"]
-atlas = ExtResource("5_likht")
-region = Rect2(0, 0, 128, 0)
+[sub_resource type="AtlasTexture" id="AtlasTexture_srqya"]
+atlas = ExtResource("3_sgsui")
+region = Rect2(0, 0, 248, 184)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bxgw7"]
-atlas = ExtResource("6_2xtfm")
-region = Rect2(0, 0, 128, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_em4rp"]
+content_margin_top = 35.0
+content_margin_bottom = 35.0
+texture = SubResource("AtlasTexture_srqya")
+texture_margin_left = 48.0
+texture_margin_top = 44.0
+texture_margin_right = 48.0
+texture_margin_bottom = 44.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbq67"]
 atlas = ExtResource("5_likht")
@@ -473,32 +475,11 @@ size_flags_vertical = 0
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="Panel" type="PanelContainer" parent="UI/Margins/Header"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_em4rp")
-
-[node name="ProgressBar" type="HBoxContainer" parent="UI/Margins/Header/Panel" node_paths=PackedStringArray("level")]
-layout_mode = 2
-mouse_filter = 2
-script = ExtResource("3_tvt8h")
-level = NodePath("../../../../..")
-
-[node name="Left" type="VBoxContainer" parent="UI/Margins"]
+[node name="Left" type="VBoxContainer" parent="UI/Margins/Header"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Restart" type="TextureButton" parent="UI/Margins/Left"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = SubResource("AtlasTexture_likht")
-texture_hover = SubResource("AtlasTexture_sprtd")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Back" type="TextureButton" parent="UI/Margins/Left"]
+[node name="Back" type="TextureButton" parent="UI/Margins/Header/Left"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 4
@@ -507,13 +488,53 @@ texture_hover = SubResource("AtlasTexture_bxgw7")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Right" type="VBoxContainer" parent="UI/Margins"]
+[node name="Restart" type="TextureButton" parent="UI/Margins/Header/Left"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_likht")
+texture_hover = SubResource("AtlasTexture_sprtd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel" type="PanelContainer" parent="UI/Margins/Header"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_em4rp")
+
+[node name="Control" type="Control" parent="UI/Margins/Header/Panel"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="UI/Margins/Header/Panel/Control"]
+layout_mode = 2
+offset_left = 5.0
+offset_top = -44.0
+offset_right = 149.0
+offset_bottom = 1.0
+theme_override_colors/font_color = Color(0.971628, 0.998225, 0.674265, 1)
+theme_override_colors/font_outline_color = Color(0.192157, 0.34902, 0.00392157, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 32
+text = "Progress"
+
+[node name="ProgressBar" type="HBoxContainer" parent="UI/Margins/Header/Panel" node_paths=PackedStringArray("level")]
+custom_minimum_size = Vector2(0, 113)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_tvt8h")
+level = NodePath("../../../../..")
+
+[node name="Right" type="VBoxContainer" parent="UI/Margins/Header"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 alignment = 2
 
-[node name="Settings" type="TextureButton" parent="UI/Margins/Right"]
+[node name="Settings" type="TextureButton" parent="UI/Margins/Header/Right"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 4
@@ -522,7 +543,7 @@ texture_hover = SubResource("AtlasTexture_hstm6")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Help" type="TextureButton" parent="UI/Margins/Right"]
+[node name="Help" type="TextureButton" parent="UI/Margins/Header/Right"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 4
@@ -531,7 +552,7 @@ texture_hover = SubResource("AtlasTexture_wtah3")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Dropdown" type="PanelContainer" parent="UI/Margins/Right/Help"]
+[node name="Dropdown" type="PanelContainer" parent="UI/Margins/Header/Right/Help"]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -547,27 +568,28 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_sprtd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margins/Right/Help/Dropdown"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margins/Header/Right/Help/Dropdown"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/Margins/Right/Help/Dropdown/VBoxContainer"]
+[node name="Label" type="Label" parent="UI/Margins/Header/Right/Help/Dropdown/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.828197, 0.828197, 0.828197, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ixrk0")
 text = "Help me with..."
 
-[node name="HelpList" type="ItemList" parent="UI/Margins/Right/Help/Dropdown/VBoxContainer"]
+[node name="HelpList" type="ItemList" parent="UI/Margins/Header/Right/Help/Dropdown/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 auto_height = true
-item_count = 6
+item_count = 7
 item_0/text = "Picking up trash"
 item_1/text = "Sorting trash"
 item_2/text = "Moving pipes"
 item_3/text = "Filtering with pipes"
 item_4/text = "Planting plants"
 item_5/text = "Final test"
+item_6/text = "(Cancel)"
 
 [node name="Scienceguy" parent="UI/Margins" instance=ExtResource("7_bxgw7")]
 visible = false
@@ -764,6 +786,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("6_vpf64")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
@@ -800,13 +823,13 @@ process_material = SubResource("ParticleProcessMaterial_bxgw7")
 [node name="PointerTutorial" parent="." instance=ExtResource("13_hstm6")]
 scale = Vector2(0.75, 0.75)
 
-[connection signal="pressed" from="UI/Margins/Left/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="UI/Margins/Left/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="UI/Margins/Right/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="UI/Margins/Right/Help" to="." method="_on_help_pressed"]
-[connection signal="pressed" from="UI/Margins/Right/Help" to="UI/Margins/Right/Help/Dropdown" method="show"]
-[connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="." method="do_tutorial"]
-[connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" method="deselect"]
-[connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Right/Help/Dropdown" method="hide" unbinds=1]
+[connection signal="pressed" from="UI/Margins/Header/Left/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="UI/Margins/Header/Left/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI/Margins/Header/Right/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/Margins/Header/Right/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="UI/Margins/Header/Right/Help" to="UI/Margins/Header/Right/Help/Dropdown" method="show"]
+[connection signal="item_selected" from="UI/Margins/Header/Right/Help/Dropdown/VBoxContainer/HelpList" to="." method="do_tutorial"]
+[connection signal="item_selected" from="UI/Margins/Header/Right/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Header/Right/Help/Dropdown/VBoxContainer/HelpList" method="deselect"]
+[connection signal="item_selected" from="UI/Margins/Header/Right/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Header/Right/Help/Dropdown" method="hide" unbinds=1]
 [connection signal="pressed" from="UI/Summary/WorldMap" to="." method="_on_world_map_pressed"]
 [connection signal="pressed" from="UI/Summary/RetryLevel" to="." method="_on_next_level_pressed"]

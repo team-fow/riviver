@@ -69,8 +69,8 @@ func _ready() -> void:
 		var tween := create_tween()
 		tween.tween_callback(fill_particles.set_emitting.bind(true))
 		tween.tween_interval(0.5)
-		tween.tween_property(mask.texture, "fill_from:x", x, 1.0)
-		tween.parallel().tween_property(fill_particles, "position:x", levels.get_child(idx).position.x + 400, 1.0)
+		tween.tween_property(mask.texture, "fill_from:x", x if idx != 5 else 1.0, 1.0)
+		tween.parallel().tween_property(fill_particles, "position:x", (levels.get_child(idx).position.x + 400) if idx != 5 else 1956.0, 1.0)
 		tween.tween_callback(fill_particles.set_emitting.bind(false))
 	
 	if not Save.data.get("did_intro_cutscene"):

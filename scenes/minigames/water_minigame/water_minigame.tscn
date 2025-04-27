@@ -234,16 +234,6 @@ texture_pressed = SubResource("AtlasTexture_vqru3")
 texture_hover = SubResource("AtlasTexture_3u2sk")
 texture_disabled = SubResource("AtlasTexture_iwc6x")
 
-[node name="RunWater" type="Button" parent="Background/Margins"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 48
-theme_override_styles/hover = ExtResource("5_l1bk7")
-theme_override_styles/pressed = ExtResource("5_l1bk7")
-theme_override_styles/normal = ExtResource("6_ll52j")
-text = "Run Water"
-
 [node name="Panel" type="Panel" parent="Background"]
 z_index = 1
 layout_mode = 1
@@ -254,6 +244,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("13_jyaov")
+
+[node name="RunWater" type="Button" parent="Background"]
+z_index = 1
+layout_mode = 2
+offset_left = 264.0
+offset_top = 1485.5
+offset_right = 736.0
+offset_bottom = 1627.5
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 80
+theme_override_styles/hover = ExtResource("5_l1bk7")
+theme_override_styles/pressed = ExtResource("5_l1bk7")
+theme_override_styles/normal = ExtResource("6_ll52j")
+text = "Run Water"
 
 [node name="Grid" type="Area2D" parent="."]
 z_index = 1
@@ -275,9 +280,9 @@ region_rect = Rect2(0, 0, 1640, 1640)
 z_index = 1
 custom_minimum_size = Vector2(300, 90)
 offset_left = -340.0
-offset_top = 483.0
+offset_top = 373.0
 offset_right = 336.0
-offset_bottom = 728.0
+offset_bottom = 637.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 horizontal_scroll_mode = 4
@@ -292,7 +297,7 @@ size_flags_vertical = 3
 
 [connection signal="pressed" from="Background/Margins/Top/Back" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="Background/Margins/Top/Undo" to="." method="_on_undo_pressed"]
-[connection signal="pressed" from="Background/Margins/RunWater" to="." method="_on_run_water_pressed"]
+[connection signal="pressed" from="Background/RunWater" to="." method="_on_run_water_pressed"]
 [connection signal="area_entered" from="Grid" to="Grid" method="_on_area_entered"]
 [connection signal="area_exited" from="Grid" to="Grid" method="_on_area_exited"]
 [connection signal="input_event" from="Grid" to="." method="_on_grid_input_event"]

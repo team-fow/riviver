@@ -258,10 +258,10 @@ texture = ExtResource("2_8pao6")
 
 [node name="FillParticles" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_jmavi")
-position = Vector2(-1006, -177)
+position = Vector2(822, -177)
 scale = Vector2(1.523, 1.523)
 emitting = false
-amount = 80
+amount = 100
 texture = ExtResource("4_lfmi5")
 process_material = SubResource("ParticleProcessMaterial_bbwh6")
 
