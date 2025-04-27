@@ -15,6 +15,8 @@ var selected_idx: int
 @onready var disabled_level_selector: TextureRect = $UI/Margins/HBox/Background/Disabled
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var fill_particles: GPUParticles2D = $FillParticles
+@onready var petal_particles: GPUParticles2D = $Camera/PetalParticles
+@onready var leaves_sfx: AudioStreamPlayer = $Leaves
 
 
 
@@ -72,12 +74,15 @@ func _ready() -> void:
 		tween.tween_property(mask.texture, "fill_from:x", x if idx != 5 else 1.0, 1.0)
 		tween.parallel().tween_property(fill_particles, "position:x", (levels.get_child(idx).position.x + 400) if idx != 5 else 1956.0, 1.0)
 		tween.tween_callback(fill_particles.set_emitting.bind(false))
+		leaves_sfx.play()
 	
 	if not Save.data.get("did_intro_cutscene"):
 		await do_intro_cutscene()
 	
-	if Save.is_level_completed(5) and not Save.data.get("did_outro_cutscene", false):
-		await do_outro_cutscene()
+	if Save.is_level_completed(5):
+		petal_particles.emitting = true
+		if not Save.data.get("did_outro_cutscene", false):
+			await do_outro_cutscene()
 	
 	select_level(Save.get_current_level())
 	camera.reset_smoothing()
@@ -116,8 +121,8 @@ func do_intro_cutscene() -> void:
 	scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 	await scienceguy.set_text("Something awful has happened...")
 	scienceguy.set_sprite(scienceguy.Sprite.EVIL)
-	await scienceguy.set_text("RAGHHH!!! I control the forces of pollution.")
-	await scienceguy.set_text("Your precious river... is all dirty!")
+	await scienceguy.set_text("RAGHHH!!! I'm GROUCHO, the master of POLLUTION!")
+	await scienceguy.set_text("Your precious RIVER... I've made it DIRTY! Muahaha!")
 	scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
 	await scienceguy.set_text("Help me stop this villain!")
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
@@ -136,17 +141,19 @@ func do_outro_cutscene() -> void:
 	level_info.hide()
 	scienceguy.show()
 	scienceguy.set_sprite(scienceguy.Sprite.EVIL_SCARED)
-	await scienceguy.set_text("Nooooo!")
-	await scienceguy.set_text("The river! It's green again!")
+	await scienceguy.set_text("NOOOOO!")
+	await scienceguy.set_text("The RIVER! It's GREEN again!")
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
+	await scienceguy.set_text("That's right!")
 	await scienceguy.set_text("Wow... you really did it!")
 	await scienceguy.set_text("Our river is back to normal!")
 	await scienceguy.set_text("You're a hero!")
 	scienceguy.set_sprite(scienceguy.Sprite.EVIL)
-	await scienceguy.set_text("You haven't seen the last of me, kid!")
+	await scienceguy.set_text("You haven't seen the last of ME, kid!")
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-	await scienceguy.set_text("We'll meet again someday, too. Thank you!")
+	await scienceguy.set_text("The next time Groucho appears, you'll be ready.")
 	await scienceguy.set_text("Remember: keep it green!")
+	await scienceguy.set_text("Thank you for playing!")
 	scienceguy.hide()
 	Save.data.did_outro_cutscene = true
 	level_info.show()

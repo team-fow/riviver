@@ -13,7 +13,7 @@
 [node name="Grid" parent="." index="0"]
 tile_map_data = PackedByteArray("AAD/////BgAAAAAAAAD///7/BgAAAAAAAAD+////BwAAAAMAAAD//wAABwAAAAMAAAD//wEABwAAAAEAAAAAAAAABgAAAAAAAAAAAP//BwADAAMAAAAAAP7/BQAAAAAAABD///3/BgAAAAAAAAAAAP3/BwAAAAMAAAAAAPz/BwACAAEAAAD///v/BwABAAEAAAD///z/BgAAAAAAAAD+//3/BwAAAAMAAAD+//7/BwADAAAAAAD9////BwACAAAAAAD+/wAABwABAAMAAAD+/wEABwAAAAMAAAD//wIABwABAAIAAAD//wMABwAAAAMAAAAAAAIABwABAAIAAAAAAAEABgAAAAAAAAABAAAABwACAAIAAAABAP//BwADAAIAAAABAP7/BwAAAAMAAAA=")
 
-[node name="MinigameTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_p5xfs")]
+[node name="PlantTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_p5xfs")]
 position = Vector2(293.939, -296.97)
 script = ExtResource("3_csx81")
 minigame = NodePath("../../Minigames/PlantMinigame")

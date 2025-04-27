@@ -45,7 +45,8 @@ func end_minigame(game: Minigame, score: float) -> void:
 		var total_score: float = 0.0
 		for minigame: Minigame in minigames:
 			total_score += minigame.score
-		Save.set_level_score(Save.get_current_level(), total_score / minigames.size())
+		total_score /= minigames.size()
+		Save.set_level_score(Save.get_current_level(), total_score)
 		do_summary()
 
 
@@ -64,6 +65,7 @@ func do_summary() -> void:
 	var stars: Array[Control] = [summary.get_node("Star1"), summary.get_node("Star2"), summary.get_node("Star3")]
 	for i: int in stars.size():
 		stars[i].get_child(0).visible = score >= (i + 1) / 3.0
+		print(score, (i + 1) / 3.0)
 	animator.play("open_summary")
 	await animator.animation_finished
 
@@ -119,8 +121,9 @@ func do_tutorial(idx: int) -> void:
 	match idx:
 		0:
 			scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
-			await scienceguy.set_text("Gah! Some trash! It looks like someone has been littering...")
-			await scienceguy.set_text("This is unacceptable! We need to clean this up!")
+			await scienceguy.set_text("Gah! Trash!")
+			await scienceguy.set_text("It looks like someone has been littering...")
+			await scienceguy.set_text("We need to clean this up!")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Find trash in the level behind me.")
 			await scienceguy.set_text("Click on a piece of trash, hold it down, and then move the cursor around.")
@@ -128,56 +131,85 @@ func do_tutorial(idx: int) -> void:
 			pointer_tutorial.tutorial_point(grid.get_child(0).global_position, $Minigames/TrashMinigame/TrashBin.global_position)
 		1:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-			await scienceguy.set_text("Great job on finding and removing trash!")
+			await scienceguy.set_text("Great job!")
 			await scienceguy.set_text("Now, be extra careful...")
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
-			await scienceguy.set_text("Put each piece of trash in the right bin...")
-			await scienceguy.set_text("If the trash isn't sorted right, no one will be able to recycle.")
+			await scienceguy.set_text("To recycle, we need to sort our trash.")
+			await scienceguy.set_text("Put each piece of trash in the right bin.")
+			await scienceguy.set_text("If the trash isn't sorted right...")
+			await scienceguy.set_text("...no one will be able to recycle.")
+			if has_node("Minigames/TrashMinigame"):
+				scienceguy.hide()
+				await $Minigames/TrashMinigame.unpaused
+				scienceguy.show()
+				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
+				await scienceguy.set_text("The recycling bin...")
+				await scienceguy.set_text("...is for clean paper, plastic, and glass.")
 		2:
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
-			await scienceguy.set_text("What's going on here? There's trash laying around, but also...")
+			await scienceguy.set_text("Oh no!")
+			scienceguy.set_sprite(scienceguy.Sprite.EVIL)
+			await scienceguy.set_text("AHAHA!!! You're no match for my evil FACTORY!")
+			scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
+			await scienceguy.set_text("It's Groucho!")
+			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 			await scienceguy.set_text("That factory has a leak! It's leaking into the river.")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Click on the factory!")
-			if grid.has_node("WaterTile"):
+			if has_node("Minigames/WaterMinigame"):
 				scienceguy.hide()
-				await $Grid/WaterTile.clicked
+				await $Minigames/WaterMinigame.unpaused
 				scienceguy.show()
 				scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
-				await scienceguy.set_text("Hmm, what a mess....")
+				await scienceguy.set_text("What a mess!")
 				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-				await scienceguy.set_text("You can drag pipes onto the dirt.")
-				await scienceguy.set_text("Using the pipes, make a path from top to bottom...")
+				await scienceguy.set_text("Use the mouse to drag pipes onto the dirt.")
+				await scienceguy.set_text("Make a path from top to bottom...")
 				await scienceguy.set_text("That way, water can pass through without leaking.")
-				await scienceguy.set_text("Remember that you can't place pipes on rocks.")
+				await scienceguy.set_text("Remember: you can't place pipes on rocks.")
 		3:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-			await scienceguy.set_text("Nice job!")
+			await scienceguy.set_text("That was great!")
+			await scienceguy.set_text("Hold on...")
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 			await scienceguy.set_text("This factory is leaking bad chemicals!")
 			scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
 			await scienceguy.set_text("All the dirty chemicals will make our water dirty too!")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-			await scienceguy.set_text("Try using a filter! Filters clean water.")
+			await scienceguy.set_text("Use a filter pipe! Filters help clean water.")
 		4:
+			scienceguy.set_sprite(scienceguy.Sprite.EVIL)
+			await scienceguy.set_text("Muahaha...")
+			await scienceguy.set_text("Try and stop THIS, hero...")
 			scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
 			await scienceguy.set_text("Oh no!")
-			await scienceguy.set_text("The ground is being taken away by the water... Our river is eroding!")
+			await scienceguy.set_text("The dirt is being taken away by the river... Our river is eroding!")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Luckily, plants' roots can stop eroding!")
 			await scienceguy.set_text("Click on a sandy riverbank.")
-			await scienceguy.set_text("Use our gardening tools to plant a plant. Drag them and wiggle them around!")
-			await scienceguy.set_text("First shovel the ground, then plant a seed...")
-			await scienceguy.set_text("Then add soil, and finally water it!")
-			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
-			await scienceguy.set_text("Be quick! After some time, rain will sweep away the rest of the dirt.")
+			if grid.has_node("Minigames/PlantMinigame"):
+				scienceguy.hide()
+				await $Minigames/PlantMinigame.unpaused
+				scienceguy.show()
+				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
+				await scienceguy.set_text("Use our gardening tools to plant a plant.")
+				await scienceguy.set_text("Drag the tools and wiggle them around!")
+				await scienceguy.set_text("First shovel the ground, then plant a seed...")
+				await scienceguy.set_text("Then add soil, and finally water it!")
+				scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
+				await scienceguy.set_text("Be quick! After some time, rain will sweep away the rest of the dirt.")
 		5:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("I'm proud of you.")
-			await scienceguy.set_text("The world is looking much prettier, wouldn't you agree?")
+			await scienceguy.set_text("You've done a great job.")
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 			await scienceguy.set_text("This is the final level...")
-			await scienceguy.set_text("It's hard, but I believe in you!")
+			await scienceguy.set_text("It's hard, but I believe you can do it!")
+			if has_node("Minigames/TrashMinigame"):
+				scienceguy.hide()
+				await $Minigames/TrashMinigame.unpaused
+				scienceguy.show()
+				await scienceguy.set_text("Old food goes in the compost bin.")
 	
 	scienceguy.hide()
 

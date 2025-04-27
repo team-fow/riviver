@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddb05cvkx1t8x"]
+[gd_scene load_steps=28 format=3 uid="uid://ddb05cvkx1t8x"]
 
 [ext_resource type="Script" uid="uid://03s6p8nxnaum" path="res://scenes/minigames/water_minigame/water_minigame.gd" id="1_apnnh"]
 [ext_resource type="Script" uid="uid://cb7sjvdpw6w7q" path="res://scenes/minigames/water_minigame/pipe_grid.gd" id="2_avfrl"]
@@ -14,6 +14,8 @@
 [ext_resource type="StyleBox" uid="uid://78a5ftygbdck" path="res://assets/Buttons/button_normal.tres" id="6_ll52j"]
 [ext_resource type="Texture2D" uid="uid://cwcetagfer838" path="res://assets/minigames/water/water exit.png" id="6_ym1a2"]
 [ext_resource type="StyleBox" uid="uid://c36ax7xm4d61w" path="res://assets/panel.tres" id="13_jyaov"]
+[ext_resource type="AudioStream" uid="uid://h0il1uiwto4k" path="res://assets/audio/pipe.mp3" id="15_jyaov"]
+[ext_resource type="AudioStream" uid="uid://cmbeihc31bwwn" path="res://assets/audio/water_fill.mp3" id="16_ym1a2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3e8u"]
 atlas = ExtResource("3_n36uu")
@@ -64,6 +66,16 @@ region = Rect2(256, 0, 128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apnnh"]
 size = Vector2(800, 800)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jyaov"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("15_jyaov")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nkcek"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("16_ym1a2")
+
 [node name="WaterMinigame" type="Node2D"]
 z_index = 1
 script = ExtResource("1_apnnh")
@@ -103,7 +115,7 @@ expand_mode = 5
 stretch_mode = 6
 
 [node name="PipeOut" type="TextureRect" parent="Background/Bg"]
-z_index = 1
+z_index = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = -1
@@ -120,7 +132,7 @@ texture = ExtResource("6_ym1a2")
 expand_mode = 5
 
 [node name="PipeHolder" type="TextureRect" parent="Background/Bg"]
-z_index = 1
+z_index = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = -1
@@ -137,7 +149,7 @@ texture = ExtResource("2_ll52j")
 expand_mode = 1
 
 [node name="Tank" type="TextureRect" parent="Background/Bg"]
-z_index = 1
+z_index = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = -1
@@ -153,7 +165,7 @@ texture = ExtResource("4_3u2sk")
 expand_mode = 5
 
 [node name="PipeIn" type="TextureRect" parent="Background/Bg"]
-z_index = 1
+z_index = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = -1
@@ -169,7 +181,7 @@ texture = ExtResource("5_jyaov")
 expand_mode = 5
 
 [node name="Margins" type="MarginContainer" parent="Background"]
-z_index = 1
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -235,7 +247,7 @@ texture_hover = SubResource("AtlasTexture_3u2sk")
 texture_disabled = SubResource("AtlasTexture_iwc6x")
 
 [node name="Panel" type="Panel" parent="Background"]
-z_index = 1
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -246,7 +258,7 @@ mouse_filter = 2
 theme_override_styles/panel = ExtResource("13_jyaov")
 
 [node name="RunWater" type="Button" parent="Background"]
-z_index = 1
+z_index = 2
 layout_mode = 2
 offset_left = 264.0
 offset_top = 1485.5
@@ -277,7 +289,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1640, 1640)
 
 [node name="Pipes" type="ScrollContainer" parent="."]
-z_index = 1
+z_index = 2
 custom_minimum_size = Vector2(300, 90)
 offset_left = -340.0
 offset_top = 373.0
@@ -294,6 +306,16 @@ metadata/_custom_type_script = "uid://dy3qsn7pijtkf"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="PipeSFX" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_jyaov")
+bus = &"SFX"
+
+[node name="WaterSFX" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_nkcek")
+bus = &"SFX"
 
 [connection signal="pressed" from="Background/Margins/Top/Back" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="Background/Margins/Top/Undo" to="." method="_on_undo_pressed"]

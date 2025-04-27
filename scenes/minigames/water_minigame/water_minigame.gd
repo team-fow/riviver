@@ -116,7 +116,7 @@ func drop_pipe(dropped_pipe: Pipe) -> void:
 			tween.tween_property(dropped_pipe, "position", Vector2(97.5,97.5), 0.1)
 			tween.tween_property(dropped_pipe, "rotation", 0.0, 0.1)
 			await tween.finished
-		
+	$PipeSFX.play()
 
 # Run the water and check if it flows properly
 func check_water() -> bool:
@@ -143,6 +143,7 @@ func check_water() -> bool:
 	
 	
 func _on_run_water_pressed() -> void:
+	$WaterSFX.play()
 	if check_water():
 		modulate = Color.GREEN
 		await get_tree().create_timer(0.5).timeout
@@ -172,15 +173,19 @@ func _on_undo_pressed() -> void:
 	last_placed_at.pop_front()
 	if last_placed_at.is_empty(): undo.disabled = true
 	redraw()
+	$PipeSFX.play()
 
 
 func _ready() -> void:
-	filters_needed_label.text = ", ".join(filters_needed.map(func (x: String) -> String:
-		match x:
-			"SANDFILTER": return "Dust"
-			"CARBONFILTER": return "Organics"
-			_: return "???"
-	))
+	if filters_needed:
+		filters_needed_label.text = ", ".join(filters_needed.map(func (x: String) -> String:
+			match x:
+				"SANDFILTER": return "Dust"
+				"CARBONFILTER": return "Organics"
+				_: return "???"
+		))
+	else:
+		$Background/Margins/Top/Filters.modulate.a = 0.0
 
 
 func _on_grid_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
@@ -195,3 +200,4 @@ func _on_grid_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -
 			last_placed_at.erase(coords)
 			if last_placed_at.is_empty(): undo.disabled = true
 			redraw()
+			$PipeSFX.play()

@@ -19,11 +19,12 @@ func eat(trash: Draggable) -> void:
 			if bin.category == trash.category:
 				bin.color(Color.LIME)
 				break
+		$GoodSFX.play()
 		trash_added.emit(false)
 	else:
 		color(Color.LIME)
+		$BadSFX.play()
 		trash_added.emit(true)
-	$SFX.play(0.0)
 
 
 func color(color: Color) -> void:
@@ -42,4 +43,6 @@ func _mouse_exit() -> void:
 
 func _ready() -> void:
 	$Sprite.texture = load("res://assets/minigames/trash/%s_bin.png" % category)
-	label.text = category.capitalize()
+	match category:
+		"landfill": label.text = "Landfill"
+		"recycling": label.text = "Recycling"

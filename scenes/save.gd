@@ -87,3 +87,15 @@ func start_music() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("screenshot"):
 		get_viewport().get_texture().get_image().save_png("user://screenshot_%s.png" % Time.get_datetime_string_from_system())
+
+
+
+# sfx
+
+func play_sfx(stream: AudioStreamMP3) -> void:
+	var player := AudioStreamPlayer.new()
+	player.bus = &"SFX"
+	player.stream = stream
+	player.finished.connect(player.queue_free)
+	add_child(player)
+	player.play()

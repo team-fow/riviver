@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=4 uid="uid://kdp2l5yy8pt3"]
 
-[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://Scenes/levels/base/level.tscn" id="1_8xqld"]
-[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://Scenes/minigame_tile/minigame_tile.tscn" id="2_q1k55"]
-[ext_resource type="Script" path="res://scenes/minigame_tile/plant_minigame_tile.gd" id="3_gpjcc"]
-[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://Scenes/minigames/trash_minigame/trash_object.tscn" id="4_0u0gx"]
-[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://Scenes/minigames/trash_minigame/trash_minigame.tscn" id="5_mowbc"]
-[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://Scenes/minigames/trash_minigame/trash_bin.tscn" id="6_033ma"]
-[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://Scenes/minigames/water_minigame/water_minigame.tscn" id="7_xbara"]
+[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_8xqld"]
+[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="2_q1k55"]
+[ext_resource type="Script" uid="uid://dv7rmsc7ratin" path="res://scenes/minigame_tile/plant_minigame_tile.gd" id="3_gpjcc"]
+[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://scenes/minigames/trash_minigame/trash_object.tscn" id="4_0u0gx"]
+[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://scenes/minigames/trash_minigame/trash_minigame.tscn" id="5_mowbc"]
+[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="6_033ma"]
+[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://scenes/minigames/water_minigame/water_minigame.tscn" id="7_xbara"]
 
 [node name="Level5" instance=ExtResource("1_8xqld")]
 
