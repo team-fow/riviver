@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cj0nv5djx71e4"]
+[gd_scene load_steps=63 format=3 uid="uid://cj0nv5djx71e4"]
 
 [ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
 [ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c3v4y3yo4uy0w" path="res://assets/lvlselection/Stars.png" id="7_sprtd"]
 [ext_resource type="Texture2D" uid="uid://b2jmi8ik2wrlj" path="res://assets/Help Pop-up.png" id="7_wtah3"]
 [ext_resource type="Texture2D" uid="uid://du08n1iych773" path="res://assets/summary.png" id="8_ixrk0"]
+[ext_resource type="AudioStream" uid="uid://cccn68efxuckp" path="res://assets/audio/complete.mp3" id="12_ixrk0"]
 [ext_resource type="PackedScene" uid="uid://e8hf3i82opnr" path="res://scenes/pointer_tutorial/pointer_tutorial.tscn" id="13_hstm6"]
 
 [sub_resource type="Animation" id="Animation_hstm6"]
@@ -300,6 +301,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("UI/Summary/SFX:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qkmgm"]
 resource_name = "move_grid"
@@ -333,7 +346,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_2xtfm"]
 resource_name = "open_summary"
 length = 1.3
-step = 0.1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -405,6 +418,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("UI/Summary/SFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vpf64"]
@@ -816,6 +841,9 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_noljr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_srqya")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_em4rp")
 text = "Retry Level"
+
+[node name="SFX" type="AudioStreamPlayer" parent="UI/Summary"]
+stream = ExtResource("12_ixrk0")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
