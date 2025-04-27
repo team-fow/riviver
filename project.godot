@@ -33,6 +33,7 @@ project/assembly_name="riviver"
 
 [gui]
 
+theme/custom="uid://dtps8rt24o1hw"
 theme/custom_font="uid://cih6y73fncdtg"
 
 [input]
