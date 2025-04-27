@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6sdixok32emk"
-path="res://.godot/imported/oil_pollution.png-5ed399726742fcf435b59d0f17bb9ca2.ctex"
+uid="uid://bdy1dpxlpqck7"
+path="res://.godot/imported/water_clean.png-4e6bb3a963a307b99aa465ae09387667.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minigames/water/oil_pollution.png"
-dest_files=["res://.godot/imported/oil_pollution.png-5ed399726742fcf435b59d0f17bb9ca2.ctex"]
+source_file="res://assets/minigames/water/water_clean.png"
+dest_files=["res://.godot/imported/water_clean.png-4e6bb3a963a307b99aa465ae09387667.ctex"]
 
 [params]
 

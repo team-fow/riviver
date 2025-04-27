@@ -126,6 +126,8 @@ func check_water() -> bool:
 	var filtered_sand = not filters_needed.has("SANDFILTER")
 	var filtered_carbon = not filters_needed.has("CARBONFILTER")
 	while curr_contents != null:
+		if curr_contents != "ROCK":
+			draw_water(curr_coords, not filtered_sand, not filtered_carbon)
 		if curr_contents.containsn("SANDFILTER"): filtered_sand = true
 		elif curr_contents.containsn("CARBONFILTER"): filtered_carbon = true
 		if curr_contents == "ROCK": return false
@@ -139,12 +141,26 @@ func check_water() -> bool:
 				else:
 					curr_coords = Pipe.dir_to_vector(pipe_dir[0]) + curr_coords
 					curr_contents = grid_def.get(curr_coords)
+		await get_tree().create_timer(0.5).timeout
+		
 	return false
-	
-	
+
+
+func draw_water(coords: Vector2i, dust: bool, organics: bool) -> void:
+	if dust or organics:
+		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_dirty.png"), "")
+	else:
+		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_clean.png"), "")
+	if dust:
+		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_dirt.png"), "")
+	if organics:
+		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_bio.png"), "")
+
+
 func _on_run_water_pressed() -> void:
 	$WaterSFX.play()
-	if check_water():
+	grid.input_pickable = false
+	if await check_water():
 		modulate = Color.GREEN
 		await get_tree().create_timer(1.0).timeout
 		score = 1.0
