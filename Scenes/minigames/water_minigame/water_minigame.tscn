@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddb05cvkx1t8x"]
+[gd_scene load_steps=22 format=3 uid="uid://ddb05cvkx1t8x"]
 
 [ext_resource type="Script" uid="uid://03s6p8nxnaum" path="res://scenes/minigames/water_minigame/water_minigame.gd" id="1_apnnh"]
 [ext_resource type="Script" uid="uid://cb7sjvdpw6w7q" path="res://scenes/minigames/water_minigame/pipe_grid.gd" id="2_avfrl"]
 [ext_resource type="Texture2D" uid="uid://cibxl5agxvg5k" path="res://assets/minigames/water/toolbox.png" id="2_ll52j"]
+[ext_resource type="Texture2D" uid="uid://bua580gwwec5p" path="res://assets/minigames/water/water_background.png" id="2_vqru3"]
 [ext_resource type="Script" uid="uid://dy3qsn7pijtkf" path="res://scenes/minigames/water_minigame/pipes_holder.gd" id="3_6nc0b"]
 [ext_resource type="Texture2D" uid="uid://f0r70veacp8d" path="res://assets/minigames/water/pipe_entrance.png" id="3_lcuwq"]
 [ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="3_n36uu"]
@@ -78,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Bg" type="ColorRect" parent="Background"]
+[node name="Bg" type="TextureRect" parent="Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,25 +87,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_vqru3")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="PipeHolder" type="TextureRect" parent="Background"]
-visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -399.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 texture = ExtResource("2_ll52j")
+expand_mode = 5
 
 [node name="Margins" type="MarginContainer" parent="Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -180,6 +183,7 @@ theme_override_styles/normal = ExtResource("6_ll52j")
 text = "Run Water"
 
 [node name="Panel" type="Panel" parent="Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -190,6 +194,7 @@ mouse_filter = 2
 theme_override_styles/panel = ExtResource("13_jyaov")
 
 [node name="Grid" type="Area2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(-400, -517)
 script = ExtResource("2_avfrl")
@@ -199,6 +204,7 @@ position = Vector2(400, 400)
 shape = SubResource("RectangleShape2D_apnnh")
 
 [node name="GridBackground" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -117)
 scale = Vector2(0.488, 0.488)
 texture = ExtResource("4_8de48")
