@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://p1us3q7brykx"]
+[gd_scene load_steps=12 format=3 uid="uid://p1us3q7brykx"]
 
 [ext_resource type="Script" uid="uid://dvf3862fotjwh" path="res://scenes/minigames/trash_minigame/trash_minigame.gd" id="1_rebx8"]
 [ext_resource type="Texture2D" uid="uid://bbthhw77l0kpp" path="res://assets/minigames/trash/trash_truck.png" id="2_qvkc5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dqx8ju355yq74" path="res://assets/minigames/trash/Recycle_Center_.png" id="4_2yne7"]
 [ext_resource type="Texture2D" uid="uid://dwm3rh7jtt4nu" path="res://assets/minigames/trash/trashtrucklabel.png" id="4_f7hqr"]
 [ext_resource type="Texture2D" uid="uid://2k7mxk3y3qk8" path="res://assets/minigames/trash/happy.png" id="5_svkof"]
+[ext_resource type="AudioStream" uid="uid://bo52k8qlw5rv3" path="res://assets/audio/car.mp3" id="8_7wdrx"]
 
 [sub_resource type="Animation" id="Animation_qvkc5"]
 length = 0.001
@@ -70,6 +71,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.75, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_svkof"]
@@ -135,6 +148,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.75, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SFX:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_svkof"]
@@ -212,3 +237,7 @@ process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_svkof")
 }
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7wdrx")
+bus = &"SFX"
