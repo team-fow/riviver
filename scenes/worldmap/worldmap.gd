@@ -153,7 +153,7 @@ func do_post_level_1_cutscene() -> void:
 func do_post_level_3_cutscene() -> void:
 	level_info.hide()
 	scienceguy.show()
-	scienceguy.set_sprite(scienceguy.Sprite.EASY)
+	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 	await scienceguy.set_text("That was easy...")
 	scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 	await scienceguy.set_text("What is Polluto plotting?")
