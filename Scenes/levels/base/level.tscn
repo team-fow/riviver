@@ -133,14 +133,6 @@ region = Rect2(124, 0, 124, 0)
 [sub_resource type="FontVariation" id="FontVariation_ixrk0"]
 variation_embolden = 0.5
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hstm6"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_noljr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srqya"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_em4rp"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgsui"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_noljr"]
@@ -148,6 +140,14 @@ variation_embolden = 0.5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gttgk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bclco"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hstm6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_noljr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srqya"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_em4rp"]
 
 [sub_resource type="Animation" id="Animation_hnne4"]
 length = 0.001
@@ -693,12 +693,31 @@ pivot_offset = Vector2(65, 65)
 mouse_filter = 2
 texture = SubResource("AtlasTexture_ixrk0")
 
+[node name="WorldMap" type="Button" parent="UI/Summary"]
+layout_mode = 2
+offset_left = 673.0
+offset_top = 675.0
+offset_right = 1326.0
+offset_bottom = 845.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0.862745, 0.6, 0.160784, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = SubResource("FontVariation_ixrk0")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sgsui")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_noljr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gttgk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bclco")
+text = "World map"
+
 [node name="RetryLevel" type="Button" parent="UI/Summary"]
 layout_mode = 2
 offset_left = 680.0
-offset_top = 666.0
-offset_right = 1312.0
-offset_bottom = 856.0
+offset_top = 894.0
+offset_right = 1325.0
+offset_bottom = 1077.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -706,31 +725,12 @@ theme_override_colors/font_outline_color = Color(0.862745, 0.6, 0.160784, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 32
 theme_override_fonts/font = SubResource("FontVariation_ixrk0")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 90
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hstm6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_noljr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_srqya")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_em4rp")
 text = "Retry Level"
-
-[node name="WorldMap" type="Button" parent="UI/Summary"]
-layout_mode = 2
-offset_left = 673.0
-offset_top = 895.0
-offset_right = 1326.0
-offset_bottom = 1095.0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_colors/font_outline_color = Color(0.862745, 0.6, 0.160784, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 32
-theme_override_fonts/font = SubResource("FontVariation_ixrk0")
-theme_override_font_sizes/font_size = 90
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sgsui")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_noljr")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_gttgk")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_bclco")
-text = "World map"
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -788,5 +788,5 @@ scale = Vector2(0.75, 0.75)
 [connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="." method="do_tutorial"]
 [connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" method="deselect"]
 [connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Right/Help/Dropdown" method="hide" unbinds=1]
-[connection signal="pressed" from="UI/Summary/RetryLevel" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="UI/Summary/WorldMap" to="." method="_on_world_map_pressed"]
+[connection signal="pressed" from="UI/Summary/RetryLevel" to="." method="_on_next_level_pressed"]
