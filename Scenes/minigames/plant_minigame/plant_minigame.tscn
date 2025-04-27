@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxyyfgdo1704o"]
+[gd_scene load_steps=26 format=3 uid="uid://cxyyfgdo1704o"]
 
 [ext_resource type="Script" uid="uid://baoa55ix5krny" path="res://scenes/minigames/plant_minigame/plant_minigame.gd" id="1_as2k8"]
 [ext_resource type="Texture2D" uid="uid://dbbgj85eqdcil" path="res://assets/minigames/plant/background.png" id="2_as2k8"]
@@ -7,9 +7,12 @@
 [ext_resource type="StyleBox" uid="uid://c36ax7xm4d61w" path="res://assets/panel.tres" id="4_6y7wg"]
 [ext_resource type="Texture2D" uid="uid://50tjlm6r8xfo" path="res://assets/minigames/plant/shovel.png" id="4_tdc4o"]
 [ext_resource type="Texture2D" uid="uid://uoseo75odqxy" path="res://assets/minigames/plant/seed_bag.png" id="5_lln40"]
+[ext_resource type="Texture2D" uid="uid://b2l42pp8t3nfv" path="res://assets/particles/particle-dirt.png" id="6_a50ha"]
 [ext_resource type="Texture2D" uid="uid://dskksw04p6gs0" path="res://assets/minigames/plant/soil_bag.png" id="7_qaipn"]
+[ext_resource type="Texture2D" uid="uid://docx8xxenmxbq" path="res://assets/particles/particle-seeds.png" id="8_8uug2"]
 [ext_resource type="Script" uid="uid://d387aibubmoqb" path="res://scenes/minigames/plant_minigame/watering_can.gd" id="8_moiwv"]
 [ext_resource type="Texture2D" uid="uid://dilgba2dsme7s" path="res://assets/minigames/plant/pot.png" id="8_qaipn"]
+[ext_resource type="Texture2D" uid="uid://b1tbyl74jt2e1" path="res://assets/particles/particle-water.png" id="12_kr702"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaipn"]
 content_margin_left = 32.0
@@ -230,6 +233,7 @@ position = Vector2(0, -997)
 position = Vector2(-340, 450)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("2_w505k")
+particle = ExtResource("6_a50ha")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
 [node name="Sprite" type="Sprite2D" parent="Tools/Shovel"]
@@ -243,6 +247,7 @@ shape = SubResource("RectangleShape2D_1em36")
 position = Vector2(-139, 375)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("2_w505k")
+particle = ExtResource("8_8uug2")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
 [node name="Sprite" type="Sprite2D" parent="Tools/SeedBag"]
@@ -256,6 +261,7 @@ shape = SubResource("RectangleShape2D_gxxmn")
 position = Vector2(87, 351)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("2_w505k")
+particle = ExtResource("6_a50ha")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
 [node name="Sprite" type="Sprite2D" parent="Tools/SoilBag"]
@@ -269,6 +275,7 @@ shape = SubResource("RectangleShape2D_u147h")
 position = Vector2(330, 380)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("8_moiwv")
+particle = ExtResource("12_kr702")
 metadata/_custom_type_script = "uid://bmx6wpyib1wc"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Tools/WateringCan"]

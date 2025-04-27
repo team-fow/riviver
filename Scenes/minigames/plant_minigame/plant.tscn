@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjrf0x4vn50hb"]
+[gd_scene load_steps=15 format=3 uid="uid://bjrf0x4vn50hb"]
 
 [ext_resource type="Script" uid="uid://c6axy1ybxyeui" path="res://scenes/minigames/plant_minigame/plant.gd" id="1_wru0m"]
 [ext_resource type="Texture2D" uid="uid://cioahb8rrwp6" path="res://assets/minigames/plant/bush.png" id="2_2whjf"]
@@ -10,9 +10,26 @@
 [ext_resource type="Texture2D" uid="uid://50tjlm6r8xfo" path="res://assets/minigames/plant/shovel.png" id="8_n75j4"]
 [ext_resource type="Texture2D" uid="uid://c3lbrr2ss6etv" path="res://assets/minigames/plant/bar-empty.png" id="8_xdgt4"]
 [ext_resource type="Texture2D" uid="uid://cth617caeb0py" path="res://assets/minigames/plant/bar-fill.png" id="9_n75j4"]
+[ext_resource type="Texture2D" uid="uid://b2l42pp8t3nfv" path="res://assets/particles/particle-dirt.png" id="11_t84v2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3e3o"]
 size = Vector2(500, 600)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c3p8y"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t84v2"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+inherit_velocity_ratio = 1.0
+spread = 180.0
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
 
 [node name="Plant" type="Area2D"]
 scale = Vector2(0.6, 0.6)
@@ -74,3 +91,16 @@ max_value = 50.0
 texture_under = ExtResource("8_xdgt4")
 texture_progress = ExtResource("9_n75j4")
 texture_progress_offset = Vector2(8, 6)
+
+[node name="PlantParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_c3p8y")
+scale = Vector2(2, 2)
+emitting = false
+amount = 50
+texture = ExtResource("11_t84v2")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.2
+local_coords = true
+trail_sections = 3
+process_material = SubResource("ParticleProcessMaterial_t84v2")

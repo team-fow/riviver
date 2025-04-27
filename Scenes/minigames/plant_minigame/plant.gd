@@ -26,6 +26,7 @@ var state: State : set = _set_state ## Current state.
 @onready var progress: HBoxContainer = $Progress
 @onready var progress_bar: TextureProgressBar = $Progress/Bar
 @onready var progress_icon: TextureRect = $Progress/Icon
+@onready var plant_particles: GPUParticles2D = $PlantParticles
 
 
 ## Moves the plant to the next state (see the State enum).
@@ -68,6 +69,8 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 	if event is InputEventMouseMotion:
 		for area: Area2D in get_overlapping_areas():
 			if area is Tool and is_affected_by_tool(area):
+				plant_particles.texture = area.particle
+				plant_particles.emitting = true
 				progress_bar.value += event.velocity.length() / 1000
 				if progress_bar.value == progress_bar.max_value:
 					advance_state()

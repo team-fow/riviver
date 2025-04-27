@@ -3,7 +3,7 @@ extends Draggable
 
 var initial_position: Vector2 = position
 var initial_scale: Vector2 = scale
-
+@export var particle: CompressedTexture2D
 
 
 func _grab() -> void:
