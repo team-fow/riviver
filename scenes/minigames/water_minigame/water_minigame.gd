@@ -137,24 +137,26 @@ func check_water() -> bool:
 			else:
 				pipe_dir.erase(connecting_from)
 				connecting_from = Pipe.flip_direction(pipe_dir[0])
-				if curr_coords == end_point and connecting_from == Pipe.DIRECTIONS.UP: return filtered_sand and filtered_carbon
+				if curr_coords == end_point and connecting_from == Pipe.DIRECTIONS.UP:
+					await get_tree().create_timer(0.5).timeout
+					return filtered_sand and filtered_carbon
 				else:
 					curr_coords = Pipe.dir_to_vector(pipe_dir[0]) + curr_coords
 					curr_contents = grid_def.get(curr_coords)
 		await get_tree().create_timer(0.5).timeout
-		
+	await get_tree().create_timer(0.5).timeout
 	return false
 
 
 func draw_water(coords: Vector2i, dust: bool, organics: bool) -> void:
 	if dust or organics:
-		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_dirty.png"), "")
+		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_dirty.png"), "", 0.4)
 	else:
-		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_clean.png"), "")
+		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_clean.png"), "", 0.4)
 	if dust:
-		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_dirt.png"), "")
+		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_dirt.png"), "", 0.4)
 	if organics:
-		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_bio.png"), "")
+		grid.place_on_grid(coords, preload("res://assets/minigames/water/water_bio.png"), "", 0.4)
 
 
 func _on_run_water_pressed() -> void:

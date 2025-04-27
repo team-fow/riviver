@@ -21,13 +21,13 @@ func _draw() -> void:
 
 
 # Given a texture, places it on the grid at the given coordinates as a Sprite2D
-func place_on_grid(coords: Vector2i, t: Texture2D, n: String) -> void:
+func place_on_grid(coords: Vector2i, t: Texture2D, n: String, size: float = 0.3076923077) -> void:
 	var local_coords: Vector2 = coords_to_position(coords)
 	var to_place: Sprite2D = Sprite2D.new()
 	var grid_size: Vector2 =  grid_collision.shape.size 
 	to_place.texture = t
 	to_place.position = local_coords
-	to_place.scale = Vector2(0.3076923077, 0.3076923077)
+	to_place.scale = Vector2(size, size)
 	to_place.set_meta("Type", n)
 	add_child(to_place)
 
