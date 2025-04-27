@@ -24,6 +24,7 @@ func _ready() -> void:
 func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
 		$"../../".select_level(get_index())
+		get_viewport().set_input_as_handled()
 
 
 func flick() -> void:
