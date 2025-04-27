@@ -288,7 +288,7 @@ position = Vector2(-17, -16.5)
 shape = SubResource("RectangleShape2D_lln40")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 3.0
 one_shot = true
 
 [node name="Animator" type="AnimationPlayer" parent="."]
