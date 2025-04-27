@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bbxb3eqci27ne"]
+[gd_scene load_steps=40 format=3 uid="uid://bbxb3eqci27ne"]
 
 [ext_resource type="Script" uid="uid://bs3rdjxblu5ts" path="res://scenes/worldmap/worldmap.gd" id="1_gu2y1"]
 [ext_resource type="Texture2D" uid="uid://bhfi7dq57s5c2" path="res://assets/worldmap.png" id="2_8pao6"]
@@ -96,13 +96,9 @@ font = SubResource("FontVariation_gfvk6")
 font_size = 80
 font_color = Color(0.498039, 0.54902, 0.713726, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_w84c3"]
-font_size = 36
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_anagn"]
-font_size = 48
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbwh6"]
+content_margin_top = 10.0
+content_margin_right = 72.0
 
 [sub_resource type="FontVariation" id="FontVariation_tq5v4"]
 base_font = ExtResource("8_gfvk6")
@@ -299,7 +295,7 @@ process_material = SubResource("ParticleProcessMaterial_bbwh6")
 
 [node name="LevelPin1" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-1696, -279)
-description = "Someone's littered! Your animal friends are sad..."
+description = "Someone's littered! Furrero seems sad..."
 
 [node name="LevelPin2" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-1245, -225)
@@ -307,15 +303,15 @@ description = "More litter! Let's sort this out..."
 
 [node name="LevelPin3" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-597, -237)
-description = "A factory has a leak! Fix it with your tools..."
+description = "Leaks! What is Polluto plotting?"
 
 [node name="LevelPin4" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(-132, -238)
-description = "The water is being polluted!"
+description = "Chemicals in the water!"
 
 [node name="LevelPin5" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(324, -315)
-description = "The river is eroding!"
+description = "The ground is unstable!"
 
 [node name="LevelPin6" parent="Levels" instance=ExtResource("2_mfk5f")]
 position = Vector2(1010, -82)
@@ -392,38 +388,37 @@ theme_override_constants/margin_bottom = 64
 
 [node name="LevelInfo" type="VBoxContainer" parent="UI/Margins/HBox/Background/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 18
+theme_override_constants/separation = 24
 
 [node name="Header" type="HBoxContainer" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo"]
 layout_mode = 2
+theme_override_constants/separation = 80
 
 [node name="Level" type="Label" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo/Header"]
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 text = "Level"
 label_settings = SubResource("LabelSettings_mfk5f")
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo/Header"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.231373, 0.2, 0.0431373, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("8_gfvk6")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbwh6")
+text = "1"
 vertical_alignment = 1
 
 [node name="Description" type="Label" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/line_spacing = -100
-text = "Level description"
-label_settings = SubResource("LabelSettings_w84c3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Level Level Level Level Level Level "
 autowrap_mode = 2
-
-[node name="Number" type="Label" parent="UI/Margins/HBox/Background"]
-layout_mode = 2
-offset_left = 391.0
-offset_top = 27.0
-offset_right = 452.0
-offset_bottom = 102.0
-rotation = 0.265394
-text = "1"
-label_settings = SubResource("LabelSettings_anagn")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Play" type="TextureButton" parent="UI/Margins/HBox/Background"]
 layout_mode = 1
@@ -467,7 +462,7 @@ texture_hover = SubResource("AtlasTexture_tq5v4")
 [node name="Settings" type="TextureButton" parent="UI/Margins"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 size_flags_vertical = 0
 texture_normal = SubResource("AtlasTexture_anagn")
 texture_hover = SubResource("AtlasTexture_ghqh1")
@@ -491,18 +486,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="Background"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -77,10 +77,6 @@ func change_scene(file: String) -> void:
 	overlay_color.hide()
 
 
-func start_music() -> void:
-	$Music.play()
-
-
 
 # screenshot
 
@@ -90,12 +86,12 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 
-# sfx
+# audio
 
-func play_sfx(stream: AudioStreamMP3) -> void:
-	var player := AudioStreamPlayer.new()
-	player.bus = &"SFX"
-	player.stream = stream
-	player.finished.connect(player.queue_free)
-	add_child(player)
-	player.play()
+func set_music(stream: AudioStream) -> void:
+	$Music.stream = stream
+	start_music()
+
+
+func start_music() -> void:
+	$Music.play()

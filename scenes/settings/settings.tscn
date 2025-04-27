@@ -269,5 +269,5 @@ autoplay = "appear"
 [connection signal="pressed" from="Control/Mask/Background/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Control/Mask/Background/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Control/Mask/Background/Continue" to="." method="_on_continue_pressed"]
-[connection signal="value_changed" from="Control/Mask/Background/SFXSlider/Slider" to="Control" method="_on_sfx_volume_changed"]
-[connection signal="value_changed" from="Control/Mask/Background/VolumeSlider/Slider" to="Control" method="_on_music_volume_changed"]
+[connection signal="value_changed" from="Control/Mask/Background/SFXSlider/Slider" to="." method="_on_sfx_volume_changed"]
+[connection signal="value_changed" from="Control/Mask/Background/VolumeSlider/Slider" to="." method="_on_music_volume_changed"]

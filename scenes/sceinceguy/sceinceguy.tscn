@@ -1,10 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://fx4mgq00nc5p"]
+[gd_scene load_steps=23 format=3 uid="uid://fx4mgq00nc5p"]
 
 [ext_resource type="Script" uid="uid://cuvkll4cav41p" path="res://scenes/sceinceguy/sceinceguy.gd" id="1_erwwe"]
 [ext_resource type="Texture2D" uid="uid://b6ga2cg8yh1hu" path="res://assets/sceinceguy/science_guy_happy.png" id="2_erwwe"]
 [ext_resource type="FontFile" uid="uid://cih6y73fncdtg" path="res://assets/fonts/Body - Quicksand Bold.ttf" id="2_y6rsw"]
 [ext_resource type="Texture2D" uid="uid://bnxbqbijt6er6" path="res://assets/sceinceguy/chatbox.png" id="3_ejcc5"]
-[ext_resource type="AudioStream" uid="uid://c64yg2rp253fn" path="res://assets/audio/voice.mp3" id="4_6pb4g"]
+[ext_resource type="AudioStream" uid="uid://b2m2kvto74fun" path="res://assets/audio/talk/furrero1.wav" id="5_wvidu"]
+[ext_resource type="AudioStream" uid="uid://dmkhp8atnqapw" path="res://assets/audio/talk/groucho1.wav" id="6_t1077"]
+[ext_resource type="AudioStream" uid="uid://3gf726doo4wb" path="res://assets/audio/talk/furrero2.wav" id="6_x0bsi"]
+[ext_resource type="AudioStream" uid="uid://c7nf8g7sh2a2d" path="res://assets/audio/talk/groucho2.wav" id="7_ergrr"]
+[ext_resource type="AudioStream" uid="uid://j0xw66kuip84" path="res://assets/audio/talk/furrero3.wav" id="7_t84jy"]
+[ext_resource type="AudioStream" uid="uid://dlm300601exy4" path="res://assets/audio/talk/groucho3.wav" id="8_08jb7"]
+[ext_resource type="AudioStream" uid="uid://b40eqeyrab2dj" path="res://assets/audio/talk/furrero4.wav" id="8_tuiak"]
+[ext_resource type="AudioStream" uid="uid://b3sv4mmncwtpj" path="res://assets/audio/talk/groucho4.wav" id="9_jhq3q"]
+[ext_resource type="AudioStream" uid="uid://bdulpuc6a0785" path="res://assets/audio/talk/furrero5.wav" id="9_wunmh"]
+[ext_resource type="AudioStream" uid="uid://6neoig5knx4" path="res://assets/audio/talk/groucho_no.wav" id="14_x0bsi"]
 
 [sub_resource type="Gradient" id="Gradient_ejcc5"]
 colors = PackedColorArray(0, 0, 0, 0.537255, 0, 0, 0, 0)
@@ -68,9 +77,19 @@ _data = {
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6pb4g"]
-random_pitch = 1.1
-streams_count = 1
-stream_0/stream = ExtResource("4_6pb4g")
+streams_count = 5
+stream_0/stream = ExtResource("5_wvidu")
+stream_1/stream = ExtResource("6_x0bsi")
+stream_2/stream = ExtResource("7_t84jy")
+stream_3/stream = ExtResource("8_tuiak")
+stream_4/stream = ExtResource("9_wunmh")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wvidu"]
+streams_count = 4
+stream_0/stream = ExtResource("6_t1077")
+stream_1/stream = ExtResource("7_ergrr")
+stream_2/stream = ExtResource("8_08jb7")
+stream_3/stream = ExtResource("9_jhq3q")
 
 [node name="Scienceguy" type="Control"]
 custom_minimum_size = Vector2(600, 300)
@@ -165,8 +184,19 @@ libraries = {
 &"": SubResource("AnimationLibrary_y6rsw")
 }
 
-[node name="Voice" type="AudioStreamPlayer" parent="."]
+[node name="VoiceFurrero" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_6pb4g")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="VoicePolluto" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_wvidu")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="PollutoNo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_x0bsi")
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="Layer" type="CanvasLayer" parent="."]

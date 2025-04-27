@@ -43,6 +43,4 @@ func _mouse_exit() -> void:
 
 func _ready() -> void:
 	$Sprite.texture = load("res://assets/minigames/trash/%s_bin.png" % category)
-	match category:
-		"landfill": label.text = "Landfill"
-		"recycling": label.text = "Recycling"
+	label.text = category.capitalize()

@@ -65,7 +65,6 @@ func do_summary() -> void:
 	var stars: Array[Control] = [summary.get_node("Star1"), summary.get_node("Star2"), summary.get_node("Star3")]
 	for i: int in stars.size():
 		stars[i].get_child(0).visible = score >= (i + 1) / 3.0
-		print(score, (i + 1) / 3.0)
 	animator.play("open_summary")
 	await animator.animation_finished
 
@@ -125,9 +124,8 @@ func do_tutorial(idx: int) -> void:
 			await scienceguy.set_text("It looks like someone has been littering...")
 			await scienceguy.set_text("We need to clean this up!")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-			await scienceguy.set_text("Find trash in the level behind me.")
-			await scienceguy.set_text("Click on a piece of trash, hold it down, and then move the cursor around.")
-			await scienceguy.set_text("Then drag the trash into our trash bins!")
+			await scienceguy.set_text("Click on a piece of trash.")
+			await scienceguy.set_text("Hold and drag the trash into our trash bins!")
 			pointer_tutorial.tutorial_point(grid.get_child(0).global_position, $Minigames/TrashMinigame/TrashBin.global_position)
 		1:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
@@ -151,7 +149,7 @@ func do_tutorial(idx: int) -> void:
 			scienceguy.set_sprite(scienceguy.Sprite.EVIL)
 			await scienceguy.set_text("AHAHA!!! You're no match for my evil FACTORY!")
 			scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
-			await scienceguy.set_text("It's Groucho!")
+			await scienceguy.set_text("It's Polluto!")
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 			await scienceguy.set_text("That factory has a leak! It's leaking into the river.")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
@@ -171,6 +169,8 @@ func do_tutorial(idx: int) -> void:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("That was great!")
 			await scienceguy.set_text("Hold on...")
+			scienceguy.set_sprite(scienceguy.Sprite.EVIL)
+			await scienceguy.set_text("Raghaghah!")
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 			await scienceguy.set_text("This factory is leaking bad chemicals!")
 			scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
@@ -183,21 +183,21 @@ func do_tutorial(idx: int) -> void:
 			await scienceguy.set_text("Try and stop THIS, hero...")
 			scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
 			await scienceguy.set_text("Oh no!")
-			await scienceguy.set_text("The dirt is being taken away by the river... Our river is eroding!")
+			await scienceguy.set_text("The dirt is being taken away by the river...")
+			scienceguy.set_sprite(scienceguy.Sprite.EVIL)
+			await scienceguy.set_text("The RIVER is ERODING!")
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Luckily, plants' roots can stop eroding!")
 			await scienceguy.set_text("Click on a sandy riverbank.")
-			if grid.has_node("Minigames/PlantMinigame"):
+			if has_node("Minigames/PlantMinigame"):
 				scienceguy.hide()
 				await $Minigames/PlantMinigame.unpaused
 				scienceguy.show()
 				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 				await scienceguy.set_text("Use our gardening tools to plant a plant.")
 				await scienceguy.set_text("Drag the tools and wiggle them around!")
-				await scienceguy.set_text("First shovel the ground, then plant a seed...")
-				await scienceguy.set_text("Then add soil, and finally water it!")
 				scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
-				await scienceguy.set_text("Be quick! After some time, rain will sweep away the rest of the dirt.")
+				await scienceguy.set_text("Be quick!")
 		5:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("I'm proud of you.")
@@ -209,7 +209,7 @@ func do_tutorial(idx: int) -> void:
 				scienceguy.hide()
 				await $Minigames/TrashMinigame.unpaused
 				scienceguy.show()
-				await scienceguy.set_text("Old food goes in the compost bin.")
+				await scienceguy.set_text("The compost bin is for old food.")
 	
 	scienceguy.hide()
 

@@ -1,25 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcnnybtw20icp"]
+[gd_scene load_steps=7 format=3 uid="uid://bcnnybtw20icp"]
 
 [ext_resource type="Script" uid="uid://8najmo7ostdg" path="res://scenes/minigames/trash_minigame/trash_bin.gd" id="1_5ccjk"]
 [ext_resource type="Texture2D" uid="uid://c0bvwve7lui62" path="res://assets/minigames/trash/landfill_bin.png" id="1_i0mp4"]
 [ext_resource type="AudioStream" uid="uid://b5dhkkgwlti51" path="res://assets/audio/bin.mp3" id="3_xam6a"]
-[ext_resource type="AudioStream" uid="uid://bgb1s68kdti1o" path="res://assets/audio/trash_bad.mp3" id="4_e0up5"]
+[ext_resource type="AudioStream" uid="uid://bgb1s68kdti1o" path="res://assets/audio/bin_bad.mp3" id="4_e0up5"]
 
 [sub_resource type="FontVariation" id="FontVariation_xam6a"]
 variation_embolden = 0.5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptk86"]
-size = Vector2(405, 468)
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e0up5"]
-random_pitch = 1.1
-streams_count = 1
-stream_0/stream = ExtResource("3_xam6a")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v4byh"]
-random_pitch = 1.1
-streams_count = 1
-stream_0/stream = ExtResource("4_e0up5")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0up5"]
+radius = 201.833
+height = 499.333
 
 [node name="TrashBin" type="Area2D"]
 scale = Vector2(1.5, 1.5)
@@ -48,14 +39,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(3.5, 23)
-shape = SubResource("RectangleShape2D_ptk86")
+shape = SubResource("CapsuleShape2D_e0up5")
 
 [node name="GoodSFX" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_e0up5")
+stream = ExtResource("3_xam6a")
 bus = &"SFX"
 
 [node name="BadSFX" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_v4byh")
+stream = ExtResource("4_e0up5")
 bus = &"SFX"

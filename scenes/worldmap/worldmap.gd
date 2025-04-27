@@ -4,7 +4,7 @@ var selected_idx: int
 
 @onready var levels: Node2D = $Levels
 @onready var camera: Camera2D = $Camera
-@onready var level_name: Label = $UI/Margins/HBox/Background/Number
+@onready var level_name: Label = $UI/Margins/HBox/Background/MarginContainer/LevelInfo/Header/Number
 @onready var level_description: Label = $UI/Margins/HBox/Background/MarginContainer/LevelInfo/Description
 @onready var play_button: TextureButton = $UI/Margins/HBox/Background/Play
 @onready var left_arrow: TextureButton = $UI/Margins/HBox/LeftArrow
@@ -81,6 +81,7 @@ func _ready() -> void:
 	
 	if Save.is_level_completed(5):
 		petal_particles.emitting = true
+		Save.set_music(preload("res://assets/audio/yay.mp3"))
 		if not Save.data.get("did_outro_cutscene", false):
 			await do_outro_cutscene()
 	
@@ -121,8 +122,8 @@ func do_intro_cutscene() -> void:
 	scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 	await scienceguy.set_text("Something awful has happened...")
 	scienceguy.set_sprite(scienceguy.Sprite.EVIL)
-	await scienceguy.set_text("RAGHHH!!! I'm GROUCHO, the master of POLLUTION!")
-	await scienceguy.set_text("Your precious RIVER... I've made it DIRTY! Muahaha!")
+	await scienceguy.set_text("RAGHHH!!! I'm POLLUTO, the king of POLLUTION!")
+	await scienceguy.set_text("This precious RIVER... I've made it DIRTY! Muahaha!")
 	scienceguy.set_sprite(scienceguy.Sprite.ANGRY)
 	await scienceguy.set_text("Help me stop this villain!")
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
@@ -141,8 +142,9 @@ func do_outro_cutscene() -> void:
 	level_info.hide()
 	scienceguy.show()
 	scienceguy.set_sprite(scienceguy.Sprite.EVIL_SCARED)
-	await scienceguy.set_text("NOOOOO!")
-	await scienceguy.set_text("The RIVER! It's GREEN again!")
+	await scienceguy.set_text("NOOOOOO!")
+	await scienceguy.set_text("The RIVER! It's BLUE and GREEN again!")
+	await scienceguy.set_text("All the colors I HATE!")
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 	await scienceguy.set_text("That's right!")
 	await scienceguy.set_text("Wow... you really did it!")
@@ -151,7 +153,7 @@ func do_outro_cutscene() -> void:
 	scienceguy.set_sprite(scienceguy.Sprite.EVIL)
 	await scienceguy.set_text("You haven't seen the last of ME, kid!")
 	scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
-	await scienceguy.set_text("The next time Groucho appears, you'll be ready.")
+	await scienceguy.set_text("The next time Polluto appears, you'll be ready.")
 	await scienceguy.set_text("Remember: keep it green!")
 	await scienceguy.set_text("Thank you for playing!")
 	scienceguy.hide()

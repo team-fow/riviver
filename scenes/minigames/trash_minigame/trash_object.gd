@@ -11,9 +11,13 @@ var type: int
 
 
 func _drop() -> void:
-	for area: Area2D in get_overlapping_areas():
-		if area is TrashBin:
-			area.eat(self)
+	var params := PhysicsPointQueryParameters2D.new()
+	params.collide_with_areas = true
+	params.position = global_position
+	var collisions := get_world_2d().direct_space_state.intersect_point(params)
+	for collision: Dictionary in collisions:
+		if collision.collider is TrashBin:
+			collision.collider.eat(self)
 			eaten.emit()
 			queue_free()
 			break
