@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7nn6mygdub2k"]
 
-[ext_resource type="Script" uid="uid://cuwfuf8wrau0q" path="res://scenes/minigames/trash_minigame/trash_object.gd" id="1_usk00"]
+[ext_resource type="Script" uid="uid://cuwfuf8wrau0q" path="res://Scenes/minigames/trash_minigame/trash_object.gd" id="1_usk00"]
 [ext_resource type="Texture2D" uid="uid://dq0bs01k2y402" path="res://assets/minigames/trash/point light.png" id="3_jr7gt"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pf2jt"]

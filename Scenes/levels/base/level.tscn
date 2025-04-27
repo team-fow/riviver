@@ -1,18 +1,18 @@
 [gd_scene load_steps=53 format=3 uid="uid://cj0nv5djx71e4"]
 
-[ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
-[ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
+[ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://Scenes/levels/base/level.gd" id="1_olbeb"]
+[ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://Scenes/grid/grid.tscn" id="2_qtcrp"]
 [ext_resource type="Texture2D" uid="uid://5xr8r54e4cnn" path="res://assets/particles/particle-petals.png" id="3_bxgw7"]
-[ext_resource type="Script" uid="uid://i2u8nnx5uv18" path="res://scenes/levels/base/progress_bar.gd" id="3_tvt8h"]
+[ext_resource type="Script" uid="uid://i2u8nnx5uv18" path="res://Scenes/levels/base/progress_bar.gd" id="3_tvt8h"]
 [ext_resource type="Texture2D" uid="uid://0q1iljbxuofx" path="res://assets/particles/particle-leaves.png" id="5_hstm6"]
 [ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="5_likht"]
 [ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="6_2xtfm"]
 [ext_resource type="Texture2D" uid="uid://tcr64w81ajfd" path="res://assets/levelbg.png" id="6_vpf64"]
-[ext_resource type="PackedScene" uid="uid://fx4mgq00nc5p" path="res://scenes/sceinceguy/sceinceguy.tscn" id="7_bxgw7"]
+[ext_resource type="PackedScene" uid="uid://fx4mgq00nc5p" path="res://Scenes/sceinceguy/sceinceguy.tscn" id="7_bxgw7"]
 [ext_resource type="Texture2D" uid="uid://c3v4y3yo4uy0w" path="res://assets/lvlselection/Stars.png" id="7_sprtd"]
 [ext_resource type="Texture2D" uid="uid://b2jmi8ik2wrlj" path="res://assets/Help Pop-up.png" id="7_wtah3"]
 [ext_resource type="Texture2D" uid="uid://du08n1iych773" path="res://assets/summary.png" id="8_ixrk0"]
-[ext_resource type="PackedScene" uid="uid://e8hf3i82opnr" path="res://scenes/pointer_tutorial/pointer_tutorial.tscn" id="13_hstm6"]
+[ext_resource type="PackedScene" uid="uid://e8hf3i82opnr" path="res://Scenes/pointer_tutorial/pointer_tutorial.tscn" id="13_hstm6"]
 
 [sub_resource type="Animation" id="Animation_hstm6"]
 length = 0.001
