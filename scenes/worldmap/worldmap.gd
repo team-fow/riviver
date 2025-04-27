@@ -88,7 +88,8 @@ func _ready() -> void:
 		if not Save.data.get("did_outro_cutscene"):
 			await do_outro_cutscene()
 	
-	select_level(Save.get_current_level())
+	if idx == -1: select_level(Save.get_current_level())
+	else: select_level(Save.get_current_level()+1)
 	camera.reset_smoothing()
 
 

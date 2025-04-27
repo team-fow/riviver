@@ -111,10 +111,10 @@ func _ready() -> void:
 			minigame.pointer = pointer_tutorial
 	await do_tutorial(Save.get_current_level())
 	if not Save.get_pointer_done(0) && grid.get_children().any(func(tile): return tile is TrashObject):
+		var tutorial_object = grid.get_children().filter(func(tile): return tile is TrashObject)[0].global_position
+		var trash_minigame = tutorial_object.minigame.global_position
 		for i in 2:
-			var tutorial_object : TrashObject = grid.get_children().filter(func(tile): return tile is TrashObject)[0]
-			var trash_minigame = tutorial_object.minigame
-			await pointer_tutorial.tutorial_point(tutorial_object.global_position, trash_minigame.global_position)
+			await pointer_tutorial.tutorial_point(tutorial_object, trash_minigame)
 		Save.set_pointer_done(0)
 
 
