@@ -62,9 +62,9 @@ func _ready() -> void:
 	if idx == -1:
 		mask.hide()
 	else:
-		var x: float = get_pin_x(idx - 1) if idx > 0 else 0
+		var x: float = get_pin_x(idx - 1) if idx >= 1 else 0
 		mask.texture.fill_from.x = x
-		fill_particles.position.x = (levels.get_child(idx - 1).position.x + 400) if idx > 0 else 0
+		fill_particles.position.x = (levels.get_child(idx - 1).position.x + 400) if idx > 0 else (levels.get_child(0).position.x - 400)
 		x = get_pin_x(idx)
 		var tween := create_tween()
 		tween.tween_callback(fill_particles.set_emitting.bind(true))
