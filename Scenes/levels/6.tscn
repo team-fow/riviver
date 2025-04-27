@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=4 uid="uid://cmu76feak814c"]
 
-[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://Scenes/levels/base/level.tscn" id="1_5tf5j"]
-[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://Scenes/minigame_tile/minigame_tile.tscn" id="2_d2tr0"]
-[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://Scenes/minigames/trash_minigame/trash_object.tscn" id="4_xmsj2"]
-[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://Scenes/minigames/trash_minigame/trash_minigame.tscn" id="5_bl2v8"]
-[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://Scenes/minigames/trash_minigame/trash_bin.tscn" id="6_0bgan"]
-[ext_resource type="PackedScene" uid="uid://cxyyfgdo1704o" path="res://Scenes/minigames/plant_minigame/plant_minigame.tscn" id="7_my386"]
-[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://Scenes/minigames/water_minigame/water_minigame.tscn" id="8_d2tr0"]
+[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_5tf5j"]
+[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="2_d2tr0"]
+[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://scenes/minigames/trash_minigame/trash_object.tscn" id="4_xmsj2"]
+[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://scenes/minigames/trash_minigame/trash_minigame.tscn" id="5_bl2v8"]
+[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="6_0bgan"]
+[ext_resource type="PackedScene" uid="uid://cxyyfgdo1704o" path="res://scenes/minigames/plant_minigame/plant_minigame.tscn" id="7_my386"]
+[ext_resource type="PackedScene" uid="uid://ddb05cvkx1t8x" path="res://scenes/minigames/water_minigame/water_minigame.tscn" id="8_d2tr0"]
 
 [node name="Level4" instance=ExtResource("1_5tf5j")]
 
@@ -81,6 +81,7 @@ plant_count = 2
 
 [node name="WaterMinigame" parent="Minigames" index="3" instance=ExtResource("8_d2tr0")]
 visible = false
+filters_needed = Array[String](["SANDFILTER", "CARBONFILTER"])
 grid_def = Dictionary[Vector2i, String]({
 Vector2i(1, 1): "ROCK",
 Vector2i(1, 3): "ROCK",
