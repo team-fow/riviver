@@ -1,0 +1,299 @@
+[gd_scene load_steps=26 format=3 uid="uid://cxyyfgdo1704o"]
+
+[ext_resource type="Script" uid="uid://baoa55ix5krny" path="res://scenes/minigames/plant_minigame/plant_minigame.gd" id="1_as2k8"]
+[ext_resource type="Texture2D" uid="uid://dbbgj85eqdcil" path="res://assets/minigames/plant/background.png" id="2_as2k8"]
+[ext_resource type="Script" uid="uid://v72byon5d5q5" path="res://scenes/minigames/plant_minigame/tool.gd" id="2_w505k"]
+[ext_resource type="Texture2D" uid="uid://sdesur8kvtqt" path="res://assets/minigames/plant/river_foreground.png" id="3_u147h"]
+[ext_resource type="StyleBox" uid="uid://c36ax7xm4d61w" path="res://assets/panel.tres" id="4_6y7wg"]
+[ext_resource type="Texture2D" uid="uid://50tjlm6r8xfo" path="res://assets/minigames/plant/shovel.png" id="4_tdc4o"]
+[ext_resource type="Texture2D" uid="uid://uoseo75odqxy" path="res://assets/minigames/plant/seed_bag.png" id="5_lln40"]
+[ext_resource type="Texture2D" uid="uid://b2l42pp8t3nfv" path="res://assets/particles/particle-dirt.png" id="6_a50ha"]
+[ext_resource type="Texture2D" uid="uid://dskksw04p6gs0" path="res://assets/minigames/plant/soil_bag.png" id="7_qaipn"]
+[ext_resource type="Texture2D" uid="uid://docx8xxenmxbq" path="res://assets/particles/particle-seeds.png" id="8_8uug2"]
+[ext_resource type="Script" uid="uid://d387aibubmoqb" path="res://scenes/minigames/plant_minigame/watering_can.gd" id="8_moiwv"]
+[ext_resource type="Texture2D" uid="uid://dilgba2dsme7s" path="res://assets/minigames/plant/pot.png" id="8_qaipn"]
+[ext_resource type="Texture2D" uid="uid://b1tbyl74jt2e1" path="res://assets/particles/particle-water.png" id="12_kr702"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaipn"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+bg_color = Color(0.223529, 0.14902, 0.0941176, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1em36"]
+size = Vector2(200, 717)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxxmn"]
+size = Vector2(300, 459)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u147h"]
+size = Vector2(231, 459)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moiwv"]
+atlas = ExtResource("8_qaipn")
+region = Rect2(0, 0, 720, 615)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y7wg"]
+atlas = ExtResource("8_qaipn")
+region = Rect2(720, 0, 720, 615)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfsrl"]
+atlas = ExtResource("8_qaipn")
+region = Rect2(1440, 0, 720, 615)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06t4j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moiwv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y7wg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfsrl")
+}],
+"loop": true,
+"name": &"pour",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lln40"]
+size = Vector2(310, 395)
+
+[sub_resource type="Animation" id="Animation_moiwv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/Water:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_qaipn"]
+resource_name = "water"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.8, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/Water:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1.5), Vector2(1, 1e-05)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_texture"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6y7wg"]
+_data = {
+&"RESET": SubResource("Animation_moiwv"),
+&"water": SubResource("Animation_qaipn")
+}
+
+[node name="PlantMinigame" type="Node2D"]
+script = ExtResource("1_as2k8")
+metadata/_custom_type_script = "uid://d1hsmangbi8t5"
+
+[node name="Background" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -700.0
+offset_right = 500.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Bg" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_as2k8")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Water" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -282.258
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(500, 282.258)
+size_flags_vertical = 8
+mouse_filter = 2
+texture = ExtResource("3_u147h")
+expand_mode = 5
+
+[node name="TimerLabel" type="Label" parent="Background"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -95.5
+offset_top = -124.0
+offset_right = 95.5
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.854902, 0.780392, 0.721569, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_qaipn")
+text = "0:00"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("4_6y7wg")
+
+[node name="Plants" type="Node2D" parent="."]
+position = Vector2(0, 256)
+
+[node name="Tools" type="Node2D" parent="."]
+position = Vector2(0, -997)
+
+[node name="Shovel" type="Area2D" parent="Tools"]
+position = Vector2(-340, 450)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("2_w505k")
+particle = ExtResource("6_a50ha")
+metadata/_custom_type_script = "uid://bmx6wpyib1wc"
+
+[node name="Sprite" type="Sprite2D" parent="Tools/Shovel"]
+texture = ExtResource("4_tdc4o")
+
+[node name="Shape" type="CollisionShape2D" parent="Tools/Shovel"]
+position = Vector2(-4, 0.5)
+shape = SubResource("RectangleShape2D_1em36")
+
+[node name="SeedBag" type="Area2D" parent="Tools"]
+position = Vector2(-139, 375)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("2_w505k")
+particle = ExtResource("8_8uug2")
+metadata/_custom_type_script = "uid://bmx6wpyib1wc"
+
+[node name="Sprite" type="Sprite2D" parent="Tools/SeedBag"]
+texture = ExtResource("5_lln40")
+
+[node name="Shape" type="CollisionShape2D" parent="Tools/SeedBag"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_gxxmn")
+
+[node name="SoilBag" type="Area2D" parent="Tools"]
+position = Vector2(87, 351)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("2_w505k")
+particle = ExtResource("6_a50ha")
+metadata/_custom_type_script = "uid://bmx6wpyib1wc"
+
+[node name="Sprite" type="Sprite2D" parent="Tools/SoilBag"]
+texture = ExtResource("7_qaipn")
+
+[node name="Shape" type="CollisionShape2D" parent="Tools/SoilBag"]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_u147h")
+
+[node name="WateringCan" type="Area2D" parent="Tools"]
+position = Vector2(330, 380)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("8_moiwv")
+particle = ExtResource("12_kr702")
+metadata/_custom_type_script = "uid://bmx6wpyib1wc"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Tools/WateringCan"]
+position = Vector2(39, -20)
+sprite_frames = SubResource("SpriteFrames_06t4j")
+offset = Vector2(120, 100)
+
+[node name="Shape" type="CollisionShape2D" parent="Tools/WateringCan"]
+position = Vector2(-17, -16.5)
+shape = SubResource("RectangleShape2D_lln40")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6y7wg")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timeout"]

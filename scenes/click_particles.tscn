@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://5ybw5ip2fa75"]
+
+[ext_resource type="Texture2D" uid="uid://0q1iljbxuofx" path="res://assets/particles/particle-leaves.png" id="1_v3xvk"]
+[ext_resource type="Script" uid="uid://32lakggafy17" path="res://scenes/click_particles.gd" id="2_o2edq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o2edq"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_v3xvk"]
+_data = [Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_o2edq"]
+curve = SubResource("Curve_v3xvk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v3xvk"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 200, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_o2edq")
+
+[node name="ClickParticles" type="GPUParticles2D"]
+z_index = 5
+material = SubResource("CanvasItemMaterial_o2edq")
+emitting = false
+amount = 2
+texture = ExtResource("1_v3xvk")
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_v3xvk")
+script = ExtResource("2_o2edq")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

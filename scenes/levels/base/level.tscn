@@ -1,0 +1,812 @@
+[gd_scene load_steps=56 format=3 uid="uid://cj0nv5djx71e4"]
+
+[ext_resource type="Script" uid="uid://b421ge4x0q0r7" path="res://scenes/levels/base/level.gd" id="1_olbeb"]
+[ext_resource type="PackedScene" uid="uid://81bpw6rvsl2r" path="res://scenes/grid/grid.tscn" id="2_qtcrp"]
+[ext_resource type="Texture2D" uid="uid://5xr8r54e4cnn" path="res://assets/particles/particle-petals.png" id="3_bxgw7"]
+[ext_resource type="Texture2D" uid="uid://gwjrdf4cyiq5" path="res://assets/progressbar/progress-bar-frames.png" id="3_sgsui"]
+[ext_resource type="Script" uid="uid://i2u8nnx5uv18" path="res://scenes/levels/base/progress_bar.gd" id="3_tvt8h"]
+[ext_resource type="Texture2D" uid="uid://0q1iljbxuofx" path="res://assets/particles/particle-leaves.png" id="5_hstm6"]
+[ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="5_likht"]
+[ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="6_2xtfm"]
+[ext_resource type="Texture2D" uid="uid://tcr64w81ajfd" path="res://assets/levelbg.png" id="6_vpf64"]
+[ext_resource type="PackedScene" uid="uid://fx4mgq00nc5p" path="res://scenes/sceinceguy/sceinceguy.tscn" id="7_bxgw7"]
+[ext_resource type="Texture2D" uid="uid://c3v4y3yo4uy0w" path="res://assets/lvlselection/Stars.png" id="7_sprtd"]
+[ext_resource type="Texture2D" uid="uid://b2jmi8ik2wrlj" path="res://assets/Help Pop-up.png" id="7_wtah3"]
+[ext_resource type="Texture2D" uid="uid://du08n1iych773" path="res://assets/summary.png" id="8_ixrk0"]
+[ext_resource type="PackedScene" uid="uid://e8hf3i82opnr" path="res://scenes/pointer_tutorial/pointer_tutorial.tscn" id="13_hstm6"]
+
+[sub_resource type="Animation" id="Animation_hstm6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_gbq67"]
+resource_name = "bob"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.45), Vector2(0.5, 0.5), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sgsui"]
+_data = {
+&"RESET": SubResource("Animation_hstm6"),
+&"bob": SubResource("Animation_gbq67")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srqya"]
+atlas = ExtResource("3_sgsui")
+region = Rect2(0, 0, 248, 184)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_em4rp"]
+texture = SubResource("AtlasTexture_srqya")
+texture_margin_left = 48.0
+texture_margin_top = 44.0
+texture_margin_right = 48.0
+texture_margin_bottom = 44.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_likht"]
+atlas = ExtResource("5_likht")
+region = Rect2(256, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sprtd"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(256, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd8iw"]
+atlas = ExtResource("5_likht")
+region = Rect2(0, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxgw7"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(0, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbq67"]
+atlas = ExtResource("5_likht")
+region = Rect2(384, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hstm6"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(384, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xtfm"]
+atlas = ExtResource("5_likht")
+region = Rect2(128, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtah3"]
+atlas = ExtResource("6_2xtfm")
+region = Rect2(128, 0, 128, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sprtd"]
+texture = ExtResource("7_wtah3")
+texture_margin_left = 24.0
+texture_margin_top = 40.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixrk0"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+
+[sub_resource type="Gradient" id="Gradient_vd8iw"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 0, 0.32549, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vd8iw"]
+gradient = SubResource("Gradient_vd8iw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noljr"]
+atlas = ExtResource("7_sprtd")
+region = Rect2(124, 0, 124, 130)
+
+[sub_resource type="Curve" id="Curve_wtah3"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 200), 0.0, 0.0, 0, 0, Vector2(0.982954, -146.067), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_sprtd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.316092, 1), 0.0, 0.0, 0, 0, Vector2(0.887931, 0.599119), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgsui"]
+atlas = ExtResource("7_sprtd")
+region = Rect2(0, 0, 124, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixrk0"]
+atlas = ExtResource("7_sprtd")
+region = Rect2(124, 0, 124, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_ixrk0"]
+variation_embolden = 0.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgsui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_noljr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gttgk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bclco"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hstm6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_noljr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srqya"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_em4rp"]
+
+[sub_resource type="Animation" id="Animation_hnne4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Grid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Minigames:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Summary:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Summary/Explosion:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Minigames:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/Summary:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("UI/Summary/Star3/Fill:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("UI/Summary/Star2/Fill:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("UI/Summary/Star1/Fill:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qkmgm"]
+resource_name = "move_grid"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Grid:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-300, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Minigames:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2xtfm"]
+resource_name = "open_summary"
+length = 1.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Summary:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Summary/Explosion:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Summary:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Summary/Star3/Fill:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Summary/Star2/Fill:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/Summary/Star1/Fill:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpf64"]
+_data = {
+&"RESET": SubResource("Animation_hnne4"),
+&"move_grid": SubResource("Animation_qkmgm"),
+&"open_summary": SubResource("Animation_2xtfm")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sgsui"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_gbq67"]
+_data = [Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_hstm6"]
+curve = SubResource("Curve_gbq67")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ixrk0"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 800.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 400, 0)
+scale_curve = SubResource("CurveTexture_hstm6")
+anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gbq67"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bxgw7"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 200, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 500.0
+emission_ring_inner_radius = 500.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 800.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 400, 0)
+scale_curve = SubResource("CurveTexture_hstm6")
+anim_offset_max = 1.0
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_olbeb")
+metadata/_custom_type_script = "uid://b421ge4x0q0r7"
+
+[node name="Grid" parent="." instance=ExtResource("2_qtcrp")]
+scale = Vector2(0.33, 0.33)
+
+[node name="Minigames" type="Node2D" parent="."]
+position = Vector2(500, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="Animator" type="AnimationPlayer" parent="Minigames"]
+libraries = {
+&"": SubResource("AnimationLibrary_sgsui")
+}
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Margins" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Header" type="HBoxContainer" parent="UI/Margins"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="UI/Margins/Header"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_em4rp")
+
+[node name="ProgressBar" type="HBoxContainer" parent="UI/Margins/Header/Panel" node_paths=PackedStringArray("level")]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_tvt8h")
+level = NodePath("../../../../..")
+
+[node name="Left" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Restart" type="TextureButton" parent="UI/Margins/Left"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_likht")
+texture_hover = SubResource("AtlasTexture_sprtd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Back" type="TextureButton" parent="UI/Margins/Left"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_vd8iw")
+texture_hover = SubResource("AtlasTexture_bxgw7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Right" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+alignment = 2
+
+[node name="Settings" type="TextureButton" parent="UI/Margins/Right"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_gbq67")
+texture_hover = SubResource("AtlasTexture_hstm6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Help" type="TextureButton" parent="UI/Margins/Right"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_2xtfm")
+texture_hover = SubResource("AtlasTexture_wtah3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Dropdown" type="PanelContainer" parent="UI/Margins/Right/Help"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -736.0
+offset_top = -111.0
+offset_right = -65.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sprtd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margins/Right/Help/Dropdown"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Margins/Right/Help/Dropdown/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.828197, 0.828197, 0.828197, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ixrk0")
+text = "Help me with..."
+
+[node name="HelpList" type="ItemList" parent="UI/Margins/Right/Help/Dropdown/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+auto_height = true
+item_count = 6
+item_0/text = "Picking up trash"
+item_1/text = "Sorting trash"
+item_2/text = "Moving pipes"
+item_3/text = "Filtering with pipes"
+item_4/text = "Planting plants"
+item_5/text = "Final test"
+
+[node name="Scienceguy" parent="UI/Margins" instance=ExtResource("7_bxgw7")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Summary" type="TextureRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_ixrk0")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="UI/Summary"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_vd8iw")
+
+[node name="Explosion" type="CPUParticles2D" parent="UI/Summary"]
+position = Vector2(994.5, 372)
+emitting = false
+amount = 50
+texture = SubResource("AtlasTexture_noljr")
+lifetime = 2.0
+one_shot = true
+speed_scale = 3.5
+explosiveness = 0.5
+emission_shape = 1
+emission_sphere_radius = 50.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+linear_accel_curve = SubResource("Curve_wtah3")
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_sprtd")
+
+[node name="Star1" type="TextureRect" parent="UI/Summary"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 651.0
+offset_top = -239.0
+offset_right = 781.0
+offset_bottom = -109.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(65, 65)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_sgsui")
+
+[node name="Fill" type="TextureRect" parent="UI/Summary/Star1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -65.0
+offset_right = 65.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(65, 65)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_ixrk0")
+
+[node name="Star2" type="TextureRect" parent="UI/Summary"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 935.0
+offset_top = -297.0
+offset_right = 1065.0
+offset_bottom = -167.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(65, 65)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_sgsui")
+
+[node name="Fill" type="TextureRect" parent="UI/Summary/Star2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -65.0
+offset_right = 65.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(65, 65)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_ixrk0")
+
+[node name="Star3" type="TextureRect" parent="UI/Summary"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1224.0
+offset_top = -239.0
+offset_right = 1354.0
+offset_bottom = -109.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(65, 65)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_sgsui")
+
+[node name="Fill" type="TextureRect" parent="UI/Summary/Star3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -65.0
+offset_right = 65.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(65, 65)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_ixrk0")
+
+[node name="WorldMap" type="Button" parent="UI/Summary"]
+layout_mode = 2
+offset_left = 673.0
+offset_top = 675.0
+offset_right = 1326.0
+offset_bottom = 845.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0.862745, 0.6, 0.160784, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = SubResource("FontVariation_ixrk0")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sgsui")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_noljr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gttgk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bclco")
+text = "World map"
+
+[node name="RetryLevel" type="Button" parent="UI/Summary"]
+layout_mode = 2
+offset_left = 680.0
+offset_top = 894.0
+offset_right = 1325.0
+offset_bottom = 1077.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.862745, 0.6, 0.160784, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = SubResource("FontVariation_ixrk0")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hstm6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_noljr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_srqya")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_em4rp")
+text = "Retry Level"
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_vpf64")
+stretch_mode = 1
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vpf64")
+}
+
+[node name="LeafParticles" type="GPUParticles2D" parent="."]
+z_index = -1
+material = SubResource("CanvasItemMaterial_sgsui")
+position = Vector2(500, 0)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 64
+texture = ExtResource("5_hstm6")
+one_shot = true
+preprocess = 0.33
+explosiveness = 0.9
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ixrk0")
+
+[node name="PetalParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_gbq67")
+position = Vector2(500, 0)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 64
+texture = ExtResource("3_bxgw7")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.75
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_bxgw7")
+
+[node name="PointerTutorial" parent="." instance=ExtResource("13_hstm6")]
+scale = Vector2(0.75, 0.75)
+
+[connection signal="pressed" from="UI/Margins/Left/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI/Margins/Left/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="UI/Margins/Right/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/Margins/Right/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="UI/Margins/Right/Help" to="UI/Margins/Right/Help/Dropdown" method="show"]
+[connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="." method="do_tutorial"]
+[connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" method="deselect"]
+[connection signal="item_selected" from="UI/Margins/Right/Help/Dropdown/VBoxContainer/HelpList" to="UI/Margins/Right/Help/Dropdown" method="hide" unbinds=1]
+[connection signal="pressed" from="UI/Summary/WorldMap" to="." method="_on_world_map_pressed"]
+[connection signal="pressed" from="UI/Summary/RetryLevel" to="." method="_on_next_level_pressed"]

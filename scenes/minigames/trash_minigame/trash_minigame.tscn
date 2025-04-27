@@ -1,0 +1,214 @@
+[gd_scene load_steps=11 format=3 uid="uid://p1us3q7brykx"]
+
+[ext_resource type="Script" uid="uid://dvf3862fotjwh" path="res://scenes/minigames/trash_minigame/trash_minigame.gd" id="1_rebx8"]
+[ext_resource type="Texture2D" uid="uid://bbthhw77l0kpp" path="res://assets/minigames/trash/trash_truck.png" id="2_qvkc5"]
+[ext_resource type="Texture2D" uid="uid://budalbt15ie0l" path="res://assets/minigames/trash/arrow.png" id="3_f7hqr"]
+[ext_resource type="Texture2D" uid="uid://c37h1tyrkjcff" path="res://assets/minigames/trash/Trash_Truck_.png" id="3_y28rm"]
+[ext_resource type="Texture2D" uid="uid://dqx8ju355yq74" path="res://assets/minigames/trash/Recycle_Center_.png" id="4_2yne7"]
+[ext_resource type="Texture2D" uid="uid://dwm3rh7jtt4nu" path="res://assets/minigames/trash/trashtrucklabel.png" id="4_f7hqr"]
+[ext_resource type="Texture2D" uid="uid://2k7mxk3y3qk8" path="res://assets/minigames/trash/happy.png" id="5_svkof"]
+
+[sub_resource type="Animation" id="Animation_qvkc5"]
+length = 0.001
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/Bottom/Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-668, -359)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation/Bottom/Center/Expression:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(379, 10.866)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animation/Bottom/Center/Expression:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animation/Bottom:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2000)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Truck:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.75, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_svkof"]
+resource_name = "drive_truck"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/Bottom/Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-692, -359), Vector2(1655, -359), Vector2(1855, -359)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation/Bottom/Center/Expression:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.3, 2.4, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(379, 107.866), Vector2(379, 10.866), Vector2(379, 10.866)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animation/Bottom/Center/Expression:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.3, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animation/Bottom:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 4, 4.2, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 1692), Vector2(0, 1260), Vector2(0, 1260), Vector2(0, 1260), Vector2(0, 1260), Vector2(0, 1779)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Truck:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.75, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svkof"]
+_data = {
+&"RESET": SubResource("Animation_qvkc5"),
+&"drive_truck": SubResource("Animation_svkof")
+}
+
+[node name="TrashMinigame" type="Node2D"]
+script = ExtResource("1_rebx8")
+
+[node name="Truck" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 1)
+texture = ExtResource("2_qvkc5")
+
+[node name="Arrow" type="Sprite2D" parent="Truck"]
+texture = ExtResource("3_f7hqr")
+
+[node name="Label" type="Sprite2D" parent="Truck"]
+texture = ExtResource("4_f7hqr")
+
+[node name="CloseTimer" type="Timer" parent="."]
+
+[node name="Animation" type="CanvasLayer" parent="."]
+
+[node name="Bottom" type="Control" parent="Animation"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 800.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Truck" type="TextureRect" parent="Animation/Bottom"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -668.0
+offset_top = -359.0
+offset_right = 47.0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_y28rm")
+expand_mode = 3
+
+[node name="Center" type="TextureRect" parent="Animation/Bottom"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -598.0
+offset_top = -446.0
+offset_right = -103.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("4_2yne7")
+expand_mode = 5
+
+[node name="Expression" type="Sprite2D" parent="Animation/Bottom/Center"]
+position = Vector2(379, 10.866)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_svkof")
+hframes = 2
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_svkof")
+}
