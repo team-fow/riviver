@@ -128,7 +128,8 @@ func do_tutorial(idx: int) -> void:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Click on a piece of trash.")
 			await scienceguy.set_text("Hold and drag the trash into our trash bins!")
-			pointer_tutorial.tutorial_point(grid.get_child(0).global_position, $Minigames/TrashMinigame/TrashBin.global_position)
+			if has_node("Minigames/TrashMinigame/TrashBin"):
+				pointer_tutorial.tutorial_point(grid.get_child(0).global_position, $Minigames/TrashMinigame/TrashBin.global_position)
 		1:
 			scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 			await scienceguy.set_text("Great job!")
@@ -208,11 +209,20 @@ func do_tutorial(idx: int) -> void:
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 			await scienceguy.set_text("This is the final level...")
 			await scienceguy.set_text("It's hard, but I believe you can do it!")
-			if has_node("Minigames/TrashMinigame"):
-				toggle_dialogue(false)
-				await $Minigames/TrashMinigame.unpaused
+			if has_node("Minigames/TrashMinigame"): $Minigames/TrashMinigame.unpaused.connect(func():
 				toggle_dialogue(true)
+				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 				await scienceguy.set_text("The compost bin is for old food.")
+				toggle_dialogue(false)
+			)
+			if has_node("Minigames/WaterMinigame"): $Minigames/WaterMinigame.unpaused.connect(func():
+				toggle_dialogue(true)
+				scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
+				await scienceguy.set_text("There's dangerous bacteria in the water...")
+				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
+				await scienceguy.set_text("A carbon filter will clean them out!")
+				toggle_dialogue(false)
+			)
 	
 	toggle_dialogue(false)
 
