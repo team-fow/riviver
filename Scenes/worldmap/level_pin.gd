@@ -29,3 +29,11 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void
 func flick() -> void:
 	$Animator.stop()
 	$Animator.play("flick")
+
+
+func _mouse_enter() -> void:
+	sprite.scale = Vector2.ONE * 1.05
+
+
+func _mouse_exit() -> void:
+	sprite.scale = Vector2.ONE
