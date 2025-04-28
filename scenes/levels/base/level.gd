@@ -209,20 +209,20 @@ func do_tutorial(idx: int) -> void:
 			scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 			await scienceguy.set_text("This is the final level...")
 			await scienceguy.set_text("It's hard, but I believe you can do it!")
-			if has_node("Minigames/TrashMinigame"): $Minigames/TrashMinigame.unpaused.connect(func():
+			if has_node("Minigames/TrashMinigame"): $Minigames/TrashMinigame.unpaused.connect((func():
 				toggle_dialogue(true)
 				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 				await scienceguy.set_text("The compost bin is for old food.")
 				toggle_dialogue(false)
-			)
-			if has_node("Minigames/WaterMinigame"): $Minigames/WaterMinigame.unpaused.connect(func():
+			), CONNECT_ONE_SHOT)
+			if has_node("Minigames/WaterMinigame"): $Minigames/WaterMinigame.unpaused.connect((func():
 				toggle_dialogue(true)
 				scienceguy.set_sprite(scienceguy.Sprite.FRUSTRATED)
 				await scienceguy.set_text("There's dangerous bacteria in the water...")
 				scienceguy.set_sprite(scienceguy.Sprite.HAPPY)
 				await scienceguy.set_text("A carbon filter will clean them out!")
 				toggle_dialogue(false)
-			)
+			), CONNECT_ONE_SHOT)
 	
 	toggle_dialogue(false)
 

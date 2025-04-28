@@ -162,6 +162,11 @@ func draw_water(coords: Vector2i, dust: bool, organics: bool) -> void:
 func _on_run_water_pressed() -> void:
 	$WaterSFX.play()
 	grid.input_pickable = false
+	grid.monitoring = false
+	grid.monitorable = false
+	undo.disabled = true
+	$Background/Margins/Top/Back.disabled = true
+	$Background/RunWater.disabled = true
 	if await check_water():
 		modulate = Color.GREEN
 		await get_tree().create_timer(1.0).timeout
