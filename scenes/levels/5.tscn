@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=4 uid="uid://dsty0kfm6f28l"]
+
+[ext_resource type="PackedScene" uid="uid://cj0nv5djx71e4" path="res://scenes/levels/base/level.tscn" id="1_ljm8n"]
+[ext_resource type="PackedScene" uid="uid://85lycb6ahpb" path="res://scenes/minigame_tile/minigame_tile.tscn" id="2_p5xfs"]
+[ext_resource type="Script" uid="uid://dv7rmsc7ratin" path="res://scenes/minigame_tile/plant_minigame_tile.gd" id="3_csx81"]
+[ext_resource type="PackedScene" uid="uid://c7nn6mygdub2k" path="res://scenes/minigames/trash_minigame/trash_object.tscn" id="4_3nc6l"]
+[ext_resource type="PackedScene" uid="uid://p1us3q7brykx" path="res://scenes/minigames/trash_minigame/trash_minigame.tscn" id="5_rvt76"]
+[ext_resource type="PackedScene" uid="uid://bcnnybtw20icp" path="res://scenes/minigames/trash_minigame/trash_bin.tscn" id="6_v24ps"]
+[ext_resource type="PackedScene" uid="uid://cxyyfgdo1704o" path="res://scenes/minigames/plant_minigame/plant_minigame.tscn" id="7_ljm8n"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ljm8n"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Level5" instance=ExtResource("1_ljm8n")]
+
+[node name="Grid" parent="." index="0"]
+tile_map_data = PackedByteArray("AAD/////BgAAAAAAAAD///7/BgAAAAAAAAD+////BwAAAAMAAAD//wAABwAAAAMAAAD//wEABwAAAAEAAAAAAAAABgAAAAAAAAAAAP//BwAAAAMAAAAAAP7/BQAAAAAAABD///3/BgAAAAAAAAAAAP3/BwAAAAMAAAAAAPz/BwACAAEAAAD///v/BwABAAEAAAD///z/BgAAAAAAAAD+//3/BwAAAAMAAAD+//7/BwADAAAAAAD9////BwACAAAAAAD+/wAABwABAAMAAAD+/wEABwAAAAMAAAD//wIABwABAAIAAAD//wMABwAAAAMAAAAAAAIABwABAAIAAAAAAAEABgAAAAAAAAABAAAABwAAAAMAAAABAP//BwADAAIAAAABAP7/BwACAAMAAAA=")
+
+[node name="PlantTile" parent="Grid" index="0" node_paths=PackedStringArray("minigame") instance=ExtResource("2_p5xfs")]
+position = Vector2(293.939, -296.97)
+script = ExtResource("3_csx81")
+minigame = NodePath("../../Minigames/PlantMinigame")
+
+[node name="TrashObject" parent="Grid" index="1" node_paths=PackedStringArray("minigame") instance=ExtResource("4_3nc6l")]
+position = Vector2(-157.576, -860.606)
+rotation = -0.393637
+minigame = NodePath("../../Minigames/TrashMinigame")
+
+[node name="TrashObject2" parent="Grid" index="2" node_paths=PackedStringArray("minigame") instance=ExtResource("4_3nc6l")]
+position = Vector2(490.909, 387.879)
+rotation = 0.651558
+minigame = NodePath("../../Minigames/TrashMinigame")
+
+[node name="TrashMinigame" parent="Minigames" index="0" node_paths=PackedStringArray("trash_objects") instance=ExtResource("5_rvt76")]
+visible = false
+trash_objects = [NodePath("../../Grid/TrashObject"), NodePath("../../Grid/TrashObject2")]
+
+[node name="TrashBin" parent="Minigames/TrashMinigame" index="3" instance=ExtResource("6_v24ps")]
+position = Vector2(-72, -546)
+rotation = -0.0719506
+category = "recycling"
+
+[node name="TrashBin2" parent="Minigames/TrashMinigame" index="4" instance=ExtResource("6_v24ps")]
+position = Vector2(86, 250)
+rotation = 0.308793
+
+[node name="PlantMinigame" parent="Minigames" index="1" instance=ExtResource("7_ljm8n")]
+visible = false
+
+[node name="Margins" parent="UI" index="0"]
+mouse_filter = 2
+
+[node name="Particles" parent="UI/Margins/Header/Panel" index="1"]
+material = SubResource("CanvasItemMaterial_ljm8n")

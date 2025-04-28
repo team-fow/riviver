@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7nn6mygdub2k"]
+
+[ext_resource type="Script" uid="uid://cuwfuf8wrau0q" path="res://scenes/minigames/trash_minigame/trash_object.gd" id="1_usk00"]
+[ext_resource type="Texture2D" uid="uid://dq0bs01k2y402" path="res://assets/minigames/trash/point light.png" id="3_jr7gt"]
+[ext_resource type="AudioStream" uid="uid://dd4ebswf5ra7g" path="res://assets/audio/trash.mp3" id="3_nm3fs"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pf2jt"]
+load_path = "res://.godot/imported/recycling_trash.png-3eb6f3b219b720f0a65e14d3eac1a5cd.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pkg7f"]
+radius = 238.003
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nm3fs"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("3_nm3fs")
+
+[node name="TrashObject" type="Area2D"]
+z_index = 1
+scale = Vector2(1.25, 1.25)
+script = ExtResource("1_usk00")
+metadata/_custom_type_script = "uid://bmx6wpyib1wc"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_pf2jt")
+hframes = 8
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(-1.20001, 6.79999)
+shape = SubResource("CircleShape2D_pkg7f")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-18, 26.5)
+scale = Vector2(0.363332, 0.41694)
+energy = 0.61
+texture = ExtResource("3_jr7gt")
+texture_scale = 0.77
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_nm3fs")
+bus = &"SFX"
+
+[connection signal="grabbed" from="." to="SFX" method="play"]

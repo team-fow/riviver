@@ -24,10 +24,10 @@ func tutorial_point(pos_a: Vector2, pos_b: Vector2, shake: bool = false) -> void
 	
 	if shake:
 		tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", pos_b + Vector2(20, 0), 0.02)
+		tween.tween_property(self, "global_position", pos_b + Vector2(40, 0), 0.04)
 		await tween.finished
 		tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", pos_b + Vector2(-20, 0), 0.04)
+		tween.tween_property(self, "global_position", pos_b + Vector2(-40, 0), 0.08)
 		await tween.finished
 		tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position", pos_b, 0.02)

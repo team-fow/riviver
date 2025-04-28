@@ -1,0 +1,502 @@
+[gd_scene load_steps=40 format=3 uid="uid://bbxb3eqci27ne"]
+
+[ext_resource type="Script" uid="uid://bs3rdjxblu5ts" path="res://scenes/worldmap/worldmap.gd" id="1_gu2y1"]
+[ext_resource type="Texture2D" uid="uid://bhfi7dq57s5c2" path="res://assets/worldmap.png" id="2_8pao6"]
+[ext_resource type="PackedScene" uid="uid://g3neivb600vu" path="res://scenes/worldmap/level_pin.tscn" id="2_mfk5f"]
+[ext_resource type="Texture2D" uid="uid://cjihxmop23yr" path="res://assets/lvlselection/Arrows.png" id="3_ac0hk"]
+[ext_resource type="Texture2D" uid="uid://b7iy3mqccr66" path="res://assets/worldmap_polluted.jpeg" id="3_anagn"]
+[ext_resource type="Texture2D" uid="uid://0q1iljbxuofx" path="res://assets/particles/particle-leaves.png" id="4_lfmi5"]
+[ext_resource type="Texture2D" uid="uid://5xr8r54e4cnn" path="res://assets/particles/particle-petals.png" id="6_jmavi"]
+[ext_resource type="Texture2D" uid="uid://di6lsm7y1vmh7" path="res://assets/lvlselection/Lvl Info Pane - Disabled.png" id="7_ghqh1"]
+[ext_resource type="Texture2D" uid="uid://eq1mwbit8wdh" path="res://assets/Buttons/Buttons-Default.png" id="7_wqohx"]
+[ext_resource type="FontFile" uid="uid://spxt4d4jaukj" path="res://assets/fonts/Title - Iciel Cadena.ttf" id="8_gfvk6"]
+[ext_resource type="Texture2D" uid="uid://cy5ppnjtw4ibj" path="res://assets/Buttons/Buttons-Hover.png" id="8_w84c3"]
+[ext_resource type="Texture2D" uid="uid://d3xv10uwms0ck" path="res://assets/lvlselection/Lvl Info Pane.png" id="8_wqohx"]
+[ext_resource type="PackedScene" uid="uid://fx4mgq00nc5p" path="res://scenes/sceinceguy/sceinceguy.tscn" id="9_anagn"]
+[ext_resource type="Texture2D" uid="uid://c5gm1aaf38coy" path="res://assets/lvlselection/Play Button - Hover.png" id="9_w84c3"]
+[ext_resource type="AudioStream" uid="uid://bbejtm452b6u3" path="res://assets/audio/leaves.mp3" id="15_bbwh6"]
+
+[sub_resource type="Gradient" id="Gradient_anagn"]
+offsets = PackedFloat32Array(0, 0.2)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghqh1"]
+gradient = SubResource("Gradient_anagn")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jmavi"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_lfmi5"]
+_data = [Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_jmavi"]
+curve = SubResource("Curve_lfmi5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bbwh6"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(0, 541.5, 0)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 200, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_jmavi")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bbwh6"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_jmavi"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_bbwh6"]
+curve = SubResource("Curve_jmavi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l65c5"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2000, 1200, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+initial_velocity_min = 200.0
+initial_velocity_max = 800.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_bbwh6")
+anim_offset_max = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eftsl"]
+atlas = ExtResource("3_ac0hk")
+region = Rect2(0, 0, 100, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac0hk"]
+atlas = ExtResource("3_ac0hk")
+region = Rect2(0, 110, 100, 110)
+
+[sub_resource type="FontVariation" id="FontVariation_gfvk6"]
+base_font = ExtResource("8_gfvk6")
+spacing_top = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_mfk5f"]
+font = SubResource("FontVariation_gfvk6")
+font_size = 80
+font_color = Color(0.498039, 0.54902, 0.713726, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbwh6"]
+content_margin_top = 10.0
+content_margin_right = 72.0
+
+[sub_resource type="FontVariation" id="FontVariation_tq5v4"]
+base_font = ExtResource("8_gfvk6")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvp8y"]
+atlas = ExtResource("3_ac0hk")
+region = Rect2(100, 0, 100, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq5v4"]
+atlas = ExtResource("3_ac0hk")
+region = Rect2(100, 110, 100, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anagn"]
+atlas = ExtResource("7_wqohx")
+region = Rect2(384, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghqh1"]
+atlas = ExtResource("8_w84c3")
+region = Rect2(384, 0, 128, 0)
+
+[sub_resource type="Animation" id="Animation_gfvk6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1788, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Margins:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Levels:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PollutedMap:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Levels:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lfmi5"]
+resource_name = "fade_from_black"
+
+[sub_resource type="Animation" id="Animation_ghqh1"]
+resource_name = "intro"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1788, 0), Vector2(-1696, -229)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Levels:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Margins:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PollutedMap:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Levels:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4.75, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1000), Vector2(0, -1000), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jmavi"]
+_data = {
+&"RESET": SubResource("Animation_gfvk6"),
+&"fade_from_black": SubResource("Animation_lfmi5"),
+&"intro": SubResource("Animation_ghqh1")
+}
+
+[node name="Worldmap" type="Node2D"]
+script = ExtResource("1_gu2y1")
+
+[node name="PollutedMap" type="Sprite2D" parent="."]
+position = Vector2(-309, -177)
+scale = Vector2(1.523, 1.523)
+texture = ExtResource("3_anagn")
+
+[node name="Mask" type="TextureRect" parent="PollutedMap"]
+clip_children = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2047.28
+offset_top = -541.366
+offset_right = -2047.27
+offset_bottom = -541.366
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ghqh1")
+
+[node name="LushMap" type="Sprite2D" parent="PollutedMap/Mask"]
+position = Vector2(2047.28, 541.366)
+scale = Vector2(0.328299, 0.328299)
+texture = ExtResource("2_8pao6")
+
+[node name="FillParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_jmavi")
+position = Vector2(822, -177)
+scale = Vector2(1.523, 1.523)
+emitting = false
+amount = 100
+texture = ExtResource("4_lfmi5")
+process_material = SubResource("ParticleProcessMaterial_bbwh6")
+
+[node name="Levels" type="Node2D" parent="."]
+
+[node name="LevelPin1" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(-1696, -279)
+description = "Someone's littered! Furrero seems sad..."
+
+[node name="LevelPin2" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(-1245, -225)
+description = "More litter! Let's sort this out..."
+
+[node name="LevelPin3" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(-597, -237)
+description = "Leaks! What is Polluto plotting?"
+
+[node name="LevelPin4" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(-132, -238)
+description = "Chemicals in the water!"
+
+[node name="LevelPin5" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(324, -315)
+description = "The ground is unstable!"
+
+[node name="LevelPin6" parent="Levels" instance=ExtResource("2_mfk5f")]
+position = Vector2(1010, -82)
+description = "The final test. Do your best!"
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(1788, 0)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="PetalParticles" type="GPUParticles2D" parent="Camera"]
+material = SubResource("CanvasItemMaterial_bbwh6")
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 32
+texture = ExtResource("6_jmavi")
+lifetime = 2.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_l65c5")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Margins" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 75
+
+[node name="HBox" type="HBoxContainer" parent="UI/Margins"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 64
+
+[node name="LeftArrow" type="TextureButton" parent="UI/Margins/HBox"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_eftsl")
+texture_pressed = SubResource("AtlasTexture_ac0hk")
+texture_hover = SubResource("AtlasTexture_ac0hk")
+
+[node name="Background" type="TextureRect" parent="UI/Margins/HBox"]
+layout_mode = 2
+texture = ExtResource("8_wqohx")
+stretch_mode = 3
+
+[node name="Disabled" type="TextureRect" parent="UI/Margins/HBox/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_ghqh1")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Margins/HBox/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="LevelInfo" type="VBoxContainer" parent="UI/Margins/HBox/Background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Header" type="HBoxContainer" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Level" type="Label" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo/Header"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Level"
+label_settings = SubResource("LabelSettings_mfk5f")
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo/Header"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.231373, 0.2, 0.0431373, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("8_gfvk6")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbwh6")
+text = "1"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="UI/Margins/HBox/Background/MarginContainer/LevelInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Level Level Level Level Level Level "
+autowrap_mode = 2
+
+[node name="Play" type="TextureButton" parent="UI/Margins/HBox/Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 4.5
+offset_top = -115.0
+offset_right = 228.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 10
+texture_hover = ExtResource("9_w84c3")
+
+[node name="Label" type="Label" parent="UI/Margins/HBox/Background/Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 14.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.298039, 0.160784, 0.0392157, 1)
+theme_override_fonts/font = SubResource("FontVariation_tq5v4")
+theme_override_font_sizes/font_size = 64
+text = "PLAY!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightArrow" type="TextureButton" parent="UI/Margins/HBox"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_vvp8y")
+texture_pressed = SubResource("AtlasTexture_tq5v4")
+texture_hover = SubResource("AtlasTexture_tq5v4")
+
+[node name="Settings" type="TextureButton" parent="UI/Margins"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = SubResource("AtlasTexture_anagn")
+texture_hover = SubResource("AtlasTexture_ghqh1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Margins2" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Scienceguy" parent="UI/Margins2" instance=ExtResource("9_anagn")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jmavi")
+}
+
+[node name="Leaves" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_bbwh6")
+bus = &"SFX"
+
+[connection signal="pressed" from="UI/Margins/HBox/LeftArrow" to="." method="select_prev_level"]
+[connection signal="pressed" from="UI/Margins/HBox/Background/Play" to="." method="play_selected_level"]
+[connection signal="pressed" from="UI/Margins/HBox/RightArrow" to="." method="select_next_level"]
+[connection signal="pressed" from="UI/Margins/Settings" to="." method="_on_settings_pressed"]

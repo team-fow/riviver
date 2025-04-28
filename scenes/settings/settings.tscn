@@ -1,0 +1,273 @@
+[gd_scene load_steps=17 format=3 uid="uid://b2qyitlu15gqq"]
+
+[ext_resource type="Texture2D" uid="uid://mb2bmjy08u14" path="res://assets/settingmenu/Panel.png" id="1_26ncd"]
+[ext_resource type="Script" uid="uid://724jr6r1625l" path="res://scenes/settings/settings.gd" id="1_v1hle"]
+[ext_resource type="Texture2D" uid="uid://bkip2yu1bdstl" path="res://assets/settingmenu/load.png" id="3_h6son"]
+[ext_resource type="Texture2D" uid="uid://ci5qmj27a1sh8" path="res://assets/settingmenu/Slider River.png" id="3_tt6xx"]
+[ext_resource type="Texture2D" uid="uid://d3mh1s3br08vq" path="res://assets/settingmenu/Slider Ground.png" id="4_1slea"]
+[ext_resource type="Texture2D" uid="uid://br670ft462mdf" path="res://assets/settingmenu/load_hover.png" id="4_vimye"]
+[ext_resource type="Texture2D" uid="uid://d3iprp7r8shc0" path="res://assets/settingmenu/save.png" id="5_p7ghj"]
+[ext_resource type="Texture2D" uid="uid://mnn8uvq8fltw" path="res://assets/settingmenu/save_hover.png" id="6_p57yh"]
+[ext_resource type="Texture2D" uid="uid://b2ydkb8m0c4t7" path="res://assets/settingmenu/play.png" id="7_vgacw"]
+[ext_resource type="Texture2D" uid="uid://cwk3oxg8pa3p4" path="res://assets/settingmenu/play_hover.png" id="8_kol0p"]
+
+[sub_resource type="Gradient" id="Gradient_v1hle"]
+offsets = PackedFloat32Array(0, 0.1, 0.9, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vghtj"]
+gradient = SubResource("Gradient_v1hle")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p57yh"]
+font_size = 64
+font_color = Color(0.898039, 0.890196, 0.756863, 1)
+outline_size = 32
+outline_color = Color(0.25098, 0.247059, 0.211765, 1)
+
+[sub_resource type="Animation" id="Animation_vghtj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v1hle"]
+resource_name = "appear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h6son"]
+_data = {
+&"RESET": SubResource("Animation_vghtj"),
+&"appear": SubResource("Animation_v1hle")
+}
+
+[node name="Settings" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_v1hle")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="Mask" type="TextureRect" parent="Control"]
+clip_children = 1
+custom_minimum_size = Vector2(2000, 1185)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -805.0
+offset_top = -488.0
+offset_right = 1195.0
+offset_bottom = 697.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = SubResource("GradientTexture2D_vghtj")
+
+[node name="Background" type="TextureRect" parent="Control/Mask"]
+custom_minimum_size = Vector2(2000, 1185)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = -592.5
+offset_right = 1000.0
+offset_bottom = 592.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_26ncd")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Back" type="TextureButton" parent="Control/Mask/Background"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 640.0
+offset_right = 613.0
+offset_bottom = 940.0
+texture_normal = ExtResource("3_h6son")
+texture_hover = ExtResource("4_vimye")
+
+[node name="Label" type="Label" parent="Control/Mask/Background/Back"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -42.5
+offset_right = 77.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Load"
+label_settings = SubResource("LabelSettings_p57yh")
+
+[node name="Save" type="TextureButton" parent="Control/Mask/Background"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 640.0
+offset_right = 1215.0
+offset_bottom = 940.0
+texture_normal = ExtResource("5_p7ghj")
+texture_hover = ExtResource("6_p57yh")
+
+[node name="Label" type="Label" parent="Control/Mask/Background/Save"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -42.5
+offset_right = 77.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Save"
+label_settings = SubResource("LabelSettings_p57yh")
+horizontal_alignment = 1
+
+[node name="Continue" type="TextureButton" parent="Control/Mask/Background"]
+layout_mode = 0
+offset_left = 1393.0
+offset_top = 640.0
+offset_right = 1828.0
+offset_bottom = 940.0
+texture_normal = ExtResource("7_vgacw")
+texture_hover = ExtResource("8_kol0p")
+
+[node name="Label" type="Label" parent="Control/Mask/Background/Continue"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -42.5
+offset_right = 77.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continue"
+label_settings = SubResource("LabelSettings_p57yh")
+
+[node name="SFXSlider" type="TextureRect" parent="Control/Mask/Background"]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 111.0
+offset_right = 930.0
+offset_bottom = 406.0
+texture = ExtResource("3_tt6xx")
+
+[node name="Slider" type="HSlider" parent="Control/Mask/Background/SFXSlider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 140.0
+offset_right = -46.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.52388
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="VolumeSlider" type="TextureRect" parent="Control/Mask/Background"]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 241.0
+offset_right = 1145.0
+offset_bottom = 536.0
+texture = ExtResource("4_1slea")
+
+[node name="Slider" type="HSlider" parent="Control/Mask/Background/VolumeSlider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 140.0
+offset_right = -46.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.52388
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label" type="Label" parent="Control/Mask/Background"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -811.25
+offset_top = 58.75
+offset_right = -495.25
+offset_bottom = 153.75
+grow_horizontal = 0
+rotation = 0.523599
+theme_override_colors/font_color = Color(0.886262, 0.886261, 0.886262, 1)
+theme_override_font_sizes/font_size = 80
+text = "Settings"
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_h6son")
+}
+autoplay = "appear"
+
+[connection signal="pressed" from="Control/Mask/Background/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/Mask/Background/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Control/Mask/Background/Continue" to="." method="_on_continue_pressed"]
+[connection signal="value_changed" from="Control/Mask/Background/SFXSlider/Slider" to="." method="_on_sfx_volume_changed"]
+[connection signal="value_changed" from="Control/Mask/Background/VolumeSlider/Slider" to="." method="_on_music_volume_changed"]

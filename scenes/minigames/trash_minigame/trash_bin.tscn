@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcnnybtw20icp"]
+
+[ext_resource type="Script" uid="uid://8najmo7ostdg" path="res://scenes/minigames/trash_minigame/trash_bin.gd" id="1_5ccjk"]
+[ext_resource type="Texture2D" uid="uid://c0bvwve7lui62" path="res://assets/minigames/trash/landfill_bin.png" id="1_i0mp4"]
+[ext_resource type="AudioStream" uid="uid://b5dhkkgwlti51" path="res://assets/audio/bin.mp3" id="3_xam6a"]
+[ext_resource type="AudioStream" uid="uid://bgb1s68kdti1o" path="res://assets/audio/bin_bad.mp3" id="4_e0up5"]
+
+[sub_resource type="FontVariation" id="FontVariation_xam6a"]
+variation_embolden = 0.5
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0up5"]
+radius = 201.833
+height = 499.333
+
+[node name="TrashBin" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_5ccjk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_i0mp4")
+
+[node name="Label" type="Label" parent="Sprite"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -297.0
+offset_right = -59.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.847474, 0.847474, 0.847474, 1)
+theme_override_fonts/font = SubResource("FontVariation_xam6a")
+theme_override_font_sizes/font_size = 48
+text = "Trash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 23)
+shape = SubResource("CapsuleShape2D_e0up5")
+
+[node name="GoodSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xam6a")
+bus = &"SFX"
+
+[node name="BadSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_e0up5")
+bus = &"SFX"

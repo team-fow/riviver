@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://grvs0q6j6ufd"]
+
+[ext_resource type="Texture2D" uid="uid://doiayfkdp6u7j" path="res://assets/progressbar/Progress - Bad.png" id="1_ct5cc"]
+[ext_resource type="Script" uid="uid://bfu4ytebn2hlr" path="res://scenes/levels/base/progress_bar_part.gd" id="2_l1hfv"]
+
+[node name="ProgressBarPart" type="TextureRect"]
+custom_minimum_size = Vector2(144, 113)
+offset_right = 130.0
+offset_bottom = 113.0
+pivot_offset = Vector2(72, 57.5)
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("1_ct5cc")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("2_l1hfv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -22.5
+offset_right = 0.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
