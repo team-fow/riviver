@@ -42,6 +42,7 @@ func end() -> void:
 		total_score += float(plant.state) / PlantMinigamePlant.State.WATERED
 	score = total_score / plants.size()
 	
+	await get_tree().create_timer(1.0).timeout
 	animator.play("water")
 	await animator.animation_finished
 	is_completed = true
@@ -54,13 +55,20 @@ func change_texture() -> void:
 		water.texture = preload("res://assets/minigames/plant/eroded_river_foreground.png")
 		water.pivot_offset = Vector2(500, 434.27)
 		water.z_index = 1
+		animator.pause()
+		
+		await get_tree().create_timer(2.0).timeout
+		is_completed = true
+		ended.emit(self, score)
+		level.do_particles(score)
 
 
 # timer
 
 func start() -> void:
 	super()
-	timer.start()
+	if timer.time_left == 0:
+		timer.start()
 	if not Save.get_pointer_done(2):
 		for i in 2:
 			var tutorial_object : Tool = tools[0]
