@@ -39,7 +39,7 @@ func _on_plant_grown() -> void:
 func end() -> void:
 	var total_score: float
 	for plant: PlantMinigamePlant in plants:
-		total_score += float(plant.state) / PlantMinigamePlant.State.WATERED
+		total_score += 1.0 if plant.state == PlantMinigamePlant.State.WATERED else 0.0
 	score = total_score / plants.size()
 	
 	await get_tree().create_timer(1.0).timeout
