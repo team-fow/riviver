@@ -34,6 +34,6 @@ func _mouse_exit() -> void:
 func _ready() -> void:
 	super()
 	$Sprite.texture = load("res://assets/minigames/trash/%s_trash.png" % category)
-	$Sprite.hframes = {"landfill": 4, "recycling": 8, "compost": 6, "hazardous": 4}[category]
+	$Sprite.hframes = {"landfill": 3, "recycling": 8, "compost": 6, "hazardous": 4}[category]
 	$Sprite.frame = randi() % $Sprite.hframes
 	type = $Sprite.frame
