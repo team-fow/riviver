@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bbxb3eqci27ne"]
+[gd_scene load_steps=42 format=3 uid="uid://bbxb3eqci27ne"]
 
 [ext_resource type="Script" uid="uid://bs3rdjxblu5ts" path="res://scenes/worldmap/worldmap.gd" id="1_gu2y1"]
 [ext_resource type="Texture2D" uid="uid://bhfi7dq57s5c2" path="res://assets/worldmap.png" id="2_8pao6"]
@@ -79,6 +79,22 @@ scale_max = 2.0
 scale_curve = SubResource("CurveTexture_bbwh6")
 anim_offset_max = 1.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_anagn"]
+atlas = ExtResource("7_wqohx")
+region = Rect2(384, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghqh1"]
+atlas = ExtResource("8_w84c3")
+region = Rect2(384, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbwh6"]
+atlas = ExtResource("7_wqohx")
+region = Rect2(256, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l65c5"]
+atlas = ExtResource("8_w84c3")
+region = Rect2(256, 0, 128, 0)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_eftsl"]
 atlas = ExtResource("3_ac0hk")
 region = Rect2(0, 0, 100, 110)
@@ -110,14 +126,6 @@ region = Rect2(100, 0, 100, 110)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tq5v4"]
 atlas = ExtResource("3_ac0hk")
 region = Rect2(100, 110, 100, 110)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_anagn"]
-atlas = ExtResource("7_wqohx")
-region = Rect2(384, 0, 128, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghqh1"]
-atlas = ExtResource("8_w84c3")
-region = Rect2(384, 0, 128, 0)
 
 [sub_resource type="Animation" id="Animation_gfvk6"]
 length = 0.001
@@ -345,6 +353,29 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 75
 
+[node name="Buttons" type="VBoxContainer" parent="UI/Margins"]
+layout_mode = 2
+
+[node name="Settings" type="TextureButton" parent="UI/Margins/Buttons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = SubResource("AtlasTexture_anagn")
+texture_hover = SubResource("AtlasTexture_ghqh1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Reset" type="TextureButton" parent="UI/Margins/Buttons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = SubResource("AtlasTexture_bbwh6")
+texture_hover = SubResource("AtlasTexture_l65c5")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="HBox" type="HBoxContainer" parent="UI/Margins"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -459,16 +490,6 @@ texture_normal = SubResource("AtlasTexture_vvp8y")
 texture_pressed = SubResource("AtlasTexture_tq5v4")
 texture_hover = SubResource("AtlasTexture_tq5v4")
 
-[node name="Settings" type="TextureButton" parent="UI/Margins"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-texture_normal = SubResource("AtlasTexture_anagn")
-texture_hover = SubResource("AtlasTexture_ghqh1")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="Margins2" type="MarginContainer" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -496,7 +517,8 @@ libraries = {
 stream = ExtResource("15_bbwh6")
 bus = &"SFX"
 
+[connection signal="pressed" from="UI/Margins/Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/Margins/Buttons/Reset" to="." method="_reset"]
 [connection signal="pressed" from="UI/Margins/HBox/LeftArrow" to="." method="select_prev_level"]
 [connection signal="pressed" from="UI/Margins/HBox/Background/Play" to="." method="play_selected_level"]
 [connection signal="pressed" from="UI/Margins/HBox/RightArrow" to="." method="select_next_level"]
-[connection signal="pressed" from="UI/Margins/Settings" to="." method="_on_settings_pressed"]

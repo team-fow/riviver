@@ -186,3 +186,13 @@ func do_outro_cutscene() -> void:
 	scienceguy.hide()
 	Save.data.did_outro_cutscene = true
 	level_info.show()
+
+
+func _reset() -> void:
+	Save.data = {
+		"name": "Player",
+		"levels": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+		"current_level": 0,
+		"pointer_tutorials_done": [false, false, false]
+	}
+	get_tree().reload_current_scene()
