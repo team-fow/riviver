@@ -46,6 +46,11 @@ img {
 	width: 100%;
 }
 
+a {
+	color: unset;
+	text-decoration: unset;
+}
+
 button {
 	appearance: none;
 	font: unset;
@@ -56,9 +61,36 @@ button {
 	cursor: pointer;
 }
 
+/* topbar */
 
+#topbar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: white;
+	font-size: 0.75em;
+	text-shadow: 0.1em 0.1em black;
+	padding: 8px 32px;
+	border-radius: 24px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
 
-/* layout */
+	.tab {
+		padding: 2px 12px;
+		border-radius: 8px;
+	}
+}
+
+#title {
+	margin-right: auto;
+	img {
+		height: 64px;
+	}
+}
+
+/* landing */
 
 #landing {
 	color: white;
@@ -100,4 +132,15 @@ h1 {
 	object-fit: cover;
 	object-position: top;
 	aspect-ratio: 8/6;
+	position: relative;
+	z-index: -1;
+}
+
+#chatbox-frame {
+	background-color: #d8d3c8;
+	border: 0 solid;
+	border-image: url(assets/frame.png) repeat 100 110 100 230 / 50px 55px 50px 115px / 41px 53px 48px 95px;
+	padding: 32px 48px;
+	margin: 40px 50px;
+	margin-top: 30px;
 }
