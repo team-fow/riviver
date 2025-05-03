@@ -68,24 +68,25 @@ shape = SubResource("RectangleShape2D_d3e3o")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -115.0
+offset_left = -165.0
 offset_top = 158.333
-offset_right = 115.0
-offset_bottom = 222.333
+offset_right = 110.0
+offset_bottom = 311.333
 grow_horizontal = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(115, 0)
-theme_override_constants/separation = 16
+theme_override_constants/separation = 12
 
 [node name="Icon" type="TextureRect" parent="Progress"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(104, 104)
 layout_mode = 2
 texture = ExtResource("8_n75j4")
-expand_mode = 1
+expand_mode = 3
 stretch_mode = 5
 
 [node name="Bar" type="TextureProgressBar" parent="Progress"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 max_value = 50.0
 texture_under = ExtResource("8_xdgt4")
