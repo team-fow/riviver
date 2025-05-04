@@ -6,6 +6,7 @@
 @keyframes wiggle {33% {rotate: 4deg} 66% {rotate: -2deg}}
 
 :root {
+	--white: #d8d3c8;
 	--bounce: cubic-bezier(0.500, 0.250, 0.000, 1.650);
 }
 
@@ -14,7 +15,7 @@ body {
 	background:
 		radial-gradient(at center, transparent 80%, #615b1a) fixed,
 		url(assets/worldmap.png) 0 / auto 100% #c7d43f fixed;
-	max-width: 640px;
+	max-width: 800px;
 	margin: 0 auto;
 	animation: 120s linear infinite alternate scroll,;
 	overflow: auto;
@@ -143,4 +144,67 @@ h1 {
 	padding: 32px 48px;
 	margin: 40px 50px;
 	margin-top: 30px;
+}
+
+
+
+
+/* etc */
+
+section {
+	background-color: #d8d3c8;
+	border: 0 solid;
+	border-image: url(assets/frame.png) repeat 100 110 100 230 / 50px 55px 50px 115px / 41px 53px 48px 95px;
+	padding: 32px 48px;
+	margin: 40px 50px;
+	margin-top: 30px;
+}
+
+h2 {
+	font-size: 1.25em;
+}
+
+p {
+	margin-block: 0;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: masonry;
+	gap: 8px;
+	margin-top: 1em;
+
+	&.col-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	img {
+		border-radius: 8px;
+	}
+}
+
+#ratings {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.rating {
+	text-align: center;
+	margin-block: 1em;
+}
+.rating-score {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(from currentcolor r g b / 0.1);
+	max-width: max-content;
+	aspect-ratio: 1;
+	padding: 1em;
+	border-radius: 50%;
+	margin-inline: auto;
+}
+
+#widget {
+	border-radius: 8px;
 }
