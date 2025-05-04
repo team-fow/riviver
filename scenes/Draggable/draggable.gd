@@ -1,15 +1,15 @@
-class_name Draggable # The base class for draggable nodes - requires a collision shape as a child node 
+class_name Draggable ## The base class for draggable nodes - requires a collision shape as a child node 
 extends Area2D
 
 signal grabbed
 signal dropped
 
-var held: bool = false # Whether the node is currently being dragged by the player (should be following mouse)
-var hovered: bool = false # Whether the mouse is within the bounds of the given collision shape
-var curr_tween: Tween # Keeps track of the node's active tween (used for the object swinging as it is dragged around)
+var held: bool = false ## Whether the node is currently being dragged by the player (should be following mouse)
+var hovered: bool = false ## Whether the mouse is within the bounds of the given collision shape
+var curr_tween: Tween ## Keeps track of the node's active tween (used for the object swinging as it is dragged around)
 
 
-# Handles clicking and dragging
+## Handles clicking and dragging
 func _unhandled_input(event: InputEvent) -> void:
 	if held:
 		if event is InputEventMouseMotion: # Handles dragging the node around
