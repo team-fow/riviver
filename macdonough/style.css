@@ -47,7 +47,13 @@ h1 {
 /* mobile */
 
 @media (max-width: 600px) {
+	#ratings {
+		flex-direction: column;
+		gap: 1em;
+	}
 	#gallery {
+		display: flex;
+		flex-direction: column;
 		margin-inline: unset;
 	}
 }

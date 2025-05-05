@@ -20,7 +20,7 @@ header {
 	background:
 		radial-gradient(at center, transparent 80%, #615b1a),
 		radial-gradient(circle at center, #615b1a, transparent 40%),
-		url(/assets/worldmap.png) center var(--scroll, 50%) / cover #c7d43f;
+		url(assets/rsz_worldmap.jpeg) center var(--scroll, 50%) / cover #c7d43f;
 	height: 90vh;
 	padding-bottom: 32px;
 	mask: linear-gradient(to top, transparent, white 32px);
@@ -68,6 +68,7 @@ h1 {
 
 .marquee {
 	display: flex;
+	background-color: var(--black);
 	height: 300px;
 	margin-top: -32px;
 	mask: linear-gradient(to top, transparent, white 32px);
@@ -86,17 +87,18 @@ h1 {
 
 /* info */
 
+#info {
+	text-align: center;
+	padding-inline: 2em;
+	margin-bottom: 2em;
+}
+
 #pins {
 	max-width: 400px;
 	margin-inline: auto;
 	margin-top: -48px;
 	position: relative;
 	z-index: 1;
-}
-
-#info {
-	text-align: center;
-	margin-bottom: 2em;
 }
 
 /* links */
