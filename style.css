@@ -101,6 +101,26 @@ h1 {
 	z-index: 1;
 }
 
+.info {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	margin-block: 0.5em;
+
+	p, img {
+		flex: 1;
+	}
+	img {
+		border-radius: 8px;
+	}
+	&:nth-of-type(odd) img {
+		margin-left: -1em;
+	}
+	&:nth-of-type(even) img {
+		margin-right: -1em;
+	}
+}
+
 /* links */
 
 #links-flex {
