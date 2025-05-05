@@ -820,7 +820,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_sgsui")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_noljr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_gttgk")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bclco")
-text = "World map"
+text = "Next level"
 
 [node name="RetryLevel" type="Button" parent="UI/Summary"]
 layout_mode = 2
@@ -840,7 +840,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hstm6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_noljr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_srqya")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_em4rp")
-text = "Retry Level"
+text = "Try Again"
 
 [node name="SFX" type="AudioStreamPlayer" parent="UI/Summary"]
 stream = ExtResource("12_ixrk0")
