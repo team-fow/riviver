@@ -1,0 +1,22 @@
+main {
+	font-size: 1.5em;
+	text-align: center;
+	padding-inline: 2em;
+}
+
+h1 {
+	font-size: 1.5em;
+	margin-block: 1em;
+}
+
+/* members */
+
+#members {
+	margin-block: 2em;
+}
+
+/* links */
+
+#links {
+	margin-top: 3em;
+}
