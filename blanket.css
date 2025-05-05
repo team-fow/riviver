@@ -54,11 +54,12 @@ header {
 	display: flex;
 	align-items: center;
 	gap: 2em;
+	background-color: var(--white);
 	padding: 0.5em max(2em, calc(50vw - 300px));
 	margin-inline: auto;
 	position: sticky;
 	top: 0;
-	background-color: var(--white);
+	z-index: 1;
 }
 
 #title {
