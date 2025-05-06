@@ -116,8 +116,9 @@ h1 {
 	&:nth-of-type(odd) img {
 		margin-left: -1em;
 	}
-	&:nth-of-type(even) img {
-		margin-right: -1em;
+	&:nth-of-type(even) {
+		flex-direction: row-reverse;
+		img {margin-right: -1em}
 	}
 }
 
@@ -159,5 +160,9 @@ h1 {
 	#framed {
 		margin-inline: 20px;
 		position: relative;
+	}
+	.info {
+		flex-direction: column !important;
+		img {margin-inline: unset !important}
 	}
 }
