@@ -13,6 +13,7 @@ h1 {
 
 #members {
 	margin-block: 2em;
+	border-radius: 8px;
 }
 
 /* gallery */
