@@ -1,0 +1,121 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds5bblk5sj7q2"]
+
+[ext_resource type="Texture2D" uid="uid://bdisylbwu2p47" path="res://assets/Buttons/button_base.png" id="1_l0inw"]
+[ext_resource type="Script" uid="uid://wcmmxec5hgwt" path="res://scenes/gradeselect/gradeselect.gd" id="1_x2s8q"]
+[ext_resource type="Texture2D" uid="uid://dxv1otmc7qq03" path="res://assets/Buttons/button_base_hover.png" id="2_x2s8q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1ip3"]
+font_size = 80
+
+[node name="GradeSelect" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_x2s8q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Before we begin:
+Which grade are you in?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="2" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+texture_normal = ExtResource("1_l0inw")
+texture_hover = ExtResource("2_x2s8q")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+label_settings = SubResource("LabelSettings_f1ip3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="3" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+texture_normal = ExtResource("1_l0inw")
+texture_hover = ExtResource("2_x2s8q")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = SubResource("LabelSettings_f1ip3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="4" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+texture_normal = ExtResource("1_l0inw")
+texture_hover = ExtResource("2_x2s8q")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+label_settings = SubResource("LabelSettings_f1ip3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="5" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+texture_normal = ExtResource("1_l0inw")
+texture_hover = ExtResource("2_x2s8q")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5+"
+label_settings = SubResource("LabelSettings_f1ip3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/2" to="." method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/3" to="." method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/4" to="." method="_on_button_pressed" binds= [4]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/5" to="." method="_on_button_pressed" binds= [5]]
